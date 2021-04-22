@@ -1,11 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { FuseNavigationService } from '@fuse/components/navigation';
 import { FileManagerService } from 'app/modules/admin/apps/file-manager/file-manager.service';
 import { Item, Items } from 'app/modules/admin/apps/file-manager/file-manager.types';
 
@@ -29,11 +27,9 @@ export class FileManagerListComponent implements OnInit, OnDestroy
     constructor(
         private _activatedRoute: ActivatedRoute,
         private _changeDetectorRef: ChangeDetectorRef,
-        @Inject(DOCUMENT) private _document: any,
         private _router: Router,
         private _fileManagerService: FileManagerService,
-        private _fuseMediaWatcherService: FuseMediaWatcherService,
-        private _fuseNavigationService: FuseNavigationService
+        private _fuseMediaWatcherService: FuseMediaWatcherService
     )
     {
     }
