@@ -336,9 +336,10 @@
                                                 (click)="toggleContactTag(tag)"
                                                 matRipple>
                                                 <mat-checkbox
-                                                    class="flex items-center h-10 min-h-10"
+                                                    class="flex items-center h-10 min-h-10 pointer-events-none"
+                                                    [checked]="contact.tags.includes(tag.id)"
                                                     [color]="'primary'"
-                                                    [checked]="contact.tags.includes(tag.id)">
+                                                    [disableRipple]="true">
                                                 </mat-checkbox>
                                                 <div class="ml-1">{{tag.title}}</div>
                                             </div>
