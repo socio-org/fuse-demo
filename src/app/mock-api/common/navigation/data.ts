@@ -1,4 +1,3 @@
-
 /* tslint:disable:max-line-length */
 import { FuseNavigationItem } from '@fuse/components/navigation';
 
@@ -33,6 +32,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type    : 'group',
         icon    : 'heroicons_outline:home',
         children: [
+            {
+                id   : 'apps.academy',
+                title: 'Academy',
+                type : 'basic',
+                icon : 'heroicons_outline:academic-cap',
+                link : '/apps/academy'
+            },
             {
                 id      : 'apps.calendar',
                 title   : 'Calendar',
@@ -1134,6 +1140,13 @@ export const futuristicNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:clipboard-check',
                 link : '/dashboards/project'
+            },
+            {
+                id   : 'apps.academy',
+                title: 'Academy',
+                type : 'basic',
+                icon : 'heroicons_outline:academic-cap',
+                link : '/apps/academy'
             },
             {
                 id   : 'apps.calendar',

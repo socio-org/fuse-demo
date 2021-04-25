@@ -412,7 +412,7 @@ const config = {
         pointerEvents           : ['responsive'],
         position                : ['responsive'],
         resize                  : [],
-        ringColor               : ['dark'],
+        ringColor               : ['dark', 'group-hover'],
         ringOffsetColor         : ['dark'],
         ringOffsetWidth         : [],
         ringOpacity             : [],
