@@ -728,16 +728,22 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         link : '/ui/icons/heroicons-solid'
                     },
                     {
+                        id   : 'user-interface.icons.material-twotone',
+                        title: 'Material Twotone',
+                        type : 'basic',
+                        link : '/ui/icons/material-twotone'
+                    },
+                    {
                         id   : 'user-interface.icons.material-outline',
                         title: 'Material Outline',
                         type : 'basic',
                         link : '/ui/icons/material-outline'
                     },
                     {
-                        id   : 'user-interface.icons.material-twotone',
-                        title: 'Material Twotone',
+                        id   : 'user-interface.icons.material-solid',
+                        title: 'Material Solid',
                         type : 'basic',
-                        link : '/ui/icons/material-twotone'
+                        link : '/ui/icons/material-solid'
                     },
                     {
                         id   : 'user-interface.icons.iconsmind',
