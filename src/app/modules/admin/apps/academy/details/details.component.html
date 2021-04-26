@@ -144,8 +144,13 @@
                                 [svgIcon]="'heroicons_outline:arrow-narrow-left'"></mat-icon>
                             <span class="mr-1">Prev</span>
                         </button>
+                        <div class="flex items-center justify-center mx-2.5 font-medium leading-5 text-on-primary">
+                            <span>{{currentStep + 1}}</span>
+                            <span class="mx-0.5 text-hint">/</span>
+                            <span>{{course.totalSteps}}</span>
+                        </div>
                         <button
-                            class="flex-0 ml-0.5"
+                            class="flex-0"
                             mat-flat-button
                             [color]="'primary'"
                             (click)="goToNextStep()">
