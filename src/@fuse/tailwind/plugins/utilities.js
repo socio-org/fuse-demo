@@ -56,7 +56,7 @@ const utilities = plugin(({
             }
         },
         {
-            variants: ['dark', 'responsive']
+            variants: ['dark', 'responsive', 'group-hover', 'hover']
         }
     );
 
