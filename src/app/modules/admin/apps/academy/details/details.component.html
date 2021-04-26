@@ -47,7 +47,7 @@
             <!-- Steps -->
             <div class="py-2 px-8">
                 <ol>
-                    <ng-container *ngFor="let step of course.steps; let last = last">
+                    <ng-container *ngFor="let step of course.steps; let last = last; trackBy: trackByFn">
                         <li class="relative group py-6"
                             [class.current-step]="step.order === currentStep">
                             <ng-container *ngIf="!last">
@@ -120,7 +120,7 @@
                     class="fuse-mat-no-header"
                     [animationDuration]="'200'"
                     #courseSteps>
-                    <ng-container *ngFor="let step of course.steps">
+                    <ng-container *ngFor="let step of course.steps; trackBy: trackByFn">
                         <mat-tab>
                             <ng-template matTabContent>
                                 <div
