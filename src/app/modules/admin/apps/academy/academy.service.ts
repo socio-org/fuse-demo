@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { Category, Course } from 'app/modules/admin/apps/academy/academy.types';
+import { Chat } from 'app/modules/admin/apps/chat/chat.types';
 
 @Injectable({
     providedIn: 'root'
@@ -83,8 +84,22 @@ export class AcademyService
     getCourseById(id: string): Observable<Course>
     {
         return this._httpClient.get<Course>('api/apps/academy/courses/course', {params: {id}}).pipe(
-            tap((response: any) => {
-                this._course.next(response);
+            map((course) => {
+
+                // Update the course
+                this._course.next(course);
+
+                // Return the course
+                return course;
+            }),
+            switchMap((course) => {
+
+                if ( !course )
+                {
+                    return throwError('Could not found course with id of ' + id + '!');
+                }
+
+                return of(course);
             })
         );
     }

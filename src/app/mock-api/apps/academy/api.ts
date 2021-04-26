@@ -75,7 +75,10 @@ export class AcademyMockApi
 
                 // Find the course and attach steps to it
                 const course = courses.find((item) => item.id === id);
-                course.steps = steps;
+                if ( course )
+                {
+                    course.steps = steps;
+                }
 
                 return [
                     200,
