@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { Category, Course } from 'app/modules/admin/apps/academy/academy.types';
-import { Chat } from 'app/modules/admin/apps/chat/chat.types';
 
 @Injectable({
     providedIn: 'root'
