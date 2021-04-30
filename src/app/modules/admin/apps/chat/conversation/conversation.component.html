@@ -8,9 +8,9 @@
 
             <!-- Drawer -->
             <mat-drawer
-                class="w-100 border-r shadow-none dark:bg-gray-900"
+                class="w-full sm:w-100 lg:border-l lg:shadow-none dark:bg-gray-900"
                 [autoFocus]="false"
-                [mode]="'side'"
+                [mode]="drawerMode"
                 [position]="'end'"
                 [(opened)]="drawerOpened"
                 #drawer>

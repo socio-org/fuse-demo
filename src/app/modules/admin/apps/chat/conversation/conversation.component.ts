@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, NgZone, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { Chat } from 'app/modules/admin/apps/chat/chat.types';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
 
@@ -14,6 +15,7 @@ export class ConversationComponent implements OnInit, OnDestroy
 {
     @ViewChild('messageInput') messageInput: ElementRef;
     chat: Chat;
+    drawerMode: 'over' | 'side' = 'side';
     drawerOpened: boolean = false;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -23,6 +25,7 @@ export class ConversationComponent implements OnInit, OnDestroy
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private _chatService: ChatService,
+        private _fuseMediaWatcherService: FuseMediaWatcherService,
         private _ngZone: NgZone
     )
     {
@@ -42,6 +45,25 @@ export class ConversationComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((chat: Chat) => {
                 this.chat = chat;
+
+                // Mark for check
+                this._changeDetectorRef.markForCheck();
+            });
+
+        // Subscribe to media changes
+        this._fuseMediaWatcherService.onMediaChange$
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe(({matchingAliases}) => {
+
+                // Set the drawerMode if the given breakpoint is active
+                if ( matchingAliases.includes('lg') )
+                {
+                    this.drawerMode = 'side';
+                }
+                else
+                {
+                    this.drawerMode = 'over';
+                }
 
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
@@ -80,6 +102,9 @@ export class ConversationComponent implements OnInit, OnDestroy
     resetChat(): void
     {
         this._chatService.resetChat();
+
+        // Close the contact info in case it's opened
+        this.drawerOpened = false;
 
         // Mark for check
         this._changeDetectorRef.markForCheck();
