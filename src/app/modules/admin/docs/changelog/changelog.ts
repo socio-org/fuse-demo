@@ -10,6 +10,30 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v12.2.0
+        {
+            version    : 'v12.2.0',
+            releaseDate: 'May 01, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(apps/chat) New and improvement version of Chat app',
+                        '(fuse/fullscreen) Added fullscreen toggle component'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular, Angular Material and various other packages',
+                        '(apps/academy) Better error handling on courses that are not exist',
+                        '(apps/academy) Added missing trackBy functions to ngFor loops',
+                        '(apps/mailbox) Removed unused methods',
+                        '(pages/pricing) Improved the spacing of the CTA section on all pricing pages'
+                    ]
+                }
+            ]
+        },
         // v12.1.0
         {
             version    : 'v12.1.0',

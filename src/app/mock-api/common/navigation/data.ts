@@ -48,6 +48,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link    : '/apps/calendar'
             },
             {
+                id   : 'apps.chat',
+                title: 'Chat',
+                type : 'basic',
+                icon : 'heroicons_outline:chat-alt',
+                link : '/apps/chat'
+            },
+            {
                 id   : 'apps.contacts',
                 title: 'Contacts',
                 type : 'basic',
@@ -899,7 +906,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 icon : 'heroicons_outline:speakerphone',
                 link : '/docs/changelog',
                 badge: {
-                    title  : '12.1.0',
+                    title  : '12.2.0',
                     classes: 'px-2 bg-yellow-300 text-black rounded-full'
                 }
             },
@@ -1154,6 +1161,13 @@ export const futuristicNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:calendar',
                 link : '/apps/calendar'
+            },
+            {
+                id   : 'apps.chat',
+                title: 'Chat',
+                type : 'basic',
+                icon : 'heroicons_outline:chat-alt',
+                link : '/apps/chat'
             },
             {
                 id   : 'apps.contacts',
