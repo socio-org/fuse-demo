@@ -72,13 +72,17 @@ function generateThemesObject(themes)
     return _.map(_.cloneDeep(themes), (value, key) =>
     {
         const theme = normalizeTheme(value);
+        const primary = (theme && theme.primary && theme.primary.DEFAULT) ? theme.primary.DEFAULT : normalizedDefaultTheme.primary.DEFAULT;
+        const accent = (theme && theme.accent && theme.accent.DEFAULT) ? theme.accent.DEFAULT : normalizedDefaultTheme.accent.DEFAULT;
+        const warn = (theme && theme.warn && theme.warn.DEFAULT) ? theme.warn.DEFAULT : normalizedDefaultTheme.warn.DEFAULT;
+
         return _.fromPairs([
             [
                 key,
                 {
-                    primary: theme?.primary?.DEFAULT ?? normalizedDefaultTheme.primary.DEFAULT,
-                    accent : theme?.accent?.DEFAULT ?? normalizedDefaultTheme.accent.DEFAULT,
-                    warn   : theme?.warn?.DEFAULT ?? normalizedDefaultTheme.warn.DEFAULT
+                    primary,
+                    accent,
+                    warn
                 }
             ]
         ]);

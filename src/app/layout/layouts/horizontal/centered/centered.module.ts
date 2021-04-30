@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { FuseFullscreenModule } from '@fuse/components/fullscreen';
 import { FuseNavigationModule } from '@fuse/components/navigation';
 import { MessagesModule } from 'app/layout/common/messages/messages.module';
 import { NotificationsModule } from 'app/layout/common/notifications/notifications.module';
@@ -25,6 +26,7 @@ import { CenteredLayoutComponent } from 'app/layout/layouts/horizontal/centered/
         MatDividerModule,
         MatIconModule,
         MatMenuModule,
+        FuseFullscreenModule,
         FuseNavigationModule,
         MessagesModule,
         NotificationsModule,
