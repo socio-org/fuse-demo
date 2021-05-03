@@ -78,6 +78,12 @@ export class CoreFeaturesComponent implements OnInit, OnDestroy
                         link : '/docs/core-features/components/highlight'
                     },
                     {
+                        id   : 'core-features.components.masonry',
+                        title: 'Masonry',
+                        type : 'basic',
+                        link : '/docs/core-features/components/masonry'
+                    },
+                    {
                         id   : 'core-features.components.navigation',
                         title: 'Navigation',
                         type : 'basic',

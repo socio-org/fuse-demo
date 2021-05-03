@@ -6,6 +6,7 @@ import { CardComponent } from 'app/modules/admin/docs/core-features/components/c
 import { DateRangeComponent } from 'app/modules/admin/docs/core-features/components/date-range/date-range.component';
 import { DrawerComponent } from 'app/modules/admin/docs/core-features/components/drawer/drawer.component';
 import { HighlightComponent } from 'app/modules/admin/docs/core-features/components/highlight/highlight.component';
+import { MasonryComponent } from 'app/modules/admin/docs/core-features/components/masonry/masonry.component';
 import { NavigationComponent } from 'app/modules/admin/docs/core-features/components/navigation/navigation.component';
 import { AutogrowComponent } from 'app/modules/admin/docs/core-features/directives/autogrow/autogrow.component';
 import { ScrollbarComponent } from 'app/modules/admin/docs/core-features/directives/scrollbar/scrollbar.component';
@@ -62,6 +63,10 @@ export const coreFeaturesRoutes: Route[] = [
                     {
                         path     : 'highlight',
                         component: HighlightComponent
+                    },
+                    {
+                        path     : 'masonry',
+                        component: MasonryComponent
                     },
                     {
                         path     : 'navigation',

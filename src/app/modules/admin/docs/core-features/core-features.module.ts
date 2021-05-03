@@ -10,6 +10,7 @@ import { FuseDateRangeModule } from '@fuse/components/date-range';
 import { FuseDrawerModule } from '@fuse/components/drawer';
 import { FuseHighlightModule } from '@fuse/components/highlight';
 import { FuseAlertModule } from '@fuse/components/alert';
+import { FuseMasonryModule } from '@fuse/components/masonry/masonry.module';
 import { FuseNavigationModule } from '@fuse/components/navigation';
 import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
 import { SharedModule } from 'app/shared/shared.module';
@@ -21,6 +22,7 @@ import { DateRangeComponent } from 'app/modules/admin/docs/core-features/compone
 import { DrawerComponent } from 'app/modules/admin/docs/core-features/components/drawer/drawer.component';
 import { HighlightComponent } from 'app/modules/admin/docs/core-features/components/highlight/highlight.component';
 import { NavigationComponent } from 'app/modules/admin/docs/core-features/components/navigation/navigation.component';
+import { MasonryComponent } from 'app/modules/admin/docs/core-features/components/masonry/masonry.component';
 import { AutogrowComponent } from 'app/modules/admin/docs/core-features/directives/autogrow/autogrow.component';
 import { ScrollbarComponent } from 'app/modules/admin/docs/core-features/directives/scrollbar/scrollbar.component';
 import { ScrollResetComponent } from 'app/modules/admin/docs/core-features/directives/scroll-reset/scroll-reset.component';
@@ -40,6 +42,7 @@ import { coreFeaturesRoutes } from 'app/modules/admin/docs/core-features/core-fe
         DateRangeComponent,
         DrawerComponent,
         HighlightComponent,
+        MasonryComponent,
         NavigationComponent,
         AutogrowComponent,
         ScrollbarComponent,
@@ -62,6 +65,7 @@ import { coreFeaturesRoutes } from 'app/modules/admin/docs/core-features/core-fe
         FuseDateRangeModule,
         FuseDrawerModule,
         FuseHighlightModule,
+        FuseMasonryModule,
         FuseNavigationModule,
         FuseScrollResetModule,
         SharedModule
