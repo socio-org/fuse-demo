@@ -65,7 +65,7 @@
                         <!-- Task -->
                         <div
                             [id]="'task-' + task.id"
-                            class="group w-full h-16 select-none hover:bg-hover"
+                            class="group w-full h-16 select-none hover:bg-gray-50 dark:hover:bg-hover"
                             *ngFor="let task of tasks; trackBy: trackByFn"
                             [ngClass]="{'text-lg font-semibold bg-gray-100 dark:bg-card': task.type === 'section',
                                         'text-hint': task.completed}"
