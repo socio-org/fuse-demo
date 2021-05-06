@@ -10,6 +10,28 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v12.3.0
+        {
+            version    : 'v12.3.0',
+            releaseDate: 'May 07, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(apps/notes) New Notes app',
+                        '(fuse/masonry) Added a component for creating fast Masonry-like layouts'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(apps/tasks) Tweaked the hover color on tasks list for better consistency',
+                        '(apps/mailbox) Adjusted the app title font size for better consistency',
+                        '(apps/mailbox) Used shadow on threads for better consistency'
+                    ]
+                }
+            ]
+        },
         // v12.2.0
         {
             version    : 'v12.2.0',
