@@ -38,11 +38,6 @@ export class FuseMasonryComponent implements OnChanges, AfterViewInit
         // Columns
         if ( 'columns' in changes )
         {
-            if ( changes.columns.isFirstChange() )
-            {
-                return;
-            }
-
             // Distribute the items
             this._distributeItems();
         }
@@ -50,11 +45,6 @@ export class FuseMasonryComponent implements OnChanges, AfterViewInit
         // Items
         if ( 'items' in changes )
         {
-            if ( changes.columns.isFirstChange() )
-            {
-                return;
-            }
-
             // Distribute the items
             this._distributeItems();
         }
