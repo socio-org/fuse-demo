@@ -128,6 +128,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 }
             },
             {
+                id   : 'apps.notes',
+                title: 'Notes',
+                type : 'basic',
+                icon : 'heroicons_outline:pencil-alt',
+                link : '/apps/notes'
+            },
+            {
                 id   : 'apps.tasks',
                 title: 'Tasks',
                 type : 'basic',
@@ -1241,6 +1248,13 @@ export const futuristicNavigation: FuseNavigationItem[] = [
                     title  : '27',
                     classes: 'px-2 bg-black bg-opacity-25 text-white rounded-full'
                 }
+            },
+            {
+                id   : 'apps.notes',
+                title: 'Notes',
+                type : 'basic',
+                icon : 'heroicons_outline:pencil-alt',
+                link : '/apps/notes'
             },
             {
                 id   : 'apps.tasks',
