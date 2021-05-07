@@ -116,8 +116,9 @@
                         <ng-container *ngIf="filteredChats.length > 0; else noChats">
                             <ng-container *ngFor="let chat of filteredChats; trackBy: trackByFn">
                                 <div
-                                    class="z-20 flex items-center py-5 px-8 cursor-pointer border-b hover:bg-hover"
-                                    [ngClass]="{'bg-primary-50 dark:bg-hover': selectedChat && selectedChat.id === chat.id}"
+                                    class="z-20 flex items-center py-5 px-8 cursor-pointer border-b"
+                                    [ngClass]="{'hover:bg-gray-100 dark:hover:bg-hover': !selectedChat || selectedChat.id !== chat.id,
+                                                'bg-primary-50 dark:bg-hover': selectedChat && selectedChat.id === chat.id}"
                                     [routerLink]="[chat.id]">
                                     <div class="relative flex flex-0 items-center justify-center w-10 h-10">
                                         <ng-container *ngIf="chat.unreadCount > 0">
