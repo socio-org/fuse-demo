@@ -25,14 +25,16 @@
                         <div class="font-semibold text-md text-secondary ml-4">{{item.releaseDate}}</div>
                     </div>
                     <hr class="mt-6">
-                    <div
-                        class="mt-8"
-                        *ngFor="let change of item.changes">
-                        <span class="inline-flex bg-default rounded px-3 py-1 text-secondary font-bold">{{change.type}}</span>
-                        <ul>
-                            <li *ngFor="let listItem of change.list">{{listItem}}</li>
-                        </ul>
-                    </div>
+                    <ng-container *ngFor="let change of item.changes">
+                        <div class="mt-8">
+                            <span class="inline-flex bg-default rounded px-3 py-1 text-secondary font-bold">{{change.type}}</span>
+                            <ul>
+                                <ng-container *ngFor="let listItem of change.list">
+                                    <li>{{listItem}}</li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </ng-container>
                 </div>
             </ng-container>
         </div>

@@ -309,31 +309,31 @@
                                                             <mat-form-field class="w-1/3 pr-2">
                                                                 <mat-label>Category</mat-label>
                                                                 <mat-select [formControlName]="'category'">
-                                                                    <mat-option
-                                                                        *ngFor="let category of categories"
-                                                                        [value]="category.id">
-                                                                        {{category.name}}
-                                                                    </mat-option>
+                                                                    <ng-container *ngFor="let category of categories">
+                                                                        <mat-option [value]="category.id">
+                                                                            {{category.name}}
+                                                                        </mat-option>
+                                                                    </ng-container>
                                                                 </mat-select>
                                                             </mat-form-field>
                                                             <mat-form-field class="w-1/3 px-2">
                                                                 <mat-label>Brand</mat-label>
                                                                 <mat-select [formControlName]="'brand'">
-                                                                    <mat-option
-                                                                        *ngFor="let brand of brands"
-                                                                        [value]="brand.id">
-                                                                        {{brand.name}}
-                                                                    </mat-option>
+                                                                    <ng-container *ngFor="let brand of brands">
+                                                                        <mat-option [value]="brand.id">
+                                                                            {{brand.name}}
+                                                                        </mat-option>
+                                                                    </ng-container>
                                                                 </mat-select>
                                                             </mat-form-field>
                                                             <mat-form-field class="w-1/3 pl-2">
                                                                 <mat-label>Vendor</mat-label>
                                                                 <mat-select [formControlName]="'vendor'">
-                                                                    <mat-option
-                                                                        *ngFor="let vendor of vendors"
-                                                                        [value]="vendor.id">
-                                                                        {{vendor.name}}
-                                                                    </mat-option>
+                                                                    <ng-container *ngFor="let vendor of vendors">
+                                                                        <mat-option [value]="vendor.id">
+                                                                            {{vendor.name}}
+                                                                        </mat-option>
+                                                                    </ng-container>
                                                                 </mat-select>
                                                             </mat-form-field>
                                                         </div>

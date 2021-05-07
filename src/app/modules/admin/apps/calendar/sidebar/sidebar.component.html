@@ -9,25 +9,25 @@
             [svgIcon]="'heroicons_solid:plus-circle'"
             (click)="addCalendar()"></mat-icon>
     </div>
-    <div
-        class="group flex items-center justify-between mt-2"
-        *ngFor="let calendar of calendars">
-        <div
-            class="flex items-center"
-            (click)="toggleCalendarVisibility(calendar)">
+    <ng-container *ngFor="let calendar of calendars">
+        <div class="group flex items-center justify-between mt-2">
+            <div
+                class="flex items-center"
+                (click)="toggleCalendarVisibility(calendar)">
+                <mat-icon
+                    class="cursor-pointer"
+                    [svgIcon]="calendar.visible ? 'check_box' : 'check_box_outline_blank'"></mat-icon>
+                <span
+                    class="w-3 h-3 ml-2 rounded-full"
+                    [ngClass]="calendar.color"></span>
+                <span class="ml-2 leading-none">{{calendar.title}}</span>
+            </div>
             <mat-icon
-                class="cursor-pointer"
-                [svgIcon]="calendar.visible ? 'check_box' : 'check_box_outline_blank'"></mat-icon>
-            <span
-                class="w-3 h-3 ml-2 rounded-full"
-                [ngClass]="calendar.color"></span>
-            <span class="ml-2 leading-none">{{calendar.title}}</span>
+                class="hidden group-hover:inline-flex icon-size-5 cursor-pointer"
+                [svgIcon]="'heroicons_solid:pencil-alt'"
+                (click)="openEditPanel(calendar)"></mat-icon>
         </div>
-        <mat-icon
-            class="hidden group-hover:inline-flex icon-size-5 cursor-pointer"
-            [svgIcon]="'heroicons_solid:pencil-alt'"
-            (click)="openEditPanel(calendar)"></mat-icon>
-    </div>
+    </ng-container>
 
     <!-- Settings -->
     <div class="-mx-4 mt-auto">
@@ -62,19 +62,20 @@
                         </mat-select-trigger>
                         <div class="px-4 pt-5 text-xl font-semibold">Calendar color</div>
                         <div class="flex flex-wrap w-48 my-4 mx-3 -mr-5">
-                            <mat-option
-                                class="relative flex w-12 h-12 p-0 cursor-pointer rounded-full bg-transparent"
-                                *ngFor="let color of calendarColors"
-                                [value]="color"
-                                #matOption="matOption">
-                                <mat-icon
-                                    class="absolute m-3 text-white"
-                                    *ngIf="matOption.selected"
-                                    [svgIcon]="'heroicons_outline:check'"></mat-icon>
-                                <span
-                                    class="flex w-10 h-10 m-1 rounded-full"
-                                    [ngClass]="color"></span>
-                            </mat-option>
+                            <ng-container *ngFor="let color of calendarColors">
+                                <mat-option
+                                    class="relative flex w-12 h-12 p-0 cursor-pointer rounded-full bg-transparent"
+                                    [value]="color"
+                                    #matOption="matOption">
+                                    <mat-icon
+                                        class="absolute m-3 text-white"
+                                        *ngIf="matOption.selected"
+                                        [svgIcon]="'heroicons_outline:check'"></mat-icon>
+                                    <span
+                                        class="flex w-10 h-10 m-1 rounded-full"
+                                        [ngClass]="color"></span>
+                                </mat-option>
+                            </ng-container>
                         </div>
                     </mat-select>
                 </mat-form-field>

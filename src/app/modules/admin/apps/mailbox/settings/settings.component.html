@@ -42,19 +42,20 @@
                     </mat-select-trigger>
                     <div class="px-4 pt-5 text-xl font-semibold">Label color</div>
                     <div class="flex flex-wrap w-48 my-4 mx-3 -mr-5">
-                        <mat-option
-                            class="relative flex w-12 h-12 p-0 cursor-pointer rounded-full bg-transparent"
-                            *ngFor="let color of labelColors"
-                            [value]="color"
-                            #matOption="matOption">
-                            <mat-icon
-                                class="absolute m-3 text-white"
-                                *ngIf="matOption.selected"
-                                [svgIcon]="'heroicons_outline:check'"></mat-icon>
-                            <span
-                                class="flex w-10 h-10 m-1 rounded-full"
-                                [ngClass]="labelColorDefs[color].bg"></span>
-                        </mat-option>
+                        <ng-container *ngFor="let color of labelColors">
+                            <mat-option
+                                class="relative flex w-12 h-12 p-0 cursor-pointer rounded-full bg-transparent"
+                                [value]="color"
+                                #matOption="matOption">
+                                <mat-icon
+                                    class="absolute m-3 text-white"
+                                    *ngIf="matOption.selected"
+                                    [svgIcon]="'heroicons_outline:check'"></mat-icon>
+                                <span
+                                    class="flex w-10 h-10 m-1 rounded-full"
+                                    [ngClass]="labelColorDefs[color].bg"></span>
+                            </mat-option>
+                        </ng-container>
                     </div>
                 </mat-select>
                 <button
@@ -90,19 +91,20 @@
                         </mat-select-trigger>
                         <div class="px-4 pt-5 text-xl font-semibold">Label color</div>
                         <div class="flex flex-wrap w-48 my-4 mx-3 -mr-5">
-                            <mat-option
-                                class="relative flex w-12 h-12 p-0 cursor-pointer rounded-full bg-transparent"
-                                *ngFor="let color of labelColors"
-                                [value]="color"
-                                #matOption="matOption">
-                                <mat-icon
-                                    class="absolute m-3 text-white"
-                                    *ngIf="matOption.selected"
-                                    [svgIcon]="'heroicons_outline:check'"></mat-icon>
-                                <span
-                                    class="flex w-10 h-10 m-1 rounded-full"
-                                    [ngClass]="labelColorDefs[color].bg"></span>
-                            </mat-option>
+                            <ng-container *ngFor="let color of labelColors">
+                                <mat-option
+                                    class="relative flex w-12 h-12 p-0 cursor-pointer rounded-full bg-transparent"
+                                    [value]="color"
+                                    #matOption="matOption">
+                                    <mat-icon
+                                        class="absolute m-3 text-white"
+                                        *ngIf="matOption.selected"
+                                        [svgIcon]="'heroicons_outline:check'"></mat-icon>
+                                    <span
+                                        class="flex w-10 h-10 m-1 rounded-full"
+                                        [ngClass]="labelColorDefs[color].bg"></span>
+                                </mat-option>
+                            </ng-container>
                         </div>
                     </mat-select>
                     <button

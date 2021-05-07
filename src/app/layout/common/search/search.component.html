@@ -31,14 +31,15 @@
                 *ngIf="results && !results.length">
                 No results found!
             </mat-option>
-            <mat-option
-                class="group relative h-14 px-6 py-0 sm:px-8 text-md"
-                *ngFor="let result of results"
-                [routerLink]="result.link">
-                <ng-container
-                    [ngTemplateOutlet]="searchResult"
-                    [ngTemplateOutletContext]="{$implicit: result}"></ng-container>
-            </mat-option>
+            <ng-container *ngFor="let result of results">
+                <mat-option
+                    class="group relative h-14 px-6 py-0 sm:px-8 text-md"
+                    [routerLink]="result.link">
+                    <ng-container
+                        [ngTemplateOutlet]="searchResult"
+                        [ngTemplateOutletContext]="{$implicit: result}"></ng-container>
+                </mat-option>
+            </ng-container>
         </mat-autocomplete>
         <button
             class="absolute top-1/2 right-5 sm:right-7 flex-shrink-0 w-10 h-10 -mt-5"
@@ -72,14 +73,15 @@
                 *ngIf="results && !results.length">
                 No results found!
             </mat-option>
-            <mat-option
-                class="group relative h-14 px-5 py-0 text-md"
-                *ngFor="let result of results"
-                [routerLink]="result.link">
-                <ng-container
-                    [ngTemplateOutlet]="searchResult"
-                    [ngTemplateOutletContext]="{$implicit: result}"></ng-container>
-            </mat-option>
+            <ng-container *ngFor="let result of results">
+                <mat-option
+                    class="group relative h-14 px-5 py-0 text-md"
+                    [routerLink]="result.link">
+                    <ng-container
+                        [ngTemplateOutlet]="searchResult"
+                        [ngTemplateOutletContext]="{$implicit: result}"></ng-container>
+                </mat-option>
+            </ng-container>
         </mat-autocomplete>
     </div>
 </ng-container>

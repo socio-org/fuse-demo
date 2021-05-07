@@ -35,14 +35,15 @@
             class="mt-1.5 border-0 space-x-1"
             [formControlName]="'byDay'"
             [multiple]="true">
-            <mat-button-toggle
-                class="w-10 h-10 border-0 rounded-full"
-                *ngFor="let weekday of weekdays"
-                [disableRipple]="true"
-                [value]="weekday.value"
-                [matTooltip]="weekday.label">
-                {{weekday.abbr}}
-            </mat-button-toggle>
+            <ng-container *ngFor="let weekday of weekdays">
+                <mat-button-toggle
+                    class="w-10 h-10 border-0 rounded-full"
+                    [disableRipple]="true"
+                    [value]="weekday.value"
+                    [matTooltip]="weekday.label">
+                    {{weekday.abbr}}
+                </mat-button-toggle>
+            </ng-container>
         </mat-button-toggle-group>
     </div>
 

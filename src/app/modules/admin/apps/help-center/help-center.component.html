@@ -93,12 +93,14 @@
         <div class="mt-24 text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight text-center">Most frequently asked questions</div>
         <div class="mt-2 text-xl text-center text-secondary">Here are the most frequently asked questions you may check before getting started</div>
         <mat-accordion class="max-w-4xl mt-12">
-            <mat-expansion-panel *ngFor="let faq of faqCategory.faqs; trackBy: trackByFn">
-                <mat-expansion-panel-header [collapsedHeight]="'56px'">
-                    <mat-panel-title>{{faq.question}}</mat-panel-title>
-                </mat-expansion-panel-header>
-                {{faq.answer}}
-            </mat-expansion-panel>
+            <ng-container *ngFor="let faq of faqCategory.faqs; trackBy: trackByFn">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header [collapsedHeight]="'56px'">
+                        <mat-panel-title>{{faq.question}}</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    {{faq.answer}}
+                </mat-expansion-panel>
+            </ng-container>
         </mat-accordion>
     </div>
 </div>
