@@ -20,9 +20,9 @@
         <div class="prose prose-sm max-w-5xl">
             <ng-container *ngFor="let item of changelog">
                 <div class="mb-12 p-8 rounded-2xl shadow bg-card">
-                    <div class="flex items-baseline">
-                        <h2 class="my-3">{{item.version}}</h2>
-                        <div class="font-semibold text-md text-secondary ml-4">{{item.releaseDate}}</div>
+                    <div>
+                        <h2 class="my-0">{{item.version}}</h2>
+                        <div class="font-semibold text-md text-secondary">{{item.releaseDate}}</div>
                     </div>
                     <hr class="mt-6">
                     <ng-container *ngFor="let change of item.changes">
