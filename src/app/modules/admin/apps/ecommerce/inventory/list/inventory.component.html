@@ -470,7 +470,7 @@
                                                                     </ng-container>
                                                                 </div>
                                                                 <div
-                                                                    class="flex items-center h-10 min-h-10 -ml-0.5 pl-4 pr-3 leading-none cursor-pointer border-t hover:bg-hover"
+                                                                    class="flex items-center h-10 min-h-10 -ml-0.5 pl-4 pr-3 leading-none cursor-pointer border-t hover:bg-gray-50 dark:hover:bg-hover"
                                                                     *ngIf="shouldShowCreateTagButton(newTagInput.value)"
                                                                     (click)="createTag(newTagInput.value); newTagInput.value = ''"
                                                                     matRipple>
@@ -533,7 +533,7 @@
                             mat-header-row
                             *matHeaderRowDef="productsTableColumns; sticky: true"></tr>
                         <tr
-                            class="h-18 hover:bg-hover"
+                            class="h-18 hover:bg-gray-100 dark:hover:bg-hover"
                             mat-row
                             *matRowDef="let product; columns: productsTableColumns;"></tr>
                         <tr
