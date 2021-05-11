@@ -651,6 +651,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:user-circle',
                 link : '/pages/profile'
+            },
+            {
+                id   : 'pages.settings',
+                title: 'Settings',
+                type : 'basic',
+                icon : 'heroicons_outline:cog',
+                link : '/pages/settings'
             }
         ]
     },
