@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
@@ -11,6 +12,7 @@ import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 })
 export class SettingsComponent implements OnInit, OnDestroy
 {
+    @ViewChild('drawer') drawer: MatDrawer;
     drawerMode: 'over' | 'side' = 'side';
     drawerOpened: boolean = true;
     panels: any[] = [];
@@ -105,6 +107,22 @@ export class SettingsComponent implements OnInit, OnDestroy
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Navigate to the panel
+     *
+     * @param panel
+     */
+    goToPanel(panel: string): void
+    {
+        this.selectedPanel = panel;
+
+        // Close the drawer on 'over' mode
+        if ( this.drawerMode === 'over' )
+        {
+            this.drawer.close();
+        }
+    }
 
     /**
      * Track by function for ngFor loops
