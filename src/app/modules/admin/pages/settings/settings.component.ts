@@ -125,6 +125,16 @@ export class SettingsComponent implements OnInit, OnDestroy
     }
 
     /**
+     * Get the details of the panel
+     *
+     * @param id
+     */
+    getPanelInfo(id: string): any
+    {
+        return this.panels.find((panel) => panel.id === id);
+    }
+
+    /**
      * Track by function for ngFor loops
      *
      * @param index
