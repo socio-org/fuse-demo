@@ -162,40 +162,12 @@ export class TasksListComponent implements OnInit, OnDestroy
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * Go to task
-     *
-     * @param id
-     */
-    goToTask(id: string): void
-    {
-        // Get the current activated route
-        let route = this._activatedRoute;
-        while ( route.firstChild )
-        {
-            route = route.firstChild;
-        }
-
-        // Go to task
-        this._router.navigate(['../', id], {relativeTo: route});
-
-        // Mark for check
-        this._changeDetectorRef.markForCheck();
-    }
-
-    /**
      * On backdrop clicked
      */
     onBackdropClicked(): void
     {
-        // Get the current activated route
-        let route = this._activatedRoute;
-        while ( route.firstChild )
-        {
-            route = route.firstChild;
-        }
-
-        // Go to the parent route
-        this._router.navigate(['../'], {relativeTo: route});
+        // Go back to the list
+        this._router.navigate(['./'], {relativeTo: this._activatedRoute});
 
         // Mark for check
         this._changeDetectorRef.markForCheck();
@@ -211,8 +183,11 @@ export class TasksListComponent implements OnInit, OnDestroy
         // Create the task
         this._tasksService.createTask(type).subscribe((newTask) => {
 
-            // Go to new task
-            this.goToTask(newTask.id);
+            // Go to the new task
+            this._router.navigate(['./', newTask.id], {relativeTo: this._activatedRoute});
+
+            // Mark for check
+            this._changeDetectorRef.markForCheck();
         });
     }
 

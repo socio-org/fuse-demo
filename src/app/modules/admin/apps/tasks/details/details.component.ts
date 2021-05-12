@@ -490,22 +490,15 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
                     return;
                 }
 
-                // Get the current activated route
-                let route = this._activatedRoute;
-                while ( route.firstChild )
-                {
-                    route = route.firstChild;
-                }
-
                 // Navigate to the next task if available
                 if ( nextTaskId )
                 {
-                    this._router.navigate(['../', nextTaskId], {relativeTo: route});
+                    this._router.navigate(['../', nextTaskId], {relativeTo: this._activatedRoute});
                 }
                 // Otherwise, navigate to the parent
                 else
                 {
-                    this._router.navigate(['../'], {relativeTo: route});
+                    this._router.navigate(['../'], {relativeTo: this._activatedRoute});
                 }
             });
 

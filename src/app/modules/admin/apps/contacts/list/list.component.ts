@@ -161,40 +161,12 @@ export class ContactsListComponent implements OnInit, OnDestroy
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * Go to contact
-     *
-     * @param id
-     */
-    goToContact(id: string): void
-    {
-        // Get the current activated route
-        let route = this._activatedRoute;
-        while ( route.firstChild )
-        {
-            route = route.firstChild;
-        }
-
-        // Go to contact
-        this._router.navigate(['../', id], {relativeTo: route});
-
-        // Mark for check
-        this._changeDetectorRef.markForCheck();
-    }
-
-    /**
      * On backdrop clicked
      */
     onBackdropClicked(): void
     {
-        // Get the current activated route
-        let route = this._activatedRoute;
-        while ( route.firstChild )
-        {
-            route = route.firstChild;
-        }
-
-        // Go to the parent route
-        this._router.navigate(['../'], {relativeTo: route});
+        // Go back to the list
+        this._router.navigate(['./'], {relativeTo: this._activatedRoute});
 
         // Mark for check
         this._changeDetectorRef.markForCheck();
@@ -208,24 +180,12 @@ export class ContactsListComponent implements OnInit, OnDestroy
         // Create the contact
         this._contactsService.createContact().subscribe((newContact) => {
 
-            // Go to new contact
-            this.goToContact(newContact.id);
+            // Go to the new contact
+            this._router.navigate(['./', newContact.id], {relativeTo: this._activatedRoute});
+
+            // Mark for check
+            this._changeDetectorRef.markForCheck();
         });
-    }
-
-    /**
-     * Get country code
-     *
-     * @param iso
-     */
-    getCountryCode(iso: string): string
-    {
-        if ( !iso )
-        {
-            return '';
-        }
-
-        return this.countries.find((country) => country.iso === iso).code;
     }
 
     /**

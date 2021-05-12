@@ -298,22 +298,15 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                     return;
                 }
 
-                // Get the current activated route
-                let route = this._activatedRoute;
-                while ( route.firstChild )
-                {
-                    route = route.firstChild;
-                }
-
                 // Navigate to the next contact if available
                 if ( nextContactId )
                 {
-                    this._router.navigate(['../', nextContactId], {relativeTo: route});
+                    this._router.navigate(['../', nextContactId], {relativeTo: this._activatedRoute});
                 }
                 // Otherwise, navigate to the parent
                 else
                 {
-                    this._router.navigate(['../'], {relativeTo: route});
+                    this._router.navigate(['../'], {relativeTo: this._activatedRoute});
                 }
 
                 // Toggle the edit mode off
