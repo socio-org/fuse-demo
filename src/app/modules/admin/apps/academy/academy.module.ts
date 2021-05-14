@@ -23,7 +23,7 @@ import { MatTabsModule } from '@angular/material/tabs';
         AcademyDetailsComponent,
         AcademyListComponent
     ],
-    imports: [
+    imports     : [
         RouterModule.forChild(academyRoutes),
         MatButtonModule,
         MatFormFieldModule,

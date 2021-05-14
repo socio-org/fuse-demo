@@ -14,7 +14,9 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
 })
 export class FuseVerticalNavigationGroupItemComponent implements OnInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_autoCollapse: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() autoCollapse: boolean;
     @Input() item: FuseNavigationItem;

@@ -6,8 +6,8 @@ export type FuseMockApiReplyCallback =
     | undefined;
 
 export type FuseMockApiMethods =
-    | 'GET'
-    | 'POST'
-    | 'PUT'
-    | 'PATCH'
-    | 'DELETE';
+    | 'get'
+    | 'post'
+    | 'put'
+    | 'patch'
+    | 'delete';

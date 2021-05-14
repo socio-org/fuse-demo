@@ -3,14 +3,14 @@ import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { debounceTime, filter, map, takeUntil } from 'rxjs/operators';
-import { FuseAnimations } from '@fuse/animations/public-api';
+import { fuseAnimations } from '@fuse/animations/public-api';
 
 @Component({
     selector     : 'search',
     templateUrl  : './search.component.html',
     encapsulation: ViewEncapsulation.None,
     exportAs     : 'fuseSearch',
-    animations   : FuseAnimations
+    animations   : fuseAnimations
 })
 export class SearchComponent implements OnChanges, OnInit, OnDestroy
 {
@@ -115,12 +115,9 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
                     // Continue
                     return value;
                 }),
-                filter((value) => {
-
-                    // Filter out undefined/null/false statements and also
-                    // filter out the values that are smaller than minLength
-                    return value && value.length >= this.minLength;
-                })
+                // Filter out undefined/null/false statements and also
+                // filter out the values that are smaller than minLength
+                filter(value => value && value.length >= this.minLength)
             )
             .subscribe((value) => {
                 this._httpClient.post('api/common/search', {query: value})

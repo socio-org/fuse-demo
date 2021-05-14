@@ -17,7 +17,9 @@ import { ScrollbarGeometry, ScrollbarPosition } from '@fuse/directives/scrollbar
 })
 export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_fuseScrollbar: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() fuseScrollbar: boolean = true;
     @Input() fuseScrollbarOptions: PerfectScrollbar.Options;
@@ -246,8 +248,8 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /**
      * Scroll to X
      *
-     * @param {number} x
-     * @param {number} speed
+     * @param x
+     * @param speed
      */
     scrollToX(x: number, speed?: number): void
     {
@@ -257,8 +259,8 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /**
      * Scroll to Y
      *
-     * @param {number} y
-     * @param {number} speed
+     * @param y
+     * @param speed
      */
     scrollToY(y: number, speed?: number): void
     {
@@ -268,8 +270,8 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /**
      * Scroll to top
      *
-     * @param {number} offset
-     * @param {number} speed
+     * @param offset
+     * @param speed
      */
     scrollToTop(offset: number = 0, speed?: number): void
     {
@@ -279,8 +281,8 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /**
      * Scroll to bottom
      *
-     * @param {number} offset
-     * @param {number} speed
+     * @param offset
+     * @param speed
      */
     scrollToBottom(offset: number = 0, speed?: number): void
     {
@@ -291,8 +293,8 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /**
      * Scroll to left
      *
-     * @param {number} offset
-     * @param {number} speed
+     * @param offset
+     * @param speed
      */
     scrollToLeft(offset: number = 0, speed?: number): void
     {
@@ -302,8 +304,8 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /**
      * Scroll to right
      *
-     * @param {number} offset
-     * @param {number} speed
+     * @param offset
+     * @param speed
      */
     scrollToRight(offset: number = 0, speed?: number): void
     {
@@ -314,10 +316,10 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
     /**
      * Scroll to element
      *
-     * @param {string} qs
-     * @param {number} offset
-     * @param {boolean} ignoreVisible If true, scrollToElement won't happen if element is already inside the current viewport
-     * @param {number} speed
+     * @param qs
+     * @param offset
+     * @param ignoreVisible If true, scrollToElement won't happen if element is already inside the current viewport
+     * @param speed
      */
     scrollToElement(qs: string, offset: number = 0, ignoreVisible: boolean = false, speed?: number): void
     {

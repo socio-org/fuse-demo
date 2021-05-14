@@ -19,7 +19,6 @@ export class AnalyticsComponent implements OnInit, OnDestroy
     chartVisits: ApexOptions;
     chartVisitorsVsPageViews: ApexOptions;
     data: any;
-    private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     chartAge: ApexOptions;
     averagePurchaseValueOptions: ApexOptions;
@@ -33,6 +32,8 @@ export class AnalyticsComponent implements OnInit, OnDestroy
     totalVisitsOptions: ApexOptions;
     uniqueVisitorsOptions: ApexOptions;
     uniquePurchasesOptions: ApexOptions;
+
+    private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
      * Constructor
@@ -91,6 +92,21 @@ export class AnalyticsComponent implements OnInit, OnDestroy
     }
 
     // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
+
+    // -----------------------------------------------------------------------------------------------------
     // @ Private methods
     // -----------------------------------------------------------------------------------------------------
 
@@ -113,7 +129,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
         // 2. Filter out the ones that doesn't have cross reference so we only left with the ones that use the 'url(#id)' syntax
         // 3. Insert the 'currentURL' at the front of the 'fill' attribute value
         Array.from(element.querySelectorAll('*[fill]'))
-             .filter((el) => el.getAttribute('fill').indexOf('url(') !== -1)
+             .filter(el => el.getAttribute('fill').indexOf('url(') !== -1)
              .forEach((el) => {
                  const attrVal = el.getAttribute('fill');
                  el.setAttribute('fill', `url(${currentURL}${attrVal.slice(attrVal.indexOf('#'))}`);
@@ -182,10 +198,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                     format: 'MMM dd, yyyy'
                 },
                 y           : {
-                    formatter(value: number): string
-                    {
-                        return `${value}`;
-                    }
+                    formatter: (value: number): string => `${value}`
                 }
             },
             xaxis     : {
@@ -261,9 +274,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: (val) => {
-                        return val.toString();
-                    }
+                    formatter: val => val.toString()
                 }
             }
         };
@@ -301,9 +312,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: (val) => {
-                        return val.toString();
-                    }
+                    formatter: val => val.toString()
                 }
             }
         };
@@ -341,9 +350,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: (val) => {
-                        return val.toString();
-                    }
+                    formatter: val => val.toString()
                 }
             }
         };
@@ -472,15 +479,13 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 fillSeriesColor: false,
                 theme          : 'dark',
                 custom         : ({
-                    seriesIndex,
-                    w
-                }) => {
-                    return `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                            </div>`;
-                }
+                                      seriesIndex,
+                                      w
+                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                        </div>`
             }
         };
 
@@ -530,15 +535,13 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 fillSeriesColor: false,
                 theme          : 'dark',
                 custom         : ({
-                    seriesIndex,
-                    w
-                }) => {
-                    return `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                            </div>`;
-                }
+                                      seriesIndex,
+                                      w
+                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                        </div>`
             }
         };
 
@@ -588,15 +591,13 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 fillSeriesColor: false,
                 theme          : 'dark',
                 custom         : ({
-                    seriesIndex,
-                    w
-                }) => {
-                    return `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                            </div>`;
-                }
+                                      seriesIndex,
+                                      w
+                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                        </div>`
             }
         };
 
@@ -646,31 +647,14 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 fillSeriesColor: false,
                 theme          : 'dark',
                 custom         : ({
-                    seriesIndex,
-                    w
-                }) => {
-                    return `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                            </div>`;
-                }
+                                      seriesIndex,
+                                      w
+                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                        </div>`
             }
         };
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Track by function for ngFor loops
-     *
-     * @param index
-     * @param item
-     */
-    trackByFn(index: number, item: any): any
-    {
-        return item.id || index;
     }
 }

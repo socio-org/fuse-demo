@@ -318,7 +318,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 
         // If there is a tag...
         const tag = this.filteredTags[0];
-        const isTagApplied = this.task.tags.find((id) => id === tag.id);
+        const isTagApplied = this.task.tags.find(id => id === tag.id);
 
         // If the found tag is already applied to the task...
         if ( isTagApplied )

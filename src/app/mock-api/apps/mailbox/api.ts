@@ -69,7 +69,7 @@ export class MailboxMockApi
                 this._folders.forEach((folder) => {
 
                     // Get the mails of this folder
-                    const mails = this._mails.filter((mail) => mail.folder === folder.id);
+                    const mails = this._mails.filter(mail => mail.folder === folder.id);
 
                     // If we are counting the 'sent' or the 'trash' folder...
                     if ( folder.slug === 'sent' || folder.slug === 'trash' )
@@ -148,9 +148,7 @@ export class MailboxMockApi
 
                 do
                 {
-                    sameSlug = this._labels.filter((item) => {
-                        return item.slug === label.slug;
-                    });
+                    sameSlug = this._labels.filter(item => item.slug === label.slug);
 
                     if ( sameSlug.length > 0 )
                     {
@@ -215,13 +213,11 @@ export class MailboxMockApi
                 const id = request.params.get('id');
 
                 // Find the label and delete it
-                const index = this._labels.findIndex((item) => item.id === id);
+                const index = this._labels.findIndex(item => item.id === id);
                 this._labels.splice(index, 1);
 
                 // Get all the mails that have the label
-                const mailsWithLabel = this._mails.filter((mail) => {
-                    return mail.labels.indexOf(id) > -1;
-                });
+                const mailsWithLabel = this._mails.filter(mail => mail.labels.indexOf(id) > -1);
 
                 // Iterate through them and remove the label
                 mailsWithLabel.forEach((mail) => {
@@ -267,9 +263,7 @@ export class MailboxMockApi
                 });
 
                 // Sort by date - descending
-                mails.sort((a, b) => {
-                    return new Date(b.date).getTime() - new Date(a.date).getTime();
-                });
+                mails.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
                 // Figure out the cc and bcc counts
                 mails.forEach((mail) => {
@@ -343,7 +337,7 @@ export class MailboxMockApi
                 const mails = cloneDeep(this._mails);
 
                 // Find the mail
-                const mail = mails.find((item) => item.id === id);
+                const mail = mails.find(item => item.id === id);
 
                 return [
                     200,

@@ -28,9 +28,7 @@ import { SearchComponent } from 'app/layout/common/search/search.component';
     providers   : [
         {
             provide   : MAT_AUTOCOMPLETE_SCROLL_STRATEGY,
-            useFactory: (overlay: Overlay) => {
-                return () => overlay.scrollStrategies.block();
-            },
+            useFactory: (overlay: Overlay) => () => overlay.scrollStrategies.block(),
             deps      : [Overlay]
         }
     ]

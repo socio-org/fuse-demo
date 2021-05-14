@@ -239,7 +239,7 @@ export class TasksService
     {
         return this.tasks$.pipe(
             take(1),
-            switchMap((tasks) => this._httpClient.post<Task>('api/apps/tasks/task', {type}).pipe(
+            switchMap(tasks => this._httpClient.post<Task>('api/apps/tasks/task', {type}).pipe(
                 map((newTask) => {
 
                     // Update the tasks with the new task

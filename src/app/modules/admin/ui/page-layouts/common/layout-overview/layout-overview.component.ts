@@ -15,7 +15,7 @@ export interface PageLayoutsOverviewData
             description: string;
             link: string;
             component: any;
-        }
+        };
     };
 }
 
@@ -61,7 +61,9 @@ export interface PageLayoutsOverviewData
                                 <!-- Content -->
                                 <div class="flex flex-col flex-auto">
                                     <!-- Header -->
-                                    <div class="relative z-10 flex items-center justify-end h-16 px-6 sm:px-10 border-b border-gray-300 bg-gray-200 dark:border-gray-700 dark:bg-gray-800">
+                                    <div
+                                        class="relative z-10 flex items-center justify-end h-16 px-6 sm:px-10
+                                               border-b border-gray-300 bg-gray-200 dark:border-gray-700 dark:bg-gray-800">
                                         <div class="w-6 h-6 rounded-full bg-gray-300 dark:bg-gray-700"></div>
                                     </div>
                                     <!-- Main -->

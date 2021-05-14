@@ -126,10 +126,10 @@ export class TasksListComponent implements OnInit, OnDestroy
         fromEvent(this._document, 'keydown')
             .pipe(
                 takeUntil(this._unsubscribeAll),
-                filter<KeyboardEvent>((event) => {
-                    return (event.ctrlKey === true || event.metaKey) // Ctrl or Cmd
-                        && (event.key === '/' || event.key === '.'); // '/' or '.' key
-                })
+                filter<KeyboardEvent>(event =>
+                    (event.ctrlKey === true || event.metaKey) // Ctrl or Cmd
+                    && (event.key === '/' || event.key === '.') // '/' or '.' key
+                )
             )
             .subscribe((event: KeyboardEvent) => {
 

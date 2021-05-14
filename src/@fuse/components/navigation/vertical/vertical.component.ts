@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { merge, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { delay, filter, takeUntil } from 'rxjs/operators';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { FuseNavigationItem, FuseVerticalNavigationAppearance, FuseVerticalNavigationMode, FuseVerticalNavigationPosition } from '@fuse/components/navigation/navigation.types';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 import { FuseScrollbarDirective } from '@fuse/directives/scrollbar/scrollbar.directive';
@@ -15,16 +15,18 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     selector       : 'fuse-vertical-navigation',
     templateUrl    : './vertical.component.html',
     styleUrls      : ['./vertical.component.scss'],
-    animations     : FuseAnimations,
+    animations     : fuseAnimations,
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     exportAs       : 'fuseVerticalNavigation'
 })
 export class FuseVerticalNavigationComponent implements OnChanges, OnInit, AfterViewInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_inner: BooleanInput;
     static ngAcceptInputType_opened: BooleanInput;
     static ngAcceptInputType_transparentOverlay: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() appearance: FuseVerticalNavigationAppearance = 'default';
     @Input() autoCollapse: boolean = true;
@@ -149,6 +151,40 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                         fuseScrollbarDirective.update();
                     });
                 });
+    }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Decorated methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * On mouseenter
+     *
+     * @private
+     */
+    @HostListener('mouseenter')
+    private _onMouseenter(): void
+    {
+        // Enable the animations
+        this._enableAnimations();
+
+        // Set the hovered
+        this._hovered = true;
+    }
+
+    /**
+     * On mouseleave
+     *
+     * @private
+     */
+    @HostListener('mouseleave')
+    private _onMouseleave(): void
+    {
+        // Enable the animations
+        this._enableAnimations();
+
+        // Set the hovered
+        this._hovered = false;
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -670,36 +706,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                 this._asideOverlay = null;
             }
         });
-    }
-
-    /**
-     * On mouseenter
-     *
-     * @private
-     */
-    @HostListener('mouseenter')
-    private _onMouseenter(): void
-    {
-        // Enable the animations
-        this._enableAnimations();
-
-        // Set the hovered
-        this._hovered = true;
-    }
-
-    /**
-     * On mouseleave
-     *
-     * @private
-     */
-    @HostListener('mouseleave')
-    private _onMouseleave(): void
-    {
-        // Enable the animations
-        this._enableAnimations();
-
-        // Set the hovered
-        this._hovered = false;
     }
 
     /**

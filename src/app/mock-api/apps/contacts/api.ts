@@ -66,7 +66,7 @@ export class ContactsMockApi
                 if ( query )
                 {
                     // Filter the contacts
-                    contacts = contacts.filter((contact) => contact.name && contact.name.toLowerCase().includes(query.toLowerCase()));
+                    contacts = contacts.filter(contact => contact.name && contact.name.toLowerCase().includes(query.toLowerCase()));
                 }
 
                 // Sort the contacts by the name field by default
@@ -90,9 +90,7 @@ export class ContactsMockApi
                 const contacts = cloneDeep(this._contacts);
 
                 // Find the contact
-                const contact = contacts.find((item) => {
-                    return item.id === id;
-                });
+                const contact = contacts.find(item => item.id === id);
 
                 // Return the response
                 return [200, contact];
@@ -288,10 +286,10 @@ export class ContactsMockApi
          *
          * @param file
          */
-        const readAsDataURL = (file: File): Promise<any> => {
+        const readAsDataURL = (file: File): Promise<any> =>
 
             // Return a new promise
-            return new Promise((resolve, reject) => {
+            new Promise((resolve, reject) => {
 
                 // Create a new reader
                 const reader = new FileReader();
@@ -308,8 +306,8 @@ export class ContactsMockApi
 
                 // Read the file as the
                 reader.readAsDataURL(file);
-            });
-        };
+            })
+        ;
 
         this._fuseMockApiService
             .onPost('api/apps/contacts/avatar')

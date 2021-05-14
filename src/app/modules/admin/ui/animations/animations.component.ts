@@ -1,11 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 
 @Component({
     selector     : 'animations',
     templateUrl  : './animations.component.html',
     styleUrls    : ['./animations.component.scss'],
-    animations   : FuseAnimations,
+    animations   : fuseAnimations,
     encapsulation: ViewEncapsulation.None
 })
 export class AnimationsComponent

@@ -173,7 +173,6 @@ export class NavigationComponent
         navComponent.refresh();
     }
 
-
     /**
      * Toggle the drawer
      */

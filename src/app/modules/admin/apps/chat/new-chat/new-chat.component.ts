@@ -6,9 +6,9 @@ import { Contact } from 'app/modules/admin/apps/chat/chat.types';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
 
 @Component({
-    selector     : 'chat-new-chat',
-    templateUrl  : './new-chat.component.html',
-    encapsulation: ViewEncapsulation.None,
+    selector       : 'chat-new-chat',
+    templateUrl    : './new-chat.component.html',
+    encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewChatComponent implements OnInit, OnDestroy

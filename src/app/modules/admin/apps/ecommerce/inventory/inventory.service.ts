@@ -124,9 +124,9 @@ export class InventoryService
      * @param search
      */
     getProducts(page: number = 0, size: number = 10, sort: string = 'name', order: 'asc' | 'desc' | '' = 'asc', search: string = ''):
-        Observable<{ pagination: InventoryPagination, products: InventoryProduct[] }>
+        Observable<{ pagination: InventoryPagination; products: InventoryProduct[] }>
     {
-        return this._httpClient.get<{ pagination: InventoryPagination, products: InventoryProduct[] }>('api/apps/ecommerce/inventory/products', {
+        return this._httpClient.get<{ pagination: InventoryPagination; products: InventoryProduct[] }>('api/apps/ecommerce/inventory/products', {
             params: {
                 page: '' + page,
                 size: '' + size,
@@ -179,7 +179,7 @@ export class InventoryService
     {
         return this.products$.pipe(
             take(1),
-            switchMap((products) => this._httpClient.post<InventoryProduct>('api/apps/ecommerce/inventory/product', {}).pipe(
+            switchMap(products => this._httpClient.post<InventoryProduct>('api/apps/ecommerce/inventory/product', {}).pipe(
                 map((newProduct) => {
 
                     // Update the products with the new product

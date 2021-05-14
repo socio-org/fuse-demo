@@ -77,7 +77,7 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
             .pipe(
                 takeUntil(this._unsubscribeAll),
                 debounceTime(500),
-                switchMap((note) => this._notesService.updateNote(note)))
+                switchMap(note => this._notesService.updateNote(note)))
             .subscribe(() => {
 
                 // Mark for check
@@ -198,7 +198,7 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
     removeTaskFromNote(note: Note, task: Task): void
     {
         // Remove the task
-        note.tasks = note.tasks.filter((item) => item.id !== task.id);
+        note.tasks = note.tasks.filter(item => item.id !== task.id);
 
         // Update the note
         this.noteChanged.next(note);
@@ -228,7 +228,7 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
      */
     isNoteHasLabel(note: Note, label: Label): boolean
     {
-        return !!note.labels.find((item) => item.id === label.id);
+        return !!note.labels.find(item => item.id === label.id);
     }
 
     /**
@@ -242,7 +242,7 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
         // If the note already has the label
         if ( this.isNoteHasLabel(note, label) )
         {
-            note.labels = note.labels.filter((item) => item.id !== label.id);
+            note.labels = note.labels.filter(item => item.id !== label.id);
         }
         // Otherwise
         else

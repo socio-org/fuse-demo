@@ -237,7 +237,7 @@ export class DirectoryStructureComponent implements OnInit
     /**
      * Create a new tree
      */
-    createTree(data): { dataSource: any, treeControl: any }
+    createTree(data): { dataSource: any; treeControl: any }
     {
         // Create tree control and mock-api source
         const treeControl = new FlatTreeControl<FlatDirNode>(node => node.level, node => node.expandable);

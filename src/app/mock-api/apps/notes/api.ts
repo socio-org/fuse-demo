@@ -35,13 +35,10 @@ export class NotesMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/notes/labels')
-            .reply(() => {
-
-                return [
-                    200,
-                    cloneDeep(this._labels)
-                ];
-            });
+            .reply(() => [
+                200,
+                cloneDeep(this._labels)
+            ]);
 
         // -----------------------------------------------------------------------------------------------------
         // @ Labels - POST
@@ -105,12 +102,12 @@ export class NotesMockApi
                 const id = request.params.get('id');
 
                 // Delete the label
-                this._labels = this._labels.filter((label) => label.id !== id);
+                this._labels = this._labels.filter(label => label.id !== id);
 
                 // Go through notes and delete the label
-                this._notes = this._notes.map((note) => ({
+                this._notes = this._notes.map(note => ({
                     ...note,
-                    labels: note.labels.filter((item) => item !== id)
+                    labels: note.labels.filter(item => item !== id)
                 }));
 
                 return [
@@ -175,10 +172,10 @@ export class NotesMockApi
                 let notes = cloneDeep(this._notes);
 
                 // Attach the labels to the notes
-                notes = notes.map((note) => (
+                notes = notes.map(note => (
                     {
                         ...note,
-                        labels: note.labels.map((labelId) => labels.find((label) => label.id === labelId))
+                        labels: note.labels.map(labelId => labels.find(label => label.id === labelId))
                     }
                 ));
 

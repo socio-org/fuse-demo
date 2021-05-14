@@ -243,10 +243,8 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy
                     day       : 'numeric',
                     omitCommas: true
                 },
-                columnHeaderHtml  : (date) => {
-                    return `<span class="fc-weekday">${moment(date).format('ddd')}</span>
-                            <span class="fc-date">${moment(date).format('D')}</span>`;
-                },
+                columnHeaderHtml  : date => `<span class="fc-weekday">${moment(date).format('ddd')}</span>
+                                             <span class="fc-date">${moment(date).format('D')}</span>`,
                 slotDuration      : '01:00:00',
                 slotLabelFormat   : this.eventTimeFormat
             },
@@ -386,7 +384,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy
             return;
         }
 
-        return this.calendars.find((calendar) => calendar.id === id);
+        return this.calendars.find(calendar => calendar.id === id);
     }
 
     /**
@@ -552,7 +550,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy
     onEventRender(calendarEvent): void
     {
         // Get event's calendar
-        const calendar = this.calendars.find((item) => item.id === calendarEvent.event.extendedProps.calendarId);
+        const calendar = this.calendars.find(item => item.id === calendarEvent.event.extendedProps.calendarId);
 
         // Return if the calendar doesn't exist...
         if ( !calendar )
@@ -779,6 +777,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy
 
     /**
      * Create the event panel overlay
+     *
      * @private
      */
     private _createEventPanelOverlay(positionStrategy): void

@@ -85,7 +85,7 @@ export class NotesListComponent implements OnInit, OnDestroy
                 if ( searchQuery )
                 {
                     searchQuery = searchQuery.trim().toLowerCase();
-                    filteredNotes = filteredNotes.filter((note) => note.title.toLowerCase().includes(searchQuery) || note.content.toLowerCase().includes(searchQuery));
+                    filteredNotes = filteredNotes.filter(note => note.title.toLowerCase().includes(searchQuery) || note.content.toLowerCase().includes(searchQuery));
                 }
 
                 // Show all
@@ -96,13 +96,13 @@ export class NotesListComponent implements OnInit, OnDestroy
 
                 // Show archive
                 const isArchive = filter === 'archived';
-                filteredNotes = filteredNotes.filter((note) => note.archived === isArchive);
+                filteredNotes = filteredNotes.filter(note => note.archived === isArchive);
 
                 // Filter by label
                 if ( filter.startsWith('label:') )
                 {
                     const labelId = filter.split(':')[1];
-                    filteredNotes = filteredNotes.filter((note) => !!note.labels.find((item) => item.id === labelId));
+                    filteredNotes = filteredNotes.filter(note => !!note.labels.find(item => item.id === labelId));
                 }
 
                 return filteredNotes;

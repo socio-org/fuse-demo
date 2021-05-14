@@ -44,8 +44,8 @@ export class NotesLabelsComponent implements OnInit, OnDestroy
             .pipe(
                 takeUntil(this._unsubscribeAll),
                 debounceTime(500),
-                filter((label) => label.title.trim() !== ''),
-                switchMap((label) => this._notesService.updateLabel(label)))
+                filter(label => label.title.trim() !== ''),
+                switchMap(label => this._notesService.updateLabel(label)))
             .subscribe(() => {
 
                 // Mark for check

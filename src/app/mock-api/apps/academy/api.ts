@@ -74,7 +74,7 @@ export class AcademyMockApi
                 const steps = cloneDeep(this._demoCourseSteps);
 
                 // Find the course and attach steps to it
-                const course = courses.find((item) => item.id === id);
+                const course = courses.find(item => item.id === id);
                 if ( course )
                 {
                     course.steps = steps;

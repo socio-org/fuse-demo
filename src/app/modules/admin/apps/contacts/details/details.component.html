@@ -126,7 +126,7 @@
                                             [style.backgroundSize]="'24px 3876px'"
                                             [style.backgroundPosition]="getCountryByIso(phoneNumber.country).flagImagePos"></div>
                                         <div class="sm:ml-3 font-mono">{{getCountryByIso(phoneNumber.country).code}}</div>
-                                        <div class="ml-2.5 font-mono">{{phoneNumber.number}}</div>
+                                        <div class="ml-2.5 font-mono">{{phoneNumber.phoneNumber}}</div>
                                         <div
                                             class="text-md truncate text-secondary"
                                             *ngIf="phoneNumber.label">
@@ -481,7 +481,7 @@
                                         <mat-label *ngIf="first">Phone</mat-label>
                                         <input
                                             matInput
-                                            [formControl]="phoneNumber.get('number')"
+                                            [formControl]="phoneNumber.get('phoneNumber')"
                                             [placeholder]="'Phone'">
                                         <mat-select
                                             class="mr-1.5"

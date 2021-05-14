@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 
@@ -8,11 +8,11 @@ import { AuthService } from 'app/core/auth/auth.service';
     selector     : 'sign-in-modern-reversed',
     templateUrl  : './sign-in.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : FuseAnimations
+    animations   : fuseAnimations
 })
 export class SignInModernReversedComponent implements OnInit
 {
-    alert: { type: FuseAlertType, message: string } = {
+    alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
         message: ''
     };

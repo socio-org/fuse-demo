@@ -1,10 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 
 @Component({
     selector     : 'colors',
     templateUrl  : './colors.component.html',
-    animations   : FuseAnimations,
+    animations   : fuseAnimations,
     encapsulation: ViewEncapsulation.None
 })
 export class ColorsComponent

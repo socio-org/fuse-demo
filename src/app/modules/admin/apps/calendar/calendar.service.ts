@@ -13,7 +13,7 @@ export class CalendarService
     // Private
     private _calendars: BehaviorSubject<Calendar[] | null> = new BehaviorSubject(null);
     private _events: BehaviorSubject<CalendarEvent[] | null> = new BehaviorSubject(null);
-    private _loadedEventsRange: { start: Moment | null, end: Moment | null } = {
+    private _loadedEventsRange: { start: Moment | null; end: Moment | null } = {
         start: null,
         end  : null
     };
@@ -163,7 +163,7 @@ export class CalendarService
                     this._calendars.next(calendars);
 
                     // Remove the events belong to deleted calendar
-                    const events = this._events.value.filter((event) => event.calendarId !== id);
+                    const events = this._events.value.filter(event => event.calendarId !== id);
 
                     // Update the events
                     this._events.next(events);

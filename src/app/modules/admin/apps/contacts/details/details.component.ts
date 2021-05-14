@@ -149,9 +149,9 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                         // Create an email form group
                         phoneNumbersFormGroups.push(
                             this._formBuilder.group({
-                                country: [phoneNumber.country],
-                                number : [phoneNumber.number],
-                                label  : [phoneNumber.label]
+                                country    : [phoneNumber.country],
+                                phoneNumber: [phoneNumber.phoneNumber],
+                                label      : [phoneNumber.label]
                             })
                         );
                     });
@@ -161,9 +161,9 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                     // Create a phone number form group
                     phoneNumbersFormGroups.push(
                         this._formBuilder.group({
-                            country: ['us'],
-                            number : [''],
-                            label  : ['']
+                            country    : ['us'],
+                            phoneNumber: [''],
+                            label      : ['']
                         })
                     );
                 }
@@ -259,13 +259,9 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         const contact = this.contactForm.getRawValue();
 
         // Go through the contact object and clear empty values
-        contact.emails = contact.emails.filter((email) => {
-            return email.email;
-        });
+        contact.emails = contact.emails.filter(email => email.email);
 
-        contact.phoneNumbers = contact.phoneNumbers.filter((phoneNumber) => {
-            return phoneNumber.number;
-        });
+        contact.phoneNumbers = contact.phoneNumbers.filter(phoneNumber => phoneNumber.phoneNumber);
 
         // Update the contact on the server
         this._contactsService.updateContact(contact.id, contact).subscribe(() => {
@@ -480,7 +476,7 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
 
         // If there is a tag...
         const tag = this.filteredTags[0];
-        const isTagApplied = this.contact.tags.find((id) => id === tag.id);
+        const isTagApplied = this.contact.tags.find(id => id === tag.id);
 
         // If the found tag is already applied to the contact...
         if ( isTagApplied )
@@ -652,9 +648,9 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
     {
         // Create an empty phone number form group
         const phoneNumberFormGroup = this._formBuilder.group({
-            country: ['us'],
-            number : [''],
-            label  : ['']
+            country    : ['us'],
+            phoneNumber: [''],
+            label      : ['']
         });
 
         // Add the phone number form group to the phoneNumbers form array
@@ -688,7 +684,7 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
      */
     getCountryByIso(iso: string): Country
     {
-        return this.countries.find((country) => country.iso === iso);
+        return this.countries.find(country => country.iso === iso);
     }
 
     /**

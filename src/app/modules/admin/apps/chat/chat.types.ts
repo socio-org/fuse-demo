@@ -20,7 +20,7 @@ export interface Contact
         }[];
         phoneNumbers?: {
             country?: string;
-            number?: string;
+            phoneNumber?: string;
             label?: string;
         }[];
         title?: string;
@@ -29,9 +29,9 @@ export interface Contact
         address?: string;
     };
     attachments?: {
-        media?: any[]
-        docs?: any[]
-        links?: any[]
+        media?: any[];
+        docs?: any[];
+        links?: any[];
     };
 }
 

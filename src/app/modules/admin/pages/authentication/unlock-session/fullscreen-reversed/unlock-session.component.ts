@@ -1,19 +1,19 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 
 @Component({
     selector     : 'unlock-session-fullscreen-reversed',
     templateUrl  : './unlock-session.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : FuseAnimations
+    animations   : fuseAnimations
 })
 export class UnlockSessionFullscreenReversedComponent implements OnInit
 {
     @ViewChild('unlockSessionNgForm') unlockSessionNgForm: NgForm;
 
-    alert: { type: FuseAlertType, message: string } = {
+    alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
         message: ''
     };

@@ -117,7 +117,7 @@ export class MailboxSettingsComponent implements OnInit
         const labelsFormArray = this.labelsForm.get('labels') as FormArray;
 
         // Remove the label from the labels form array
-        labelsFormArray.removeAt(labelsFormArray.value.findIndex((label) => label.id === id));
+        labelsFormArray.removeAt(labelsFormArray.value.findIndex(label => label.id === id));
 
         // Delete label on the server
         this._mailboxService.deleteLabel(id).subscribe();

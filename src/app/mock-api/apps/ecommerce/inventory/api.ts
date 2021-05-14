@@ -81,9 +81,7 @@ export class ECommerceInventoryMockApi
                 if ( search )
                 {
                     // Filter the products
-                    products = products.filter((contact) => {
-                        return contact.name && contact.name.toLowerCase().includes(search.toLowerCase());
-                    });
+                    products = products.filter(contact => contact.name && contact.name.toLowerCase().includes(search.toLowerCase()));
                 }
 
                 // Paginate - Start
@@ -148,9 +146,7 @@ export class ECommerceInventoryMockApi
                 const products = cloneDeep(this._products);
 
                 // Find the product
-                const product = products.find((item) => {
-                    return item.id === id;
-                });
+                const product = products.find(item => item.id === id);
 
                 // Return the response
                 return [200, product];

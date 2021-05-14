@@ -6,9 +6,9 @@ import { Profile } from 'app/modules/admin/apps/chat/chat.types';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
 
 @Component({
-    selector     : 'chat-profile',
-    templateUrl  : './profile.component.html',
-    encapsulation: ViewEncapsulation.None,
+    selector       : 'chat-profile',
+    templateUrl    : './profile.component.html',
+    encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileComponent implements OnInit, OnDestroy

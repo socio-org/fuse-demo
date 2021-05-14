@@ -8,10 +8,10 @@ export interface InitialData
 {
     messages: Message[];
     navigation: {
-        compact: FuseNavigationItem[],
-        default: FuseNavigationItem[],
-        futuristic: FuseNavigationItem[],
-        horizontal: FuseNavigationItem[]
+        compact: FuseNavigationItem[];
+        default: FuseNavigationItem[];
+        futuristic: FuseNavigationItem[];
+        horizontal: FuseNavigationItem[];
     };
     notifications: Notification[];
     shortcuts: Shortcut[];

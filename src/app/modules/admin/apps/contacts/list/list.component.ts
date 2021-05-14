@@ -93,11 +93,11 @@ export class ContactsListComponent implements OnInit, OnDestroy
         this.searchInputControl.valueChanges
             .pipe(
                 takeUntil(this._unsubscribeAll),
-                switchMap((query) => {
+                switchMap(query =>
 
                     // Search
-                    return this._contactsService.searchContacts(query);
-                })
+                    this._contactsService.searchContacts(query)
+                )
             )
             .subscribe();
 
@@ -136,10 +136,10 @@ export class ContactsListComponent implements OnInit, OnDestroy
         fromEvent(this._document, 'keydown')
             .pipe(
                 takeUntil(this._unsubscribeAll),
-                filter<KeyboardEvent>((event) => {
-                    return (event.ctrlKey === true || event.metaKey) // Ctrl or Cmd
-                        && (event.key === '/'); // '/'
-                })
+                filter<KeyboardEvent>(event =>
+                    (event.ctrlKey === true || event.metaKey) // Ctrl or Cmd
+                    && (event.key === '/') // '/'
+                )
             )
             .subscribe(() => {
                 this.createContact();

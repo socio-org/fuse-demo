@@ -5,13 +5,13 @@ export interface Contact
     background?: string | null;
     name: string;
     emails?: {
-        email: string,
-        label: string
+        email: string;
+        label: string;
     }[];
     phoneNumbers?: {
         country: string;
-        number: string;
-        label: string
+        phoneNumber: string;
+        label: string;
     }[];
     title?: string;
     company?: string;

@@ -15,7 +15,9 @@ import { UserService } from 'app/core/user/user.service';
 })
 export class UserMenuComponent implements OnInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_showAvatar: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() showAvatar: boolean = true;
     user: User;

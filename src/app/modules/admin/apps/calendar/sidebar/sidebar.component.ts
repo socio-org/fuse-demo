@@ -15,8 +15,8 @@ import { calendarColors } from 'app/modules/admin/apps/calendar/sidebar/calendar
 })
 export class CalendarSidebarComponent implements OnInit, OnDestroy
 {
-    @ViewChild('editPanel') private _editPanel: TemplateRef<any>;
     @Output() readonly calendarUpdated: EventEmitter<any> = new EventEmitter<any>();
+    @ViewChild('editPanel') private _editPanel: TemplateRef<any>;
 
     calendar: Calendar | null;
     calendarColors: any = calendarColors;
@@ -194,6 +194,7 @@ export class CalendarSidebarComponent implements OnInit, OnDestroy
 
     /**
      * Create the edit panel overlay
+     *
      * @private
      */
     private _createEditPanelOverlay(): void

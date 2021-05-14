@@ -131,7 +131,7 @@ export class SettingsComponent implements OnInit, OnDestroy
      */
     getPanelInfo(id: string): any
     {
-        return this.panels.find((panel) => panel.id === id);
+        return this.panels.find(panel => panel.id === id);
     }
 
     /**

@@ -80,6 +80,21 @@ export class ProjectComponent implements OnInit, OnDestroy
     }
 
     // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
+
+    // -----------------------------------------------------------------------------------------------------
     // @ Private methods
     // -----------------------------------------------------------------------------------------------------
 
@@ -102,7 +117,7 @@ export class ProjectComponent implements OnInit, OnDestroy
         // 2. Filter out the ones that doesn't have cross reference so we only left with the ones that use the 'url(#id)' syntax
         // 3. Insert the 'currentURL' at the front of the 'fill' attribute value
         Array.from(element.querySelectorAll('*[fill]'))
-             .filter((el) => el.getAttribute('fill').indexOf('url(') !== -1)
+             .filter(el => el.getAttribute('fill').indexOf('url(') !== -1)
              .forEach((el) => {
                  const attrVal = el.getAttribute('fill');
                  el.setAttribute('fill', `url(${currentURL}${attrVal.slice(attrVal.indexOf('#'))}`);
@@ -266,11 +281,8 @@ export class ProjectComponent implements OnInit, OnDestroy
             },
             colors     : ['#818CF8'],
             dataLabels : {
-                enabled: true,
-                formatter(val: number): string | number
-                {
-                    return `${val}%`;
-                },
+                enabled   : true,
+                formatter : (val: number): string | number => `${val}%`,
                 textAnchor: 'start',
                 style     : {
                     fontSize  : '13px',
@@ -301,10 +313,7 @@ export class ProjectComponent implements OnInit, OnDestroy
             tooltip    : {
                 theme: 'dark',
                 y    : {
-                    formatter(val: number): string
-                    {
-                        return `${val}%`;
-                    }
+                    formatter: (val: number): string => `${val}%`
                 }
             },
             xaxis      : {
@@ -318,9 +327,7 @@ export class ProjectComponent implements OnInit, OnDestroy
                 categories: this.data.budgetDistribution.categories
             },
             yaxis      : {
-                max       : (max: number) => {
-                    return parseInt((max + 10).toFixed(0), 10);
-                },
+                max       : (max: number) => parseInt((max + 10).toFixed(0), 10),
                 tickAmount: 7
             }
         };
@@ -353,9 +360,7 @@ export class ProjectComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: (val) => {
-                        return `$${val}`;
-                    }
+                    formatter: val => `$${val}`
                 }
             }
         };
@@ -388,9 +393,7 @@ export class ProjectComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: (val) => {
-                        return `$${val}`;
-                    }
+                    formatter: val => `$${val}`
                 }
             }
         };
@@ -423,26 +426,9 @@ export class ProjectComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: (val) => {
-                        return `$${val}`;
-                    }
+                    formatter: val => `$${val}`
                 }
             }
         };
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Track by function for ngFor loops
-     *
-     * @param index
-     * @param item
-     */
-    trackByFn(index: number, item: any): any
-    {
-        return item.id || index;
     }
 }

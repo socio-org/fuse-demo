@@ -26,7 +26,7 @@ import { ProfileComponent } from 'app/modules/admin/apps/chat/profile/profile.co
         NewChatComponent,
         ProfileComponent
     ],
-    imports: [
+    imports     : [
         RouterModule.forChild(chatRoutes),
         MatButtonModule,
         MatCheckboxModule,
@@ -36,7 +36,7 @@ import { ProfileComponent } from 'app/modules/admin/apps/chat/profile/profile.co
         MatMenuModule,
         MatSidenavModule,
         FuseAutogrowModule,
-        SharedModule,
+        SharedModule
     ]
 })
 export class ChatModule

@@ -1,6 +1,6 @@
+/* eslint-disable */
 import * as moment from 'moment';
 
-/* tslint:disable:max-line-length */
 export const project = {
     githubIssues      : {
         overview: {

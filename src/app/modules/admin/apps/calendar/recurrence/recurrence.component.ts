@@ -212,7 +212,7 @@ export class CalendarRecurrenceComponent implements OnInit, OnDestroy
             5: 'th'
         };
         this.nthWeekdayText = nthWeekday.slice(0, 1) + ordinalNumberSuffixes[nthWeekday.slice(0, 1)] + ' ' +
-            this.weekdays.find((item) => item.value === nthWeekday.slice(-2)).label;
+            this.weekdays.find(item => item.value === nthWeekday.slice(-2)).label;
 
         // Set the defaults on recurrence form values
         this.recurrenceFormValues = {

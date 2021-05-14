@@ -81,23 +81,21 @@ export class AcademyListComponent implements OnInit, OnDestroy
                 // Filter by category
                 if ( categorySlug !== 'all' )
                 {
-                    this.filteredCourses = this.filteredCourses.filter((course) => course.category === categorySlug);
+                    this.filteredCourses = this.filteredCourses.filter(course => course.category === categorySlug);
                 }
 
                 // Filter by search query
                 if ( query !== '' )
                 {
-                    this.filteredCourses = this.filteredCourses.filter((course) => {
-                        return course.title.toLowerCase().includes(query.toLowerCase())
-                            || course.description.toLowerCase().includes(query.toLowerCase())
-                            || course.category.toLowerCase().includes(query.toLowerCase());
-                    });
+                    this.filteredCourses = this.filteredCourses.filter(course => course.title.toLowerCase().includes(query.toLowerCase())
+                        || course.description.toLowerCase().includes(query.toLowerCase())
+                        || course.category.toLowerCase().includes(query.toLowerCase()));
                 }
 
                 // Filter by completed
                 if ( hideCompleted )
                 {
-                    this.filteredCourses = this.filteredCourses.filter((course) => course.progress.completed === 0);
+                    this.filteredCourses = this.filteredCourses.filter(course => course.progress.completed === 0);
                 }
             });
     }

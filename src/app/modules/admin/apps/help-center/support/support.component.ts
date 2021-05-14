@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { HelpCenterService } from 'app/modules/admin/apps/help-center/help-center.service';
 
 @Component({
     selector     : 'help-center-support',
     templateUrl  : './support.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : FuseAnimations
+    animations   : fuseAnimations
 })
 export class HelpCenterSupportComponent implements OnInit
 {

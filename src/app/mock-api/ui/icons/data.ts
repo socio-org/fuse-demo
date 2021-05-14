@@ -1,4 +1,4 @@
-/* tslint:disable:max-line-length */
+/* eslint-disable */
 
 // Updated at: 20210425 - 1792 icons
 export const material = [

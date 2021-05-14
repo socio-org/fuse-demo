@@ -41,9 +41,7 @@ export class CanDeactivateTasksDetails implements CanDeactivate<TasksDetailsComp
         else
         {
             // Close the drawer first, and then navigate
-            return component.closeDrawer().then(() => {
-                return true;
-            });
+            return component.closeDrawer().then(() => true);
         }
     }
 }

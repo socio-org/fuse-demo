@@ -127,7 +127,7 @@ export class ContactsService
     {
         return this.contacts$.pipe(
             take(1),
-            switchMap((contacts) => this._httpClient.post<Contact>('api/apps/contacts/contact', {}).pipe(
+            switchMap(contacts => this._httpClient.post<Contact>('api/apps/contacts/contact', {}).pipe(
                 map((newContact) => {
 
                     // Update the contacts with the new contact
@@ -354,6 +354,7 @@ export class ContactsService
                 avatar
             }, {
                 headers: {
+                    // eslint-disable-next-line @typescript-eslint/naming-convention
                     'Content-Type': avatar.type
                 }
             }).pipe(

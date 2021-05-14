@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class MailboxComposeComponent implements OnInit
 {
     composeForm: FormGroup;
-    copyFields: { cc: boolean, bcc: boolean } = {
+    copyFields: { cc: boolean; bcc: boolean } = {
         cc : false,
         bcc: false
     };

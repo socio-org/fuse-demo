@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { merge, Observable, Subject } from 'rxjs';
 import { debounceTime, map, switchMap, takeUntil } from 'rxjs/operators';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { InventoryBrand, InventoryCategory, InventoryPagination, InventoryProduct, InventoryTag, InventoryVendor } from 'app/modules/admin/apps/ecommerce/inventory/inventory.types';
 import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inventory.service';
 
@@ -14,7 +14,7 @@ import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inv
     templateUrl    : './inventory.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    animations     : FuseAnimations
+    animations     : fuseAnimations
 })
 export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
 {
@@ -333,7 +333,7 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
 
         // If there is a tag...
         const tag = this.filteredTags[0];
-        const isTagApplied = this.selectedProduct.tags.find((id) => id === tag.id);
+        const isTagApplied = this.selectedProduct.tags.find(id => id === tag.id);
 
         // If the found tag is already applied to the contact...
         if ( isTagApplied )

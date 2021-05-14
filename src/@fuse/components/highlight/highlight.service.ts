@@ -60,7 +60,7 @@ export class FuseHighlightService
         }
 
         // Iterate through the lines
-        lines.filter((line) => line.length)
+        lines.filter(line => line.length)
              .forEach((line, index) => {
 
                  // Always get the indentation of the first line so we can
@@ -77,6 +77,6 @@ export class FuseHighlightService
 
         // Iterate through the lines one more time, remove the extra
         // indentation, join them together and return it
-        return lines.map((line) => line.substring(indentation)).join('\n');
+        return lines.map(line => line.substring(indentation)).join('\n');
     }
 }

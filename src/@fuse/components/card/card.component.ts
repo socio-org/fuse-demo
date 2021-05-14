@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { FuseCardFace } from '@fuse/components/card/card.types';
 
 @Component({
@@ -8,13 +8,15 @@ import { FuseCardFace } from '@fuse/components/card/card.types';
     templateUrl  : './card.component.html',
     styleUrls    : ['./card.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    animations   : FuseAnimations,
+    animations   : fuseAnimations,
     exportAs     : 'fuseCard'
 })
 export class FuseCardComponent implements OnChanges
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_expanded: BooleanInput;
     static ngAcceptInputType_flippable: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() expanded: boolean = false;
     @Input() face: FuseCardFace = 'front';

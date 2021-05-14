@@ -11,8 +11,8 @@ import { MailboxSettingsComponent } from 'app/modules/admin/apps/mailbox/setting
  *
  * @param url
  */
-export function mailboxRouteMatcher(url: UrlSegment[]): UrlMatchResult
-{
+export const mailboxRouteMatcher: (url: UrlSegment[]) => UrlMatchResult = (url: UrlSegment[]) => {
+
     // Prepare consumed url and positional parameters
     let consumed = url;
     const posParams = {};
@@ -52,10 +52,10 @@ export function mailboxRouteMatcher(url: UrlSegment[]): UrlMatchResult
         consumed,
         posParams
     };
-}
+};
 
-export function mailboxRunGuardsAndResolvers(from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot): boolean
-{
+export const mailboxRunGuardsAndResolvers: (from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot) => boolean = (from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot) => {
+
     // If we are navigating from mail to mails, meaning there is an id in
     // from's deepest first child and there isn't one in the to's, we will
     // trigger the resolver
@@ -99,7 +99,7 @@ export function mailboxRunGuardsAndResolvers(from: ActivatedRouteSnapshot, to: A
 
     // Trigger the resolver on other cases
     return true;
-}
+};
 
 export const mailboxRoutes: Route[] = [
     {

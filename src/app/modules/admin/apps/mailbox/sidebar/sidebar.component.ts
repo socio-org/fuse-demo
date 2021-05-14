@@ -106,7 +106,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         const dialogRef = this._matDialog.open(MailboxComposeComponent);
 
         dialogRef.afterClosed()
-                 .subscribe(result => {
+                 .subscribe((result) => {
                      console.log('Compose dialog was closed!');
                  });
     }
@@ -276,7 +276,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
     private _updateNavigationBadge(folders: MailFolder[]): void
     {
         // Get the inbox folder
-        const inboxFolder = this.folders.find((folder) => folder.slug === 'inbox');
+        const inboxFolder = this.folders.find(folder => folder.slug === 'inbox');
 
         // Get the component -> navigation mock-api -> item
         const mainNavigationComponent = this._fuseNavigationService.getComponent('mainNavigation');

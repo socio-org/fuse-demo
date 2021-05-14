@@ -40,28 +40,24 @@ export class AuthMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/auth/forgot-password', 1000)
-            .reply(() => {
-
-                // Simply return true
-                return [
+            .reply(() =>
+                [
                     200,
                     true
-                ];
-            });
+                ]
+            );
 
         // -----------------------------------------------------------------------------------------------------
         // @ Reset password - POST
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/auth/reset-password', 1000)
-            .reply(() => {
-
-                // Simply return true
-                return [
+            .reply(() =>
+                [
                     200,
                     true
-                ];
-            });
+                ]
+            );
 
         // -----------------------------------------------------------------------------------------------------
         // @ Sign in - POST
@@ -76,9 +72,9 @@ export class AuthMockApi
                     return [
                         200,
                         {
-                            user        : cloneDeep(this._user),
-                            access_token: this._generateJWTToken(),
-                            token_type  : 'bearer'
+                            user       : cloneDeep(this._user),
+                            accessToken: this._generateJWTToken(),
+                            tokenType  : 'bearer'
                         }
                     ];
                 }
@@ -98,7 +94,7 @@ export class AuthMockApi
             .reply(({request}) => {
 
                 // Get the access token
-                const accessToken = request.body.access_token;
+                const accessToken = request.body.accessToken;
 
                 // Verify the token
                 if ( this._verifyJWTToken(accessToken) )
@@ -106,9 +102,9 @@ export class AuthMockApi
                     return [
                         200,
                         {
-                            user        : cloneDeep(this._user),
-                            access_token: this._generateJWTToken(),
-                            token_type  : 'bearer'
+                            user       : cloneDeep(this._user),
+                            accessToken: this._generateJWTToken(),
+                            tokenType  : 'bearer'
                         }
                     ];
                 }
@@ -127,14 +123,14 @@ export class AuthMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/auth/sign-up', 1500)
-            .reply(() => {
+            .reply(() =>
 
                 // Simply return true
-                return [
+                [
                     200,
                     true
-                ];
-            });
+                ]
+            );
 
         // -----------------------------------------------------------------------------------------------------
         // @ Unlock session - POST
@@ -149,9 +145,9 @@ export class AuthMockApi
                     return [
                         200,
                         {
-                            user        : cloneDeep(this._user),
-                            access_token: this._generateJWTToken(),
-                            token_type  : 'bearer'
+                            user       : cloneDeep(this._user),
+                            accessToken: this._generateJWTToken(),
+                            tokenType  : 'bearer'
                         }
                     ];
                 }

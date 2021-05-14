@@ -86,7 +86,7 @@ export class CardsComponent implements AfterViewInit
             }
             else
             {
-                count = this.numberOfCards[filter] = this._fuseCards.filter((fuseCard) => fuseCard.nativeElement.classList.contains('filter-' + filter)).length;
+                count = this.numberOfCards[filter] = this._fuseCards.filter(fuseCard => fuseCard.nativeElement.classList.contains('filter-' + filter)).length;
             }
 
             // Fill the numberOfCards object with the counts
@@ -99,7 +99,7 @@ export class CardsComponent implements AfterViewInit
      *
      * @private
      */
-    _filterCards(): void
+    private _filterCards(): void
     {
         // Go through all fuse-cards
         this._fuseCards.forEach((fuseCard) => {

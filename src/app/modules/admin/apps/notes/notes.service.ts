@@ -186,7 +186,7 @@ export class NotesService
     createNote(note: Note): Observable<Note>
     {
         return this._httpClient.post<Note>('api/apps/notes', {note}).pipe(
-            switchMap((response) => this.getNotes().pipe(
+            switchMap(response => this.getNotes().pipe(
                 switchMap(() => this.getNoteById(response.id).pipe(
                     map(() => response)
                 ))
@@ -206,7 +206,7 @@ export class NotesService
         // Before sending the note to the server, handle the labels
         if ( updatedNote.labels.length )
         {
-            updatedNote.labels = updatedNote.labels.map((label) => label.id);
+            updatedNote.labels = updatedNote.labels.map(label => label.id);
         }
 
         return this._httpClient.patch<Note>('api/apps/notes', {updatedNote}).pipe(

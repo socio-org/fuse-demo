@@ -95,7 +95,7 @@ export const overviews = {
         }
     },
     carded: {
-        fullwidth   : {
+        fullwidth    : {
             title           : 'Carded Fullwidth Layout',
             description     : 'Carded layout that spans the entire width of the content area with a dedicated header and 3 different scroll modes.',
             availableOptions: [
@@ -131,7 +131,7 @@ export const overviews = {
                 }
             }
         },
-        leftSidebar1: {
+        leftSidebar1 : {
             title           : 'Carded Left Sidebar #1',
             description     : 'Carded layout with a left sidebar, a dedicated header and 3 different scroll modes.',
             availableOptions: [
@@ -167,7 +167,7 @@ export const overviews = {
                 }
             }
         },
-        leftSidebar2: {
+        leftSidebar2 : {
             title           : 'Carded Left Sidebar #2',
             description     : 'Carded layout with a left sidebar, a dedicated header and 3 different scroll modes.',
             availableOptions: [
@@ -976,7 +976,6 @@ export const routes: Route[] = [
         CardedLeftSidebar2NormalScrollComponent,
         CardedLeftSidebar2PageScrollComponent,
         CardedLeftSidebar2ContentScrollComponent,
-
 
         // Carded - Right sidebar
         CardedRightSidebar1NormalScrollComponent,
