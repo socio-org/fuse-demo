@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
@@ -10,6 +11,34 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.0.0
+        {
+            version    : 'v13.0.0',
+            releaseDate: 'May 15, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(pages/settings) New Settings page',
+                        '(support) "_redirects" file for Netlify support'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v12.0.0',
+                        '(dependencies) Updated various other packages',
+                        '(linting) Migrated over to the ESLint',
+                        '(routing) Use "corrected" behavior for relative link resolution (https://github.com/angular/angular/pull/22394) as it\'s the default value starting from Angular v11 (https://github.com/angular/angular/pull/25609)',
+                        '(refactoring) Moved *ngFor directives to their separate <ng-container> element',
+                        '(apps/ecommerce) Tweaked the hover color on inventory list for better consistency',
+                        '(apps/chat) Tweaked the hover color on lists for better consistency',
+                        '(apps/contacts) Tweaked the hover color on contact list for better consistency',
+                        '(apps/tasks) Visual improvements'
+                    ]
+                }
+            ]
+        },
         // v12.3.0
         {
             version    : 'v12.3.0',
