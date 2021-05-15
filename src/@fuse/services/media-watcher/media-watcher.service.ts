@@ -7,7 +7,7 @@ import { FuseTailwindService } from '@fuse/services/tailwind/tailwind.service';
 @Injectable()
 export class FuseMediaWatcherService
 {
-    private _onMediaChange: ReplaySubject<{ matchingAliases: string[], matchingQueries: any }> = new ReplaySubject<{ matchingAliases: string[], matchingQueries: any }>(1);
+    private _onMediaChange: ReplaySubject<{ matchingAliases: string[]; matchingQueries: any }> = new ReplaySubject<{ matchingAliases: string[]; matchingQueries: any }>(1);
 
     /**
      * Constructor
@@ -18,7 +18,7 @@ export class FuseMediaWatcherService
     )
     {
         this._fuseTailwindConfigService.tailwindConfig$.pipe(
-            switchMap((config) => this._breakpointObserver.observe(Object.values(config.breakpoints)).pipe(
+            switchMap(config => this._breakpointObserver.observe(Object.values(config.breakpoints)).pipe(
                 map((state) => {
 
                     // Prepare the observable values and set their defaults
@@ -57,7 +57,7 @@ export class FuseMediaWatcherService
     /**
      * Getter for _onMediaChange
      */
-    get onMediaChange$(): Observable<{ matchingAliases: string[], matchingQueries: any }>
+    get onMediaChange$(): Observable<{ matchingAliases: string[]; matchingQueries: any }>
     {
         return this._onMediaChange.asObservable();
     }

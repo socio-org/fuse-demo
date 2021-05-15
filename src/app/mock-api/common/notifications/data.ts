@@ -1,7 +1,7 @@
+/* eslint-disable */
 import * as moment from 'moment';
 import { Notification } from 'app/layout/common/notifications/notifications.types';
 
-/* tslint:disable:max-line-length */
 export const notifications: Notification[] = [
     {
         id         : '493190c9-5b61-4912-afe5-78c21f1044d7',

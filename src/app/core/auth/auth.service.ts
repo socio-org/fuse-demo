@@ -29,12 +29,12 @@ export class AuthService
      */
     set accessToken(token: string)
     {
-        localStorage.setItem('access_token', token);
+        localStorage.setItem('accessToken', token);
     }
 
     get accessToken(): string
     {
-        return localStorage.getItem('access_token') ?? '';
+        return localStorage.getItem('accessToken') ?? '';
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ export class AuthService
      *
      * @param credentials
      */
-    signIn(credentials: { email: string, password: string }): Observable<any>
+    signIn(credentials: { email: string; password: string }): Observable<any>
     {
         // Throw error, if the user is already logged in
         if ( this._authenticated )
@@ -78,7 +78,7 @@ export class AuthService
             switchMap((response: any) => {
 
                 // Store the access token in the local storage
-                this.accessToken = response.access_token;
+                this.accessToken = response.accessToken;
 
                 // Set the authenticated flag to true
                 this._authenticated = true;
@@ -99,17 +99,17 @@ export class AuthService
     {
         // Renew token
         return this._httpClient.post('api/auth/refresh-access-token', {
-            access_token: this.accessToken
+            accessToken: this.accessToken
         }).pipe(
-            catchError(() => {
+            catchError(() =>
 
                 // Return false
-                return of(false);
-            }),
+                of(false)
+            ),
             switchMap((response: any) => {
 
                 // Store the access token in the local storage
-                this.accessToken = response.access_token;
+                this.accessToken = response.accessToken;
 
                 // Set the authenticated flag to true
                 this._authenticated = true;
@@ -129,7 +129,7 @@ export class AuthService
     signOut(): Observable<any>
     {
         // Remove the access token from the local storage
-        localStorage.removeItem('access_token');
+        localStorage.removeItem('accessToken');
 
         // Set the authenticated flag to false
         this._authenticated = false;
@@ -143,7 +143,7 @@ export class AuthService
      *
      * @param user
      */
-    signUp(user: { name: string, email: string, password: string, company: string }): Observable<any>
+    signUp(user: { name: string; email: string; password: string; company: string }): Observable<any>
     {
         return this._httpClient.post('api/auth/sign-up', user);
     }
@@ -153,7 +153,7 @@ export class AuthService
      *
      * @param credentials
      */
-    unlockSession(credentials: { email: string, password: string }): Observable<any>
+    unlockSession(credentials: { email: string; password: string }): Observable<any>
     {
         return this._httpClient.post('api/auth/unlock-session', credentials);
     }

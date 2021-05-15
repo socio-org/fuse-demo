@@ -1,7 +1,7 @@
+/* eslint-disable */
 import * as moment from 'moment';
 import { Message } from 'app/layout/common/messages/messages.types';
 
-/* tslint:disable:max-line-length */
 export const messages: Message[] = [
     {
         id         : '832276cc-c5e9-4fcc-8e23-d38e2e267bc9',

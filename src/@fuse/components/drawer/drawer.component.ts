@@ -14,9 +14,11 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 })
 export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_fixed: BooleanInput;
     static ngAcceptInputType_opened: BooleanInput;
     static ngAcceptInputType_transparentOverlay: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() fixed: boolean = false;
     @Input() mode: FuseDrawerMode = 'side';
@@ -74,6 +76,40 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
         return {
             'visibility': this.opened ? 'visible' : 'hidden'
         };
+    }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Decorated methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * On mouseenter
+     *
+     * @private
+     */
+    @HostListener('mouseenter')
+    private _onMouseenter(): void
+    {
+        // Enable the animations
+        this._enableAnimations();
+
+        // Set the hovered
+        this._hovered = true;
+    }
+
+    /**
+     * On mouseleave
+     *
+     * @private
+     */
+    @HostListener('mouseleave')
+    private _onMouseleave(): void
+    {
+        // Enable the animations
+        this._enableAnimations();
+
+        // Set the hovered
+        this._hovered = false;
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -345,36 +381,6 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
                 this._overlay = null;
             }
         });
-    }
-
-    /**
-     * On mouseenter
-     *
-     * @private
-     */
-    @HostListener('mouseenter')
-    private _onMouseenter(): void
-    {
-        // Enable the animations
-        this._enableAnimations();
-
-        // Set the hovered
-        this._hovered = true;
-    }
-
-    /**
-     * On mouseleave
-     *
-     * @private
-     */
-    @HostListener('mouseleave')
-    private _onMouseleave(): void
-    {
-        // Enable the animations
-        this._enableAnimations();
-
-        // Set the hovered
-        this._hovered = false;
     }
 
     /**

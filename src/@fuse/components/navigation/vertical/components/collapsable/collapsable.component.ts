@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
@@ -12,12 +12,14 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
     selector       : 'fuse-vertical-navigation-collapsable-item',
     templateUrl    : './collapsable.component.html',
     styles         : [],
-    animations     : FuseAnimations,
+    animations     : fuseAnimations,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_autoCollapse: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() autoCollapse: boolean;
     @Input() item: FuseNavigationItem;
@@ -180,84 +182,6 @@ export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, O
     }
 
     // -----------------------------------------------------------------------------------------------------
-    // @ Private methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Check if the given item has the given url
-     * in one of its children
-     *
-     * @param item
-     * @param currentUrl
-     * @private
-     */
-    private _hasActiveChild(item: FuseNavigationItem, currentUrl: string): boolean
-    {
-        const children = item.children;
-
-        if ( !children )
-        {
-            return false;
-        }
-
-        for ( const child of children )
-        {
-            if ( child.children )
-            {
-                if ( this._hasActiveChild(child, currentUrl) )
-                {
-                    return true;
-                }
-            }
-
-            // Check if the child has a link and is active
-            if ( child.link && this._router.isActive(child.link, child.exactMatch || false) )
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Check if this is a children
-     * of the given item
-     *
-     * @param parent
-     * @param item
-     * @return {boolean}
-     * @private
-     */
-    private _isChildrenOf(parent: FuseNavigationItem, item: FuseNavigationItem): boolean
-    {
-        const children = parent.children;
-
-        if ( !children )
-        {
-            return false;
-        }
-
-        if ( children.indexOf(item) > -1 )
-        {
-            return true;
-        }
-
-        for ( const child of children )
-        {
-            if ( child.children )
-            {
-                if ( this._isChildrenOf(child, item) )
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
 
@@ -342,5 +266,82 @@ export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, O
     trackByFn(index: number, item: any): any
     {
         return item.id || index;
+    }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Private methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Check if the given item has the given url
+     * in one of its children
+     *
+     * @param item
+     * @param currentUrl
+     * @private
+     */
+    private _hasActiveChild(item: FuseNavigationItem, currentUrl: string): boolean
+    {
+        const children = item.children;
+
+        if ( !children )
+        {
+            return false;
+        }
+
+        for ( const child of children )
+        {
+            if ( child.children )
+            {
+                if ( this._hasActiveChild(child, currentUrl) )
+                {
+                    return true;
+                }
+            }
+
+            // Check if the child has a link and is active
+            if ( child.link && this._router.isActive(child.link, child.exactMatch || false) )
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if this is a children
+     * of the given item
+     *
+     * @param parent
+     * @param item
+     * @private
+     */
+    private _isChildrenOf(parent: FuseNavigationItem, item: FuseNavigationItem): boolean
+    {
+        const children = parent.children;
+
+        if ( !children )
+        {
+            return false;
+        }
+
+        if ( children.indexOf(item) > -1 )
+        {
+            return true;
+        }
+
+        for ( const child of children )
+        {
+            if ( child.children )
+            {
+                if ( this._isChildrenOf(child, item) )
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

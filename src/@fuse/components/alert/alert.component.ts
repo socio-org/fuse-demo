@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Ho
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertAppearance, FuseAlertType } from '@fuse/components/alert/alert.types';
 import { FuseAlertService } from '@fuse/components/alert/alert.service';
 import { FuseUtilsService } from '@fuse/services/utils/utils.service';
@@ -13,14 +13,16 @@ import { FuseUtilsService } from '@fuse/services/utils/utils.service';
     styleUrls      : ['./alert.component.scss'],
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    animations     : FuseAnimations,
+    animations     : fuseAnimations,
     exportAs       : 'fuseAlert'
 })
 export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_dismissible: BooleanInput;
     static ngAcceptInputType_dismissed: BooleanInput;
     static ngAcceptInputType_showIcon: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() appearance: FuseAlertAppearance = 'soft';
     @Input() dismissed: boolean = false;
@@ -115,7 +117,7 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy
         // Subscribe to the dismiss calls
         this._fuseAlertService.onDismiss
             .pipe(
-                filter((name) => this.name === name),
+                filter(name => this.name === name),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {
@@ -127,7 +129,7 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy
         // Subscribe to the show calls
         this._fuseAlertService.onShow
             .pipe(
-                filter((name) => this.name === name),
+                filter(name => this.name === name),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {

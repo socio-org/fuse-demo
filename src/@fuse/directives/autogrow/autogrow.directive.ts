@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class FuseAutogrowDirective implements OnChanges, OnInit, OnDestroy
 {
-    // tslint:disable-next-line:no-input-rename
+    // eslint-disable-next-line @angular-eslint/no-input-rename
     @Input('fuseAutogrowVerticalPadding') padding: number = 8;
     @HostBinding('rows') private _rows: number = 1;
 
@@ -39,6 +39,39 @@ export class FuseAutogrowDirective implements OnChanges, OnInit, OnDestroy
             'overflow': 'hidden',
             'resize'  : 'none'
         };
+    }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Decorated methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Resize on 'input' and 'ngModelChange' events
+     *
+     * @private
+     */
+    @HostListener('input')
+    @HostListener('ngModelChange')
+    private _resize(): void
+    {
+        // This doesn't need to trigger Angular's change detection by itself
+        this._ngZone.runOutsideAngular(() => {
+
+            setTimeout(() => {
+
+                // Set the height to 'auto' so we can correctly read the scrollHeight
+                this._height = 'auto';
+
+                // Detect the changes so the height is applied
+                this._changeDetectorRef.detectChanges();
+
+                // Get the scrollHeight and subtract the vertical padding
+                this._height = `${this._elementRef.nativeElement.scrollHeight - this.padding}px`;
+
+                // Detect the changes one more time to apply the final height
+                this._changeDetectorRef.detectChanges();
+            });
+        });
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -77,38 +110,5 @@ export class FuseAutogrowDirective implements OnChanges, OnInit, OnDestroy
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Private methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Resize on 'input' and 'ngModelChange' events
-     *
-     * @private
-     */
-    @HostListener('input')
-    @HostListener('ngModelChange')
-    private _resize(): void
-    {
-        // This doesn't need to trigger Angular's change detection by itself
-        this._ngZone.runOutsideAngular(() => {
-
-            setTimeout(() => {
-
-                // Set the height to 'auto' so we can correctly read the scrollHeight
-                this._height = 'auto';
-
-                // Detect the changes so the height is applied
-                this._changeDetectorRef.detectChanges();
-
-                // Get the scrollHeight and subtract the vertical padding
-                this._height = `${this._elementRef.nativeElement.scrollHeight - this.padding}px`;
-
-                // Detect the changes one more time to apply the final height
-                this._changeDetectorRef.detectChanges();
-            });
-        });
     }
 }

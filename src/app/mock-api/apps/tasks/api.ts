@@ -35,13 +35,10 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/tasks/tags')
-            .reply(() => {
-
-                return [
-                    200,
-                    cloneDeep(this._tags)
-                ];
-            });
+            .reply(() => [
+                200,
+                cloneDeep(this._tags)
+            ]);
 
         // -----------------------------------------------------------------------------------------------------
         // @ Tags - POST
@@ -109,7 +106,7 @@ export class TasksMockApi
                 const id = request.params.get('id');
 
                 // Find the tag and delete it
-                const index = this._tags.findIndex((item) => item.id === id);
+                const index = this._tags.findIndex(item => item.id === id);
                 this._tags.splice(index, 1);
 
                 // Get the tasks that have the tag
@@ -165,9 +162,8 @@ export class TasksMockApi
                     let tasks = cloneDeep(this._tasks);
 
                     // Filter the tasks
-                    tasks = tasks.filter((task) => {
-                        return task.title && task.title.toLowerCase().includes(query.toLowerCase()) || task.notes && task.notes.toLowerCase().includes(query.toLowerCase());
-                    });
+                    tasks = tasks.filter(task => task.title && task.title.toLowerCase().includes(query.toLowerCase()) || task.notes && task.notes.toLowerCase()
+                                                                                                                                           .includes(query.toLowerCase()));
 
                     // Mark the found chars
                     tasks.forEach((task) => {
@@ -231,7 +227,7 @@ export class TasksMockApi
                 const tasks = cloneDeep(this._tasks);
 
                 // Find the task
-                const task = tasks.find((item) => item.id === id);
+                const task = tasks.find(item => item.id === id);
 
                 return [
                     200,
@@ -317,7 +313,7 @@ export class TasksMockApi
                 const id = request.params.get('id');
 
                 // Find the task and delete it
-                const index = this._tasks.findIndex((item) => item.id === id);
+                const index = this._tasks.findIndex(item => item.id === id);
                 this._tasks.splice(index, 1);
 
                 return [

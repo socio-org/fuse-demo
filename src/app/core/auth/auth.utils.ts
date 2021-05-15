@@ -15,6 +15,38 @@ export class AuthUtils
     }
 
     // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Is token expired?
+     *
+     * @param token
+     * @param offsetSeconds
+     */
+    static isTokenExpired(token: string, offsetSeconds?: number): boolean
+    {
+        // Return if there is no token
+        if ( !token || token === '' )
+        {
+            return true;
+        }
+
+        // Get the expiration date
+        const date = this._getTokenExpirationDate(token);
+
+        offsetSeconds = offsetSeconds || 0;
+
+        if ( date === null )
+        {
+            return true;
+        }
+
+        // Check if the token is expired
+        return !(date.valueOf() > new Date().valueOf() + offsetSeconds * 1000);
+    }
+
+    // -----------------------------------------------------------------------------------------------------
     // @ Private methods
     // -----------------------------------------------------------------------------------------------------
 
@@ -39,7 +71,7 @@ export class AuthUtils
             );
         }
 
-        /* tslint:disable */
+        /* eslint-disable */
         for (
             // initialize result and counters
             let bc = 0, bs: any, buffer: any, idx = 0;
@@ -60,7 +92,7 @@ export class AuthUtils
             // try to find character in table (0-63, not found => -1)
             buffer = chars.indexOf(buffer);
         }
-        /* tslint:enable */
+        /* eslint-enable */
 
         return output;
     }
@@ -75,9 +107,7 @@ export class AuthUtils
     {
         return decodeURIComponent(
             Array.prototype.map
-                 .call(this._b64decode(str), (c: any) => {
-                     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                 })
+                 .call(this._b64decode(str), (c: any) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
                  .join('')
         );
     }
@@ -170,37 +200,5 @@ export class AuthUtils
         date.setUTCSeconds(decodedToken.exp);
 
         return date;
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Is token expired?
-     *
-     * @param token
-     * @param offsetSeconds
-     */
-    static isTokenExpired(token: string, offsetSeconds?: number): boolean
-    {
-        // Return if there is no token
-        if ( !token || token === '' )
-        {
-            return true;
-        }
-
-        // Get the expiration date
-        const date = this._getTokenExpirationDate(token);
-
-        offsetSeconds = offsetSeconds || 0;
-
-        if ( date === null )
-        {
-            return true;
-        }
-
-        // Check if the token is expired
-        return !(date.valueOf() > new Date().valueOf() + offsetSeconds * 1000);
     }
 }

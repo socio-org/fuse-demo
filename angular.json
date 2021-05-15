@@ -22,7 +22,7 @@
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
-                        "aot": true,
+                        "inlineStyleLanguage": "scss",
                         "allowedCommonJsDependencies": [
                             "apexcharts",
                             "highlight.js",
@@ -33,7 +33,12 @@
                         "assets": [
                             "src/favicon-16x16.png",
                             "src/favicon-32x32.png",
-                            "src/assets"
+                            "src/assets",
+                            {
+                                "glob": "_redirects",
+                                "input": "src",
+                                "output": "/"
+                            }
                         ],
                         "stylePreprocessorOptions": {
                             "includePaths": [
@@ -52,19 +57,6 @@
                     },
                     "configurations": {
                         "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
                             "budgets": [
                                 {
                                     "type": "initial",
@@ -76,20 +68,37 @@
                                     "maximumWarning": "100kb",
                                     "maximumError": "150kb"
                                 }
-                            ]
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
                         }
-                    }
+                    },
+                    "defaultConfiguration": "production"
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "fuse:build"
-                    },
                     "configurations": {
                         "production": {
                             "browserTarget": "fuse:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "fuse:build:development"
                         }
-                    }
+                    },
+                    "defaultConfiguration": "development"
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -104,6 +113,7 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
+                        "inlineStyleLanguage": "scss",
                         "assets": [
                             "src/favicon-16x16.png",
                             "src/favicon-32x32.png",
@@ -116,15 +126,11 @@
                     }
                 },
                 "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                    "builder": "@angular-eslint/builder:lint",
                     "options": {
-                        "tsConfig": [
-                            "tsconfig.app.json",
-                            "tsconfig.spec.json",
-                            "e2e/tsconfig.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
+                        "lintFilePatterns": [
+                            "src/**/*.ts",
+                            "src/**/*.html"
                         ]
                     }
                 },
@@ -143,5 +149,8 @@
             }
         }
     },
-    "defaultProject": "fuse"
+    "defaultProject": "fuse",
+    "cli": {
+        "defaultCollection": "@angular-eslint/schematics"
+    }
 }

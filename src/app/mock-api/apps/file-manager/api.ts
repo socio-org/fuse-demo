@@ -39,8 +39,8 @@ export class FileManagerMockApi
                 const items = cloneDeep(this._items);
 
                 // Separate the items by folders and files
-                const folders = items.filter((item) => item.type === 'folder');
-                const files = items.filter((item) => item.type !== 'folder');
+                const folders = items.filter(item => item.type === 'folder');
+                const files = items.filter(item => item.type !== 'folder');
 
                 // Sort the folders and files alphabetically by filename
                 folders.sort((a, b) => a.name.localeCompare(b.name));

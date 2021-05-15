@@ -22,12 +22,12 @@ export class ChatMockApi
         this.registerHandlers();
 
         // Modify the chats array to attach certain data to it
-        this._chats = this._chats.map((chat) => ({
+        this._chats = this._chats.map(chat => ({
             ...chat,
             // Get the actual contact object from the id and attach it to the chat
-            contact: this._contacts.find((contact) => contact.id === chat.contactId),
+            contact: this._contacts.find(contact => contact.id === chat.contactId),
             // Since we use same set of messages on all chats, we assign them here.
-            messages: this._messages.map((message) => ({
+            messages: this._messages.map(message => ({
                 ...message,
                 chatId   : chat.id,
                 contactId: message.contactId === 'me' ? this._profile.id : chat.contactId,
@@ -73,7 +73,7 @@ export class ChatMockApi
                 const chats = cloneDeep(this._chats);
 
                 // Find the chat we need
-                const chat = chats.find((item) => item.id === id);
+                const chat = chats.find(item => item.id === id);
 
                 // Return the response
                 return [200, chat];
@@ -124,7 +124,7 @@ export class ChatMockApi
                 contacts.sort((a, b) => a.name.localeCompare(b.name));
 
                 // Omit details and attachments from contacts
-                contacts = contacts.map((contact) => omit(contact, ['details', 'attachments']));
+                contacts = contacts.map(contact => omit(contact, ['details', 'attachments']));
 
                 // Return the response
                 return [200, contacts];
@@ -144,7 +144,7 @@ export class ChatMockApi
                 const contacts = cloneDeep(this._contacts);
 
                 // Find the contact
-                const contact = contacts.find((item) => item.id === id);
+                const contact = contacts.find(item => item.id === id);
 
                 // Return the response
                 return [200, contact];

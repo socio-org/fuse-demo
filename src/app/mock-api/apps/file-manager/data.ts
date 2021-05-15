@@ -1,4 +1,4 @@
-/* tslint:disable:max-line-length */
+/* eslint-disable */
 export const items = [
     {
         id         : 'cd6897cb-acfd-4016-8b53-3f66a5b5fc68',
@@ -175,5 +175,5 @@ export const items = [
         type       : 'XLS',
         contents   : null,
         description: null
-    },
+    }
 ];

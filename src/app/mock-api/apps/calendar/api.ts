@@ -110,11 +110,11 @@ export class CalendarMockApi
                 const id = request.params.get('id');
 
                 // Find the calendar and delete it
-                const index = this._calendars.findIndex((calendar) => calendar.id === id);
+                const index = this._calendars.findIndex(calendar => calendar.id === id);
                 this._calendars.splice(index, 1);
 
                 // Find the events that belong to the calendar and remove them as well
-                this._events = this._events.filter((event) => event.calendarId !== id);
+                this._events = this._events.filter(event => event.calendarId !== id);
 
                 // Return the response
                 return [200, true];
@@ -287,7 +287,7 @@ export class CalendarMockApi
                 const id = request.params.get('id');
 
                 // Find the event and delete it
-                const index = this._events.findIndex((item) => item.id === id);
+                const index = this._events.findIndex(item => item.id === id);
                 this._events.splice(index, 1);
 
                 // Return the response
@@ -307,7 +307,7 @@ export class CalendarMockApi
                 const mode = request.body.mode;
 
                 // Find the original recurring event from db
-                const recurringEvent = this._events.find((item) => item.id === event.recurringEventId);
+                const recurringEvent = this._events.find(item => item.id === event.recurringEventId);
 
                 // Single
                 if ( mode === 'single' )
@@ -406,7 +406,7 @@ export class CalendarMockApi
                 if ( mode === 'all' )
                 {
                     // Find the event index
-                    const eventIndex = this._events.findIndex((item) => item.id === event.recurringEventId);
+                    const eventIndex = this._events.findIndex(item => item.id === event.recurringEventId);
 
                     // Update the recurring event
                     this._events[eventIndex] = assign({}, this._events[eventIndex], omit(event, ['id', 'recurringEventId', 'range']));
@@ -428,7 +428,7 @@ export class CalendarMockApi
                 const mode = request.params.get('mode');
 
                 // Find the recurring event
-                const recurringEvent = this._events.find((item) => item.id === event.recurringEventId);
+                const recurringEvent = this._events.find(item => item.id === event.recurringEventId);
 
                 // Single
                 if ( mode === 'single' )
@@ -495,7 +495,7 @@ export class CalendarMockApi
                 if ( mode === 'all' )
                 {
                     // Find the event and delete it
-                    const index = this._events.findIndex((item) => item.id === event.recurringEventId);
+                    const index = this._events.findIndex(item => item.id === event.recurringEventId);
                     this._events.splice(index, 1);
                 }
 

@@ -67,7 +67,6 @@ export class FuseNavigationService
      * Get navigation from storage by key
      *
      * @param key
-     * @returns {any}
      */
     getNavigation(key: string): FuseNavigationItem[]
     {
@@ -97,7 +96,6 @@ export class FuseNavigationService
      *
      * @param navigation
      * @param flatNavigation
-     * @returns {FuseNavigationItem[]}
      */
     getFlatNavigation(navigation: FuseNavigationItem[], flatNavigation: FuseNavigationItem[] = []): FuseNavigationItem[]
     {

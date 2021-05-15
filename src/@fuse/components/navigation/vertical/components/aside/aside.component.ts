@@ -15,8 +15,10 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
 })
 export class FuseVerticalNavigationAsideItemComponent implements OnChanges, OnInit, OnDestroy
 {
+    /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_autoCollapse: BooleanInput;
     static ngAcceptInputType_skipChildren: BooleanInput;
+    /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() activeItemId: string;
     @Input() autoCollapse: boolean;
@@ -102,6 +104,21 @@ export class FuseVerticalNavigationAsideItemComponent implements OnChanges, OnIn
     }
 
     // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
+
+    // -----------------------------------------------------------------------------------------------------
     // @ Private methods
     // -----------------------------------------------------------------------------------------------------
 
@@ -167,20 +184,5 @@ export class FuseVerticalNavigationAsideItemComponent implements OnChanges, OnIn
 
         // Mark for check
         this._changeDetectorRef.markForCheck();
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Track by function for ngFor loops
-     *
-     * @param index
-     * @param item
-     */
-    trackByFn(index: number, item: any): any
-    {
-        return item.id || index;
     }
 }

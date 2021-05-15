@@ -9,11 +9,11 @@ import { FuseMockApiMethods } from '@fuse/lib/mock-api/mock-api.types';
 export class FuseMockApiService
 {
     private _handlers: { [key: string]: Map<string, FuseMockApiHandler> } = {
-        DELETE: new Map<string, FuseMockApiHandler>(),
-        GET   : new Map<string, FuseMockApiHandler>(),
-        PATCH : new Map<string, FuseMockApiHandler>(),
-        POST  : new Map<string, FuseMockApiHandler>(),
-        PUT   : new Map<string, FuseMockApiHandler>()
+        'delete': new Map<string, FuseMockApiHandler>(),
+        'get'   : new Map<string, FuseMockApiHandler>(),
+        'patch' : new Map<string, FuseMockApiHandler>(),
+        'post'  : new Map<string, FuseMockApiHandler>(),
+        'put'   : new Map<string, FuseMockApiHandler>()
     };
 
     /**
@@ -34,10 +34,10 @@ export class FuseMockApiService
      * @param method
      * @param url
      */
-    findHandler(method: string, url: string): { handler: FuseMockApiHandler | undefined, urlParams: { [key: string]: string } }
+    findHandler(method: string, url: string): { handler: FuseMockApiHandler | undefined; urlParams: { [key: string]: string } }
     {
         // Prepare the return object
-        const matchingHandler: { handler: FuseMockApiHandler | undefined, urlParams: { [key: string]: string } } = {
+        const matchingHandler: { handler: FuseMockApiHandler | undefined; urlParams: { [key: string]: string } } = {
             handler  : undefined,
             urlParams: {}
         };
@@ -46,7 +46,7 @@ export class FuseMockApiService
         const urlParts = url.split('/');
 
         // Get all related request handlers
-        const handlers = this._handlers[method.toUpperCase()];
+        const handlers = this._handlers[method.toLowerCase()];
 
         // Iterate through the handlers
         handlers.forEach((handler, handlerUrl) => {
@@ -93,7 +93,7 @@ export class FuseMockApiService
      */
     onDelete(url: string, delay?: number): FuseMockApiHandler
     {
-        return this._registerHandler('DELETE', url, delay);
+        return this._registerHandler('delete', url, delay);
     }
 
     /**
@@ -104,7 +104,7 @@ export class FuseMockApiService
      */
     onGet(url: string, delay?: number): FuseMockApiHandler
     {
-        return this._registerHandler('GET', url, delay);
+        return this._registerHandler('get', url, delay);
     }
 
     /**
@@ -115,7 +115,7 @@ export class FuseMockApiService
      */
     onPatch(url: string, delay?: number): FuseMockApiHandler
     {
-        return this._registerHandler('PATCH', url, delay);
+        return this._registerHandler('patch', url, delay);
     }
 
     /**
@@ -126,7 +126,7 @@ export class FuseMockApiService
      */
     onPost(url: string, delay?: number): FuseMockApiHandler
     {
-        return this._registerHandler('POST', url, delay);
+        return this._registerHandler('post', url, delay);
     }
 
     /**
@@ -137,7 +137,7 @@ export class FuseMockApiService
      */
     onPut(url: string, delay?: number): FuseMockApiHandler
     {
-        return this._registerHandler('PUT', url, delay);
+        return this._registerHandler('put', url, delay);
     }
 
     // -----------------------------------------------------------------------------------------------------

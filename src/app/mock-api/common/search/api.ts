@@ -55,14 +55,10 @@ export class SearchMockApi
                 }
 
                 // Filter the navigation
-                const navigationResults = cloneDeep(flatNavigation).filter((item) => {
-                    return (item.title?.toLowerCase().includes(query) || (item.subtitle && item.subtitle.includes(query)));
-                });
+                const navigationResults = cloneDeep(flatNavigation).filter(item => (item.title?.toLowerCase().includes(query) || (item.subtitle && item.subtitle.includes(query))));
 
                 // Filter the contacts
-                const contactsResults = cloneDeep(this._contacts).filter((user) => {
-                    return user.name.toLowerCase().includes(query);
-                });
+                const contactsResults = cloneDeep(this._contacts).filter(user => user.name.toLowerCase().includes(query));
 
                 // Create the results array
                 const results = [];

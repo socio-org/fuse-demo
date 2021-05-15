@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FuseAnimations } from '@fuse/animations';
+import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 
@@ -9,13 +9,13 @@ import { AuthService } from 'app/core/auth/auth.service';
     selector     : 'auth-sign-up',
     templateUrl  : './sign-up.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : FuseAnimations
+    animations   : fuseAnimations
 })
 export class AuthSignUpComponent implements OnInit
 {
     @ViewChild('signUpNgForm') signUpNgForm: NgForm;
 
-    alert: { type: FuseAlertType, message: string } = {
+    alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
         message: ''
     };
