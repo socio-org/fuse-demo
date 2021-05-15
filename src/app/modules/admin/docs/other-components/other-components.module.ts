@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FuseHighlightModule } from '@fuse/components/highlight';
@@ -36,6 +37,7 @@ import { otherComponentsRoutes } from 'app/modules/admin/docs/other-components/o
     ],
     imports     : [
         RouterModule.forChild(otherComponentsRoutes),
+        MatButtonModule,
         MatIconModule,
         MatSidenavModule,
         FuseHighlightModule,

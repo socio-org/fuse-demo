@@ -38,7 +38,6 @@
 
     <div class="flex-auto max-w-3xl p-6 sm:p-10 prose prose-sm">
 
-
         <p>
             After the installation process finishes, run the following command while still in your workspace directory:
         </p>
@@ -64,11 +63,13 @@
             Alias for <code>ng serve --open</code>.
         </p>
 
-        <p>
+        <fuse-alert
+            [appearance]="'border'"
+            [type]="'info'">
             If you are getting error messages that includes keywords like <strong>HEAP</strong>, <strong>JS stack tree</strong>,
             <strong>out of memory</strong> while trying to run <code>ng serve --open</code> or <code>npm start</code> commands,
             you may have an older Node.js version, try updating your Node.js to the latest LTS version and then try again.
-        </p>
+        </fuse-alert>
 
         <!-- Nav -->
         <div class="flex items-center xs:flex-col xs:items-stretch w-full mt-16">

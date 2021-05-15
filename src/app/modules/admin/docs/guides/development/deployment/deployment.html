@@ -48,24 +48,26 @@
         <textarea
             fuse-highlight
             lang="bash">
-            ng build --prod
+            ng build
         </textarea>
 
         <h2>Alternate command</h2>
         <textarea
             fuse-highlight
             lang="bash">
-            npm run build:prod
+            npm run build
         </textarea>
         <p class="mb-12">
-            Alias for <code>ng build --prod</code>.
+            Alias for <code>ng build</code>.
         </p>
 
-        <p>
+        <fuse-alert
+            [appearance]="'border'"
+            [type]="'info'">
             If you are getting error messages that includes keywords like <strong>HEAP</strong>, <strong>JS stack tree</strong>,
             <strong>out of memory</strong> while trying to run <code>ng build --prod</code> or <code>npm run build:prod</code> commands,
             you may have an older Node.js version, try updating your Node.js to the latest LTS version and then try again.
-        </p>
+        </fuse-alert>
 
         <!-- Nav -->
         <div class="flex items-center xs:flex-col xs:items-stretch w-full mt-16">
