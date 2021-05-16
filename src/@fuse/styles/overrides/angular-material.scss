@@ -633,11 +633,27 @@
                     @apply icon-size-6;
                 }
 
-                /* Make mat-select usable as */
-                /* prefix and suffix */
+                /* Make mat-select usable as prefix and suffix */
                 .mat-select {
                     display: flex;
                     align-items: center;
+
+                    &:focus {
+
+                        .mat-select-trigger {
+
+                            .mat-select-value {
+                                @apply text-primary #{'!important'};
+                            }
+
+                            .mat-select-arrow-wrapper {
+
+                                .mat-select-arrow {
+                                    border-top-color: var(--fuse-primary) !important;
+                                }
+                            }
+                        }
+                    }
 
                     .mat-select-trigger {
                         display: flex;
@@ -663,6 +679,7 @@
 
                             .mat-select-arrow {
                                 min-height: 0;
+                                @apply text-gray-500 dark:text-gray-400 #{'!important'};
                             }
                         }
                     }
