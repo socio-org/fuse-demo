@@ -16,8 +16,7 @@
             ],
             "parserOptions": {
                 "project": [
-                    "tsconfig.json",
-                    "e2e/tsconfig.json"
+                    "tsconfig.json"
                 ],
                 "createDefaultProgram": true
             },
@@ -44,6 +43,7 @@
                     }
                 ],
                 "@typescript-eslint/dot-notation": "off",
+                "@typescript-eslint/explicit-function-return-type": "error",
                 "@typescript-eslint/explicit-member-accessibility": [
                     "off",
                     {

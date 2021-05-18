@@ -4,6 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import { FuseHorizontalNavigationComponent } from '@fuse/components/navigation/horizontal/horizontal.component';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
+import { FuseUtilsService } from '@fuse/services/utils/utils.service';
 
 @Component({
     selector       : 'fuse-horizontal-navigation-basic-item',
@@ -24,7 +25,8 @@ export class FuseHorizontalNavigationBasicItemComponent implements OnInit, OnDes
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseNavigationService: FuseNavigationService
+        private _fuseNavigationService: FuseNavigationService,
+        private _fuseUtilsService: FuseUtilsService
     )
     {
     }
@@ -38,6 +40,13 @@ export class FuseHorizontalNavigationBasicItemComponent implements OnInit, OnDes
      */
     ngOnInit(): void
     {
+        // If the item doesn't have "isActiveMatchOptions",
+        // set it using the equivalent form of "item.exactMatch"
+        if ( !this.item.isActiveMatchOptions )
+        {
+            this.item.isActiveMatchOptions = this.item.exactMatch ? this._fuseUtilsService.exactMatchOptions : this._fuseUtilsService.subsetMatchOptions;
+        }
+
         // Get the parent navigation component
         this._fuseHorizontalNavigationComponent = this._fuseNavigationService.getComponent(this.name);
 

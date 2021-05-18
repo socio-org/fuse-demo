@@ -1,3 +1,5 @@
+import { IsActiveMatchOptions } from '@angular/router';
+
 export interface FuseNavigationItem
 {
     id?: string;
@@ -16,6 +18,7 @@ export interface FuseNavigationItem
     link?: string;
     externalLink?: boolean;
     exactMatch?: boolean;
+    isActiveMatchOptions?: IsActiveMatchOptions;
     function?: (item: FuseNavigationItem) => void;
     classes?: {
         title?: string;

@@ -29,7 +29,7 @@ export class FuseMockApiModule
                 {
                     provide   : APP_INITIALIZER,
                     deps      : [...mockApiServices],
-                    useFactory: () => () => null,
+                    useFactory: () => (): any => null,
                     multi     : true
                 },
                 {

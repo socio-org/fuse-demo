@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IsActiveMatchOptions } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,36 @@ export class FuseUtilsService
      */
     constructor()
     {
+    }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Accessors
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Get the equivalent "IsActiveMatchOptions" options for "exact = true".
+     */
+    get exactMatchOptions(): IsActiveMatchOptions
+    {
+        return {
+            paths       : 'exact',
+            fragment    : 'ignored',
+            matrixParams: 'ignored',
+            queryParams : 'exact'
+        };
+    }
+
+    /**
+     * Get the equivalent "IsActiveMatchOptions" options for "exact = false".
+     */
+    get subsetMatchOptions(): IsActiveMatchOptions
+    {
+        return {
+            paths       : 'subset',
+            fragment    : 'ignored',
+            matrixParams: 'ignored',
+            queryParams : 'subset'
+        };
     }
 
     // -----------------------------------------------------------------------------------------------------

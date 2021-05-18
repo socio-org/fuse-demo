@@ -73,10 +73,10 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
         private _fuseUtilsService: FuseUtilsService
     )
     {
-        this._handleAsideOverlayClick = () => {
+        this._handleAsideOverlayClick = (): void => {
             this.closeAside();
         };
-        this._handleOverlayClick = () => {
+        this._handleOverlayClick = (): void => {
             this.close();
         };
     }

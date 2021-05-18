@@ -178,11 +178,7 @@
 
     /* Add hover and focus style on all buttons */
     .mat-button-focus-overlay {
-        @apply bg-gray-400 bg-opacity-20 #{'!important'};
-
-        .dark & {
-            background-color: rgba(0, 0, 0, 0.05) !important;
-        }
+        @apply bg-gray-400 bg-opacity-20 dark:bg-black dark:bg-opacity-5 #{'!important'};
     }
 
     /* On palette colored buttons, use a darker color */
@@ -253,11 +249,7 @@
 
     /* Add hover and focus styles */
     .mat-button-focus-overlay {
-        @apply bg-gray-400 bg-opacity-20 #{'!important'};
-
-        .dark & {
-            background-color: rgba(0, 0, 0, 0.05) !important;
-        }
+        @apply bg-gray-400 bg-opacity-20 dark:bg-black dark:bg-opacity-5 #{'!important'};
     }
 
     /* On primary colored buttons, use the primary color as focus overlay */
@@ -330,19 +322,11 @@
 
     /* Border color */
     &:not(.mat-button-disabled) {
-        @apply border-gray-300 #{'!important'};
-
-        .dark & {
-            @apply border-gray-500 #{'!important'};
-        }
+        @apply border-gray-300 dark:border-gray-500 #{'!important'};
     }
 
     &.mat-button-disabled {
-        @apply border-gray-200 #{'!important'};
-
-        .dark & {
-            @apply border-gray-600 #{'!important'};
-        }
+        @apply border-gray-200 dark:border-gray-600 #{'!important'};
     }
 }
 
@@ -542,13 +526,7 @@
             border-radius: 6px;
             padding: 0 16px;
             border-width: 1px;
-            background-color: white;
-            @apply border-gray-300 shadow-sm #{'!important'};
-
-            .dark & {
-                background-color: rgba(0, 0, 0, 0.05) !important;
-                @apply border-gray-500 #{'!important'};
-            }
+            @apply shadow-sm bg-white border-gray-300 dark:bg-black dark:bg-opacity-5 dark:border-gray-500 #{'!important'};
 
             .mat-form-field-prefix {
 
@@ -633,11 +611,27 @@
                     @apply icon-size-6;
                 }
 
-                /* Make mat-select usable as */
-                /* prefix and suffix */
+                /* Make mat-select usable as prefix and suffix */
                 .mat-select {
                     display: flex;
                     align-items: center;
+
+                    &:focus {
+
+                        .mat-select-trigger {
+
+                            .mat-select-value {
+                                @apply text-primary #{'!important'};
+                            }
+
+                            .mat-select-arrow-wrapper {
+
+                                .mat-select-arrow {
+                                    border-top-color: var(--fuse-primary) !important;
+                                }
+                            }
+                        }
+                    }
 
                     .mat-select-trigger {
                         display: flex;
@@ -663,6 +657,7 @@
 
                             .mat-select-arrow {
                                 min-height: 0;
+                                @apply text-gray-500 dark:text-gray-400 #{'!important'};
                             }
                         }
                     }
@@ -1032,11 +1027,7 @@
 
                 .mat-form-field-prefix,
                 .mat-form-field-suffix {
-                    @apply border-gray-300 bg-default #{'!important'};
-
-                    .dark & {
-                        @apply border-gray-500 #{'!important'};
-                    }
+                    @apply bg-default border-gray-300 dark:border-gray-500 #{'!important'};
                 }
             }
         }
