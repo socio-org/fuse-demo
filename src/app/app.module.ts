@@ -27,18 +27,18 @@ const routerConfig: ExtraOptions = {
         BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes, routerConfig),
 
-        // Fuse & Fuse Mock API
+        // Fuse, FuseConfig & FuseMockAPI
         FuseModule,
         FuseConfigModule.forRoot(appConfig),
         FuseMockApiModule.forRoot(mockApiServices),
 
-        // Core
+        // Core module of your application
         CoreModule,
 
-        // Layout
+        // Layout module of your application
         LayoutModule,
 
-        // 3rd party modules
+        // 3rd party modules that require global configuration via forRoot
         MarkdownModule.forRoot({})
     ],
     bootstrap   : [
