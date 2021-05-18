@@ -97,6 +97,7 @@
                 link?: string;
                 externalLink?: boolean;
                 exactMatch?: boolean;
+                isActiveMatchOptions?: IsActiveMatchOptions;
                 function?: (item: FuseNavigationItem) => void;
                 classes?: {
                     title?: string;
@@ -203,7 +204,21 @@
                             <div>exactMatch</div>
                         </td>
                         <td>
-                            Sets the <em>exactMatch</em> parameter on the <em>router link active options</em>.
+                            Sets the <em>exact</em> parameter on the <em>[routerLinkActiveOptions]</em>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-mono text-md text-secondary">
+                            <div>isActiveMatchOptions</div>
+                        </td>
+                        <td>
+                            Sets the <em>isActiveMatchOptions</em> object on the <em>[routerLinkActiveOptions]</em>. If provided, <em>exactMatch</em> option will be
+                            ignored.
+                            <a
+                                href="https://angular.io/api/router/IsActiveMatchOptions"
+                                target="_blank"
+                                rel="noreferrer">https://angular.io/api/router/IsActiveMatchOptions
+                            </a>
                         </td>
                     </tr>
                     <tr>
