@@ -122,7 +122,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
      */
     private _generateFoldersMenuLinks(): void
     {
-        // Reset the folders menu mock-api
+        // Reset the folders menu data
         this._foldersMenuData = [];
 
         // Iterate through the folders
@@ -146,11 +146,11 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
                 };
             }
 
-            // Push the menu item to the folders menu mock-api
+            // Push the menu item to the folders menu data
             this._foldersMenuData.push(menuItem);
         });
 
-        // Update the menu mock-api
+        // Update the menu data
         this._updateMenuData();
     }
 
@@ -177,7 +177,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
             });
         });
 
-        // Update the menu mock-api
+        // Update the menu data
         this._updateMenuData();
     }
 
@@ -207,7 +207,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
             });
         });
 
-        // Update the menu mock-api
+        // Update the menu data
         this._updateMenuData();
     }
 
@@ -226,12 +226,12 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
             link : '/apps/mailbox/settings'
         });
 
-        // Update the menu mock-api
+        // Update the menu data
         this._updateMenuData();
     }
 
     /**
-     * Update the menu mock-api
+     * Update the menu data
      *
      * @private
      */
@@ -278,7 +278,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         // Get the inbox folder
         const inboxFolder = this.folders.find(folder => folder.slug === 'inbox');
 
-        // Get the component -> navigation mock-api -> item
+        // Get the component -> navigation data -> item
         const mainNavigationComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>('mainNavigation');
 
         // If the main navigation component exists...

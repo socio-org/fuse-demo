@@ -176,7 +176,7 @@ export class ShortcutsComponent implements OnChanges, OnInit, OnDestroy
      */
     save(): void
     {
-        // Get the mock-api from the form
+        // Get the data from the form
         const shortcut = this.shortcutForm.value;
 
         // If there is an id, update it...
@@ -199,7 +199,7 @@ export class ShortcutsComponent implements OnChanges, OnInit, OnDestroy
      */
     delete(): void
     {
-        // Get the mock-api from the form
+        // Get the data from the form
         const shortcut = this.shortcutForm.value;
 
         // Delete

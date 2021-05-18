@@ -51,7 +51,7 @@ export class DenseLayoutComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
-        // Subscribe to the resolved route mock-api
+        // Subscribe to the resolved route data
         this._activatedRoute.data.subscribe((data: Data) => {
             this.data = data.initialData;
         });

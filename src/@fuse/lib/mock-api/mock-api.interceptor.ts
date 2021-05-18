@@ -51,7 +51,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor
             delay(handler.delay ?? this._defaultDelay ?? 0),
             switchMap((response) => {
 
-                // If there is no response mock-api,
+                // If there is no response data,
                 // throw an error response
                 if ( !response )
                 {
@@ -64,7 +64,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor
                     return throwError(response);
                 }
 
-                // Parse the response mock-api
+                // Parse the response data
                 const data = {
                     status: response[0],
                     body  : response[1]

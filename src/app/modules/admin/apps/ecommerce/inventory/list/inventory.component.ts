@@ -484,7 +484,7 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     /**
-     * Update the selected product using the form mock-api
+     * Update the selected product using the form data
      */
     updateSelectedProduct(): void
     {
@@ -503,7 +503,7 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     /**
-     * Delete the selected product using the form mock-api
+     * Delete the selected product using the form data
      */
     deleteSelectedProduct(): void
     {

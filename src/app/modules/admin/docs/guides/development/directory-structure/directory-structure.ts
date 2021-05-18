@@ -239,7 +239,7 @@ export class DirectoryStructureComponent implements OnInit
      */
     createTree(data): { dataSource: any; treeControl: any }
     {
-        // Create tree control and mock-api source
+        // Create tree control and data source
         const treeControl = new FlatTreeControl<FlatDirNode>(node => node.level, node => node.expandable);
         const dataSource = new MatTreeFlatDataSource(
             treeControl,
@@ -252,7 +252,7 @@ export class DirectoryStructureComponent implements OnInit
                 node => node.level, node => node.expandable, node => node.children)
         );
 
-        // Set the mock-api
+        // Set the data
         dataSource.data = data;
 
         return {
