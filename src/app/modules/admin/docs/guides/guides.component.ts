@@ -137,6 +137,12 @@ export class GuidesComponent implements OnInit, OnDestroy
                         title: 'Splash screen',
                         type : 'basic',
                         link : '/docs/guides/customization/splash-screen'
+                    },
+                    {
+                        id   : 'customization.multi-language',
+                        title: 'Multi language',
+                        type : 'basic',
+                        link : '/docs/guides/customization/multi-language'
                     }
                 ]
             },

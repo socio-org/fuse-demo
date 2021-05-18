@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TranslocoModule } from '@ngneat/transloco';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { SharedModule } from 'app/shared/shared.module';
 import { ProjectComponent } from 'app/modules/admin/dashboards/project/project.component';
@@ -32,6 +33,7 @@ import { projectRoutes } from 'app/modules/admin/dashboards/project/project.rout
         MatTableModule,
         MatTabsModule,
         NgApexchartsModule,
+        TranslocoModule,
         SharedModule
     ]
 })

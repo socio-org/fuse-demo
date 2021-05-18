@@ -15,6 +15,7 @@ import { TailwindCSSComponent } from 'app/modules/admin/docs/guides/customizatio
 import { ThemingComponent } from 'app/modules/admin/docs/guides/customization/theming/theming';
 import { ComponentThemingComponent } from 'app/modules/admin/docs/guides/customization/component-theming/component-theming';
 import { SplashScreenCustomizationComponent } from 'app/modules/admin/docs/guides/customization/splash-screen/splash-screen';
+import { MultiLanguageCustomizationComponent } from 'app/modules/admin/docs/guides/customization/multi-language/multi-language';
 import { JwtComponent } from 'app/modules/admin/docs/guides/authentication/jwt/jwt';
 
 export const guidesRoutes: Route[] = [
@@ -114,6 +115,10 @@ export const guidesRoutes: Route[] = [
                     {
                         path     : 'splash-screen',
                         component: SplashScreenCustomizationComponent
+                    },
+                    {
+                        path     : 'multi-language',
+                        component: MultiLanguageCustomizationComponent
                     }
                 ]
             },
