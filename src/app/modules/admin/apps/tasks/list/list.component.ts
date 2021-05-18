@@ -6,7 +6,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { fromEvent, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { FuseNavigationService } from '@fuse/components/navigation';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
 
@@ -83,7 +83,7 @@ export class TasksListComponent implements OnInit, OnDestroy
                 setTimeout(() => {
 
                     // Get the component -> navigation data -> item
-                    const mainNavigationComponent = this._fuseNavigationService.getComponent('mainNavigation');
+                    const mainNavigationComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>('mainNavigation');
 
                     // If the main navigation component exists...
                     if ( mainNavigationComponent )

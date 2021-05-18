@@ -687,7 +687,7 @@
                         getNavItem(itemId, navigationName): FuseNavigationItem | null
                         {
                             // Get the component -> navigation data -> item
-                            const navComponent = this._fuseNavigationService.getComponent(navigationName);
+                            const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
                             // Return if the navigation component does not exist
                             if ( !navComponent )
@@ -772,7 +772,7 @@
                         updateBadgeTitle(itemId, navigationName, title): void
                         {
                             // Get the component -> navigation data -> item
-                            const navComponent = this._fuseNavigationService.getComponent(navigationName);
+                            const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
                             // Return if the navigation component does not exist
                             if ( !navComponent )
@@ -850,7 +850,7 @@
                         toggleDisabled(itemId, navigationName): void
                         {
                             // Get the component -> navigation data -> item
-                            const navComponent = this._fuseNavigationService.getComponent(navigationName);
+                            const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
                             // Return if the navigation component does not exist
                             if ( !navComponent )
@@ -940,7 +940,7 @@
                         swapNavigationData(navigationName): void
                         {
                             // Get the component -> navigation data -> item
-                            const navComponent = this._fuseNavigationService.getComponent(navigationName);
+                            const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
                             // Return if the navigation component does not exist
                             if ( !navComponent )
@@ -949,7 +949,7 @@
                             }
 
                             // A navigation data to replace with
-                            const newNavigation = [
+                            const newNavigation: FuseNavigationItem[] = [
                                 {
                                     id      : 'supported-components',
                                     title   : 'Supported components',

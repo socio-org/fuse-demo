@@ -3,7 +3,7 @@ import { ActivatedRoute, Data, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { FuseNavigationService } from '@fuse/components/navigation';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { InitialData } from 'app/app.types';
 
 @Component({
@@ -88,7 +88,7 @@ export class DenseLayoutComponent implements OnInit, OnDestroy
     toggleNavigation(name: string): void
     {
         // Get the navigation
-        const navigation = this._fuseNavigationService.getComponent(name);
+        const navigation = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(name);
 
         if ( navigation )
         {

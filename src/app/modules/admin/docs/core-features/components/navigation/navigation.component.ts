@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FuseNavigationItem, FuseNavigationService } from '@fuse/components/navigation';
+import { FuseNavigationItem, FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { CoreFeaturesComponent } from 'app/modules/admin/docs/core-features/core-features.component';
 
 @Component({
@@ -32,8 +32,8 @@ export class NavigationComponent
      */
     getNavItem(itemId, navigationName): FuseNavigationItem | null
     {
-        // Get the component -> navigation mock-api -> item
-        const navComponent = this._fuseNavigationService.getComponent(navigationName);
+        // Get the component -> navigation data -> item
+        const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
         // Return if the navigation component does not exist
         if ( !navComponent )
@@ -57,8 +57,8 @@ export class NavigationComponent
      */
     updateBadgeTitle(itemId, navigationName, title): void
     {
-        // Get the component -> navigation mock-api -> item
-        const navComponent = this._fuseNavigationService.getComponent(navigationName);
+        // Get the component -> navigation data -> item
+        const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
         // Return if the navigation component does not exist
         if ( !navComponent )
@@ -81,8 +81,8 @@ export class NavigationComponent
      */
     toggleDisabled(itemId, navigationName): void
     {
-        // Get the component -> navigation mock-api -> item
-        const navComponent = this._fuseNavigationService.getComponent(navigationName);
+        // Get the component -> navigation data -> item
+        const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
         // Return if the navigation component does not exist
         if ( !navComponent )
@@ -98,14 +98,14 @@ export class NavigationComponent
     }
 
     /**
-     * Swap navigation mock-api
+     * Swap navigation data
      *
      * @param navigationName
      */
     swapNavigationData(navigationName): void
     {
-        // Get the component -> navigation mock-api -> item
-        const navComponent = this._fuseNavigationService.getComponent(navigationName);
+        // Get the component -> navigation data -> item
+        const navComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>(navigationName);
 
         // Return if the navigation component does not exist
         if ( !navComponent )
@@ -113,8 +113,8 @@ export class NavigationComponent
             return null;
         }
 
-        // A navigation mock-api to replace with
-        const newNavigation = [
+        // A navigation data to replace with
+        const newNavigation: FuseNavigationItem[] = [
             {
                 id      : 'supported-components',
                 title   : 'Supported components',
@@ -168,7 +168,7 @@ export class NavigationComponent
             }
         ];
 
-        // Replace the navigation mock-api
+        // Replace the navigation data
         navComponent.navigation = newNavigation;
         navComponent.refresh();
     }

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FuseNavigationItem, FuseNavigationService } from '@fuse/components/navigation';
+import { FuseNavigationItem, FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { MailboxComposeComponent } from 'app/modules/admin/apps/mailbox/compose/compose.component';
 import { labelColorDefs } from 'app/modules/admin/apps/mailbox/mailbox.constants';
@@ -279,7 +279,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         const inboxFolder = this.folders.find(folder => folder.slug === 'inbox');
 
         // Get the component -> navigation mock-api -> item
-        const mainNavigationComponent = this._fuseNavigationService.getComponent('mainNavigation');
+        const mainNavigationComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>('mainNavigation');
 
         // If the main navigation component exists...
         if ( mainNavigationComponent )
