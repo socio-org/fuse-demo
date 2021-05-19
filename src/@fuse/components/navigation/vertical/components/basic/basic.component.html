@@ -11,7 +11,7 @@
         [ngClass]="{'fuse-vertical-navigation-item-active-forced': item.active}"
         [routerLink]="[item.link]"
         [routerLinkActive]="'fuse-vertical-navigation-item-active'"
-        [routerLinkActiveOptions]="item.isActiveMatchOptions">
+        [routerLinkActiveOptions]="isActiveMatchOptions">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
 
@@ -39,7 +39,7 @@
         [ngClass]="{'fuse-vertical-navigation-item-active-forced': item.active}"
         [routerLink]="[item.link]"
         [routerLinkActive]="'fuse-vertical-navigation-item-active'"
-        [routerLinkActiveOptions]="item.isActiveMatchOptions"
+        [routerLinkActiveOptions]="isActiveMatchOptions"
         (click)="item.function(item)">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
