@@ -46,7 +46,7 @@
         <!-- Content -->
         <div class="relative flex flex-col flex-auto sm:max-h-120 divide-y overflow-y-auto bg-card">
             <!-- Messages -->
-            <ng-container *ngFor="let message of messages">
+            <ng-container *ngFor="let message of messages; trackBy: trackByFn">
                 <div
                     class="flex group hover:bg-gray-50 dark:hover:bg-black dark:hover:bg-opacity-5"
                     [ngClass]="{'unread': !message.read}">

@@ -155,6 +155,17 @@ export class NotificationsComponent implements OnChanges, OnInit, OnDestroy
         this._notificationsService.delete(notification.id).subscribe();
     }
 
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
+
     // -----------------------------------------------------------------------------------------------------
     // @ Private methods
     // -----------------------------------------------------------------------------------------------------

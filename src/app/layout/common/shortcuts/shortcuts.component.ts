@@ -209,6 +209,17 @@ export class ShortcutsComponent implements OnChanges, OnInit, OnDestroy
         this.mode = 'modify';
     }
 
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
+
     // -----------------------------------------------------------------------------------------------------
     // @ Private methods
     // -----------------------------------------------------------------------------------------------------
