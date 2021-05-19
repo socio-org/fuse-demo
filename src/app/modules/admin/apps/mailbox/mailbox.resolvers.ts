@@ -155,11 +155,11 @@ export class MailboxMailsResolver implements Resolve<any>
             .pipe(
                 finalize(() => {
 
-                    // Reset the mail every time mails list changes,
-                    // if there is no selected mail. This will ensure
-                    // that the mail will be reset while navigating
-                    // between the folders/filters/labels but it won't
-                    // reset on page reload if we are reading a mail.
+                    // If there is no selected mail, reset the mail every
+                    // time mail list changes. This will ensure that the
+                    // mail will be reset while navigating between the
+                    // folders/filters/labels but it won't reset on page
+                    // reload if we are reading a mail.
 
                     // Try to get the current activated route
                     let currentRoute = route;
