@@ -34,7 +34,7 @@ export const activities: Activity[] = [
         icon         : 'heroicons_solid:refresh',
         description  : 'Your <strong>Docker container</strong> is ready to publish',
         date         : moment().subtract(5, 'hours').toISOString(), // 5 hours ago
-        linkedContent: 'Download the Container',
+        linkedContent: 'Download the container',
         link         : '.',
         useRouter    : true
     },
@@ -71,7 +71,8 @@ export const activities: Activity[] = [
         description  : '<strong>Tina Harris</strong> started a chat with you',
         date         : moment().subtract(1, 'day').toISOString(), // 1 day ago,
         linkedContent: 'Go to Chat (Tina Harris)',
-        link         : '/apps/chat/5636c0ba-fa47-42ca-9160-27340583041e'
+        link         : '/apps/chat/5636c0ba-fa47-42ca-9160-27340583041e',
+        useRouter    : true
     },
     {
         id         : '8f8e1bf9-4661-4939-9e43-390957b60f42',
