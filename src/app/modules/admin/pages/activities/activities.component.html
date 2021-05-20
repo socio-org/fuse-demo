@@ -36,7 +36,7 @@
                                     <div class="relative flex flex-auto">
                                         <!-- Icon -->
                                         <ng-container *ngIf="activity.icon && !activity.image">
-                                            <div class="flex flex-shrink-0 items-center justify-center w-10 h-10 mr-4 rounded-full bg-gray-500">
+                                            <div class="flex flex-shrink-0 items-center justify-center w-10 h-10 mr-4 rounded-full bg-gray-400">
                                                 <mat-icon
                                                     class="icon-size-5 text-white"
                                                     [svgIcon]="activity.icon">
@@ -89,7 +89,7 @@
                                             <!-- Extra content -->
                                             <ng-container *ngIf="activity.extraContent">
                                                 <div
-                                                    class="mt-4 py-4 px-5 rounded bg-gray-200 dark:bg-gray-800"
+                                                    class="mt-4 py-4 px-5 rounded-lg bg-gray-200 dark:bg-gray-800"
                                                     [innerHTML]="activity.extraContent"></div>
                                             </ng-container>
                                         </div>
