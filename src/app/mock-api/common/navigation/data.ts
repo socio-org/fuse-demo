@@ -152,6 +152,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon    : 'heroicons_outline:document',
         children: [
             {
+                id   : 'pages.activities',
+                title: 'Activities',
+                type : 'basic',
+                icon : 'heroicons_outline:menu-alt-2',
+                link : '/pages/activities'
+            },
+            {
                 id      : 'pages.authentication',
                 title   : 'Authentication',
                 type    : 'collapsable',

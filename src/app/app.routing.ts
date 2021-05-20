@@ -97,6 +97,9 @@ export const appRoutes: Route[] = [
             // Pages
             {path: 'pages', children: [
 
+                // Activities
+                {path: 'activities', loadChildren: () => import('app/modules/admin/pages/activities/activities.module').then(m => m.ActivitiesModule)},
+
                 // Authentication
                 {path: 'authentication', loadChildren: () => import('app/modules/admin/pages/authentication/authentication.module').then(m => m.AuthenticationModule)},
 
