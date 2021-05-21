@@ -11,6 +11,38 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.0.1
+        {
+            version    : 'v13.0.1',
+            releaseDate: 'May 21, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(i18n) Added multi language support using @ngneat/transloco',
+                        '(pages) Added Activities page (timeline)',
+                        '(FuseNavigation) Added support for new "isActiveMatchOptions" for Basic navigation items; https://github.com/angular/angular/pull/40303'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated various packages to their latest versions',
+                        '(tailwind) Use TAILWIND_MODE environment variable to activate purge on build',
+                        '(overrides/angular-material) Changed the text and arrow color of mat-select on focus when it\'s used as a prefix or suffix in mat-form-field',
+                        '(overrides/angular-material) Use @apply whenever it\'s possible',
+                        '(eslint) Removed e2e tsconfig path as there is no default e2e solution included into Angular since v12.0.0',
+                        '(eslint) Activated explicit return types on functions and methods',
+                        '(core) Separated the "auth" and "icon registry" to their own modules to keep the CoreModule simple',
+                        '(FuseNavigation) Added a generic return type for "getComponent" method on FuseNavigationService',
+                        '(FuseNavigation) Use the generic return type for "getComponent"',
+                        '(fuse) Fixed barrel exports',
+                        '(layout/common) Added trackBy functions to ngFor loops in common components',
+                        '(docs) Updated docs'
+                    ]
+                }
+            ]
+        },
         // v13.0.0
         {
             version    : 'v13.0.0',
