@@ -1,1 +1,1 @@
-export * from './validators';
+export * from '@fuse/validators/validators';

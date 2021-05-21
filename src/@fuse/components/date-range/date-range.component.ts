@@ -61,9 +61,9 @@ export class FuseDateRangeComponent implements ControlValueAccessor, OnInit, OnD
         private _viewContainerRef: ViewContainerRef
     )
     {
-        this._onChange = () => {
+        this._onChange = (): void => {
         };
-        this._onTouched = () => {
+        this._onTouched = (): void => {
         };
         this.dateFormat = 'DD/MM/YYYY';
         this.timeFormat = '12';
@@ -361,7 +361,7 @@ export class FuseDateRangeComponent implements ControlValueAccessor, OnInit, OnD
         this._unsubscribeAll.complete();
 
         // @ TODO: Workaround until "angular/issues/20007" resolved
-        this.writeValue = () => {
+        this.writeValue = (): void => {
         };
     }
 

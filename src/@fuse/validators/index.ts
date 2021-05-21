@@ -1,1 +1,1 @@
-export * from './public-api';
+export * from '@fuse/validators/public-api';

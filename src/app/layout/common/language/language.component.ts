@@ -78,6 +78,17 @@ export class LanguageComponent implements OnInit, OnDestroy
         this._translocoService.setActiveLang(lang);
     }
 
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
+
     // -----------------------------------------------------------------------------------------------------
     // @ Private methods
     // -----------------------------------------------------------------------------------------------------

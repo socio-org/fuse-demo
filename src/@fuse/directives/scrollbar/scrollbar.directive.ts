@@ -389,7 +389,7 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
 
             const cosParameter = (oldValue - value) / 2;
 
-            const step = (newTimestamp: number) => {
+            const step = (newTimestamp: number): void => {
                 scrollCount += Math.PI / (speed / (newTimestamp - oldTimestamp));
                 newValue = Math.round(value + cosParameter + cosParameter * Math.cos(scrollCount));
 

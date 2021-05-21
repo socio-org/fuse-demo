@@ -295,12 +295,12 @@ export class ContactsMockApi
                 const reader = new FileReader();
 
                 // Resolve the promise on success
-                reader.onload = () => {
+                reader.onload = (): void => {
                     resolve(reader.result);
                 };
 
                 // Reject the promise on error
-                reader.onerror = (e) => {
+                reader.onerror = (e): void => {
                     reject(e);
                 };
 

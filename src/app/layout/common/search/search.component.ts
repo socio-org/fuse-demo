@@ -200,4 +200,15 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
         // Close the search
         this.opened = false;
     }
+
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
 }
