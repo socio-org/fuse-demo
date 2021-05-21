@@ -58,10 +58,10 @@ export class ProjectComponent implements OnInit, OnDestroy
         window['Apex'] = {
             chart: {
                 events: {
-                    mounted: (chart: any, options?: any) => {
+                    mounted: (chart: any, options?: any): void => {
                         this._fixSvgFill(chart.el);
                     },
-                    updated: (chart: any, options?: any) => {
+                    updated: (chart: any, options?: any): void => {
                         this._fixSvgFill(chart.el);
                     }
                 }
@@ -327,7 +327,7 @@ export class ProjectComponent implements OnInit, OnDestroy
                 categories: this.data.budgetDistribution.categories
             },
             yaxis      : {
-                max       : (max: number) => parseInt((max + 10).toFixed(0), 10),
+                max       : (max: number): number => parseInt((max + 10).toFixed(0), 10),
                 tickAmount: 7
             }
         };
@@ -360,7 +360,7 @@ export class ProjectComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: val => `$${val}`
+                    formatter: (val): string => `$${val}`
                 }
             }
         };
@@ -393,7 +393,7 @@ export class ProjectComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: val => `$${val}`
+                    formatter: (val): string => `$${val}`
                 }
             }
         };
@@ -426,7 +426,7 @@ export class ProjectComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: val => `$${val}`
+                    formatter: (val): string => `$${val}`
                 }
             }
         };

@@ -243,8 +243,8 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy
                     day       : 'numeric',
                     omitCommas: true
                 },
-                columnHeaderHtml  : date => `<span class="fc-weekday">${moment(date).format('ddd')}</span>
-                                             <span class="fc-date">${moment(date).format('D')}</span>`,
+                columnHeaderHtml  : (date): string => `<span class="fc-weekday">${moment(date).format('ddd')}</span>
+                                                       <span class="fc-date">${moment(date).format('D')}</span>`,
                 slotDuration      : '01:00:00',
                 slotLabelFormat   : this.eventTimeFormat
             },

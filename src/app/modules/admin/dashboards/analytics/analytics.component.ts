@@ -70,10 +70,10 @@ export class AnalyticsComponent implements OnInit, OnDestroy
         window['Apex'] = {
             chart: {
                 events: {
-                    mounted: (chart: any, options?: any) => {
+                    mounted: (chart: any, options?: any): void => {
                         this._fixSvgFill(chart.el);
                     },
-                    updated: (chart: any, options?: any) => {
+                    updated: (chart: any, options?: any): void => {
                         this._fixSvgFill(chart.el);
                     }
                 }
@@ -234,8 +234,8 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 axisBorder: {
                     show: false
                 },
-                min       : min => min - 750,
-                max       : max => max + 250,
+                min       : (min): number => min - 750,
+                max       : (max): number => max + 250,
                 tickAmount: 5,
                 show      : false
             }
@@ -274,7 +274,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: val => val.toString()
+                    formatter: (val): string => val.toString()
                 }
             }
         };
@@ -312,7 +312,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: val => val.toString()
+                    formatter: (val): string => val.toString()
                 }
             }
         };
@@ -350,7 +350,7 @@ export class AnalyticsComponent implements OnInit, OnDestroy
             },
             yaxis  : {
                 labels: {
-                    formatter: val => val.toString()
+                    formatter: (val): string => val.toString()
                 }
             }
         };
@@ -426,8 +426,8 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                         colors: 'var(--fuse-text-secondary)'
                     }
                 },
-                max       : max => max + 250,
-                min       : min => min - 250,
+                max       : (max): number => max + 250,
+                min       : (min): number => min - 250,
                 show      : false,
                 tickAmount: 5
             }
@@ -481,11 +481,11 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 custom         : ({
                                       seriesIndex,
                                       w
-                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                                        </div>`
+                                  }): string => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                                    <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                                    <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                                    <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                                </div>`
             }
         };
 
@@ -537,11 +537,11 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 custom         : ({
                                       seriesIndex,
                                       w
-                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                                        </div>`
+                                  }): string => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                                     <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                                     <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                                     <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                                 </div>`
             }
         };
 
@@ -593,11 +593,11 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 custom         : ({
                                       seriesIndex,
                                       w
-                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                                        </div>`
+                                  }): string => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                                    <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                                    <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                                    <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                                </div>`
             }
         };
 
@@ -649,11 +649,11 @@ export class AnalyticsComponent implements OnInit, OnDestroy
                 custom         : ({
                                       seriesIndex,
                                       w
-                                  }) => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
-                                            <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
-                                            <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
-                                            <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
-                                        </div>`
+                                  }): string => `<div class="flex items-center h-8 min-h-8 max-h-8 px-3">
+                                                    <div class="w-3 h-3 rounded-full" style="background-color: ${w.config.colors[seriesIndex]};"></div>
+                                                    <div class="ml-2 text-md leading-none">${w.config.labels[seriesIndex]}:</div>
+                                                    <div class="ml-2 text-md font-bold leading-none">${w.config.series[seriesIndex]}%</div>
+                                                </div>`
             }
         };
     }

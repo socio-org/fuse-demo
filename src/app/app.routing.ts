@@ -6,6 +6,7 @@ import { InitialDataResolver } from 'app/app.resolvers';
 
 // @formatter:off
 /* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/dashboards/project'
