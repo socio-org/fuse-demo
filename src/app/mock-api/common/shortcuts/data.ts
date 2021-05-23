@@ -1,7 +1,5 @@
 /* eslint-disable */
-import { Shortcut } from 'app/layout/common/shortcuts/shortcuts.types';
-
-export const shortcuts: Shortcut[] = [
+export const shortcuts = [
     {
         id         : 'a1ae91d3-e2cb-459b-9be9-a184694f548b',
         label      : 'Changelog',

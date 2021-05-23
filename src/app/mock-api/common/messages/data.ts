@@ -1,8 +1,7 @@
 /* eslint-disable */
 import * as moment from 'moment';
-import { Message } from 'app/layout/common/messages/messages.types';
 
-export const messages: Message[] = [
+export const messages = [
     {
         id         : '832276cc-c5e9-4fcc-8e23-d38e2e267bc9',
         image      : 'assets/images/avatars/male-01.jpg',
