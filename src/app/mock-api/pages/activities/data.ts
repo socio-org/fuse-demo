@@ -1,8 +1,7 @@
 /* eslint-disable */
 import * as moment from 'moment';
-import { Activity } from 'app/modules/admin/pages/activities/activities.types';
 
-export const activities: Activity[] = [
+export const activities = [
     {
         id          : '493190c9-5b61-4912-afe5-78c21f1044d7',
         icon        : 'heroicons_solid:star',

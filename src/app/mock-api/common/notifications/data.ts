@@ -1,8 +1,7 @@
 /* eslint-disable */
 import * as moment from 'moment';
-import { Notification } from 'app/layout/common/notifications/notifications.types';
 
-export const notifications: Notification[] = [
+export const notifications = [
     {
         id         : '493190c9-5b61-4912-afe5-78c21f1044d7',
         icon       : 'heroicons_outline:star',
