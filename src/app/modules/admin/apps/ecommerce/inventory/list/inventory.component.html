@@ -221,6 +221,14 @@
                                 mat-cell
                                 *matCellDef="let product"
                                 [attr.colspan]="productsTableColumns.length">
+                                <ng-container *ngIf="selectedProduct?.id === product.id">
+                                    <ng-container *ngTemplateOutlet="rowDetailsTemplate; context: {$implicit: product}"></ng-container>
+                                </ng-container>
+                            </td>
+
+                            <ng-template
+                                #rowDetailsTemplate
+                                let-product>
                                 <div
                                     class="shadow-lg overflow-hidden"
                                     [@expandCollapse]="selectedProduct?.id === product.id ? 'expanded' : 'collapsed'">
@@ -403,7 +411,7 @@
                                                         <!-- Tags -->
                                                         <ng-container *ngIf="selectedProduct && selectedProduct.tags.length">
                                                             <span class="font-semibold">Tags</span>
-                                                            <div class="mt-1 rounded-md border shadow-sm overflow-hidden">
+                                                            <div class="mt-1 rounded-md border border-gray-300 shadow-sm overflow-hidden">
                                                                 <!-- Header -->
                                                                 <div class="flex items-center my-2 mx-3">
                                                                     <div class="flex items-center flex-auto min-w-0">
@@ -525,7 +533,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </td>
+                            </ng-template>
                         </ng-container>
 
                         <tr

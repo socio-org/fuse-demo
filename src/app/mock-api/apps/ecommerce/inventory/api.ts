@@ -50,7 +50,7 @@ export class ECommerceInventoryMockApi
         // @ Products - GET
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
-            .onGet('api/apps/ecommerce/inventory/products', 625)
+            .onGet('api/apps/ecommerce/inventory/products', 300)
             .reply(({request}) => {
 
                 // Get available queries

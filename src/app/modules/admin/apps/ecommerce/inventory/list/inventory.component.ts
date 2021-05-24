@@ -239,9 +239,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
                 // Set the selected product
                 this.selectedProduct = product;
 
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
-
                 // Fill the form
                 this.selectedProductForm.patchValue(product);
 
