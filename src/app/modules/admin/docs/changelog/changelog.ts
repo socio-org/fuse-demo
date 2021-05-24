@@ -11,6 +11,21 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.0.2
+        {
+            version    : 'v13.0.2',
+            releaseDate: 'May 24, 2021',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(mockApi) Removed typings from data files',
+                        '(apps/ecommerce/inventory) Performance improvements, decreased the mockApi delay',
+                        '(pages/settings) Fixed: Settings container component width is not filling the container'
+                    ]
+                }
+            ]
+        },
         // v13.0.1
         {
             version    : 'v13.0.1',
