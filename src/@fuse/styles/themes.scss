@@ -1,21 +1,24 @@
 @use '~@angular/material' as mat;
 @use "sass:map";
 
-/** Include the core Angular Material styles */
+/* Include the core Angular Material styles */
 @include mat.core();
 
-/** Configure the Angular Material typography */
-@include mat.all-component-typographies(
-        mat.define-typography-config(
-            $font-family: theme('fontFamily.sans'),
-            $title: mat.define-typography-level(1.25rem, 2rem, 600),
-            $body-2: mat.define-typography-level(0.875rem, 1.5rem, 600),
-            $button: mat.define-typography-level(0.875rem, 0.875rem, 500),
-            $input: mat.define-typography-level(0.875rem, 1.2857142857, 400) // line-height: 20px
-        )
-);
+/* Create a base theme without color.
+    This will globally set the density and typography for all future color themes. */
+@include mat.all-component-themes((
+    color: null,
+    density: -2,
+    typography: mat.define-typography-config(
+        $font-family: theme('fontFamily.sans'),
+        $title: mat.define-typography-level(1.25rem, 2rem, 600),
+        $body-2: mat.define-typography-level(0.875rem, 1.5rem, 600),
+        $button: mat.define-typography-level(0.875rem, 0.875rem, 500),
+        $input: mat.define-typography-level(0.875rem, 1.2857142857, 400) /* line-height: 20px */
+    )
+));
 
-/** Prepare the Background and Foreground maps */
+/* Prepare the Background and Foreground maps */
 $background-light: (
     status-bar: #CBD5E1, /* blueGray.300 */
     app-bar: #FFFFFF,
@@ -90,7 +93,7 @@ $foreground-dark: (
     slider-off-active: #94A3B8 /* blueGray.400 */
 );
 
-/** Generate Primary, Accent and Warn palettes */
+/* Generate Primary, Accent and Warn palettes */
 $palettes: ();
 @each $name in (primary, accent, warn) {
     $palettes: map.merge($palettes, (#{$name}: (
@@ -126,7 +129,7 @@ $palettes: ();
     )));
 }
 
-/** Generate Angular Material themes. Since we are using CSS Custom Properties,
+/* Generate Angular Material themes. Since we are using CSS Custom Properties,
     we don't have to generate a separate Angular Material theme for each color
     set. We can just create one light and one dark theme and then switch the
     CSS Custom Properties to dynamically switch the colors. */
@@ -144,11 +147,11 @@ body .light {
             is-dark: map.get(map.get($base-light-theme, color), is-dark),
             foreground: $foreground-light,
             background: $background-light
-        ),
-        density: -2
+        )
     );
 
-    @include mat.all-component-themes($light-theme);
+    /* Use all-component-colors to only generate the colors */
+    @include mat.all-component-colors($light-theme);
 }
 
 body.dark,
@@ -165,9 +168,9 @@ body .dark {
             is-dark: map.get(map.get($base-dark-theme, color), is-dark),
             foreground: $foreground-dark,
             background: $background-dark
-        ),
-        density: -2
+        )
     );
 
+    /* Use all-component-colors to only generate the colors */
     @include mat.all-component-colors($dark-theme);
 }
