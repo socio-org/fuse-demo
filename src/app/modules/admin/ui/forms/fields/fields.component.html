@@ -70,8 +70,8 @@
                         <mat-label>Address</mat-label>
                         <textarea
                             matInput
-                            cdkTextareaAutosize
-                            cdkAutosizeMinRows="3"></textarea>
+                            [rows]="3"
+                            matTextareaAutosize></textarea>
                         <mat-icon
                             class="icon-size-5"
                             matSuffix
@@ -357,7 +357,7 @@
                         <mat-label>Textarea with autosize</mat-label>
                         <textarea
                             matInput
-                            fuseAutogrow></textarea>
+                            matTextareaAutosize></textarea>
                     </mat-form-field>
                 </div>
                 <div class="flex">
@@ -367,7 +367,7 @@
                         <mat-label>Textarea with autosize, prefix & suffix</mat-label>
                         <textarea
                             matInput
-                            fuseAutogrow></textarea>
+                            matTextareaAutosize></textarea>
                         <mat-icon
                             class="icon-size-5"
                             matPrefix
@@ -625,8 +625,8 @@
                         class="fuse-mat-textarea flex-auto">
                         <textarea
                             matInput
-                            fuseAutogrow
-                            [placeholder]="'Textarea with autosize'"></textarea>
+                            [placeholder]="'Textarea with autosize'"
+                            matTextareaAutosize></textarea>
                     </mat-form-field>
                 </div>
                 <div class="flex">
@@ -635,8 +635,8 @@
                         class="fuse-mat-textarea flex-auto">
                         <textarea
                             matInput
-                            fuseAutogrow
-                            [placeholder]="'Textarea with autosize, prefix & suffix'"></textarea>
+                            [placeholder]="'Textarea with autosize, prefix & suffix'"
+                            matTextareaAutosize></textarea>
                         <mat-icon
                             class="icon-size-5"
                             matPrefix

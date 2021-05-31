@@ -8,7 +8,6 @@ import { DrawerComponent } from 'app/modules/admin/docs/core-features/components
 import { HighlightComponent } from 'app/modules/admin/docs/core-features/components/highlight/highlight.component';
 import { MasonryComponent } from 'app/modules/admin/docs/core-features/components/masonry/masonry.component';
 import { NavigationComponent } from 'app/modules/admin/docs/core-features/components/navigation/navigation.component';
-import { AutogrowComponent } from 'app/modules/admin/docs/core-features/directives/autogrow/autogrow.component';
 import { ScrollbarComponent } from 'app/modules/admin/docs/core-features/directives/scrollbar/scrollbar.component';
 import { ScrollResetComponent } from 'app/modules/admin/docs/core-features/directives/scroll-reset/scroll-reset.component';
 import { ConfigComponent } from 'app/modules/admin/docs/core-features/services/config/config.component';
@@ -80,11 +79,7 @@ export const coreFeaturesRoutes: Route[] = [
                     {
                         path      : '',
                         pathMatch : 'full',
-                        redirectTo: 'autogrow'
-                    },
-                    {
-                        path     : 'autogrow',
-                        component: AutogrowComponent
+                        redirectTo: 'scrollbar'
                     },
                     {
                         path     : 'scrollbar',

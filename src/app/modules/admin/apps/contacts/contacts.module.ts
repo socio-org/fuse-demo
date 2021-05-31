@@ -17,7 +17,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import * as moment from 'moment';
-import { FuseAutogrowModule } from '@fuse/directives/autogrow';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 import { contactsRoutes } from 'app/modules/admin/apps/contacts/contacts.routing';
@@ -49,7 +48,6 @@ import { ContactsListComponent } from 'app/modules/admin/apps/contacts/list/list
         MatSidenavModule,
         MatTableModule,
         MatTooltipModule,
-        FuseAutogrowModule,
         FuseFindByKeyPipeModule,
         SharedModule
     ],

@@ -67,10 +67,10 @@
                 <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
                     <mat-label>About</mat-label>
                     <textarea
+                        matInput
                         [formControlName]="'about'"
-                        [cdkTextareaAutosize]
-                        cdkAutosizeMinRows="5"
-                        matInput></textarea>
+                        matTextareaAutosize
+                        [matAutosizeMinRows]="5"></textarea>
                 </mat-form-field>
                 <div class="mt-1 text-md text-hint">Brief description for your profile. Basic HTML and Emoji are allowed.</div>
             </div>

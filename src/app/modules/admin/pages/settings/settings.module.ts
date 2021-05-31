@@ -9,7 +9,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FuseAlertModule } from '@fuse/components/alert';
-import { FuseAutogrowModule } from '@fuse/directives/autogrow';
 import { SharedModule } from 'app/shared/shared.module';
 import { SettingsComponent } from 'app/modules/admin/pages/settings/settings.component';
 import { SettingsAccountComponent } from 'app/modules/admin/pages/settings/account/account.component';
@@ -39,7 +38,6 @@ import { settingsRoutes } from 'app/modules/admin/pages/settings/settings.routin
         MatSidenavModule,
         MatSlideToggleModule,
         FuseAlertModule,
-        FuseAutogrowModule,
         SharedModule
     ]
 })

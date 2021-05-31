@@ -541,9 +541,9 @@
                     <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
                         <textarea
                             matInput
-                            cdkTextareaAutosize
-                            [cdkAutosizeMinRows]="3"
-                            placeholder="What's on your mind?"></textarea>
+                            [placeholder]="'What\'s on your mind?'"
+                            [rows]="3"
+                            matTextareaAutosize></textarea>
                     </mat-form-field>
                 </div>
                 <div class="flex items-center mt-6 sm:mt-8 -mx-3">
@@ -804,9 +804,9 @@
                             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
                                 <textarea
                                     matInput
-                                    cdkTextareaAutosize
-                                    [cdkAutosizeMinRows]="3"
-                                    placeholder="Write a comment..."></textarea>
+                                    [placeholder]="'Write a comment...'"
+                                    [rows]="3"
+                                    matTextareaAutosize></textarea>
                             </mat-form-field>
                         </div>
                         <div class="flex items-center mt-3 ml-auto -mr-3">

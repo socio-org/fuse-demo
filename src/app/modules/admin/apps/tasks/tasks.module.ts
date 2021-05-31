@@ -18,7 +18,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import * as moment from 'moment';
-import { FuseAutogrowModule } from '@fuse/directives/autogrow';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 import { tasksRoutes } from 'app/modules/admin/apps/tasks/tasks.routing';
@@ -51,7 +50,6 @@ import { TasksListComponent } from 'app/modules/admin/apps/tasks/list/list.compo
         MatSelectModule,
         MatSidenavModule,
         MatTooltipModule,
-        FuseAutogrowModule,
         FuseFindByKeyPipeModule,
         SharedModule
     ],

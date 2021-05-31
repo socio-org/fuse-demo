@@ -66,9 +66,9 @@
                 <mat-label>{{task.type === 'task' ? 'Task title' : 'Section title'}}</mat-label>
                 <textarea
                     matInput
-                    fuseAutogrow
                     [formControlName]="'title'"
                     [spellcheck]="false"
+                    matTextareaAutosize
                     #titleField></textarea>
             </mat-form-field>
         </div>
@@ -323,11 +323,10 @@
             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
                 <mat-label>Notes</mat-label>
                 <textarea
-                    class="leading-relaxed"
                     matInput
-                    fuseAutogrow
                     [formControlName]="'notes'"
-                    [spellcheck]="false"></textarea>
+                    [spellcheck]="false"
+                    matTextareaAutosize></textarea>
             </mat-form-field>
         </div>
 

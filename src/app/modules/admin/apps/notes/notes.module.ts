@@ -9,7 +9,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { FuseAutogrowModule } from '@fuse/directives/autogrow';
 import { FuseMasonryModule } from '@fuse/components/masonry';
 import { SharedModule } from 'app/shared/shared.module';
 import { NotesComponent } from 'app/modules/admin/apps/notes/notes.component';
@@ -36,7 +35,6 @@ import { notesRoutes } from 'app/modules/admin/apps/notes/notes.routing';
         MatMenuModule,
         MatRippleModule,
         MatSidenavModule,
-        FuseAutogrowModule,
         FuseMasonryModule,
         SharedModule
     ]

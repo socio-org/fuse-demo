@@ -97,12 +97,6 @@ export class CoreFeaturesComponent implements OnInit, OnDestroy
                 type    : 'group',
                 children: [
                     {
-                        id   : 'core-features.directives.autogrow',
-                        title: 'Autogrow',
-                        type : 'basic',
-                        link : '/docs/core-features/directives/autogrow'
-                    },
-                    {
                         id   : 'core-features.directives.scrollbar',
                         title: 'Scrollbar',
                         type : 'basic',

@@ -27,13 +27,13 @@
                     (input)="updateNoteDetails(note)">
             </div>
             <!-- Note -->
-            <div>
+            <div class="flex w-full py-5 px-2">
                 <textarea
-                    class="w-full my-2.5 p-2"
-                    fuseAutogrow
+                    class="w-full"
                     [placeholder]="'Note'"
                     [(ngModel)]="note.content"
-                    (input)="updateNoteDetails(note)"></textarea>
+                    (input)="updateNoteDetails(note)"
+                    matTextareaAutosize></textarea>
             </div>
             <!-- Tasks -->
             <ng-container *ngIf="note.tasks">

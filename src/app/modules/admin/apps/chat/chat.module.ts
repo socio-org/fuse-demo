@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { FuseAutogrowModule } from '@fuse/directives/autogrow';
 import { SharedModule } from 'app/shared/shared.module';
 import { chatRoutes } from 'app/modules/admin/apps/chat/chat.routing';
 import { ChatComponent } from 'app/modules/admin/apps/chat/chat.component';
@@ -35,7 +34,6 @@ import { ProfileComponent } from 'app/modules/admin/apps/chat/profile/profile.co
         MatInputModule,
         MatMenuModule,
         MatSidenavModule,
-        FuseAutogrowModule,
         SharedModule
     ]
 })

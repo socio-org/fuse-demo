@@ -11,7 +11,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatSelectModule } from '@angular/material/select';
-import { FuseAutogrowModule } from '@fuse/directives/autogrow';
 import { FuseHighlightModule } from '@fuse/components/highlight';
 import { SharedModule } from 'app/shared/shared.module';
 import { FormsFieldsComponent } from 'app/modules/admin/ui/forms/fields/fields.component';
@@ -40,7 +39,6 @@ export const routes: Route[] = [
         MatMenuModule,
         MatMomentDateModule,
         MatSelectModule,
-        FuseAutogrowModule,
         FuseHighlightModule,
         SharedModule
     ]
