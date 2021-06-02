@@ -135,13 +135,19 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/apps/notes'
             },
             {
+                id   : 'apps.scrumboard',
+                title: 'Scrumboard',
+                type : 'basic',
+                icon : 'heroicons_outline:view-boards',
+                link : '/apps/scrumboard'
+            },
+            {
                 id   : 'apps.tasks',
                 title: 'Tasks',
                 type : 'basic',
                 icon : 'heroicons_outline:check-circle',
                 link : '/apps/tasks'
             }
-
         ]
     },
     {
@@ -1269,6 +1275,13 @@ export const futuristicNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:pencil-alt',
                 link : '/apps/notes'
+            },
+            {
+                id   : 'apps.scrumboard',
+                title: 'Scrumboard',
+                type : 'basic',
+                icon : 'heroicons_outline:view-boards',
+                link : '/apps/scrumboard'
             },
             {
                 id   : 'apps.tasks',
