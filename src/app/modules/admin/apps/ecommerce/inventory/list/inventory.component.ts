@@ -332,15 +332,15 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         const tag = this.filteredTags[0];
         const isTagApplied = this.selectedProduct.tags.find(id => id === tag.id);
 
-        // If the found tag is already applied to the contact...
+        // If the found tag is already applied to the product...
         if ( isTagApplied )
         {
-            // Remove the tag from the contact
+            // Remove the tag from the product
             this.removeTagFromProduct(tag);
         }
         else
         {
-            // Otherwise add the tag to the contact
+            // Otherwise add the tag to the product
             this.addTagToProduct(tag);
         }
     }
