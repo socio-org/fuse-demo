@@ -1,7 +1,7 @@
 <div
     class="mt-11 w-64 py-2.5 px-2"
     [class.h-15]="!formVisible">
-    <div class="relative flex w-full h-full overflow-hidden rounded-xl bg-gray-200">
+    <div class="relative flex w-full h-full overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-700">
         <button
             class="absolute inset-0 justify-start w-full px-3 rounded-xl bg-transparent"
             [ngClass]="{'opacity-0 pointer-events-none': formVisible}"
@@ -18,7 +18,7 @@
             [ngClass]="{'opacity-0': !formVisible}"
             [formGroup]="form">
             <input
-                class="w-full py-2 px-3 leading-5 rounded-md shadow-sm border border-gray-300 bg-white focus:border-primary"
+                class="w-full py-2 px-3 leading-5 rounded-md shadow-sm border border-gray-300 bg-white focus:border-primary dark:border-gray-500 dark:focus:border-primary dark:bg-black dark:bg-opacity-5"
                 [autocomplete]="'off'"
                 [formControlName]="'title'"
                 [placeholder]="'Enter list title...'"
