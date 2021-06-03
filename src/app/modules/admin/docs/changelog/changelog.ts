@@ -11,6 +11,36 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.0.3
+        {
+            version    : 'v13.0.3',
+            releaseDate: 'June 03, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(apps/scrumboard) New, initial version of the Scrumboard app'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(fuse/autogrow) BREAKING: Removed "fuseAutogrow" in favor of "matTextareaAutosize" since all of its problems solved, use [matTextareaAutosize] without any vertical padding on the textarea itself',
+                        '(Angular Material) Increased default MatDialog border radius to 16px for better consistency',
+                        '(apps/ecommerce) Small tweaks and improvements',
+                        '(apps/mailbox) Small tweaks and improvements',
+                        '(angular.json) Removed "e2e" entry, fixed the styles file path for "test"',
+                        '(dependencies) Updated Angular, Angular Material & various other packages'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(Angular Material) Density setting is not being applied correctly on Dark themes'
+                    ]
+                }
+            ]
+        },
         // v13.0.2
         {
             version    : 'v13.0.2',
