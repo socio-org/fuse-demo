@@ -683,9 +683,9 @@ export const defaultNavigation: FuseNavigationItem[] = [
         children: [
             {
                 id   : 'user-interface.angular-material',
-                title: 'Angular Material',
+                title: 'Angular Material components',
                 type : 'basic',
-                icon : 'heroicons_outline:shield-check',
+                icon : 'heroicons_outline:chip',
                 link : '/ui/angular-material'
             },
             {

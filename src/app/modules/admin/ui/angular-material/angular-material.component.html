@@ -12,16 +12,30 @@
             <!-- Title -->
             <div class="mt-2">
                 <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
-                    Angular Material
+                    Angular Material components
                 </h2>
             </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex flex-shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+            <a
+                mat-flat-button
+                href="https://material.angular.io/components/categories"
+                target="_blank"
+                rel="noreferrer"
+                [color]="'primary'">
+                <mat-icon
+                    class="icon-size-5 mr-2"
+                    [svgIcon]="'heroicons_solid:external-link'"></mat-icon>
+                Official docs
+            </a>
         </div>
     </div>
 
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
 
-        <div class="max-w-3xl prose prose-sm">
+        <div class="max-w-4xl prose prose-sm">
 
             <p>
                 Fuse uses
@@ -46,26 +60,28 @@
 
             <h2>Component examples and API documentation</h2>
             <p>
-                Because it makes this demo app very heavy and unusable, we don't showcase any of the components
-                within this demo. It also makes it harder for us to upgrade to the latest version of the Angular
-                Material whenever there is a new version, simply because we have to update all the component demos
-                as well, and it's not an easy task.
+                Following, you can find links to the official documentation. Click on the component you want to
+                learn more about and it will redirect you to the related section of the official documentation.
             </p>
-            <p>
-                With that being said, you should always refer to the official docs, they always have the latest version
-                up and running so you won't end up with an outdated examples and/or API documentation.
-            </p>
+        </div>
 
-            <h2>Official docs</h2>
-            <p>
-                Angular Material examples and API documentation:
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 mt-8">
+            <ng-container *ngFor="let component of components">
                 <a
-                    class="link"
-                    href="https://material.angular.io/components/categories"
-                    rel="noreferrer"
-                    target="_blank">https://material.angular.io/components/categories
+                    class="flex flex-col rounded-2xl shadow overflow-hidden bg-card hover:shadow-xl transition-shadow duration-200 ease-in-out"
+                    [href]="'https://material.angular.io/components/' + component.id"
+                    target="_blank"
+                    rel="noreferrer">
+                    <img
+                        class="w-full object-cover border-b"
+                        [src]="'assets/images/ui/angular-material/scenes/' + component.id + '.scene.png'">
+                    <div class="py-4 px-5">
+                        <div class="text-xl font-semibold">{{component.name}}</div>
+                        <div class="mt-1 text-secondary">{{component.summary}}</div>
+                    </div>
                 </a>
-            </p>
+
+            </ng-container>
         </div>
 
     </div>
