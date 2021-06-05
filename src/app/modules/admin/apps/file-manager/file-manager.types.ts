@@ -2,11 +2,13 @@ export interface Items
 {
     folders: Item[];
     files: Item[];
+    path: any[];
 }
 
 export interface Item
 {
     id?: string;
+    folderId?: string;
     name?: string;
     createdBy?: string;
     createdAt?: string;

@@ -22,17 +22,17 @@ export class CanDeactivateFileManagerDetails implements CanDeactivate<FileManage
             nextRoute = nextRoute.firstChild;
         }
 
-        // If the next state doesn't contain '/files'
+        // If the next state doesn't contain '/file-manager'
         // it means we are navigating away from the
-        // tasks app
+        // file manager app
         if ( !nextState.url.includes('/file-manager') )
         {
             // Let it navigate
             return true;
         }
 
-        // If we are navigating to another task...
-        if ( nextRoute.paramMap.get('id') )
+        // If we are navigating to another item...
+        if ( nextState.url.includes('/details') )
         {
             // Just navigate
             return true;

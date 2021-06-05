@@ -26,7 +26,32 @@
                     <div>
                         <div class="text-4xl font-extrabold tracking-tight leading-none">File Manager</div>
                         <div class="flex items-center mt-0.5 font-medium text-secondary">
-                            {{items.folders.length}} folders, {{items.files.length}} files
+                            <ng-container *ngIf="!items.path.length">
+                                {{items.folders.length}} folders, {{items.files.length}} files
+                            </ng-container>
+                            <!-- Breadcrumbs -->
+                            <ng-container *ngIf="items.path.length">
+                                <div class="flex items-center space-x-2">
+                                    <a
+                                        class="text-primary cursor-pointer"
+                                        [routerLink]="['/apps/file-manager']">Home
+                                    </a>
+                                    <div class="">/</div>
+                                    <ng-container *ngFor="let path of items.path; let last = last; trackBy: trackByFn">
+                                        <ng-container *ngIf="!last">
+                                            <a
+                                                class="text-primary cursor-pointer"
+                                                [routerLink]="['/apps/file-manager/folders/', path.id]">{{path.name}}</a>
+                                        </ng-container>
+                                        <ng-container *ngIf="last">
+                                            <div>{{path.name}}</div>
+                                        </ng-container>
+                                        <ng-container *ngIf="!last">
+                                            <div class="">/</div>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
                         </div>
                     </div>
                     <!-- Actions -->
@@ -42,75 +67,95 @@
                 </div>
 
                 <!-- Items list -->
-                <ng-container *ngIf="items && items.folders.length && items.files.length > 0; else noItems">
-                    <div class="p-6 md:p-8">
+                <ng-container *ngIf="items && (items.folders.length > 0 || items.files.length > 0); else noItems">
+                    <div class="p-6 md:p-8 space-y-8">
                         <!-- Folders -->
-                        <div class="font-medium">Folders</div>
-                        <div
-                            class="flex flex-wrap -m-2 mt-2">
-                            <ng-container *ngFor="let folder of items.folders; trackBy:trackByFn">
-                                <ng-container *ngTemplateOutlet="item, context: {$implicit: folder}"></ng-container>
-                            </ng-container>
-                        </div>
-
-                        <!-- Files -->
-                        <div class="font-medium mt-8">Files</div>
-                        <div
-                            class="flex flex-wrap -m-2 mt-2">
-                            <ng-container *ngFor="let file of items.files; trackBy:trackByFn">
-                                <ng-container *ngTemplateOutlet="item, context: {$implicit: file}"></ng-container>
-                            </ng-container>
-                        </div>
-                    </div>
-                </ng-container>
-
-                <!-- Item template -->
-                <ng-template
-                    #item
-                    let-item>
-                    <a
-                        class="flex flex-col w-40 h-40 m-2 p-4 shadow rounded-2xl cursor-pointer bg-card"
-                        [routerLink]="['./', item.id]">
-                        <div class="aspect-w-9 aspect-h-6">
-                            <div class="flex items-center justify-center">
-                                <!-- Icons -->
-                                <ng-container [ngSwitch]="item.type">
-                                    <!-- Folder -->
-                                    <ng-container *ngSwitchCase="'folder'">
-                                        <mat-icon
-                                            class="icon-size-14 text-hint"
-                                            [svgIcon]="'iconsmind:folder'"></mat-icon>
-                                    </ng-container>
-                                    <!-- File -->
-                                    <ng-container *ngSwitchDefault>
-                                        <div class="relative">
-                                            <mat-icon
-                                                class="icon-size-14 text-hint"
-                                                [svgIcon]="'iconsmind:file'"></mat-icon>
-                                            <div
-                                                class="absolute left-0 bottom-0 px-1.5 rounded text-sm font-semibold leading-5 text-white"
-                                                [class.bg-red-600]="item.type === 'PDF'"
-                                                [class.bg-blue-600]="item.type === 'DOC'"
-                                                [class.bg-green-600]="item.type === 'XLS'"
-                                                [class.bg-gray-600]="item.type === 'TXT'"
-                                                [class.bg-amber-600]="item.type === 'JPG'">
-                                                {{item.type.toUpperCase()}}
-                                            </div>
+                        <ng-container *ngIf="items.folders.length > 0">
+                            <div>
+                                <div class="font-medium">Folders</div>
+                                <div
+                                    class="flex flex-wrap -m-2 mt-2">
+                                    <ng-container *ngFor="let folder of items.folders; trackBy:trackByFn">
+                                        <div class="relative w-40 h-40 m-2 p-4 shadow rounded-2xl bg-card">
+                                            <a
+                                                class="absolute z-20 top-1.5 right-1.5 w-8 h-8 min-h-8"
+                                                (click)="$event.preventDefault()"
+                                                [routerLink]="['./details/', folder.id]"
+                                                mat-icon-button>
+                                                <mat-icon
+                                                    class="icon-size-5"
+                                                    [svgIcon]="'heroicons_solid:information-circle'"></mat-icon>
+                                            </a>
+                                            <a
+                                                class="z-10 absolute inset-0 flex flex-col p-4 cursor-pointer"
+                                                [routerLink]="['/apps/file-manager/folders/', folder.id]">
+                                                <div class="aspect-w-9 aspect-h-6">
+                                                    <div class="flex items-center justify-center">
+                                                        <!-- Icon -->
+                                                        <mat-icon
+                                                            class="icon-size-14 text-hint"
+                                                            [svgIcon]="'iconsmind:folder'"></mat-icon>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col flex-auto justify-center text-center text-sm font-medium">
+                                                    <div
+                                                        class="truncate"
+                                                        [matTooltip]="folder.name">{{folder.name}}</div>
+                                                    <ng-container *ngIf="folder.contents">
+                                                        <div class="text-secondary truncate">{{folder.contents}}</div>
+                                                    </ng-container>
+                                                </div>
+                                            </a>
                                         </div>
                                     </ng-container>
-                                </ng-container>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex flex-col flex-auto justify-center text-center text-sm font-medium">
-                            <div
-                                class="truncate"
-                                [matTooltip]="item.name">{{item.name}}</div>
-                            <ng-container *ngIf="item.contents">
-                                <div class="text-secondary truncate">{{item.contents}}</div>
-                            </ng-container>
-                        </div>
-                    </a>
-                </ng-template>
+                        </ng-container>
+
+                        <!-- Files -->
+                        <ng-container *ngIf="items.files.length > 0">
+                            <div>
+                                <div class="font-medium">Files</div>
+                                <div
+                                    class="flex flex-wrap -m-2 mt-2">
+                                    <ng-container *ngFor="let file of items.files; trackBy:trackByFn">
+                                        <a
+                                            class="flex flex-col w-40 h-40 m-2 p-4 shadow rounded-2xl cursor-pointer bg-card"
+                                            [routerLink]="['./details/', file.id]">
+                                            <div class="aspect-w-9 aspect-h-6">
+                                                <div class="flex items-center justify-center">
+                                                    <!-- Icons -->
+                                                    <div class="relative">
+                                                        <mat-icon
+                                                            class="icon-size-14 text-hint"
+                                                            [svgIcon]="'iconsmind:file'"></mat-icon>
+                                                        <div
+                                                            class="absolute left-0 bottom-0 px-1.5 rounded text-sm font-semibold leading-5 text-white"
+                                                            [class.bg-red-600]="file.type === 'PDF'"
+                                                            [class.bg-blue-600]="file.type === 'DOC'"
+                                                            [class.bg-green-600]="file.type === 'XLS'"
+                                                            [class.bg-gray-600]="file.type === 'TXT'"
+                                                            [class.bg-amber-600]="file.type === 'JPG'">
+                                                            {{file.type.toUpperCase()}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col flex-auto justify-center text-center text-sm font-medium">
+                                                <div
+                                                    class="truncate"
+                                                    [matTooltip]="file.name">{{file.name}}</div>
+                                                <ng-container *ngIf="file.contents">
+                                                    <div class="text-secondary truncate">{{file.contents}}</div>
+                                                </ng-container>
+                                            </div>
+                                        </a>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
 
                 <!-- No items template -->
                 <ng-template #noItems>
