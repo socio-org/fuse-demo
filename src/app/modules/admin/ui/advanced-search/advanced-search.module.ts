@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FuseHighlightModule } from '@fuse/components/highlight';
@@ -20,7 +19,6 @@ import { advancedSearchRoutes } from 'app/modules/admin/ui/advanced-search/advan
         MatButtonModule,
         MatCheckboxModule,
         MatFormFieldModule,
-        MatIconModule,
         MatInputModule,
         MatSelectModule,
         FuseHighlightModule,
