@@ -696,6 +696,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/ui/tailwindcss'
             },
             {
+                id   : 'user-interface.advanced-search',
+                title: 'Advanced search',
+                type : 'basic',
+                icon : 'heroicons_outline:search-circle',
+                link : '/ui/advanced-search'
+            },
+            {
                 id   : 'user-interface.animations',
                 title: 'Animations',
                 type : 'basic',
