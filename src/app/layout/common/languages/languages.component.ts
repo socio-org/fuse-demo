@@ -4,13 +4,13 @@ import { AvailableLangs, TranslocoService } from '@ngneat/transloco';
 import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 
 @Component({
-    selector       : 'language',
-    templateUrl    : './language.component.html',
+    selector       : 'languages',
+    templateUrl    : './languages.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs       : 'language'
+    exportAs       : 'languages'
 })
-export class LanguageComponent implements OnInit, OnDestroy
+export class LanguagesComponent implements OnInit, OnDestroy
 {
     availableLangs: AvailableLangs;
     activeLang: string;

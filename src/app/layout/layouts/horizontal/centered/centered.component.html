@@ -6,7 +6,7 @@
             class="dark bg-gray-900 print:hidden"
             [mode]="'over'"
             [name]="'mainNavigation'"
-            [navigation]="data.navigation.default"
+            [navigation]="navigation.default"
             [opened]="false">
             <!-- Navigation header hook -->
             <ng-container fuseVerticalNavigationContentHeader>
@@ -63,13 +63,13 @@
             </ng-container>
             <!-- Components -->
             <div class="flex items-center pl-2 ml-auto space-x-2">
-                <language></language>
+                <languages></languages>
                 <fuse-fullscreen></fuse-fullscreen>
                 <search [appearance]="'bar'"></search>
-                <shortcuts [shortcuts]="data.shortcuts"></shortcuts>
-                <messages [messages]="data.messages"></messages>
-                <notifications [notifications]="data.notifications"></notifications>
-                <user-menu></user-menu>
+                <shortcuts></shortcuts>
+                <messages></messages>
+                <notifications></notifications>
+                <user></user>
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
@@ -15,14 +15,14 @@ import { ShortcutsService } from 'app/layout/common/shortcuts/shortcuts.service'
     changeDetection: ChangeDetectionStrategy.OnPush,
     exportAs       : 'shortcuts'
 })
-export class ShortcutsComponent implements OnChanges, OnInit, OnDestroy
+export class ShortcutsComponent implements OnInit, OnDestroy
 {
-    @Input() shortcuts: Shortcut[];
     @ViewChild('shortcutsOrigin') private _shortcutsOrigin: MatButton;
     @ViewChild('shortcutsPanel') private _shortcutsPanel: TemplateRef<any>;
 
     mode: 'view' | 'modify' | 'add' | 'edit' = 'view';
     shortcutForm: FormGroup;
+    shortcuts: Shortcut[];
     private _overlayRef: OverlayRef;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -42,21 +42,6 @@ export class ShortcutsComponent implements OnChanges, OnInit, OnDestroy
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
     // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On changes
-     *
-     * @param changes
-     */
-    ngOnChanges(changes: SimpleChanges): void
-    {
-        // Shortcuts
-        if ( 'shortcuts' in changes )
-        {
-            // Store the shortcuts on the service
-            this._shortcutsService.store(changes.shortcuts.currentValue);
-        }
-    }
 
     /**
      * On init
