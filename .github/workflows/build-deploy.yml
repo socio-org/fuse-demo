@@ -15,7 +15,9 @@ jobs:
         node-version: '14.x'
     - uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
       with:
-        path: ~/.npm
+        path: |
+          ~/.npm
+          $GITHUB_WORKSPACE/node_modules
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-    
