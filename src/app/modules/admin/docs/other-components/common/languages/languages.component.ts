@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { OtherComponentsComponent } from 'app/modules/admin/docs/other-components/other-components.component';
 
 @Component({
-    selector   : 'shortcuts',
-    templateUrl: './shortcuts.component.html',
+    selector   : 'languages',
+    templateUrl: './languages.component.html'
 })
-export class ShortcutsComponent
+export class LanguagesComponent
 {
     /**
      * Constructor

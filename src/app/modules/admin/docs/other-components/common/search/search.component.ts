@@ -3,8 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/docs/other-component
 
 @Component({
     selector   : 'search',
-    templateUrl: './search.component.html',
-    styles     : ['']
+    templateUrl: './search.component.html'
 })
 export class SearchComponent
 {

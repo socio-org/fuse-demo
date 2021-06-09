@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { OtherComponentsComponent } from 'app/modules/admin/docs/other-components/other-components.component';
+import { CoreFeaturesComponent } from 'app/modules/admin/docs/core-features/core-features.component';
 
 @Component({
-    selector   : 'shortcuts',
-    templateUrl: './shortcuts.component.html',
+    selector   : 'fullscreen',
+    templateUrl: './fullscreen.component.html',
+    styles     : ['']
 })
-export class ShortcutsComponent
+export class FullscreenComponent
 {
     /**
      * Constructor
      */
-    constructor(private _otherComponentsComponent: OtherComponentsComponent)
+    constructor(private _coreFeaturesComponent: CoreFeaturesComponent)
     {
     }
 
@@ -24,6 +25,6 @@ export class ShortcutsComponent
     toggleDrawer(): void
     {
         // Toggle the drawer
-        this._otherComponentsComponent.matDrawer.toggle();
+        this._coreFeaturesComponent.matDrawer.toggle();
     }
 }

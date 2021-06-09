@@ -52,13 +52,10 @@
         </ul>
 
         <h2>Usage</h2>
-        <p>
-            The component only has one input to supply the notifications:
-        </p>
         <textarea
             fuse-highlight
             lang="html">
-            <notifications [notifications]="data.notifications"></notifications>
+            <notifications></notifications>
         </textarea>
 
         <h2>Notification</h2>
@@ -184,16 +181,15 @@
         </div>
         <div class="bg-card rounded shadow mt-4">
             <div class="px-6 py-3 font-mono text-secondary border-b">
-                store(notifications: Notification[])
+                getAll(): Observable&lt;Notification[]&gt;
             </div>
             <div class="p-6">
-                Store notifications on the service. This will replace the current notifications and can be used as an alternative to <em>notifications</em> input of the
-                component.
+                Get all notifications from the server.
             </div>
         </div>
         <div class="bg-card rounded shadow mt-4">
             <div class="px-6 py-3 font-mono text-secondary border-b">
-                create(notification: Notification): Observable&lt;Notifications&gt;
+                create(notification: Notification): Observable&lt;Notification&gt;
             </div>
             <div class="p-6">
                 Create a new notification on the server.

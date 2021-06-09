@@ -4,7 +4,6 @@ import { OtherComponentsComponent } from 'app/modules/admin/docs/other-component
 @Component({
     selector   : 'notifications',
     templateUrl: './notifications.component.html',
-    styles     : ['']
 })
 export class NotificationsComponent
 {

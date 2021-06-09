@@ -44,13 +44,10 @@
         </p>
 
         <h2>Usage</h2>
-        <p>
-            The component only has one input to supply the shortcuts:
-        </p>
         <textarea
             fuse-highlight
             lang="html">
-            <shortcuts [shortcuts]="data.shortcuts"></shortcuts>
+            <shortcuts></shortcuts>
         </textarea>
 
         <h2>Message</h2>
@@ -149,16 +146,15 @@
         </div>
         <div class="bg-card rounded shadow mt-4">
             <div class="px-6 py-3 font-mono text-secondary border-b">
-                store(shortcuts: Shortcut[])
+                getAll(): Observable&lt;Shortcut[]&gt;
             </div>
             <div class="p-6">
-                Store shortcuts on the service. This will replace the current shortcuts and can be used as an alternative to <em>shortcuts</em> input of the
-                component.
+                Get all shortcuts from the server.
             </div>
         </div>
         <div class="bg-card rounded shadow mt-4">
             <div class="px-6 py-3 font-mono text-secondary border-b">
-                create(shortcut: Shortcut): Observable&lt;Shortcuts&gt;
+                create(shortcut: Shortcut): Observable&lt;Shortcut&gt;
             </div>
             <div class="p-6">
                 Create a new shortcut on the server.

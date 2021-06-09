@@ -52,13 +52,10 @@
         </ul>
 
         <h2>Usage</h2>
-        <p>
-            The component only has one input to supply the messages:
-        </p>
         <textarea
             fuse-highlight
             lang="html">
-            <messages [messages]="data.messages"></messages>
+            <messages></messages>
         </textarea>
 
         <h2>Message</h2>
@@ -184,16 +181,15 @@
         </div>
         <div class="bg-card rounded shadow mt-4">
             <div class="px-6 py-3 font-mono text-secondary border-b">
-                store(messages: Message[])
+                getAll(): Observable&lt;Message[]&gt;
             </div>
             <div class="p-6">
-                Store messages on the service. This will replace the current messages and can be used as an alternative to <em>messages</em> input of the
-                component.
+                Get all messages from the server.
             </div>
         </div>
         <div class="bg-card rounded shadow mt-4">
             <div class="px-6 py-3 font-mono text-secondary border-b">
-                create(message: Message): Observable&lt;Messages&gt;
+                create(message: Message): Observable&lt;Message&gt;
             </div>
             <div class="p-6">
                 Create a new message on the server.

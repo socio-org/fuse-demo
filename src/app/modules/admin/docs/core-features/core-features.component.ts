@@ -72,6 +72,12 @@ export class CoreFeaturesComponent implements OnInit, OnDestroy
                         link : '/docs/core-features/components/drawer'
                     },
                     {
+                        id   : 'core-features.components.fullscreen',
+                        title: 'Fullscreen',
+                        type : 'basic',
+                        link : '/docs/core-features/components/fullscreen'
+                    },
+                    {
                         id   : 'core-features.components.highlight',
                         title: 'Highlight',
                         type : 'basic',

@@ -12,19 +12,19 @@
                     <mat-icon
                         class="icon-size-5 text-secondary"
                         [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
-                    <a class="ml-1 text-primary-500">Other Components</a>
+                    <a class="ml-1 text-primary-500">Core Features</a>
                 </div>
                 <div class="flex items-center ml-1 whitespace-nowrap">
                     <mat-icon
                         class="icon-size-5 text-secondary"
                         [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
-                    <span class="ml-1 text-secondary">Common</span>
+                    <span class="ml-1 text-secondary">Components</span>
                 </div>
             </div>
             <!-- Title -->
             <div class="mt-2">
                 <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
-                    User Menu
+                    Fullscreen
                 </h2>
             </div>
         </div>
@@ -39,18 +39,29 @@
     <div class="flex-auto max-w-3xl p-6 sm:p-10 prose prose-sm">
 
         <p>
-            This component can be used for showing information and actions related to the currently logged in user.
+            <strong>fuse-fullscreen</strong> is a small component that toggles the fullscreen on and off.
         </p>
+        <p>
+            <strong>Exported as: </strong><code>fuseFullscreen</code>
+        </p>
+
+        <h2>Module</h2>
+        <textarea
+            fuse-highlight
+            lang="typescript">
+            import { FuseFullscreenModule } from '@fuse/components/fullscreen';
+        </textarea>
 
         <h2>Usage</h2>
         <p>
-            Here's the basic usage of the component:
+            Here's the basic usage of the <code>fuse-fullscreen</code>:
         </p>
-        <textarea
-            fuse-highlight
-            lang="html">
-            <user-menu [user]="data.user"></user-menu>
+        <!-- @formatter:off -->
+        <textarea fuse-highlight
+                  lang="html">
+            &lt;fuse-fullscreen&gt;&lt;/fuse-fullscreen&gt;
         </textarea>
+        <!-- @formatter:on -->
 
         <h2>Properties</h2>
         <div class="bg-card py-3 px-6 rounded shadow">
@@ -66,25 +77,25 @@
                     <tr>
                         <td class="font-mono text-md text-secondary">
                             <div>@Input()</div>
-                            <div>showAvatar: boolean</div>
+                            <div>iconTpl: TemplateRef&lt;any&gt;</div>
                         </td>
                         <td>
-                            Whether to show avatar of the user. If set to <code>false</code>, a generic icon will be shown.
+                            Template reference for the icon.
                         </td>
                         <td>
-                            <code class="whitespace-nowrap">true</code>
+                            -
                         </td>
                     </tr>
                     <tr>
                         <td class="font-mono text-md text-secondary">
                             <div>@Input()</div>
-                            <div>user: User</div>
+                            <div>tooltip: string</div>
                         </td>
                         <td>
-                            The user data.
+                            Tooltip of the toggle button.
                         </td>
                         <td>
-                            -
+                            'Toggle Fullscreen'
                         </td>
                     </tr>
                 </tbody>

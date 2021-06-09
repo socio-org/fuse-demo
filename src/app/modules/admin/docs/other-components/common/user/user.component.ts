@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { OtherComponentsComponent } from 'app/modules/admin/docs/other-components/other-components.component';
 
 @Component({
-    selector   : 'user-menu',
-    templateUrl: './user-menu.component.html',
-    styles     : ['']
+    selector   : 'user',
+    templateUrl: './user.component.html'
 })
-export class UserMenuComponent
+export class UserComponent
 {
     /**
      * Constructor

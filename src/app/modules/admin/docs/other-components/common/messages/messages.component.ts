@@ -4,7 +4,6 @@ import { OtherComponentsComponent } from 'app/modules/admin/docs/other-component
 @Component({
     selector   : 'messages',
     templateUrl: './messages.component.html',
-    styles     : ['']
 })
 export class MessagesComponent
 {

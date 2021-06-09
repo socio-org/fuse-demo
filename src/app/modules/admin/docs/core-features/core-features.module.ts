@@ -20,6 +20,7 @@ import { AlertComponent } from 'app/modules/admin/docs/core-features/components/
 import { CardComponent } from 'app/modules/admin/docs/core-features/components/card/card.component';
 import { DateRangeComponent } from 'app/modules/admin/docs/core-features/components/date-range/date-range.component';
 import { DrawerComponent } from 'app/modules/admin/docs/core-features/components/drawer/drawer.component';
+import { FullscreenComponent } from 'app/modules/admin/docs/core-features/components/fullscreen/fullscreen.component';
 import { HighlightComponent } from 'app/modules/admin/docs/core-features/components/highlight/highlight.component';
 import { NavigationComponent } from 'app/modules/admin/docs/core-features/components/navigation/navigation.component';
 import { MasonryComponent } from 'app/modules/admin/docs/core-features/components/masonry/masonry.component';
@@ -40,6 +41,7 @@ import { coreFeaturesRoutes } from 'app/modules/admin/docs/core-features/core-fe
         CardComponent,
         DateRangeComponent,
         DrawerComponent,
+        FullscreenComponent,
         HighlightComponent,
         MasonryComponent,
         NavigationComponent,
