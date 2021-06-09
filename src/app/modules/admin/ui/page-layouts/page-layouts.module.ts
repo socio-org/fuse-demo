@@ -36,9 +36,13 @@ import { CardedRightSidebar1PageScrollComponent } from 'app/modules/admin/ui/pag
 import { CardedRightSidebar1ContentScrollComponent } from 'app/modules/admin/ui/page-layouts/carded/right-sidebar-1/content-scroll/right-sidebar-1.component';
 import { CardedRightSidebar2NormalScrollComponent } from 'app/modules/admin/ui/page-layouts/carded/right-sidebar-2/normal-scroll/right-sidebar-2.component';
 
-import { SimpleFullwidthNormalScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth/normal-scroll/fullwidth.component';
-import { SimpleFullwidthPageScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth/page-scroll/fullwidth.component';
-import { SimpleFullwidthContentScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth/content-scroll/fullwidth.component';
+import { SimpleFullwidth1NormalScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth-1/normal-scroll/fullwidth-1.component';
+import { SimpleFullwidth1PageScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth-1/page-scroll/fullwidth-1.component';
+import { SimpleFullwidth1ContentScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth-1/content-scroll/fullwidth-1.component';
+
+import { SimpleFullwidth2NormalScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth-2/normal-scroll/fullwidth-2.component';
+import { SimpleFullwidth2PageScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth-2/page-scroll/fullwidth-2.component';
+import { SimpleFullwidth2ContentScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/fullwidth-2/content-scroll/fullwidth-2.component';
 
 import { SimpleLeftSidebar1NormalScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/left-sidebar-1/normal-scroll/left-sidebar-1.component';
 import { SimpleLeftSidebar1PageScrollComponent } from 'app/modules/admin/ui/page-layouts/simple/left-sidebar-1/page-scroll/left-sidebar-1.component';
@@ -277,8 +281,8 @@ export const overviews = {
         }
     },
     simple: {
-        fullwidth    : {
-            title           : 'Fullwidth Layout',
+        fullwidth1    : {
+            title           : 'Fullwidth #1',
             description     : 'Layout that spans the entire width of the content area with a dedicated header and 3 different scroll modes.',
             availableOptions: [
                 {
@@ -298,18 +302,54 @@ export const overviews = {
             options         : {
                 normalScroll : {
                     description: 'No scrolling area manipulations, entire viewport scrolls (body scroll).',
-                    link       : '/ui/page-layouts/simple/fullwidth/normal-scroll',
-                    component  : SimpleFullwidthNormalScrollComponent
+                    link       : '/ui/page-layouts/simple/fullwidth-1/normal-scroll',
+                    component  : SimpleFullwidth1NormalScrollComponent
                 },
                 pageScroll   : {
                     description: 'Only the page area scrolls making the main toolbar and footer to stick to the top and bottom of the viewport respectively.',
-                    link       : '/ui/page-layouts/simple/fullwidth/page-scroll',
-                    component  : SimpleFullwidthPageScrollComponent
+                    link       : '/ui/page-layouts/simple/fullwidth-1/page-scroll',
+                    component  : SimpleFullwidth1PageScrollComponent
                 },
                 contentScroll: {
                     description: 'Only the content area of the page scrolls making everything else to stick into their positions.',
-                    link       : '/ui/page-layouts/simple/fullwidth/content-scroll',
-                    component  : SimpleFullwidthContentScrollComponent
+                    link       : '/ui/page-layouts/simple/fullwidth-1/content-scroll',
+                    component  : SimpleFullwidth1ContentScrollComponent
+                }
+            }
+        },
+        fullwidth2    : {
+            title           : 'Fullwidth #2',
+            description     : 'Layout that spans the entire width of the content area with a dedicated header, tabs and 3 different scroll modes.',
+            availableOptions: [
+                {
+                    value: 'normalScroll',
+                    title: 'Normal Scroll'
+                },
+                {
+                    value: 'pageScroll',
+                    title: 'Page Scroll'
+                },
+                {
+                    value: 'contentScroll',
+                    title: 'Content Scroll'
+                }
+            ],
+            selectedOption  : 'normalScroll',
+            options         : {
+                normalScroll : {
+                    description: 'No scrolling area manipulations, entire viewport scrolls (body scroll).',
+                    link       : '/ui/page-layouts/simple/fullwidth-2/normal-scroll',
+                    component  : SimpleFullwidth2NormalScrollComponent
+                },
+                pageScroll   : {
+                    description: 'Only the page area scrolls making the main toolbar and footer to stick to the top and bottom of the viewport respectively.',
+                    link       : '/ui/page-layouts/simple/fullwidth-2/page-scroll',
+                    component  : SimpleFullwidth2PageScrollComponent
+                },
+                contentScroll: {
+                    description: 'Only the content area of the page scrolls making everything else to stick into their positions.',
+                    link       : '/ui/page-layouts/simple/fullwidth-2/content-scroll',
+                    component  : SimpleFullwidth2ContentScrollComponent
                 }
             }
         },
@@ -741,7 +781,7 @@ export const routes: Route[] = [
         path    : 'simple',
         children: [
             {
-                path    : 'fullwidth',
+                path    : 'fullwidth-1',
                 children: [
                     {
                         path      : '',
@@ -752,20 +792,49 @@ export const routes: Route[] = [
                         path     : 'overview',
                         component: LayoutOverviewComponent,
                         data     : {
-                            overview: overviews.simple.fullwidth
+                            overview: overviews.simple.fullwidth1
                         }
                     },
                     {
                         path     : 'normal-scroll',
-                        component: SimpleFullwidthNormalScrollComponent
+                        component: SimpleFullwidth1NormalScrollComponent
                     },
                     {
                         path     : 'page-scroll',
-                        component: SimpleFullwidthPageScrollComponent
+                        component: SimpleFullwidth1PageScrollComponent
                     },
                     {
                         path     : 'content-scroll',
-                        component: SimpleFullwidthContentScrollComponent
+                        component: SimpleFullwidth1ContentScrollComponent
+                    }
+                ]
+            },
+            {
+                path    : 'fullwidth-2',
+                children: [
+                    {
+                        path      : '',
+                        pathMatch : 'full',
+                        redirectTo: 'overview'
+                    },
+                    {
+                        path     : 'overview',
+                        component: LayoutOverviewComponent,
+                        data     : {
+                            overview: overviews.simple.fullwidth2
+                        }
+                    },
+                    {
+                        path     : 'normal-scroll',
+                        component: SimpleFullwidth2NormalScrollComponent
+                    },
+                    {
+                        path     : 'page-scroll',
+                        component: SimpleFullwidth2PageScrollComponent
+                    },
+                    {
+                        path     : 'content-scroll',
+                        component: SimpleFullwidth2ContentScrollComponent
                     }
                 ]
             },
@@ -987,9 +1056,13 @@ export const routes: Route[] = [
         CardedRightSidebar2ContentScrollComponent,
 
         // Simple - Fullwidth
-        SimpleFullwidthNormalScrollComponent,
-        SimpleFullwidthPageScrollComponent,
-        SimpleFullwidthContentScrollComponent,
+        SimpleFullwidth1NormalScrollComponent,
+        SimpleFullwidth1PageScrollComponent,
+        SimpleFullwidth1ContentScrollComponent,
+
+        SimpleFullwidth2NormalScrollComponent,
+        SimpleFullwidth2PageScrollComponent,
+        SimpleFullwidth2ContentScrollComponent,
 
         // Simple - Left sidebar
         SimpleLeftSidebar1NormalScrollComponent,

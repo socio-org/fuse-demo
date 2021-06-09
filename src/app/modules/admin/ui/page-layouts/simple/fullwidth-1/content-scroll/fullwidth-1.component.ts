@@ -1,11 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-    selector     : 'simple-fullwidth-content-scroll',
-    templateUrl  : './fullwidth.component.html',
+    selector     : 'simple-fullwidth-1-content-scroll',
+    templateUrl  : './fullwidth-1.component.html',
     encapsulation: ViewEncapsulation.None
 })
-export class SimpleFullwidthContentScrollComponent
+export class SimpleFullwidth1ContentScrollComponent
 {
     /**
      * Constructor

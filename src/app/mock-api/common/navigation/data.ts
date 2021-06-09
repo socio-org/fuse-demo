@@ -868,10 +868,16 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         type    : 'collapsable',
                         children: [
                             {
-                                id   : 'user-interface.page-layouts.simple.fullwidth',
-                                title: 'Fullwidth',
+                                id   : 'user-interface.page-layouts.simple.fullwidth-1',
+                                title: 'Fullwidth #1',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/fullwidth'
+                                link : '/ui/page-layouts/simple/fullwidth-1'
+                            },
+                            {
+                                id   : 'user-interface.page-layouts.simple.fullwidth-2',
+                                title: 'Fullwidth #2',
+                                type : 'basic',
+                                link : '/ui/page-layouts/simple/fullwidth-2'
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.left-sidebar-1',
