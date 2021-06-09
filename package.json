@@ -1,7 +1,6 @@
 {
     "name": "@fuse/demo",
     "version": "13.0.3",
-    "license": "https://themeforest.net/licenses/standard",
     "private": true,
     "scripts": {
         "ng": "ng",
@@ -9,7 +8,8 @@
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "deploy": "ng build --prod --base-href=/fuse/"
     },
     "dependencies": {
         "@angular/animations": "12.0.2",
