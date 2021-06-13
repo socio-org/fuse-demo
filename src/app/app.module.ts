@@ -12,7 +12,7 @@ import {mockApiServices} from 'app/mock-api';
 import {LayoutModule} from 'app/layout/layout.module';
 import {AppComponent} from 'app/app.component';
 import {appRoutes} from 'app/app.routing';
-import {APP_BASE_HREF, PlatformLocation} from "@angular/common";
+import {APP_BASE_HREF, PlatformLocation} from '@angular/common';
 
 const routerConfig: ExtraOptions = {
     scrollPositionRestoration: 'enabled',
