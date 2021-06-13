@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - develop
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
           $GITHUB_WORKSPACE/node_modules
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
-          ${{ runner.os }}-node-    
+            ${{ runner.os }}-node-
     - name: Build
       run: |
         npm install
