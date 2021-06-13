@@ -76,7 +76,8 @@
                                 }
                             ],
                             "outputHashing": "all",
-                            "baseHref": "/fuse-demo/"
+                            "baseHref": "/fuse-demo/",
+                            "deployUrl": "/fuse-demo/"
                         },
                         "development": {
                             "buildOptimizer": false,
