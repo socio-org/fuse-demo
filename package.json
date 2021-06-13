@@ -9,7 +9,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "deploy": "ng build --prod --base-href=/fuse-demo/ "
+        "deploy": "ng build --base-href=/fuse-demo/  --prod "
     },
     "dependencies": {
         "@angular/animations": "12.0.2",
