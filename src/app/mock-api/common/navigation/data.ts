@@ -3,10 +3,10 @@ import {FuseNavigationItem} from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id: 'example',
-        title: 'Example',
+        id: 'home',
+        title: 'Home',
         type: 'basic',
-        icon: 'heroicons_outline:chart-pie',
+        icon: 'heroicons_outline:home',
         link: '/example'
     }, {
         id: 'families',
@@ -21,6 +21,49 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:user',
         link: '/member/list'
     }, {
+        id: 'pages.settings',
+        title: 'Settings',
+        type: 'basic',
+        icon: 'heroicons_outline:cog',
+        link: '/coming-soon/classic'
+    },
+    {
+        id: 'divider-2',
+        type: 'divider'
+    },
+    {
+        id: 'coming-soon',
+        title: 'Coming soon',
+        type: 'group',
+        subtitle: 'upcoming features',
+        children: [
+            {
+                id: 'coming-soon.accounting',
+                title: 'Accounting',
+                icon: 'heroicons_outline:newspaper',
+                type: 'collapsable',
+                children: [
+                    {
+                        id: 'coming-soon.accounting.accounts',
+                        title: 'Accounts',
+                        type: 'basic',
+                        link: '/coming-soon/classic',
+                    }, {
+                        id: 'coming-soon.accounting.estimate',
+                        title: 'Estimates',
+                        type: 'basic',
+                        link: '/coming-soon/classic',
+                    },
+                ]
+            }
+
+        ]
+    },
+    {
+        id: 'divider-2',
+        type: 'divider'
+    },
+    {
         id: 'about',
         title: 'About',
         type: 'basic',
