@@ -12,19 +12,19 @@ export const defaultNavigation: FuseNavigationItem[] = [
         id: 'families',
         title: 'Families',
         type: 'basic',
-        icon: 'heroicons_outline:chart-pie',
+        icon: 'heroicons_outline:user-group',
         link: '/example'
     }, {
         id: 'members',
         title: 'Members',
         type: 'basic',
-        icon: 'heroicons_outline:chart-pie',
+        icon: 'heroicons_outline:user',
         link: '/example'
     }, {
         id: 'about',
-        title: 'Members',
+        title: 'About',
         type: 'basic',
-        icon: 'heroicons_outline:chart-pie',
+        icon: 'heroicons_outline:information-circle',
         link: '/example'
     }
 ];
