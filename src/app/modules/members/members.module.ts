@@ -4,6 +4,9 @@ import { MembersComponent } from './members.component';
 import { MemberListComponent } from './pages/member-list/member-list.component';
 import { MemberDetailsComponent } from './pages/member-details/member-details.component';
 import { RouterModule, Route } from '@angular/router';
+import { MaterialModule } from 'app/shared/material.module';
+import { SharedModule } from 'app/shared/shared.module';
+import { FuseCardModule } from '@fuse/components/card';
 
 const routes: Route[] = [
     {
@@ -13,12 +16,16 @@ const routes: Route[] = [
             {
                 path: 'list',
                 component: MemberListComponent,
-                children: [
-                    {
-                        path: ':id',
-                        component: MemberDetailsComponent
-                    }
-                ]
+                // children: [
+                //     {
+                //         path: ':id',
+                //         component: MemberDetailsComponent
+                //     }
+                // ]
+            },
+            {
+                path: ':id',
+                component: MemberDetailsComponent
             }
         ]
     }
@@ -33,6 +40,9 @@ const routes: Route[] = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
+        MaterialModule,
+        FuseCardModule,
+        SharedModule
     ]
 })
 export class MembersModule { }
