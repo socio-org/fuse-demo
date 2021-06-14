@@ -96,6 +96,13 @@
                 disabled?: boolean;
                 link?: string;
                 externalLink?: boolean;
+                externalLink?: boolean;
+                target?:
+                    | '_blank'
+                    | '_self'
+                    | '_parent'
+                    | '_top'
+                    | string;
                 exactMatch?: boolean;
                 isActiveMatchOptions?: IsActiveMatchOptions;
                 function?: (item: FuseNavigationItem) => void;
@@ -197,6 +204,14 @@
                         <td>
                             Whether the supplied link should be parsed as an external link. It must be <strong>true</strong> if you supply a normal, outgoing link in the
                             <strong>link</strong> property.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-mono text-md text-secondary">
+                            <div>target</div>
+                        </td>
+                        <td>
+                            Sets the <em>target</em> attribute of the external, outgoing link.
                         </td>
                     </tr>
                     <tr>
