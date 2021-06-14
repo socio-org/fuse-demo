@@ -19,7 +19,8 @@
     <a
         class="fuse-vertical-navigation-item"
         *ngIf="item.link && item.externalLink && !item.function && !item.disabled"
-        [href]="item.link">
+        [href]="item.link"
+        [target]="item.target || '_self'">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
 
@@ -49,6 +50,7 @@
         class="fuse-vertical-navigation-item"
         *ngIf="item.link && item.externalLink && item.function && !item.disabled"
         [href]="item.link"
+        [target]="item.target || '_self'"
         (click)="item.function(item)">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>

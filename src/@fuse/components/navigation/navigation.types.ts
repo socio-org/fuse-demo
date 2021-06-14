@@ -17,6 +17,12 @@ export interface FuseNavigationItem
     disabled?: boolean;
     link?: string;
     externalLink?: boolean;
+    target?:
+        | '_blank'
+        | '_self'
+        | '_parent'
+        | '_top'
+        | string;
     exactMatch?: boolean;
     isActiveMatchOptions?: IsActiveMatchOptions;
     function?: (item: FuseNavigationItem) => void;
