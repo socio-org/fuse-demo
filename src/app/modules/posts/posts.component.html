@@ -1,0 +1,1877 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Header -->
+    <div
+        class="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-6 sm:py-8 sm:px-10 border-b bg-card dark:bg-transparent">
+        <div class="flex-1 min-w-0">
+            <!-- Breadcrumbs -->
+            <div class="flex flex-wrap items-center font-medium">
+                <div>
+                    <a class="whitespace-nowrap text-primary-500">User Interface</a>
+                </div>
+            </div>
+            <!-- Title -->
+            <div class="mt-2">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                    Posts
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+
+        <div class="flex flex-wrap items-start w-full max-w-400 -m-4">
+
+            <!-- Card #58 -->
+            <fuse-card class="flex flex-col max-w-140 w-full p-6 sm:p-8 pb-6 filter-post">
+                <div class="text-xl font-semibold">Create Post</div>
+                <div class="flex flex-col sm:flex-row items-start mt-8">
+                    <div class="flex items-center mb-6 sm:mb-0">
+                        <img
+                            alt="Card cover image"
+                            class="w-12 min-w-12 h-12 rounded-full mr-4"
+                            src="assets/images/avatars/brian-hughes.jpg">
+                        <div class="sm:hidden">Brian Hughes</div>
+                    </div>
+                    <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+                        <textarea
+                            [placeholder]="'What\'s on your mind?'"
+                            [rows]="3"
+                            matInput
+                            matTextareaAutosize></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="flex items-center mt-6 sm:mt-8 -mx-3">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:photograph'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Photo / Video</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1 hidden sm:inline-flex"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:user-circle'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Tag Friends</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1 hidden sm:inline-flex"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:emoji-happy'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Feeling</span>
+                    </button>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu01"
+                        class="px-3"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-horizontal'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu01="matMenu">
+                        <button
+                            [routerLink]="['./']"
+                            class="sm:hidden"
+                            mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:user-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Tag Friends</span>
+                            </span>
+                        </button>
+                        <button
+                            [routerLink]="['./']"
+                            class="sm:hidden"
+                            mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:emoji-happy'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Feeling</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:play'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Live</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:sparkles'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Gif</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:location-marker'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Check in</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #59 - Expandable card -->
+            <fuse-card
+                #expandableCard02="fuseCard"
+                class="flex flex-col max-w-140 w-full filter-post filter-interactive">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-01.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Caroline Lundu</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu02"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu02="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                    Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!
+                </div>
+                <div class="relative mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="h-80 object-cover"
+                        src="assets/images/cards/14-640x480.jpg">
+                    <div
+                        [matTooltipPosition]="'right'"
+                        [matTooltip]="'Barmouth / UK'"
+                        class="absolute bottom-0 left-0 flex items-center justify-center w-8 h-8 m-4 rounded-full cursor-pointer bg-gray-700">
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:location-marker'"
+                            class="icon-size-4 text-gray-100"></mat-icon>
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            (click)="expandableCard02.expanded = !expandableCard02.expanded"
+                            class="px-3 sm:-mr-4"
+                            mat-button>
+                            <span class="mr-1">5 Comments</span>
+                            <mat-icon
+                                [ngClass]="{'rotate-180': expandableCard02.expanded}"
+                                [svgIcon]="'heroicons_solid:chevron-down'"
+                                class="icon-size-5 transform transition-transform ease-in-out duration-150 rotate-0"></mat-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <ng-container fuseCardExpansion>
+                    <hr class="border-b m-0">
+                    <div class="flex flex-col mx-4 sm:mx-8 mt-6 mb-3">
+                        <div class="flex items-start">
+                            <img
+                                alt="Card cover image"
+                                class="w-12 h-12 rounded-full mr-5"
+                                src="assets/images/avatars/brian-hughes.jpg">
+                            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+                                <textarea
+                                    [placeholder]="'Write a comment...'"
+                                    [rows]="3"
+                                    matInput
+                                    matTextareaAutosize></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="flex items-center mt-3 ml-auto -mr-3">
+                            <button mat-icon-button>
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:sparkles'"
+                                    class="icon-size-5"></mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:emoji-happy'"
+                                    class="icon-size-5"></mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:photograph'"
+                                    class="icon-size-5"></mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <hr class="border-b mx-4 sm:mx-8 my-0">
+                    <div class="max-h-120 overflow-y-auto">
+                        <div class="relative flex flex-col mx-4 sm:mx-8 my-6">
+                            <div class="flex items-start">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/male-05.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Rutherford Brannan</b> Oh, I’m in.. Let’s arrange a trip for the next weekend if you want!
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Hide replies
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>17 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8 ml-12">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/female-01.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Caroline Lundu</b> Yes!! Let's talk about it on lunch!
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>15 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8 ml-12">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/female-08.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Barbara Cotilla</b> Count me in !!!
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>12 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/male-11.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Alan Marti</b> The color of the sky doesn’t look natural at all, do you really think this is natural? I’d say Photoshop!
+                                        Your trip isn't going to worth it since you won't be seeing this exact sky.
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Hide replies
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>24 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8 ml-12">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/female-01.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Caroline Lundu</b> Hey, Alan! You must be fun at parties!
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>22 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8 ml-12">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/male-11.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Alan Marti</b> Caroline, I'm telling the truth, and if you cannot stand the truth, maybe we shouldn't be friends anymore...
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>20 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8 ml-12">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/female-01.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Caroline Lundu</b> Dude! Relax! I'm just messing with you...
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>18 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8 ml-12">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/male-11.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Alan Marti</b> Sorry! I had a bad morning, let's talk about this in couple hours, I need to relax a bit :(
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>16 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start mt-8">
+                                <img
+                                    alt="Card cover image"
+                                    class="w-8 h-8 rounded-full mr-4"
+                                    src="assets/images/avatars/female-05.jpg">
+                                <div class="flex flex-col mt-0.5">
+                                    <span>
+                                        <b>Marleah Eagleston</b> Count me in, too!
+                                    </span>
+                                    <div class="flex items-center text-sm text-secondary mt-2">
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Like
+                                        </a>
+                                        <a
+                                            [routerLink]="'./'"
+                                            class="mr-2 hover:underline">Reply
+                                        </a>
+                                        <span class="mr-2">&bull;</span>
+                                        <span>34 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </fuse-card>
+
+
+            <!-- Card #60 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-14.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Marleah Eagleston</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu03"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu03="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                    Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!
+                </div>
+                <div class="flex mx-6 sm:mx-8 mb-4">
+                    <div class="flex h-80 pr-1">
+                        <img
+                            alt="Card cover image"
+                            class="rounded object-cover"
+                            src="assets/images/cards/15-640x480.jpg">
+                    </div>
+                    <div class="flex h-80 pl-1">
+                        <img
+                            alt="Card cover image"
+                            class="rounded object-cover"
+                            src="assets/images/cards/16-640x480.jpg">
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #61 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-14.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Marleah Eagleston</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu04"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu04="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                    Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!
+                </div>
+                <div class="flex mx-6 sm:mx-8 mb-4">
+                    <div class="flex h-80 pr-1">
+                        <img
+                            alt="Card cover image"
+                            class="rounded object-cover"
+                            src="assets/images/cards/17-640x480.jpg">
+                    </div>
+                    <div class="flex flex-col pl-1">
+                        <div class="flex h-40 pb-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/18-640x480.jpg">
+                        </div>
+                        <div class="flex h-40 pt-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/19-640x480.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #62 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-14.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Marleah Eagleston</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu05"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu05="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8  mt-2 mb-6">
+                    Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!
+                </div>
+                <div class="flex mx-6 sm:mx-8 mb-4">
+                    <div class="flex flex-col pr-1">
+                        <div class="flex h-40 pb-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/20-640x480.jpg">
+                        </div>
+                        <div class="flex h-40 pt-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/21-640x480.jpg">
+                        </div>
+                    </div>
+                    <div class="flex flex-col pl-1">
+                        <div class="flex h-40 pb-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/22-640x480.jpg">
+                        </div>
+                        <div class="flex h-40 pt-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/23-640x480.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #63 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-14.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Marleah Eagleston</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu06"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu06="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                    Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!
+                </div>
+                <div class="flex flex-col mx-6 sm:mx-8 mb-4">
+                    <div class="flex pb-1">
+                        <div class="flex h-60 pr-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/24-640x480.jpg">
+                        </div>
+                        <div class="flex h-60 pl-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/25-640x480.jpg">
+                        </div>
+                    </div>
+                    <div class="flex pt-1">
+                        <div class="flex h-40 pr-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/26-640x480.jpg">
+                        </div>
+                        <div class="flex h-40 px-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/27-640x480.jpg">
+                        </div>
+                        <div class="flex h-40 pl-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/28-640x480.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #64 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-14.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Marleah Eagleston</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu07"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu07="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                    Look at that sky! I so want to be there.. Can we arrange a trip? Is that a possibility? Please!!!
+                </div>
+                <div class="flex flex-col mx-6 sm:mx-8 mb-4">
+                    <div class="flex pb-1">
+                        <div class="flex h-60 pr-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/29-640x480.jpg">
+                        </div>
+                        <div class="flex h-60 pl-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/30-640x480.jpg">
+                        </div>
+                    </div>
+                    <div class="flex pt-1">
+                        <div class="flex h-40 pr-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/31-640x480.jpg">
+                        </div>
+                        <div class="flex h-40 px-1">
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/32-640x480.jpg">
+                        </div>
+                        <div class="relative flex h-40 pl-1">
+                            <div class="absolute flex items-center justify-center inset-0 ml-1 rounded overflow-hidden">
+                                <span class="z-10 text-4xl text-white">+12</span>
+                                <span class="absolute w-full h-full bg-primary opacity-70"></span>
+                            </div>
+                            <img
+                                alt="Card cover image"
+                                class="rounded object-cover"
+                                src="assets/images/cards/33-640x480.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #65 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-1">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-01.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Caroline Lundu</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu08"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu08="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="m-6 sm:mx-8">
+                    <p>
+                        We'll put a happy little sky in here. We touch the canvas, the canvas takes what it wants. A
+                        little happy sunlight shining through there.
+                        Let's build some happy little clouds up here. I was blessed with a very steady hand; and it
+                        comes in very handy when you're doing these little delicate
+                        things. This is the fun part.
+                    </p>
+                    <p class="mt-4">
+                        Isn't it great to do something you can't fail at? Little trees and bushes grow however makes
+                        them happy.
+                        Trees get lonely too, so we'll give him a little friend. There are no mistakes. You can fix
+                        anything that happens.
+                    </p>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #66 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-01.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-semibold leading-none">Caroline Lundu</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu09"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu09="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                    Hey!! I never saw this episode, it was amazing.. I think I’m going to buy myself a set and try his
+                    technique at home!
+                </div>
+                <div class="mx-6 sm:mx-8 mb-4">
+                    <div class="flex rounded overflow-hidden border">
+                        <div class="flex-0 w-40">
+                            <img
+                                alt="Card cover image"
+                                class="w-full h-full object-cover"
+                                src="assets/images/cards/35-640x480.jpg">
+                        </div>
+                        <div class="m-4">
+                            <div class="text-lg font-medium">Rob Boss - Season 09 Episode 04</div>
+                            <div class="text-secondary mt-1">
+                                We'll put a happy little sky in here. We touch the canvas, the canvas takes what it
+                                wants. A little happy sunlight shining through there.
+                            </div>
+                            <div class="text-sm text-hint mt-2">example.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+
+            <!-- Card #67 -->
+            <fuse-card class="flex flex-col max-w-140 w-full filter-post">
+                <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                    <img
+                        alt="Card cover image"
+                        class="w-10 h-10 rounded-full mr-4"
+                        src="assets/images/avatars/female-01.jpg">
+                    <div class="flex flex-col">
+                        <span class="font-medium leading-none">Caroline Lundu</span>
+                        <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                    </div>
+                    <button
+                        [matMenuTriggerFor]="postCardMenu10"
+                        class="ml-auto -mr-4"
+                        mat-icon-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:dots-vertical'"
+                            class="icon-size-5"></mat-icon>
+                    </button>
+                    <mat-menu #postCardMenu10="matMenu">
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:save'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Save post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:eye-off'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:clock'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Snooze for 30 days</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:minus-circle'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Hide all</span>
+                            </span>
+                        </button>
+                        <mat-divider class="my-2"></mat-divider>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:exclamation'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Report post</span>
+                            </span>
+                        </button>
+                        <button mat-menu-item>
+                            <span class="flex items-center">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_solid:bell'"
+                                    class="icon-size-5 mr-3"></mat-icon>
+                                <span>Turn on notifications for this post</span>
+                            </span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                    Hey!! I never saw this one, it was amazing.. I think I’m going to buy myself a set and try his
+                    technique at home!
+                </div>
+                <div class="mx-6 sm:mx-8 mb-4">
+                    <div class="flex flex-col rounded overflow-hidden border">
+                        <div class="flex h-80">
+                            <img
+                                alt="Card cover image"
+                                class="object-cover"
+                                src="assets/images/cards/36-640x480.jpg">
+                        </div>
+                        <div class="m-4">
+                            <div class="text-lg font-medium">Take a look behind the scenes of Rob Boss episodes</div>
+                            <div class="text-secondary mt-1">
+                                We'll put a happy little sky in here. We touch the canvas, the canvas takes what it
+                                wants. A little happy sunlight shining through there.
+                            </div>
+                            <div class="text-sm text-hint mt-2">example.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center mx-3 sm:mx-5">
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:heart'"
+                            class="icon-size-5 text-red-500 mr-2"></mat-icon>
+                        <span>Unlike</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:chat-alt'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Comment</span>
+                    </button>
+                    <button
+                        [routerLink]="['./']"
+                        class="px-3 mr-1"
+                        mat-button>
+                        <mat-icon
+                            [svgIcon]="'heroicons_solid:share'"
+                            class="icon-size-5 mr-2"></mat-icon>
+                        <span>Share</span>
+                    </button>
+                </div>
+                <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
+                    <div class="flex items-center">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-02.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/female-04.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-09.jpg">
+                        <img
+                            alt="Card cover image"
+                            class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-bg-card"
+                            src="assets/images/avatars/male-07.jpg">
+                        <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
+                    </div>
+                    <div class="hidden sm:flex flex-auto"></div>
+                    <div class="flex items-center mt-4 sm:mt-0">
+                        <button
+                            class="px-3 mr-1 -ml-2 sm:ml-0"
+                            mat-button>
+                            4 shares
+                        </button>
+                        <button
+                            class="px-3 sm:-mr-3"
+                            mat-button>
+                            No comments
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+
+        </div>
+
+    </div>
+
+</div>

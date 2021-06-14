@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Translation, TranslocoLoader } from '@ngneat/transloco';
+import {Inject, Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Translation, TranslocoLoader} from '@ngneat/transloco';
+
+import {APP_BASE_HREF} from '@angular/common';
 
 @Injectable({
     providedIn: 'root'
 })
-export class TranslocoHttpLoader implements TranslocoLoader
-{
+export class TranslocoHttpLoader implements TranslocoLoader {
     /**
      * Constructor
      */
-    constructor(
-        private _httpClient: HttpClient)
-    {
+    constructor(@Inject(APP_BASE_HREF) private baseHref: string, private _httpClient: HttpClient) {
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -25,8 +24,7 @@ export class TranslocoHttpLoader implements TranslocoLoader
      *
      * @param lang
      */
-    getTranslation(lang: string): Observable<Translation>
-    {
-        return this._httpClient.get<Translation>(`/assets/i18n/${lang}.json`);
+    getTranslation(lang: string): Observable<Translation> {
+        return this._httpClient.get<Translation>(this.baseHref + `assets/i18n/${lang}.json`);
     }
 }

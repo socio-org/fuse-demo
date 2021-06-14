@@ -1,7 +1,12 @@
-name: Manual CI/CD
+name: Scheduled CI/CD
 
+#on:
+#  push:
+#    branches:
+#      - develop
 on:
-    workflow_dispatch:
+    schedule:
+        -   cron: "0 6 * * *"
 
 jobs:
     build-and-deploy:

@@ -1,6 +1,6 @@
 {
-    "name": "@fuse/demo",
-    "version": "13.0.3",
+    "name": "socio",
+    "version": "0.0.1",
     "private": true,
     "scripts": {
         "ng": "ng",
@@ -9,7 +9,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "deploy": "ng build --base-href=/fuse-demo/ --prod"
+        "deploy": "ng build --base-href=/fuse-demo/  --prod "
     },
     "dependencies": {
         "@angular/animations": "12.0.2",
