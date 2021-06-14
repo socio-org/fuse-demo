@@ -12,6 +12,26 @@ import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inv
 @Component({
     selector       : 'inventory-list',
     templateUrl    : './inventory.component.html',
+    styles         : [
+        /* language=SCSS */
+        `
+            .inventory-grid {
+                grid-template-columns: 48px auto 40px;
+
+                @screen sm {
+                    grid-template-columns: 48px auto 112px 72px;
+                }
+
+                @screen md {
+                    grid-template-columns: 48px 112px auto 112px 72px;
+                }
+
+                @screen lg {
+                    grid-template-columns: 48px 112px auto 112px 96px 96px 72px;
+                }
+            }
+        `
+    ],
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     animations     : fuseAnimations
@@ -29,8 +49,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
     flashMessage: 'success' | 'error' | null = null;
     isLoading: boolean = false;
     pagination: InventoryPagination;
-    productsCount: number = 0;
-    productsTableColumns: string[] = ['sku', 'name', 'price', 'stock', 'active', 'details'];
     searchInputControl: FormControl = new FormControl();
     selectedProduct: InventoryProduct | null = null;
     selectedProductForm: FormGroup;
@@ -121,16 +139,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
 
         // Get the products
         this.products$ = this._inventoryService.products$;
-        this._inventoryService.products$
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((products: InventoryProduct[]) => {
-
-                // Update the counts
-                this.productsCount = products.length;
-
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
-            });
 
         // Get the tags
         this._inventoryService.tags$
@@ -179,28 +187,41 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
      */
     ngAfterViewInit(): void
     {
-        // If the user changes the sort order...
-        this._sort.sortChange
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(() => {
-                // Reset back to the first page
-                this._paginator.pageIndex = 0;
-
-                // Close the details
-                this.closeDetails();
+        if ( this._sort && this._paginator )
+        {
+            // Set the initial sort
+            this._sort.sort({
+                id          : 'name',
+                start       : 'asc',
+                disableClear: true
             });
 
-        // Get products if sort or page changes
-        merge(this._sort.sortChange, this._paginator.page).pipe(
-            switchMap(() => {
-                this.closeDetails();
-                this.isLoading = true;
-                return this._inventoryService.getProducts(this._paginator.pageIndex, this._paginator.pageSize, this._sort.active, this._sort.direction);
-            }),
-            map(() => {
-                this.isLoading = false;
-            })
-        ).subscribe();
+            // Mark for check
+            this._changeDetectorRef.markForCheck();
+
+            // If the user changes the sort order...
+            this._sort.sortChange
+                .pipe(takeUntil(this._unsubscribeAll))
+                .subscribe(() => {
+                    // Reset back to the first page
+                    this._paginator.pageIndex = 0;
+
+                    // Close the details
+                    this.closeDetails();
+                });
+
+            // Get products if sort or page changes
+            merge(this._sort.sortChange, this._paginator.page).pipe(
+                switchMap(() => {
+                    this.closeDetails();
+                    this.isLoading = true;
+                    return this._inventoryService.getProducts(this._paginator.pageIndex, this._paginator.pageSize, this._sort.active, this._sort.direction);
+                }),
+                map(() => {
+                    this.isLoading = false;
+                })
+            ).subscribe();
+        }
     }
 
     /**
