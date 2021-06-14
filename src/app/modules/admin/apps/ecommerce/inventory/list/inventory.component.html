@@ -191,7 +191,7 @@
                             <div class="flex flex-col sm:flex-row p-8">
 
                                 <!-- Product images and status -->
-                                <div class="flex flex-col items-center sm:items-start">
+                                <div class="flex flex-col items-center sm:items-start mb-8 sm:mb-0">
                                     <div class="flex flex-col items-center">
                                         <div class="w-32 h-44 border rounded overflow-hidden">
                                             <ng-container *ngIf="selectedProductForm.get('images').value.length; else noImage">
@@ -204,7 +204,7 @@
                                             </ng-template>
                                         </div>
                                         <div
-                                            class="flex items-center mt-2"
+                                            class="flex items-center mt-2 whitespace-nowrap"
                                             *ngIf="selectedProductForm.get('images').value.length">
                                             <button
                                                 mat-icon-button
