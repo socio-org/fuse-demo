@@ -104,6 +104,9 @@ export const appRoutes: Route[] = [
             {
                 path: 'calendar',
                 loadChildren: () => import('app/modules/calendar/calendar.module').then(m => m.CalendarModule)
+            }, {
+                path: 'posts',
+                loadChildren: () => import('app/modules/posts/posts.module').then(m => m.PostsModule)
             },
             {path: 'family', loadChildren: () => import('app/modules/family/family.module').then(m => m.FamilyModule)},
             {

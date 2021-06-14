@@ -17,6 +17,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link: '/calendar'
     },
     {
+        id: 'posts',
+        title: 'Posts',
+        type: 'basic',
+        icon: 'heroicons_outline:user-group',
+        link: '/posts'
+    },
+    {
         id: 'families',
         title: 'Families',
         type: 'basic',
