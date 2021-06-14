@@ -1,9 +1,16 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { MemberService } from '../../member.service';
-import { Contact } from '../../member.type';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    OnDestroy,
+    OnInit,
+    ViewEncapsulation
+} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable, Subject} from 'rxjs';
+import {switchMap, takeUntil} from 'rxjs/operators';
+import {MemberService} from '../../member.service';
+import {Contact} from '../../member.type';
 
 @Component({
     selector: 'app-member-list',
@@ -43,12 +50,12 @@ export class MemberListComponent implements OnInit, OnDestroy {
         this.searchInputControl.valueChanges
             .pipe(
                 takeUntil(this._unsubscribeAll),
-                tap((query) => console.log(query))
-                // switchMap(query =>
+                // tap((query) => console.log(query))
+                switchMap(query =>
 
-                //     // Search
-                //     this._contactsService.searchContacts(query)
-                // )
+                    // Search
+                    this._memberService.searchContacts(query)
+                )
             )
             .subscribe();
     }
