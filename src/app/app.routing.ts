@@ -101,6 +101,10 @@ export const appRoutes: Route[] = [
                 path: 'example',
                 loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)
             },
+            {
+                path: 'calendar',
+                loadChildren: () => import('app/modules/calendar/calendar.module').then(m => m.CalendarModule)
+            },
             {path: 'family', loadChildren: () => import('app/modules/family/family.module').then(m => m.FamilyModule)},
             {
                 path: 'member',

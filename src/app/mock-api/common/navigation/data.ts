@@ -9,12 +9,21 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:home',
         link: '/example'
     }, {
+        id: 'calendar',
+        title: 'Calendar',
+        subtitle: '3 upcoming events',
+        type: 'basic',
+        icon: 'heroicons_outline:calendar',
+        link: '/calendar'
+    },
+    {
         id: 'families',
         title: 'Families',
         type: 'basic',
         icon: 'heroicons_outline:user-group',
         link: '/family/list'
-    }, {
+    },
+    {
         id: 'members',
         title: 'Members',
         type: 'basic',
