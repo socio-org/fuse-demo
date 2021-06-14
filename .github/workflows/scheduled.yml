@@ -1,7 +1,12 @@
 name: Build and Deploy
 
+#on:
+#  push:
+#    branches:
+#      - develop
 on:
-    workflow_dispatch:
+    schedule:
+        -   cron: "0 6 * * *"
 
 jobs:
     build-and-deploy:
