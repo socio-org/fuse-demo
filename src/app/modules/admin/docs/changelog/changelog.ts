@@ -11,6 +11,44 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.1.0
+        {
+            version    : 'v13.1.0',
+            releaseDate: 'June 16, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(fuse/fullscreen) [tooltip] & [iconTpl] inputs for customizing the trigger button',
+                        '(fuse/navigation) "target" property for setting the target attribute on external links',
+                        '(ui/angular-material) List of available components with links to official docs',
+                        '(ui/advanced-search) An example form that uses query parameters for Advanced Search like forms',
+                        '(ui/page-layouts) Tabbed version of "Simple Fullwidth" page layout'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(app.resolver) Use services to request the initial data',
+                        '(core) New navigation service to request and store the navigation data',
+                        '(core/user) Renamed "user.model" to "user.types" for better consistency',
+                        '(layouts) Common components of layouts now requests their data directly from their service rather than getting it from route data',
+                        '(layouts/common/search) Improved the autocomplete design',
+                        '(apps/ecommerce/inventory) Replaced the mat-table with a custom grid for better performance & improved the mobile experience',
+                        '(docs) Updated the docs to reflect the latest changes',
+                        '(dependencies) Updated Angular, Angular Material & various other packages'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(fuse/navigation) First children of collapsable items don\'t have proper spacing at the top',
+                        '(data/navigation) Wrong icon for "Invoice" navigation item',
+                        '(data/navigation) Dashboards are missing from "Futuristic" navigation type'
+                    ]
+                }
+            ]
+        },
         // v13.0.3
         {
             version    : 'v13.0.3',
