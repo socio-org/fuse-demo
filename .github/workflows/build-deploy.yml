@@ -1,33 +1,37 @@
 name: Build and Deploy
 
+#on:
+#  push:
+#    branches:
+#      - develop
 on:
-  push:
-    branches:
-      - develop
+    schedule:
+        -   cron: "0 6 * * *"
+
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - uses: actions/setup-node@v1 #this installs node and npm for us
-      with:
-        node-version: '14.x'
-    - uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
-      with:
-        path: |
-          ~/.npm
-          $GITHUB_WORKSPACE/node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-            ${{ runner.os }}-node-
-    - name: Build
-      run: |
-        npm install
-        npm run-script deploy
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist/fuse
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v1
+            -   uses: actions/setup-node@v1 #this installs node and npm for us
+                with:
+                    node-version: '14.x'
+            -   uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
+                with:
+                    path: |
+                        ~/.npm
+                        $GITHUB_WORKSPACE/node_modules
+                    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                    restore-keys: |
+                        ${{ runner.os }}-node-
+            -   name: Build
+                run: |
+                    npm install
+                    npm run-script deploy
+            -   name: Deploy
+                uses: JamesIves/github-pages-deploy-action@releases/v3
+                with:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    BRANCH: gh-pages
+                    FOLDER: dist/fuse

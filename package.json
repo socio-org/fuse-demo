@@ -1,6 +1,6 @@
 {
-    "name": "@fuse/demo",
-    "version": "13.0.3",
+    "name": "socio",
+    "version": "0.0.1",
     "private": true,
     "scripts": {
         "ng": "ng",
