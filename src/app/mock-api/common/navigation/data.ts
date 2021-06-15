@@ -36,6 +36,35 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'heroicons_outline:user',
         link: '/member/list'
+    },
+    {
+        id: 'directory',
+        title: 'Directory',
+        icon: 'mat_outline:contact_phone',
+        type: 'collapsable',
+        children: [
+            {
+                id: 'directory.committee',
+                title: 'Parish Committee',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            }, {
+                id: 'coming-soon.accounting.estimate',
+                title: 'Metropolitan',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            }, {
+                id: 'coming-soon.accounting.estimate',
+                title: 'Priest',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            }, {
+                id: 'coming-soon.accounting.estimate',
+                title: 'Near By',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            },
+        ]
     }, {
         id: 'pages.settings',
         title: 'Settings',
