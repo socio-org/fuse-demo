@@ -14,7 +14,7 @@ export class ChangelogComponent
         // v13.1.0
         {
             version    : 'v13.1.0',
-            releaseDate: 'June 16, 2021',
+            releaseDate: 'June 15, 2021',
             changes    : [
                 {
                     type: 'Added',
