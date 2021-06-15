@@ -20,7 +20,7 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
     @Output() search: EventEmitter<any> = new EventEmitter<any>();
 
     opened: boolean = false;
-    results: any[];
+    resultSets: any[];
     searchControl: FormControl = new FormControl();
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -104,12 +104,12 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
                 takeUntil(this._unsubscribeAll),
                 map((value) => {
 
-                    // Set the search results to null if there is no value or
+                    // Set the resultSets to null if there is no value or
                     // the length of the value is smaller than the minLength
                     // so the autocomplete panel can be closed
                     if ( !value || value.length < this.minLength )
                     {
-                        this.results = null;
+                        this.resultSets = null;
                     }
 
                     // Continue
@@ -121,13 +121,13 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
             )
             .subscribe((value) => {
                 this._httpClient.post('api/common/search', {query: value})
-                    .subscribe((response: any) => {
+                    .subscribe((resultSets: any) => {
 
-                        // Store the results
-                        this.results = response.results;
+                        // Store the result sets
+                        this.resultSets = resultSets;
 
                         // Execute the event
-                        this.search.next(this.results);
+                        this.search.next(resultSets);
                     });
             });
     }

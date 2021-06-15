@@ -3,15 +3,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FuseFullscreenComponent } from '@fuse/components/fullscreen/fullscreen.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
         FuseFullscreenComponent
     ],
-    imports     : [
+    imports: [
         MatButtonModule,
         MatIconModule,
-        MatTooltipModule
+        MatTooltipModule,
+        CommonModule
     ],
     exports     : [
         FuseFullscreenComponent

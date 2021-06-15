@@ -3,17 +3,17 @@ import { Router } from '@angular/router';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { User } from 'app/core/user/user.model';
+import { User } from 'app/core/user/user.types';
 import { UserService } from 'app/core/user/user.service';
 
 @Component({
-    selector       : 'user-menu',
-    templateUrl    : './user-menu.component.html',
+    selector       : 'user',
+    templateUrl    : './user.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs       : 'userMenu'
+    exportAs       : 'user'
 })
-export class UserMenuComponent implements OnInit, OnDestroy
+export class UserComponent implements OnInit, OnDestroy
 {
     /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_showAvatar: BooleanInput;
