@@ -94,6 +94,7 @@
                 hidden?: (item: FuseNavigationItem) => boolean;
                 active?: boolean;
                 disabled?: boolean;
+                tooltip?: string;
                 link?: string;
                 externalLink?: boolean;
                 externalLink?: boolean;
@@ -187,6 +188,14 @@
                         </td>
                         <td>
                             Whether the navigation item is disabled.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-mono text-md text-secondary">
+                            <div>tooltip</div>
+                        </td>
+                        <td>
+                            Tooltip to show on item hover. Empty string will remove the tooltip.
                         </td>
                     </tr>
                     <tr>
