@@ -11,7 +11,8 @@
         [ngClass]="{'fuse-vertical-navigation-item-active-forced': item.active}"
         [routerLink]="[item.link]"
         [routerLinkActive]="'fuse-vertical-navigation-item-active'"
-        [routerLinkActiveOptions]="isActiveMatchOptions">
+        [routerLinkActiveOptions]="isActiveMatchOptions"
+        [matTooltip]="item.tooltip || ''">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
 
@@ -20,7 +21,8 @@
         class="fuse-vertical-navigation-item"
         *ngIf="item.link && item.externalLink && !item.function && !item.disabled"
         [href]="item.link"
-        [target]="item.target || '_self'">
+        [target]="item.target || '_self'"
+        [matTooltip]="item.tooltip || ''">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
 
@@ -29,6 +31,7 @@
         class="fuse-vertical-navigation-item"
         *ngIf="!item.link && item.function && !item.disabled"
         [ngClass]="{'fuse-vertical-navigation-item-active-forced': item.active}"
+        [matTooltip]="item.tooltip || ''"
         (click)="item.function(item)">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </div>
@@ -41,6 +44,7 @@
         [routerLink]="[item.link]"
         [routerLinkActive]="'fuse-vertical-navigation-item-active'"
         [routerLinkActiveOptions]="isActiveMatchOptions"
+        [matTooltip]="item.tooltip || ''"
         (click)="item.function(item)">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
@@ -51,6 +55,7 @@
         *ngIf="item.link && item.externalLink && item.function && !item.disabled"
         [href]="item.link"
         [target]="item.target || '_self'"
+        [matTooltip]="item.tooltip || ''"
         (click)="item.function(item)">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
@@ -59,14 +64,16 @@
     <div
         class="fuse-vertical-navigation-item"
         *ngIf="!item.link && !item.function && !item.disabled"
-        [ngClass]="{'fuse-vertical-navigation-item-active-forced': item.active}">
+        [ngClass]="{'fuse-vertical-navigation-item-active-forced': item.active}"
+        [matTooltip]="item.tooltip || ''">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </div>
 
     <!-- Item is disabled -->
     <div
         class="fuse-vertical-navigation-item fuse-vertical-navigation-item-disabled"
-        *ngIf="item.disabled">
+        *ngIf="item.disabled"
+        [matTooltip]="item.tooltip || ''">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </div>
 

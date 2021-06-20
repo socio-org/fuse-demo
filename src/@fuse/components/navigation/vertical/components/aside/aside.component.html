@@ -7,7 +7,8 @@
         class="fuse-vertical-navigation-item"
         [ngClass]="{'fuse-vertical-navigation-item-active': active,
                     'fuse-vertical-navigation-item-disabled': item.disabled,
-                    'fuse-vertical-navigation-item-active-forced': item.active}">
+                    'fuse-vertical-navigation-item-active-forced': item.active}"
+        [matTooltip]="item.tooltip || ''">
 
         <!-- Icon -->
         <mat-icon

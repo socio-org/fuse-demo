@@ -15,6 +15,7 @@ export interface FuseNavigationItem
     hidden?: (item: FuseNavigationItem) => boolean;
     active?: boolean;
     disabled?: boolean;
+    tooltip?: string;
     link?: string;
     externalLink?: boolean;
     target?:

@@ -74,7 +74,8 @@
         <div
             class="fuse-horizontal-navigation-item"
             [ngClass]="{'fuse-horizontal-navigation-item-disabled': item.disabled,
-                         'fuse-horizontal-navigation-item-active-forced': item.active}">
+                         'fuse-horizontal-navigation-item-active-forced': item.active}"
+            [matTooltip]="item.tooltip || ''">
 
             <!-- Icon -->
             <mat-icon

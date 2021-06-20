@@ -11,7 +11,8 @@
         [ngClass]="{'fuse-horizontal-navigation-item-active-forced': item.active}"
         [routerLink]="[item.link]"
         [routerLinkActive]="'fuse-horizontal-navigation-item-active'"
-        [routerLinkActiveOptions]="isActiveMatchOptions">
+        [routerLinkActiveOptions]="isActiveMatchOptions"
+        [matTooltip]="item.tooltip || ''">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </div>
 
@@ -20,7 +21,8 @@
         class="fuse-horizontal-navigation-item"
         *ngIf="item.link && item.externalLink && !item.function && !item.disabled"
         [href]="item.link"
-        [target]="item.target || '_self'">
+        [target]="item.target || '_self'"
+        [matTooltip]="item.tooltip || ''">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </a>
 
@@ -29,6 +31,7 @@
         class="fuse-horizontal-navigation-item"
         *ngIf="!item.link && item.function && !item.disabled"
         [ngClass]="{'fuse-horizontal-navigation-item-active-forced': item.active}"
+        [matTooltip]="item.tooltip || ''"
         (click)="item.function(item)">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </div>
@@ -41,6 +44,7 @@
         [routerLink]="[item.link]"
         [routerLinkActive]="'fuse-horizontal-navigation-item-active'"
         [routerLinkActiveOptions]="isActiveMatchOptions"
+        [matTooltip]="item.tooltip || ''"
         (click)="item.function(item)">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </div>
@@ -51,6 +55,7 @@
         *ngIf="item.link && item.externalLink && item.function && !item.disabled"
         [href]="item.link"
         [target]="item.target || '_self'"
+        [matTooltip]="item.tooltip || ''"
         (click)="item.function(item)"
         mat-menu-item>
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
@@ -60,7 +65,8 @@
     <div
         class="fuse-horizontal-navigation-item"
         *ngIf="!item.link && !item.function && !item.disabled"
-        [ngClass]="{'fuse-horizontal-navigation-item-active-forced': item.active}">
+        [ngClass]="{'fuse-horizontal-navigation-item-active-forced': item.active}"
+        [matTooltip]="item.tooltip || ''">
         <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
     </div>
 
