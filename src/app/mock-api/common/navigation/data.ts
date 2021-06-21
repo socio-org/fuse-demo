@@ -3,11 +3,11 @@ import {FuseNavigationItem} from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id: 'home',
-        title: 'Home',
+        id: 'dashboard',
+        title: 'Dashboard',
         type: 'basic',
         icon: 'heroicons_outline:home',
-        link: '/example'
+        link: '/dashboard'
     }, {
         id: 'calendar',
         title: 'Calendar',
@@ -22,6 +22,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'heroicons_outline:user-group',
         link: '/posts'
+    },
+    {
+        id: 'groups',
+        title: 'Groups',
+        type: 'basic',
+        icon: 'heroicons_outline:user-group',
+        link: '/groups'
     },
     {
         id: 'families',
@@ -65,6 +72,12 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link: '/coming-soon/classic',
             },
         ]
+    }, {
+        id: 'pages.about',
+        title: 'About',
+        type: 'basic',
+        icon: 'mat_outline:info',
+        link: '/coming-soon/classic'
     }, {
         id: 'pages.settings',
         title: 'Settings',
