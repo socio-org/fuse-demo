@@ -23,35 +23,14 @@
                 <div class="text-secondary">baptism name</div>
             </div>
 
-            <!-- Separator -->
-            <div class="hidden lg:flex h-8 mx-8 border-l-2"></div>
-
-            <!-- Stats -->
-            <div class="flex items-center mt-6 lg:mt-0 space-x-6">
-                <div class="flex flex-col items-center">
-                    <span class="font-bold">200k</span>
-                    <span class="text-sm font-medium text-secondary">FOLLOWERS</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="font-bold">1.2k</span>
-                    <span class="text-sm font-medium text-secondary">FOLLOWING</span>
-                </div>
-            </div>
-
             <!-- Menu -->
             <div class="flex items-center mt-8 mb-4 lg:m-0 lg:ml-auto space-x-6">
-                <a class="font-medium" [routerLink]="['./']">
-                    Home
-                </a>
-                <a class="text-secondary" [routerLink]="['./']">
-                    About
-                </a>
-                <a class="text-secondary" [routerLink]="['./']">
-                    Followers
-                </a>
-                <a class="text-secondary" [routerLink]="['./']">
-                    Gallery
-                </a>
+                <button mat-icon-button>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:phone'"></mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                </button>
             </div>
 
         </div>
@@ -62,7 +41,6 @@
     <div class="flex flex-wrap justify-center max-w-5xl mx-auto py-6 pt-3 pb-3">
 
         <!-- Column -->
-        <!-- <div class="lg:flex flex-wrap lg:-mx-4"> -->
         <!-- About me -->
         <fuse-card class="flex flex-col max-w-80 w-full lg:mr-2 px-8 pt-6 pb-4 mt-3">
             <div class="flex items-center justify-between">
@@ -95,7 +73,7 @@
         <!-- Followers -->
         <fuse-card class="flex flex-col max-w-80 w-full px-8 lg:mr-2 pt-6 pb-4 mt-3">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-semibold leading-tight">Family</div>
+                <div class="text-2xl font-semibold leading-tight">My Family</div>
                 <div class="-mr-3">
                     <button mat-icon-button [matMenuTriggerFor]="listCard08Menu">
                         <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
@@ -106,39 +84,44 @@
                     </mat-menu>
                 </div>
             </div>
-            <div class="flex flex-col">
-                <div class="flex justify-between mt-6">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/female-01.jpg"
-                        alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-01.jpg" alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-02.jpg" alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/female-02.jpg"
-                        alt="Card cover image">
-                </div>
-                <div class="flex justify-between mt-3">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/female-03.jpg"
-                        alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/female-04.jpg"
-                        alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-03.jpg" alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-04.jpg" alt="Card cover image">
-                </div>
-                <div class="flex justify-between mt-3">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/female-05.jpg"
-                        alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/female-06.jpg"
-                        alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-05.jpg" alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-06.jpg" alt="Card cover image">
-                </div>
-                <div class="flex items-start mt-3">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/female-07.jpg"
-                        alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-07.jpg" alt="Card cover image">
-                    <img class="w-14 h-14 rounded-full" src="assets/images/avatars/male-08.jpg" alt="Card cover image">
-                </div>
-            </div>
+            <!-- Contacts list -->
+            <div class="relative">
+                <ng-container *ngIf="members$ | async as contacts">
+                    <ng-container *ngIf="contacts.length; else noContacts">
+                        <ng-container *ngFor="let contact of contacts.slice(0,4); let i = index; trackBy: trackByFn">
+                            <!-- Contact -->
+                            <a class="z-20 flex items-center px-0 py-4 md:px-2 cursor-pointer rounded-sm" [ngClass]="{'hover:bg-gray-100 dark:hover:bg-hover': !selectedContact || selectedContact.id !== contact.id,
+                                'bg-primary-50 dark:bg-hover': selectedContact && selectedContact.id === contact.id}"
+                                [routerLink]="['../', contact.id]">
+                                <div
+                                    class="flex flex-0 items-center justify-center w-10 h-10 rounded-full overflow-hidden">
+                                    <ng-container *ngIf="contact.avatar">
+                                        <img class="object-cover w-full h-full" [src]="contact.avatar"
+                                            alt="Contact avatar" />
+                                    </ng-container>
+                                    <ng-container *ngIf="!contact.avatar">
+                                        <div
+                                            class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
+                                            {{contact.name.charAt(0)}}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <div class="min-w-0 ml-4">
+                                    <div class="font-medium leading-5 truncate">{{contact.name}}</div>
+                                    <div class="leading-5 truncate text-secondary">{{contact.title}}</div>
+                                </div>
+                            </a>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
 
+                <!-- No contacts -->
+                <ng-template #noContacts>
+                    <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no
+                        contacts!</div>
+                </ng-template>
+
+            </div>
         </fuse-card>
 
         <!-- Gallery -->
