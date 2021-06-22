@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
-import { ExampleComponent } from 'app/modules/admin/example/example.component';
+import {NgModule} from '@angular/core';
+import {Route, RouterModule} from '@angular/router';
+import {ExampleComponent} from 'app/modules/admin/example/example.component';
 
 const exampleRoutes: Route[] = [
     {
-        path     : '',
+        path: '',
         component: ExampleComponent
     }
 ];
@@ -13,10 +13,9 @@ const exampleRoutes: Route[] = [
     declarations: [
         ExampleComponent
     ],
-    imports     : [
+    imports: [
         RouterModule.forChild(exampleRoutes)
     ]
 })
-export class ExampleModule
-{
+export class ExampleModule {
 }
