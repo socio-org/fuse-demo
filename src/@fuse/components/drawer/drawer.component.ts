@@ -341,6 +341,13 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
             animate('300ms cubic-bezier(0.25, 0.8, 0.25, 1)', style({opacity: 1}))
         ]).create(this._overlay);
 
+        // Once the animation is done...
+        this._player.onDone(() => {
+
+            // Destroy the player
+            this._player.destroy();
+        });
+
         // Play the animation
         this._player.play();
 
@@ -372,6 +379,9 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
 
         // Once the animation is done...
         this._player.onDone(() => {
+
+            // Destroy the player
+            this._player.destroy();
 
             // If the backdrop still exists...
             if ( this._overlay )
