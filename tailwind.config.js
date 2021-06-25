@@ -78,7 +78,8 @@ const config = {
         content: ['./src/**/*.{html,scss,ts}'],
         options: {
             safelist: {
-                deep: [/^theme/, /^dark/, /^mat/]
+                standard: ['dark'],
+                deep    : [/^theme/, /^mat/]
             }
         }
     },
