@@ -304,9 +304,9 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
             scrollStrategy  : this._overlay.scrollStrategies.block(),
             positionStrategy: this._overlay.position()
                                   .flexibleConnectedTo(this._infoDetailsPanelOrigin._elementRef.nativeElement)
-                                  .withFlexibleDimensions()
+                                  .withFlexibleDimensions(true)
                                   .withViewportMargin(16)
-                                  .withLockedPosition()
+                                  .withLockedPosition(true)
                                   .withPositions([
                                       {
                                           originX : 'start',

@@ -217,9 +217,9 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             scrollStrategy  : this._overlay.scrollStrategies.block(),
             positionStrategy: this._overlay.position()
                                   .flexibleConnectedTo(this._tagsPanelOrigin.nativeElement)
-                                  .withFlexibleDimensions()
+                                  .withFlexibleDimensions(true)
                                   .withViewportMargin(64)
-                                  .withLockedPosition()
+                                  .withLockedPosition(true)
                                   .withPositions([
                                       {
                                           originX : 'start',
