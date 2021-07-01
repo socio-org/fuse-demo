@@ -11,6 +11,50 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.2.0
+        {
+            version    : 'v13.2.0',
+            releaseDate: 'July 02, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(fuse/navigation) "tooltip" property to show tooltips on navigation items using MatTooltip'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v12.1.1',
+                        '(dependencies) Updated various other packages',
+                        '(dev-dependencies) Removed "@angular/language-service" as IDEs and Code editors include them either natively or through plugins',
+                        '(Angular Material) Apply rounded styles by default',
+                        '(fuse/navigation) Moved *ngIf directives into their own "ng-container" containers',
+                        '(layouts) Hide the "fuse-fullscreen" button on smaller devices since they don\'t support fullscreen',
+                        '(layout/common) Explicitly define the overlay position strategy properties',
+                        '(apps/contacts) Explicitly define the overlay position strategy properties',
+                        '(apps/mailbox) Explicitly define the overlay position strategy properties',
+                        '(apps/tasks) Explicitly define the overlay position strategy properties',
+                        '(tailwindcss) Breaking: Removed 5, 6 & 12 fractional spacing values since they are not used in Demo by default and they are mostly not needed because of Flex and Grid. If you happen to use them, you can manually add them back.',
+                        '(docs) Updated docs',
+                        '(package.json) Added "description" and "author" fields',
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(fuse/drawer) Memory leak due to the animation player, thanks to Vadym Pidoplichko for coming up the issue and the solution.',
+                        '(fuse/navigation) Vertical navigation blocks scroll if it\'s destroyed while in "over" mode and opened',
+                        '(layouts) Header buttons are not fitting on certain layouts',
+                        '(layout/settings-drawer) Issues on small screen devices',
+                        '(apps/ecommerce/inventory) Tags selector border colors are not correct on dark mode',
+                        '(apps/help-center) Small dark mode issues',
+                        '(transloco) Language files cannot be loaded if using a base href other than "/"',
+                        '(tailwindcss) Dark mode classes are not being purged correctly due to the wrong safelist entry'
+                    ]
+                }
+            ]
+        },
         // v13.1.0
         {
             version    : 'v13.1.0',
