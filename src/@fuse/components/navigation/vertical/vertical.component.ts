@@ -374,6 +374,10 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
      */
     ngOnDestroy(): void
     {
+        // Forcefully close the navigation and aside in case they are opened
+        this.close();
+        this.closeAside();
+
         // Deregister the navigation component from the registry
         this._fuseNavigationService.deregisterComponent(this.name);
 

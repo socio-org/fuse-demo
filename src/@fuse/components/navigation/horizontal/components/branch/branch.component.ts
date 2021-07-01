@@ -81,4 +81,15 @@ export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDe
         // Mark for check
         this._changeDetectorRef.markForCheck();
     }
+
+    /**
+     * Track by function for ngFor loops
+     *
+     * @param index
+     * @param item
+     */
+    trackByFn(index: number, item: any): any
+    {
+        return item.id || index;
+    }
 }

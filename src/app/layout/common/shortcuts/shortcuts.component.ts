@@ -221,7 +221,7 @@ export class ShortcutsComponent implements OnInit, OnDestroy
             scrollStrategy  : this._overlay.scrollStrategies.block(),
             positionStrategy: this._overlay.position()
                                   .flexibleConnectedTo(this._shortcutsOrigin._elementRef.nativeElement)
-                                  .withLockedPosition()
+                                  .withLockedPosition(true)
                                   .withPush(true)
                                   .withPositions([
                                       {
