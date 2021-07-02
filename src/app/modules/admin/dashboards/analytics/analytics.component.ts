@@ -18,20 +18,11 @@ export class AnalyticsComponent implements OnInit, OnDestroy
     chartImpressions: ApexOptions;
     chartVisits: ApexOptions;
     chartVisitorsVsPageViews: ApexOptions;
-    data: any;
-
-    chartAge: ApexOptions;
-    averagePurchaseValueOptions: ApexOptions;
-    browsersOptions: ApexOptions;
-    channelsOptions: ApexOptions;
-    devicesOptions: ApexOptions;
-    chartGender: ApexOptions;
-    chartLanguage: ApexOptions;
     chartNewVsReturning: ApexOptions;
-    refundsOptions: ApexOptions;
-    totalVisitsOptions: ApexOptions;
-    uniqueVisitorsOptions: ApexOptions;
-    uniquePurchasesOptions: ApexOptions;
+    chartGender: ApexOptions;
+    chartAge: ApexOptions;
+    chartLanguage: ApexOptions;
+    data: any;
 
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
