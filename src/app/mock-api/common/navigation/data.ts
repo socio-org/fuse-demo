@@ -689,6 +689,20 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/ui/material-components'
             },
             {
+                id   : 'user-interface.fuse-components',
+                title: 'Fuse Components',
+                type : 'basic',
+                icon : 'heroicons_outline:chip',
+                link : '/ui/fuse-components'
+            },
+            {
+                id   : 'user-interface.other-components',
+                title: 'Other Components',
+                type : 'basic',
+                icon : 'heroicons_outline:chip',
+                link : '/ui/other-components'
+            },
+            {
                 id   : 'user-interface.tailwindcss',
                 title: 'TailwindCSS',
                 type : 'basic',
@@ -956,20 +970,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:book-open',
                 link : '/docs/guides'
-            },
-            {
-                id   : 'documentation.core-features',
-                title: 'Core features',
-                type : 'basic',
-                icon : 'heroicons_outline:book-open',
-                link : '/docs/core-features'
-            },
-            {
-                id   : 'documentation.other-components',
-                title: 'Other components',
-                type : 'basic',
-                icon : 'heroicons_outline:book-open',
-                link : '/docs/other-components'
             }
         ]
     },

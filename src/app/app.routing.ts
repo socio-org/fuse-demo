@@ -105,7 +105,7 @@ export const appRoutes: Route[] = [
                 // Authentication
                 {path: 'authentication', loadChildren: () => import('app/modules/admin/pages/authentication/authentication.module').then(m => m.AuthenticationModule)},
 
-                // Coming soon
+                // Coming Soon
                 {path: 'coming-soon', loadChildren: () => import('app/modules/admin/pages/coming-soon/coming-soon.module').then(m => m.ComingSoonModule)},
 
                 // Error
@@ -140,16 +140,22 @@ export const appRoutes: Route[] = [
                 {path: 'settings', loadChildren: () => import('app/modules/admin/pages/settings/settings.module').then(m => m.SettingsModule)},
             ]},
 
-            // User interface
+            // User Interface
             {path: 'ui', children: [
 
-                // Material components
+                // Material Components
                 {path: 'material-components', loadChildren: () => import('app/modules/admin/ui/material-components/material-components.module').then(m => m.MaterialComponentsModule)},
+
+                // Fuse Components
+                {path: 'fuse-components', loadChildren: () => import('app/modules/admin/ui/fuse-components/fuse-components.module').then(m => m.FuseComponentsModule)},
+
+                // Other Components
+                {path: 'other-components', loadChildren: () => import('app/modules/admin/ui/other-components/other-components.module').then(m => m.OtherComponentsModule)},
 
                 // TailwindCSS
                 {path: 'tailwindcss', loadChildren: () => import('app/modules/admin/ui/tailwindcss/tailwindcss.module').then(m => m.TailwindCSSModule)},
 
-                // Advanced search
+                // Advanced Search
                 {path: 'advanced-search', loadChildren: () => import('app/modules/admin/ui/advanced-search/advanced-search.module').then(m => m.AdvancedSearchModule)},
 
                 // Animations
@@ -174,7 +180,7 @@ export const appRoutes: Route[] = [
                 // Icons
                 {path: 'icons', loadChildren: () => import('app/modules/admin/ui/icons/icons.module').then(m => m.IconsModule)},
 
-                // Page layouts
+                // Page Layouts
                 {path: 'page-layouts', loadChildren: () => import('app/modules/admin/ui/page-layouts/page-layouts.module').then(m => m.PageLayoutsModule)},
 
                 // Typography
@@ -188,13 +194,7 @@ export const appRoutes: Route[] = [
                 {path: 'changelog', loadChildren: () => import('app/modules/admin/docs/changelog/changelog.module').then(m => m.ChangelogModule)},
 
                 // Guides
-                {path: 'guides', loadChildren: () => import('app/modules/admin/docs/guides/guides.module').then(m => m.GuidesModule)},
-
-                // Core features
-                {path: 'core-features', loadChildren: () => import('app/modules/admin/docs/core-features/core-features.module').then(m => m.CoreFeaturesModule)},
-
-                // Other components
-                {path: 'other-components', loadChildren: () => import('app/modules/admin/docs/other-components/other-components.module').then(m => m.OtherComponentsModule)},
+                {path: 'guides', loadChildren: () => import('app/modules/admin/docs/guides/guides.module').then(m => m.GuidesModule)}
             ]},
 
             // 404 & Catch all
