@@ -11,7 +11,7 @@ export class HighlightComponent
     /**
      * Constructor
      */
-    constructor(private _coreFeaturesComponent: FuseComponentsComponent)
+    constructor(private _fuseComponentsComponent: FuseComponentsComponent)
     {
     }
 
@@ -25,6 +25,6 @@ export class HighlightComponent
     toggleDrawer(): void
     {
         // Toggle the drawer
-        this._coreFeaturesComponent.matDrawer.toggle();
+        this._fuseComponentsComponent.matDrawer.toggle();
     }
 }

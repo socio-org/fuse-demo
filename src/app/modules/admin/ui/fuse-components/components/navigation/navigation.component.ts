@@ -14,7 +14,7 @@ export class NavigationComponent
      */
     constructor(
         private _fuseNavigationService: FuseNavigationService,
-        private _coreFeaturesComponent: FuseComponentsComponent
+        private _fuseComponentsComponent: FuseComponentsComponent
     )
     {
 
@@ -179,6 +179,6 @@ export class NavigationComponent
     toggleDrawer(): void
     {
         // Toggle the drawer
-        this._coreFeaturesComponent.matDrawer.toggle();
+        this._fuseComponentsComponent.matDrawer.toggle();
     }
 }

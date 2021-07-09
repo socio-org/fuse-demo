@@ -16,7 +16,7 @@ export class DrawerComponent
      */
     constructor(
         private _fuseDrawerService: FuseDrawerService,
-        private _coreFeaturesComponent: FuseComponentsComponent
+        private _fuseComponentsComponent: FuseComponentsComponent
     )
     {
         // Set the defaults
@@ -63,6 +63,6 @@ export class DrawerComponent
     toggleDrawer(): void
     {
         // Toggle the drawer
-        this._coreFeaturesComponent.matDrawer.toggle();
+        this._fuseComponentsComponent.matDrawer.toggle();
     }
 }

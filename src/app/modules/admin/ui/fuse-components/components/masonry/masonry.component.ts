@@ -18,7 +18,7 @@ export class MasonryComponent implements OnInit
      * Constructor
      */
     constructor(
-        private _coreFeaturesComponent: FuseComponentsComponent,
+        private _fuseComponentsComponent: FuseComponentsComponent,
         private _fuseMediaWatcherService: FuseMediaWatcherService
     )
     {
@@ -76,6 +76,6 @@ export class MasonryComponent implements OnInit
     toggleDrawer(): void
     {
         // Toggle the drawer
-        this._coreFeaturesComponent.matDrawer.toggle();
+        this._fuseComponentsComponent.matDrawer.toggle();
     }
 }
