@@ -77,14 +77,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
             },
             {
                 id   : 'apps.file-manager',
-                title: 'File manager',
+                title: 'File Manager',
                 type : 'basic',
                 icon : 'heroicons_outline:cloud',
                 link : '/apps/file-manager'
             },
             {
                 id      : 'apps.help-center',
-                title   : 'Help center',
+                title   : 'Help Center',
                 type    : 'collapsable',
                 icon    : 'heroicons_outline:support',
                 link    : '/apps/help-center',
@@ -523,7 +523,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
             },
             {
                 id      : 'pages.coming-soon',
-                title   : 'Coming soon',
+                title   : 'Coming Soon',
                 type    : 'collapsable',
                 icon    : 'heroicons_outline:clock',
                 link    : '/pages/coming-soon',
@@ -683,7 +683,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         children: [
             {
                 id   : 'user-interface.material-components',
-                title: 'Material components',
+                title: 'Material Components',
                 type : 'basic',
                 icon : 'heroicons_outline:chip',
                 link : '/ui/material-components'
@@ -697,7 +697,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
             },
             {
                 id   : 'user-interface.advanced-search',
-                title: 'Advanced search',
+                title: 'Advanced Search',
                 type : 'basic',
                 icon : 'heroicons_outline:search-circle',
                 link : '/ui/advanced-search'
@@ -808,7 +808,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
             },
             {
                 id      : 'user-interface.page-layouts',
-                title   : 'Page layouts',
+                title   : 'Page Layouts',
                 type    : 'collapsable',
                 icon    : 'heroicons_outline:template',
                 children: [
