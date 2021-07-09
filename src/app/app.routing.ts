@@ -143,8 +143,8 @@ export const appRoutes: Route[] = [
             // User interface
             {path: 'ui', children: [
 
-                // Angular Material
-                {path: 'angular-material', loadChildren: () => import('app/modules/admin/ui/angular-material/angular-material.module').then(m => m.AngularMaterialModule)},
+                // Material components
+                {path: 'material-components', loadChildren: () => import('app/modules/admin/ui/material-components/material-components.module').then(m => m.MaterialComponentsModule)},
 
                 // TailwindCSS
                 {path: 'tailwindcss', loadChildren: () => import('app/modules/admin/ui/tailwindcss/tailwindcss.module').then(m => m.TailwindCSSModule)},

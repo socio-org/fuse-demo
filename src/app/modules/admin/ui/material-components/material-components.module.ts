@@ -3,18 +3,18 @@ import { Route, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from 'app/shared/shared.module';
-import { AngularMaterialComponent } from 'app/modules/admin/ui/angular-material/angular-material.component';
+import { MaterialComponentsComponent } from 'app/modules/admin/ui/material-components/material-components.component';
 
 export const routes: Route[] = [
     {
         path     : '',
-        component: AngularMaterialComponent
+        component: MaterialComponentsComponent
     }
 ];
 
 @NgModule({
     declarations: [
-        AngularMaterialComponent
+        MaterialComponentsComponent
     ],
     imports     : [
         RouterModule.forChild(routes),
@@ -23,6 +23,6 @@ export const routes: Route[] = [
         SharedModule
     ]
 })
-export class AngularMaterialModule
+export class MaterialComponentsModule
 {
 }

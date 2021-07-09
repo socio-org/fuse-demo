@@ -686,7 +686,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 title: 'Material components',
                 type : 'basic',
                 icon : 'heroicons_outline:chip',
-                link : '/ui/angular-material'
+                link : '/ui/material-components'
             },
             {
                 id   : 'user-interface.tailwindcss',
