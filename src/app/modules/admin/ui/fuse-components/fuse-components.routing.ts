@@ -12,6 +12,7 @@ import { NavigationComponent } from 'app/modules/admin/ui/fuse-components/compon
 import { ScrollbarComponent } from 'app/modules/admin/ui/fuse-components/directives/scrollbar/scrollbar.component';
 import { ScrollResetComponent } from 'app/modules/admin/ui/fuse-components/directives/scroll-reset/scroll-reset.component';
 import { ConfigComponent } from 'app/modules/admin/ui/fuse-components/services/config/config.component';
+import { ConfirmationComponent } from 'app/modules/admin/ui/fuse-components/services/confirmation/confirmation.component';
 import { MediaWatcherComponent } from 'app/modules/admin/ui/fuse-components/services/media-watcher/media-watcher.component';
 import { SplashScreenComponent } from 'app/modules/admin/ui/fuse-components/services/splash-screen/splash-screen.component';
 import { FindByKeyComponent } from 'app/modules/admin/ui/fuse-components/pipes/find-by-key/find-by-key.component';
@@ -107,6 +108,10 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path     : 'config',
                         component: ConfigComponent
+                    },
+                    {
+                        path     : 'confirmation',
+                        component: ConfirmationComponent
                     },
                     {
                         path     : 'splash-screen',

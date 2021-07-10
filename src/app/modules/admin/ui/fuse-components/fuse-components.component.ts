@@ -128,6 +128,12 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         link : '/ui/fuse-components/services/config'
                     },
                     {
+                        id   : 'fuse-components.services.confirmation',
+                        title: 'Confirmation',
+                        type : 'basic',
+                        link : '/ui/fuse-components/services/confirmation'
+                    },
+                    {
                         id   : 'fuse-components.services.splash-screen',
                         title: 'SplashScreen',
                         type : 'basic',
