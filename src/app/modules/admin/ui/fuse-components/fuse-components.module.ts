@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTreeModule } from '@angular/material/tree';
 import { FuseCardModule } from '@fuse/components/card';
@@ -67,7 +66,6 @@ import { fuseComponentsRoutes } from 'app/modules/admin/ui/fuse-components/fuse-
         MatInputModule,
         MatSelectModule,
         MatSidenavModule,
-        MatSlideToggleModule,
         MatTabsModule,
         MatTreeModule,
         FuseAlertModule,

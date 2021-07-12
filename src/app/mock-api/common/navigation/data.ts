@@ -738,6 +738,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/ui/colors'
             },
             {
+                id   : 'user-interface.confirmation-dialog',
+                title: 'Confirmation Dialog',
+                type : 'basic',
+                icon : 'heroicons_outline:question-mark-circle',
+                link : '/ui/confirmation-dialog'
+            },
+            {
                 id   : 'user-interface.datatable',
                 title: 'Datatable',
                 type : 'basic',
