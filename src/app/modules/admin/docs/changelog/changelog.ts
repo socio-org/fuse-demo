@@ -11,6 +11,40 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.3.0
+        {
+            version    : 'v13.3.0',
+            releaseDate: 'July 16, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(fuse/confirmation) A service to quickly configure and show confirmation dialogs'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v12.1.2',
+                        '(dependencies) Updated various other packages',
+                        '(dashboards/analytics) Removed unused chart options declarations',
+                        '(apps/contacts) Added confirmation to the "Delete contact" action using FuseConfirmationService',
+                        '(apps/ecommerce/inventory) Added confirmation to the "Delete product" action using FuseConfirmationService',
+                        '(apps/scrumboard) Added confirmation to the "Delete list" action using FuseConfirmationService',
+                        '(apps/tasks) Added confirmation to the "Delete task" action using FuseConfirmationService',
+                        '(ui/confirmation-dialog) Created a separate page for FuseConfirmationService and put the example configurator in there for better visibility',
+                        '(docs) Moved Fuse Components and Other Components into UI for better visibility and better categorization'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(transloco) Undefined fallback language causes issues in some cases',
+                        '(tailwindcss) Ordered lists with "s" modifier causes builder to throw errors'
+                    ]
+                }
+            ]
+        },
         // v13.2.0
         {
             version    : 'v13.2.0',
@@ -37,7 +71,7 @@ export class ChangelogComponent
                         '(apps/tasks) Explicitly define the overlay position strategy properties',
                         '(tailwindcss) Breaking: Removed 5, 6 & 12 fractional spacing values since they are not used in Demo by default and they are mostly not needed because of Flex and Grid. If you happen to use them, you can manually add them back.',
                         '(docs) Updated docs',
-                        '(package.json) Added "description" and "author" fields',
+                        '(package.json) Added "description" and "author" fields'
                     ]
                 },
                 {
