@@ -11,6 +11,19 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.3.1
+        {
+            version    : 'v13.3.1',
+            releaseDate: 'July 17, 2021',
+            changes    : [
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(fuse/confirmation) Confirmation dialog colors are not optimized for the Dark mode'
+                    ]
+                }
+            ]
+        },
         // v13.3.0
         {
             version    : 'v13.3.0',
