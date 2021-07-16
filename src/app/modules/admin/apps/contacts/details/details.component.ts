@@ -6,6 +6,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { MatDrawerToggleResult } from '@angular/material/sidenav';
 import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
+import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { Contact, Country, Tag } from 'app/modules/admin/apps/contacts/contacts.types';
 import { ContactsListComponent } from 'app/modules/admin/apps/contacts/list/list.component';
 import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
@@ -42,6 +43,7 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         private _contactsListComponent: ContactsListComponent,
         private _contactsService: ContactsService,
         private _formBuilder: FormBuilder,
+        private _fuseConfirmationService: FuseConfirmationService,
         private _renderer2: Renderer2,
         private _router: Router,
         private _overlay: Overlay,
@@ -276,41 +278,61 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
      */
     deleteContact(): void
     {
-        // Get the current contact's id
-        const id = this.contact.id;
-
-        // Get the next/previous contact's id
-        const currentContactIndex = this.contacts.findIndex(item => item.id === id);
-        const nextContactIndex = currentContactIndex + ((currentContactIndex === (this.contacts.length - 1)) ? -1 : 1);
-        const nextContactId = (this.contacts.length === 1 && this.contacts[0].id === id) ? null : this.contacts[nextContactIndex].id;
-
-        // Delete the contact
-        this._contactsService.deleteContact(id)
-            .subscribe((isDeleted) => {
-
-                // Return if the contact wasn't deleted...
-                if ( !isDeleted )
-                {
-                    return;
+        // Open the confirmation dialog
+        const confirmation = this._fuseConfirmationService.open({
+            title  : 'Delete contact',
+            message: 'Are you sure you want to delete this contact? This action cannot be undone!',
+            actions: {
+                confirm: {
+                    label: 'Delete'
                 }
+            }
+        });
 
-                // Navigate to the next contact if available
-                if ( nextContactId )
-                {
-                    this._router.navigate(['../', nextContactId], {relativeTo: this._activatedRoute});
-                }
-                // Otherwise, navigate to the parent
-                else
-                {
-                    this._router.navigate(['../'], {relativeTo: this._activatedRoute});
-                }
+        // Subscribe to the confirmation dialog closed action
+        confirmation.afterClosed().subscribe((result) => {
 
-                // Toggle the edit mode off
-                this.toggleEditMode(false);
-            });
+            // If the confirm button pressed...
+            if ( result === 'confirmed' )
+            {
+                // Get the current contact's id
+                const id = this.contact.id;
 
-        // Mark for check
-        this._changeDetectorRef.markForCheck();
+                // Get the next/previous contact's id
+                const currentContactIndex = this.contacts.findIndex(item => item.id === id);
+                const nextContactIndex = currentContactIndex + ((currentContactIndex === (this.contacts.length - 1)) ? -1 : 1);
+                const nextContactId = (this.contacts.length === 1 && this.contacts[0].id === id) ? null : this.contacts[nextContactIndex].id;
+
+                // Delete the contact
+                this._contactsService.deleteContact(id)
+                    .subscribe((isDeleted) => {
+
+                        // Return if the contact wasn't deleted...
+                        if ( !isDeleted )
+                        {
+                            return;
+                        }
+
+                        // Navigate to the next contact if available
+                        if ( nextContactId )
+                        {
+                            this._router.navigate(['../', nextContactId], {relativeTo: this._activatedRoute});
+                        }
+                        // Otherwise, navigate to the parent
+                        else
+                        {
+                            this._router.navigate(['../'], {relativeTo: this._activatedRoute});
+                        }
+
+                        // Toggle the edit mode off
+                        this.toggleEditMode(false);
+                    });
+
+                // Mark for check
+                this._changeDetectorRef.markForCheck();
+            }
+        });
+
     }
 
     /**

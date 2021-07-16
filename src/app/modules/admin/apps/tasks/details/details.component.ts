@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { MatDrawerToggleResult } from '@angular/material/sidenav';
+import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { Subject } from 'rxjs';
 import { debounceTime, filter, takeUntil, tap } from 'rxjs/operators';
 import { assign } from 'lodash-es';
@@ -40,6 +41,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         private _activatedRoute: ActivatedRoute,
         private _changeDetectorRef: ChangeDetectorRef,
         private _formBuilder: FormBuilder,
+        private _fuseConfirmationService: FuseConfirmationService,
         private _renderer2: Renderer2,
         private _router: Router,
         private _tasksListComponent: TasksListComponent,
@@ -472,38 +474,58 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
      */
     deleteTask(): void
     {
-        // Get the current task's id
-        const id = this.task.id;
-
-        // Get the next/previous task's id
-        const currentTaskIndex = this.tasks.findIndex(item => item.id === id);
-        const nextTaskIndex = currentTaskIndex + ((currentTaskIndex === (this.tasks.length - 1)) ? -1 : 1);
-        const nextTaskId = (this.tasks.length === 1 && this.tasks[0].id === id) ? null : this.tasks[nextTaskIndex].id;
-
-        // Delete the task
-        this._tasksService.deleteTask(id)
-            .subscribe((isDeleted) => {
-
-                // Return if the task wasn't deleted...
-                if ( !isDeleted )
-                {
-                    return;
+        // Open the confirmation dialog
+        const confirmation = this._fuseConfirmationService.open({
+            title  : 'Delete task',
+            message: 'Are you sure you want to delete this task? This action cannot be undone!',
+            actions: {
+                confirm: {
+                    label: 'Delete'
                 }
+            }
+        });
 
-                // Navigate to the next task if available
-                if ( nextTaskId )
-                {
-                    this._router.navigate(['../', nextTaskId], {relativeTo: this._activatedRoute});
-                }
-                // Otherwise, navigate to the parent
-                else
-                {
-                    this._router.navigate(['../'], {relativeTo: this._activatedRoute});
-                }
-            });
+        // Subscribe to the confirmation dialog closed action
+        confirmation.afterClosed().subscribe((result) => {
 
-        // Mark for check
-        this._changeDetectorRef.markForCheck();
+            // If the confirm button pressed...
+            if ( result === 'confirmed' )
+            {
+
+                // Get the current task's id
+                const id = this.task.id;
+
+                // Get the next/previous task's id
+                const currentTaskIndex = this.tasks.findIndex(item => item.id === id);
+                const nextTaskIndex = currentTaskIndex + ((currentTaskIndex === (this.tasks.length - 1)) ? -1 : 1);
+                const nextTaskId = (this.tasks.length === 1 && this.tasks[0].id === id) ? null : this.tasks[nextTaskIndex].id;
+
+                // Delete the task
+                this._tasksService.deleteTask(id)
+                    .subscribe((isDeleted) => {
+
+                        // Return if the task wasn't deleted...
+                        if ( !isDeleted )
+                        {
+                            return;
+                        }
+
+                        // Navigate to the next task if available
+                        if ( nextTaskId )
+                        {
+                            this._router.navigate(['../', nextTaskId], {relativeTo: this._activatedRoute});
+                        }
+                        // Otherwise, navigate to the parent
+                        else
+                        {
+                            this._router.navigate(['../'], {relativeTo: this._activatedRoute});
+                        }
+                    });
+
+                // Mark for check
+                this._changeDetectorRef.markForCheck();
+            }
+        });
     }
 
     /**

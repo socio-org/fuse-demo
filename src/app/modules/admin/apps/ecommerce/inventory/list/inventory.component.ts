@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { merge, Observable, Subject } from 'rxjs';
 import { debounceTime, map, switchMap, takeUntil } from 'rxjs/operators';
 import { fuseAnimations } from '@fuse/animations';
+import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { InventoryBrand, InventoryCategory, InventoryPagination, InventoryProduct, InventoryTag, InventoryVendor } from 'app/modules/admin/apps/ecommerce/inventory/inventory.types';
 import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inventory.service';
 
@@ -62,6 +63,7 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
+        private _fuseConfirmationService: FuseConfirmationService,
         private _formBuilder: FormBuilder,
         private _inventoryService: InventoryService
     )
@@ -525,14 +527,34 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
      */
     deleteSelectedProduct(): void
     {
-        // Get the product object
-        const product = this.selectedProductForm.getRawValue();
+        // Open the confirmation dialog
+        const confirmation = this._fuseConfirmationService.open({
+            title  : 'Delete product',
+            message: 'Are you sure you want to remove this product? This action cannot be undone!',
+            actions: {
+                confirm: {
+                    label: 'Delete'
+                }
+            }
+        });
 
-        // Delete the product on the server
-        this._inventoryService.deleteProduct(product.id).subscribe(() => {
+        // Subscribe to the confirmation dialog closed action
+        confirmation.afterClosed().subscribe((result) => {
 
-            // Close the details
-            this.closeDetails();
+            // If the confirm button pressed...
+            if ( result === 'confirmed' )
+            {
+
+                // Get the product object
+                const product = this.selectedProductForm.getRawValue();
+
+                // Delete the product on the server
+                this._inventoryService.deleteProduct(product.id).subscribe(() => {
+
+                    // Close the details
+                    this.closeDetails();
+                });
+            }
         });
     }
 

@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import * as moment from 'moment';
+import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
 import { Board, Card, List } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
-import * as moment from 'moment';
 
 @Component({
     selector       : 'scrumboard-board',
@@ -31,6 +32,7 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private _formBuilder: FormBuilder,
+        private _fuseConfirmationService: FuseConfirmationService,
         private _scrumboardService: ScrumboardService
     )
     {
@@ -148,8 +150,28 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
      */
     deleteList(id): void
     {
-        // Delete the list
-        this._scrumboardService.deleteList(id).subscribe();
+        // Open the confirmation dialog
+        const confirmation = this._fuseConfirmationService.open({
+            title  : 'Delete list',
+            message: 'Are you sure you want to delete this list and its cards? This action cannot be undone!',
+            actions: {
+                confirm: {
+                    label: 'Delete'
+                }
+            }
+        });
+
+        // Subscribe to the confirmation dialog closed action
+        confirmation.afterClosed().subscribe((result) => {
+
+            // If the confirm button pressed...
+            if ( result === 'confirmed' )
+            {
+
+                // Delete the list
+                this._scrumboardService.deleteList(id).subscribe();
+            }
+        });
     }
 
     /**
