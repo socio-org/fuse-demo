@@ -21,7 +21,7 @@ import { projectRoutes } from 'app/modules/admin/dashboards/project/project.rout
     declarations: [
         ProjectComponent
     ],
-    imports: [
+    imports     : [
         RouterModule.forChild(projectRoutes),
         MatButtonModule,
         MatButtonToggleModule,
@@ -29,14 +29,14 @@ import { projectRoutes } from 'app/modules/admin/dashboards/project/project.rout
         MatIconModule,
         MatMenuModule,
         MatProgressBarModule,
+        MatRippleModule,
         MatSidenavModule,
         MatSortModule,
         MatTableModule,
         MatTabsModule,
         NgApexchartsModule,
         TranslocoModule,
-        SharedModule,
-        MatRippleModule
+        SharedModule
     ]
 })
 export class ProjectModule
