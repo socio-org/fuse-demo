@@ -1,7 +1,7 @@
 <div class="flex flex-col flex-auto min-w-0">
 
     <!-- Header -->
-    <div class="dark bg-card dark:border-b">
+    <div class="bg-card">
         <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
             <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
                 <!-- Avatar and name -->
@@ -26,7 +26,7 @@
                 <!-- Actions -->
                 <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3">
                     <button
-                        class="fuse-mat-button-rounded bg-accent-600"
+                        class="fuse-mat-button-rounded bg-accent-700"
                         mat-flat-button
                         [color]="'accent'">
                         <mat-icon
@@ -46,41 +46,46 @@
                 </div>
             </div>
             <!-- Project selector -->
-            <div class="flex items-center">
-                <div class="px-4 py-2 rounded-tl-xl overflow-hidden bg-hover">
-                    <div class="sm:text-lg leading-6 truncate">{{selectedProject}}</div>
+            <div
+                class="relative flex self-start pt-2 pb-1 pl-5 pr-4 cursor-pointer overflow-hidden rounded-t-xl bg-default hover:bg-hover"
+                matRipple
+                [matMenuTriggerFor]="projectsMenu">
+                <div class="flex items-center">
+                    <div class="overflow-hidden">
+                        <div class="font-medium leading-6 truncate">{{selectedProject}}</div>
+                    </div>
+                    <div class="flex items-center justify-center pl-2">
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
+                    </div>
                 </div>
-                <div class="ml-px rounded-tr-xl bg-hover">
+                <mat-menu
+                    #projectsMenu="matMenu"
+                    [xPosition]="'before'">
                     <button
-                        [matMenuTriggerFor]="projectsMenu"
-                        mat-icon-button>
-                        <mat-icon [svgIcon]="'heroicons_outline:dots-horizontal'"></mat-icon>
+                        mat-menu-item
+                        (click)="selectedProject='ACME Corp. Backend App'">ACME Corp. Backend App
                     </button>
-                    <mat-menu #projectsMenu="matMenu">
-                        <button
-                            mat-menu-item
-                            (click)="selectedProject='ACME Corp. Backend App'">ACME Corp. Backend App
-                        </button>
-                        <button
-                            mat-menu-item
-                            (click)="selectedProject='ACME Corp. Frontend App'">ACME Corp. Frontend App
-                        </button>
-                        <button
-                            mat-menu-item
-                            (click)="selectedProject='Creapond'">Creapond
-                        </button>
-                        <button
-                            mat-menu-item
-                            (click)="selectedProject='Withinpixels'">Withinpixels
-                        </button>
-                    </mat-menu>
-                </div>
+                    <button
+                        mat-menu-item
+                        (click)="selectedProject='ACME Corp. Frontend App'">ACME Corp. Frontend App
+                    </button>
+                    <button
+                        mat-menu-item
+                        (click)="selectedProject='Creapond'">Creapond
+                    </button>
+                    <button
+                        mat-menu-item
+                        (click)="selectedProject='Withinpixels'">Withinpixels
+                    </button>
+                </mat-menu>
             </div>
         </div>
     </div>
 
     <!-- Main -->
-    <div class="flex-auto mt-4 sm:mt-6">
+    <div class="flex-auto pt-4 sm:pt-6">
         <div class="w-full max-w-screen-xl mx-auto">
 
             <!-- Tabs -->

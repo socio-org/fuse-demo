@@ -6,6 +6,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRippleModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
@@ -20,7 +21,7 @@ import { projectRoutes } from 'app/modules/admin/dashboards/project/project.rout
     declarations: [
         ProjectComponent
     ],
-    imports     : [
+    imports: [
         RouterModule.forChild(projectRoutes),
         MatButtonModule,
         MatButtonToggleModule,
@@ -34,7 +35,8 @@ import { projectRoutes } from 'app/modules/admin/dashboards/project/project.rout
         MatTabsModule,
         NgApexchartsModule,
         TranslocoModule,
-        SharedModule
+        SharedModule,
+        MatRippleModule
     ]
 })
 export class ProjectModule
