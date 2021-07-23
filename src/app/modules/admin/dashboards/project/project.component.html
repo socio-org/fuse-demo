@@ -47,7 +47,7 @@
             </div>
             <!-- Project selector -->
             <div
-                class="relative flex self-start pt-2 pb-1 pl-5 pr-4 cursor-pointer overflow-hidden rounded-t-xl bg-default hover:bg-hover"
+                class="relative flex self-start pt-2 pb-1 pl-5 pr-4 cursor-pointer overflow-hidden rounded-t-xl border border-b-0 bg-default"
                 matRipple
                 [matMenuTriggerFor]="projectsMenu">
                 <div class="flex items-center">
@@ -85,9 +85,8 @@
     </div>
 
     <!-- Main -->
-    <div class="flex-auto pt-4 sm:pt-6">
+    <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
         <div class="w-full max-w-screen-xl mx-auto">
-
             <!-- Tabs -->
             <mat-tab-group
                 class="sm:px-2"
@@ -734,7 +733,6 @@
                 </mat-tab>
 
             </mat-tab-group>
-
         </div>
     </div>
 
