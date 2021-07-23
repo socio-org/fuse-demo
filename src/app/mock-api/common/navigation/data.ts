@@ -22,6 +22,20 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:chart-pie',
                 link : '/dashboards/analytics'
+            },
+            {
+                id   : 'dashboards.finance',
+                title: 'Finance',
+                type : 'basic',
+                icon : 'heroicons_outline:cash',
+                link : '/dashboards/finance'
+            },
+            {
+                id   : 'dashboards.crypto',
+                title: 'Crypto',
+                type : 'basic',
+                icon : 'heroicons_outline:currency-dollar',
+                link : '/dashboards/crypto'
             }
         ]
     },
