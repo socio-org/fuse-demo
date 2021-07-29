@@ -11,6 +11,32 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.4.0
+        {
+            version    : 'v13.4.0',
+            releaseDate: 'July 29, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(dashboards/finance) Added finance dashboard',
+                        '(dashboards/crypto) Added crypto dashboard'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v12.1.4',
+                        '(dependencies) Updated various other packages',
+                        '(index) Updated the title, description and keywords',
+                        '(dashboards/project) Light header on light themes and small adjustments in various places',
+                        '(apps/contacts) Small adjustments for better consistency',
+                        '(apps/ecommerce/inventory) Small adjustments for better consistency',
+                        '(docs) Updated the multi language guide'
+                    ]
+                }
+            ]
+        },
         // v13.3.1
         {
             version    : 'v13.3.1',
