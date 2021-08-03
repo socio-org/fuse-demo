@@ -7,6 +7,12 @@ import { RouterModule, Route } from '@angular/router';
 import { FamilyListComponent } from './pages/family-list/family-list.component';
 import { FamilyComponent } from './family.component';
 import { DetailsComponent } from './pages/details/details.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { FuseCardModule } from '@fuse/components/card';
+import { SharedModule } from 'app/shared/shared.module';
+import { MatListModule } from '@angular/material/list';
 
 const routes: Route[] = [
     {
@@ -14,7 +20,7 @@ const routes: Route[] = [
         component: FamilyComponent,
         children: [
             {
-                path: 'list',
+                path: '',
                 component: FamilyListComponent,
                 children: [
                     {
@@ -36,6 +42,13 @@ const routes: Route[] = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
+
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatTooltipModule,
+        FuseCardModule,
+        SharedModule
     ],
     providers: []
 })
