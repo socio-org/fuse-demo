@@ -3,8 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'full-calendar',
-    templateUrl: './full-calendar.component.html',
-    styles     : ['']
+    templateUrl: './full-calendar.component.html'
 })
 export class FullCalendarComponent
 {

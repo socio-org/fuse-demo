@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'find-by-key',
-    templateUrl: './find-by-key.component.html',
-    styles     : ['']
+    templateUrl: './find-by-key.component.html'
 })
 export class FindByKeyComponent
 {

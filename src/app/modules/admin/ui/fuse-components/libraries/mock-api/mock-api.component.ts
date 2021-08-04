@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'mock-api',
-    templateUrl: './mock-api.component.html',
-    styles     : ['']
+    templateUrl: './mock-api.component.html'
 })
 export class MockApiComponent
 {

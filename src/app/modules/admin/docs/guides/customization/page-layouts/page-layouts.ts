@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'page-layouts',
-    templateUrl: './page-layouts.html',
-    styles     : ['']
+    templateUrl: './page-layouts.html'
 })
 export class PageLayoutsComponent
 {

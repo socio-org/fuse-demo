@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'fullscreen',
-    templateUrl: './fullscreen.component.html',
-    styles     : ['']
+    templateUrl: './fullscreen.component.html'
 })
 export class FullscreenComponent
 {

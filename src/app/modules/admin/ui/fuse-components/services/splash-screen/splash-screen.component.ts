@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'splash-screen',
-    templateUrl: './splash-screen.component.html',
-    styles     : ['']
+    templateUrl: './splash-screen.component.html'
 })
 export class SplashScreenComponent
 {

@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'scroll-reset',
-    templateUrl: './scroll-reset.component.html',
-    styles     : ['']
+    templateUrl: './scroll-reset.component.html'
 })
 export class ScrollResetComponent
 {

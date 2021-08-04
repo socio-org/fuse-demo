@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'updating',
-    templateUrl: './updating.html',
-    styles     : ['']
+    templateUrl: './updating.html'
 })
 export class UpdatingComponent
 {

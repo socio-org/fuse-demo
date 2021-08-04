@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'must-match',
-    templateUrl: './must-match.component.html',
-    styles     : ['']
+    templateUrl: './must-match.component.html'
 })
 export class MustMatchComponent
 {

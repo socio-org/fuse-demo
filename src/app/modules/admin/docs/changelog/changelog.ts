@@ -4,7 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
     selector       : 'changelog',
     templateUrl    : './changelog.html',
-    styles         : [''],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangelogComponent

@@ -4,8 +4,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'navigation',
-    templateUrl: './navigation.component.html',
-    styles     : ['']
+    templateUrl: './navigation.component.html'
 })
 export class NavigationComponent
 {

@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'date-range',
-    templateUrl: './date-range.component.html',
-    styles     : ['']
+    templateUrl: './date-range.component.html'
 })
 export class DateRangeComponent
 {

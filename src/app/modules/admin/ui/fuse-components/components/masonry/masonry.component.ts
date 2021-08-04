@@ -6,8 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector   : 'masonry',
-    templateUrl: './masonry.component.html',
-    styles     : ['']
+    templateUrl: './masonry.component.html'
 })
 export class MasonryComponent implements OnInit
 {

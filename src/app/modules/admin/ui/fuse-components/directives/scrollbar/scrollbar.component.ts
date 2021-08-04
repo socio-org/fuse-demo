@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'scrollbar',
-    templateUrl: './scrollbar.component.html',
-    styles     : ['']
+    templateUrl: './scrollbar.component.html'
 })
 export class ScrollbarComponent
 {

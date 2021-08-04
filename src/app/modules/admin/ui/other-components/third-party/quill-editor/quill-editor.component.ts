@@ -3,8 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'quill-editor',
-    templateUrl: './quill-editor.component.html',
-    styles     : ['']
+    templateUrl: './quill-editor.component.html'
 })
 export class QuillEditorComponent
 {

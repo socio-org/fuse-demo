@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'splash-screen',
-    templateUrl: './splash-screen.html',
-    styles     : ['']
+    templateUrl: './splash-screen.html'
 })
 export class SplashScreenCustomizationComponent
 {

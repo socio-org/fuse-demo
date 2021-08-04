@@ -4,8 +4,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'drawer',
-    templateUrl: './drawer.component.html',
-    styles     : ['']
+    templateUrl: './drawer.component.html'
 })
 export class DrawerComponent
 {

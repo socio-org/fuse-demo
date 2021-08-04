@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'jwt',
-    templateUrl: './jwt.html',
-    styles     : ['']
+    templateUrl: './jwt.html'
 })
 export class JwtComponent
 {

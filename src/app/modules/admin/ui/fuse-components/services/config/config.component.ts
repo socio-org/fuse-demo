@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'config',
-    templateUrl: './config.component.html',
-    styles     : ['']
+    templateUrl: './config.component.html'
 })
 export class ConfigComponent
 {

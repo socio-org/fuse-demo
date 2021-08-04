@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'highlight',
-    templateUrl: './highlight.component.html',
-    styles     : ['']
+    templateUrl: './highlight.component.html'
 })
 export class HighlightComponent
 {

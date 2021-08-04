@@ -3,8 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'apex-charts',
-    templateUrl: './apex-charts.component.html',
-    styles     : ['']
+    templateUrl: './apex-charts.component.html'
 })
 export class ApexChartsComponent
 {

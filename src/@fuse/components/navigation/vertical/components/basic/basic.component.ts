@@ -10,7 +10,6 @@ import { FuseUtilsService } from '@fuse/services/utils/utils.service';
 @Component({
     selector       : 'fuse-vertical-navigation-basic-item',
     templateUrl    : './basic.component.html',
-    styles         : [],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestroy

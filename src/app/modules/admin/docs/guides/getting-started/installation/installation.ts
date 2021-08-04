@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'installation',
-    templateUrl: './installation.html',
-    styles     : ['']
+    templateUrl: './installation.html'
 })
 export class InstallationComponent
 {

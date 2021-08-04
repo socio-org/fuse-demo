@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'introduction',
-    templateUrl: './introduction.html',
-    styles     : ['']
+    templateUrl: './introduction.html'
 })
 export class IntroductionComponent
 {

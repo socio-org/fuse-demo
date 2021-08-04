@@ -3,8 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'overview',
-    templateUrl: './overview.component.html',
-    styles     : ['']
+    templateUrl: './overview.component.html'
 })
 export class OverviewComponent
 {

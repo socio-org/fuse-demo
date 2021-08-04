@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'multi-language',
-    templateUrl: './multi-language.html',
-    styles     : ['']
+    templateUrl: './multi-language.html'
 })
 export class MultiLanguageCustomizationComponent
 {

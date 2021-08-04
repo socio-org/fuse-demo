@@ -3,8 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'ngx-markdown',
-    templateUrl: './ngx-markdown.component.html',
-    styles     : ['']
+    templateUrl: './ngx-markdown.component.html'
 })
 export class NgxMarkdownComponent
 {

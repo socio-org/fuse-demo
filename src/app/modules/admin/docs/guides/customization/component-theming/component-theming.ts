@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'component-theming',
-    templateUrl: './component-theming.html',
-    styles     : ['']
+    templateUrl: './component-theming.html'
 })
 export class ComponentThemingComponent
 {

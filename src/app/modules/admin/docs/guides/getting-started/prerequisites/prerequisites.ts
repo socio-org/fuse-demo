@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'prerequisites',
-    templateUrl: './prerequisites.html',
-    styles     : ['']
+    templateUrl: './prerequisites.html'
 })
 export class PrerequisitesComponent
 {

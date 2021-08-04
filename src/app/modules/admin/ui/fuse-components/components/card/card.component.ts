@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'card',
-    templateUrl: './card.component.html',
-    styles     : ['']
+    templateUrl: './card.component.html'
 })
 export class CardComponent
 {

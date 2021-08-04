@@ -3,8 +3,7 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 
 @Component({
     selector   : 'media-watcher',
-    templateUrl: './media-watcher.component.html',
-    styles     : ['']
+    templateUrl: './media-watcher.component.html'
 })
 export class MediaWatcherComponent
 {

@@ -3,8 +3,7 @@ import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component'
 
 @Component({
     selector   : 'starter-kit',
-    templateUrl: './starter-kit.html',
-    styles     : ['']
+    templateUrl: './starter-kit.html'
 })
 export class StarterKitComponent
 {
