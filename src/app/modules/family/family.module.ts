@@ -13,6 +13,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FuseCardModule } from '@fuse/components/card';
 import { SharedModule } from 'app/shared/shared.module';
 import { MatListModule } from '@angular/material/list';
+import { GroupByPipe } from '@fuse/pipes/group-by';
 
 const routes: Route[] = [
     {
@@ -37,7 +38,8 @@ const routes: Route[] = [
     declarations: [
         FamilyComponent,
         FamilyListComponent,
-        DetailsComponent
+        DetailsComponent,
+        GroupByPipe
     ],
     imports: [
         CommonModule,
