@@ -208,7 +208,21 @@
         <h2>MatDialogRef</h2>
         <p>
             Since <code>FuseConfirmationService</code> uses <em>MatDialog</em> behind the scenes, it returns
-            a reference to the created dialog. Using that reference, you can access to the user input:
+            a reference to the created dialog. You can use all available methods from that reference such as
+            <code>updateSize</code> and <code>updatePosition</code> to further customize the dialog.
+        </p>
+        <p>
+            See
+            <a
+                href="https://material.angular.io/components/dialog/api#MatDialogRef"
+                target="_blank"
+                rel="noreferrer">
+                https://material.angular.io/components/dialog/api#MatDialogRef
+            </a>
+            for the complete list of available methods.
+        </p>
+        <p>
+            Using the reference, you can also access to the user input:
         </p>
         <!-- @formatter:off -->
         <textarea
