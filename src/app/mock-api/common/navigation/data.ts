@@ -3,11 +3,11 @@ import {FuseNavigationItem} from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     {
-        id: 'home',
-        title: 'Home',
+        id: 'dashboard',
+        title: 'Dashboard',
         type: 'basic',
         icon: 'heroicons_outline:home',
-        link: '/example'
+        link: '/dashboard'
     }, {
         id: 'calendar',
         title: 'Calendar',
@@ -24,6 +24,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link: '/posts'
     },
     {
+        id: 'groups',
+        title: 'Groups',
+        type: 'basic',
+        icon: 'heroicons_outline:user-group',
+        link: '/groups'
+    },
+    {
         id: 'families',
         title: 'Families',
         type: 'basic',
@@ -36,6 +43,41 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'heroicons_outline:user',
         link: '/member/list'
+    },
+    {
+        id: 'directory',
+        title: 'Directory',
+        icon: 'mat_outline:contact_phone',
+        type: 'collapsable',
+        children: [
+            {
+                id: 'directory.committee',
+                title: 'Parish Committee',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            }, {
+                id: 'coming-soon.accounting.estimate',
+                title: 'Metropolitan',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            }, {
+                id: 'coming-soon.accounting.estimate',
+                title: 'Priest',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            }, {
+                id: 'coming-soon.accounting.estimate',
+                title: 'Near By',
+                type: 'basic',
+                link: '/coming-soon/classic',
+            },
+        ]
+    }, {
+        id: 'pages.about',
+        title: 'About',
+        type: 'basic',
+        icon: 'mat_outline:info',
+        link: '/coming-soon/classic'
     }, {
         id: 'pages.settings',
         title: 'Settings',

@@ -4,8 +4,9 @@
     "private": true,
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "ng serve --host 0.0.0.0",
         "build": "ng build",
+        "build-serve": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
