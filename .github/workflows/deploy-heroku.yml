@@ -26,9 +26,16 @@ jobs:
               run: |
                   npm install
                   npm run-script deploy
-            - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+            - uses: onekiloparsec/heroku-node-deploy-subfolder@v1.1.0
               with:
-                  heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-                  heroku_app_name: "socio-demo" #Must be unique in Heroku
-                  heroku_email: "kochumarotti@gmail.com"
-                  appdir: "dist/fuse"
+                  api_key: ${{secrets.HEROKU_API_KEY}}
+                  email: "kochumarotti@gmail.com"
+                  app_name: "socio-demo"
+                  heroku_branch: "master"
+                  subfolder: "dist-staging"
+            # - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+            #   with:
+            #       heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+            #       heroku_app_name: "socio-demo" #Must be unique in Heroku
+            #       heroku_email: "kochumarotti@gmail.com"
+            #       appdir: "dist/fuse"
