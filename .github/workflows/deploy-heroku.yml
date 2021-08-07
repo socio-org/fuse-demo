@@ -1,0 +1,34 @@
+name: Deploy Heroku
+
+on:
+    push:
+        branches:
+            - develop
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+            - uses: actions/setup-node@v1 #this installs node and npm for us
+              with:
+                  node-version: "14.x"
+            - uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
+              with:
+                  path: |
+                      ~/.npm
+                      $GITHUB_WORKSPACE/node_modules
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+            - name: Build
+              run: |
+                  npm install
+                  npm run-script deploy
+            - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+              with:
+                  heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+                  heroku_app_name: "socio-demo" #Must be unique in Heroku
+                  heroku_email: "kochumarotti@gmail.com"
+                  appdir: "dist/fuse"
