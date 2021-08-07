@@ -32,7 +32,7 @@ jobs:
                   email: "kochumarotti@gmail.com"
                   app_name: "socio-demo"
                   heroku_branch: "master"
-                  subfolder: "dist-staging"
+                  subfolder: "dist/fuse"
             # - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
             #   with:
             #       heroku_api_key: ${{secrets.HEROKU_API_KEY}}
