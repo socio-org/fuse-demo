@@ -15,72 +15,70 @@
             <img alt="Family" class="object-cover" src="assets/images/profile/family-mock.webp">
         </div>
     </div>
-
     <!-- Name & Type -->
     <div class="flex flex-col items-start mt-8">
         <div class="text-xl font-medium">{{family.name}}</div>
     </div>
 
     <!-- Information -->
-    <div class="text-lg font-medium mt-8">Information</div>
+    <div class="text-lg font-medium mt-8">Members</div>
     <div class="flex flex-col mt-4 border-t border-b divide-y font-medium">
-        <div class="flex items-center justify-between py-3">
-            <div class="text-secondary">Created By</div>
-            <div>{{family.id}}</div>
-        </div>
-        <div class="flex items-center justify-between py-3">
-            <div class="text-secondary">Created At</div>
-            <div>{{family.id}}</div>
-        </div>
-        <div class="flex items-center justify-between py-3">
-            <div class="text-secondary">Modified At</div>
-            <div>{{family.id}}</div>
-        </div>
-        <div class="flex items-center justify-between py-3">
-            <div class="text-secondary">Size</div>
-            <div>{{family.id}}</div>
-        </div>
-        <ng-container *ngIf="family.contents">
-            <div class="flex items-center justify-between py-3">
-                <div class="text-secondary">Contents</div>
-                <div>{{family.id}}</div>
+
+        <div class="flex items-center justify-between ">
+            <div class="w-full">
+                <ng-container *ngFor="let member of family.members">
+                    <div class="row">
+                        <!-- Contact -->
+                        <a [routerLink]="['./', member.id]"
+                           class="z-20 flex items-center justify-between px-6 py-4 md:px-8 cursor-pointer border-b">
+                            <!--                            <ng-container *ngIf="member.avatar">-->
+                            <!--                                <img-->
+                            <!--                                    class="object-cover w-full h-full"-->
+                            <!--                                    [src]="member.avatar"-->
+                            <!--                                    alt="Contact avatar"/>-->
+                            <!--                            </ng-container>-->
+                            <!--                            <ng-container *ngIf="!member.avatar">-->
+                            <!--                                <div class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">-->
+                            <!--                                    {{member.name.charAt(0)}}-->
+                            <!--                                </div>-->
+                            <!--                            </ng-container>-->
+                            <div class="min-w-0 ml-4">
+                                <div class="font-medium leading-5 truncate">{{member.name}}</div>
+                                <div class="leading-5 truncate text-secondary">{{member.relation}}</div>
+                            </div>
+                            <div class="min-w-0 ml-4 ">
+                                <button
+                                    [color]="'primary'"
+                                    class="flex-auto"
+                                    mat-flat-button>
+                                    View
+                                </button>
+                            </div>
+                        </a></div>
+                </ng-container>
             </div>
-        </ng-container>
-    </div>
-
-    <!-- About -->
-    <div class="flex items-center justify-between mt-8">
-        <div class="text-lg font-medium">about</div>
-        <button mat-icon-button>
-            <mat-icon
-                [svgIcon]="'heroicons_solid:pencil'"
-                class="icon-size-5"></mat-icon>
-        </button>
-    </div>
-    <div class="flex mt-2 border-t">
-        <div class="py-3">
-            <ng-container *ngIf="family.about">
-                <div>{{family.about}}</div>
-            </ng-container>
-            <ng-container *ngIf="!family.about">
-                <div class="italic text-secondary">Click here to add a description</div>
-            </ng-container>
         </div>
+
+        <div class="text-lg font-medium mt-8">About</div>
+        <div class="flex items-center justify-between py-3">
+            <div>{{family.about}}</div>
+        </div>
+
+        <div class="text-lg font-medium mt-8">Details</div>
+        <div class="flex items-center justify-between py-3">
+            <div class="text-secondary">Division</div>
+            <div>{{family.divisionId}}</div>
+        </div>
+        <div class="flex items-center justify-between py-3">
+            <div class="text-secondary">Sub Division</div>
+            <div>{{family.subDivisionId || ''}}</div>
+        </div>
+        <div class="flex items-center justify-between py-3">
+            <div class="text-secondary">Member Since</div>
+            <div>{{family.memberSince}}</div>
+        </div>
+
     </div>
 
-    <!-- Actions -->
-    <div class="grid grid-cols-2 gap-4 w-full mt-8">
-        <button
-            [color]="'primary'"
-            class="flex-auto"
-            mat-flat-button>
-            Download
-        </button>
-        <button
-            class="flex-auto"
-            mat-stroked-button>
-            Delete
-        </button>
-    </div>
 
 </div>

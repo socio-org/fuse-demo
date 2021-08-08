@@ -11,9 +11,10 @@ import {MatDrawer} from '@angular/material/sidenav';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FuseMediaWatcherService} from '@fuse/services/media-watcher';
 import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {switchMap, takeUntil} from 'rxjs/operators';
 import {Family} from '../../family.model';
 import {FamilyService} from '../../family.service';
+import {FormControl} from "@angular/forms";
 
 @Component({
     selector: 'app-family-list',
@@ -31,6 +32,7 @@ export class FamilyListComponent implements OnInit, OnDestroy {
     families: Family[];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
+    public searchInputControl: FormControl = new FormControl();
     /**
      * Constructor
      */
@@ -82,6 +84,19 @@ export class FamilyListComponent implements OnInit, OnDestroy {
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
+
+        // Subscribe to search input field value changes
+        this.searchInputControl.valueChanges
+            .pipe(
+                takeUntil(this._unsubscribeAll),
+                // tap((query) => console.log(query))
+                switchMap(query =>
+
+                    // Search
+                    this._fileManagerService.getFamilies(query)
+                )
+            )
+            .subscribe();
     }
 
     /**
@@ -117,5 +132,12 @@ export class FamilyListComponent implements OnInit, OnDestroy {
      */
     trackByFn(index: number, item: any): any {
         return item.id || index;
+    }
+
+    /**
+     * addFamily
+     */
+    addFamily() {
+        alert('Add new family')
     }
 }

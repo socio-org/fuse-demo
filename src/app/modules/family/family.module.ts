@@ -17,6 +17,7 @@ import {GroupByPipe} from '@fuse/pipes/group-by';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {FamilyItemResolver, FamilyItemsResolver} from './family.resolvers';
 import {CanDeactivateFamilyDetails} from './family.guards';
+import {MaterialModule} from "../../shared/material.module";
 
 const routes: Route[] = [
     {
@@ -53,6 +54,7 @@ const routes: Route[] = [
         CommonModule,
         RouterModule.forChild(routes),
 
+        MaterialModule,
         MatSidenavModule,
         MatButtonModule,
         MatIconModule,
