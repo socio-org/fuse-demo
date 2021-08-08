@@ -16,14 +16,61 @@ export interface PeriodicElement {
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-    displayedColumns: string[] = ['position', 'name', 'date' ];
+    displayedColumns: string[] = ['position', 'name', 'date'];
 
-    dataSource: PeriodicElement[] = [
-        {position: 1, name: 'Hydrogen', dob: 'June 15'},
-        {position: 2, name: 'Helium', dob: 'June 15'},
-        {position: 3, name: 'Lithium', dob: 'June 15'},
-        {position: 4, name: 'Beryllium', dob: 'June 15'},
-        {position: 5, name: 'Boron', dob: 'June 15'}
+    birthdays: PeriodicElement[] = [
+        {
+            "position": 1,
+            "name": "Mcdowell Horton ",
+            "dob": "Aug 31"
+        },
+        {
+            "position": 2,
+            "name": "Evans Lyons ",
+            "dob": "Apr 19"
+        },
+        {
+            "position": 3,
+            "name": "Belinda Castillo ",
+            "dob": "Jun 16"
+        },
+        {
+            "position": 4,
+            "name": "Cathy Baxter ",
+            "dob": "Jan 10"
+        },
+        {
+            "position": 5,
+            "name": "Louise Pennington ",
+            "dob": "Jul 13"
+        }
+    ];
+    anniversaries: PeriodicElement[] = [
+        {
+            "position": 1,
+            "name": "Montoya Holcomb ",
+            "dob": "Mar 07"
+        },
+        {
+            "position": 2,
+            "name": "Lizzie Underwood ",
+            "dob": "Nov 07"
+        },
+        {
+            "position": 3,
+            "name": "Spence Little ",
+            "dob": "Jun 22"
+        },
+        {
+            "position": 4,
+            "name": "Norton Sharpe ",
+            "dob": "Mar 09"
+        },
+        {
+            "position": 5,
+            "name": "Stanton Hickman ",
+            "dob": "Sep 15"
+        }
     ];
 
     constructor(private _router: Router) {

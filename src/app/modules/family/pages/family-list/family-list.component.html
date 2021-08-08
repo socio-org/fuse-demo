@@ -1,43 +1,88 @@
-<div class="flex flex-col flex-auto min-w-0">
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+
+    <mat-drawer-container (backdropClick)="onBackdropClicked()" class="flex-auto h-full bg-card dark:bg-transparent">
+
+        <!-- Drawer -->
+        <mat-drawer #matDrawer [disableClose]="true" [mode]="drawerMode" [opened]="false"
+                    [position]="'end'" class="w-full sm:w-100 dark:bg-gray-900">
+            <router-outlet></router-outlet>
+        </mat-drawer>
+
+        <mat-drawer-content class="flex flex-col bg-gray-100 dark:bg-transparent">
+
+            <!-- Main -->
+            <div class="flex flex-col flex-auto">
+
+                <!-- Items list -->
+                <ng-container *ngIf="families && families.length && families.length > 0; else noItems">
+
+                    <div *ngFor="let familyGrouped of families | groupBy : 'divisionId' ">
 
 
-    <!-- Main -->
-    <div class="flex-auto p-6 sm:p-10">
+                        <div class="p-6 md:p-8">
+                            <!-- Folders -->
+                            <div class="font-medium">{{familyGrouped.key}}</div>
+                            <div
+                                class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-6 w-full min-w-0">
 
-        <div *ngFor="let units of families | groupBy : 'unit'">
-            <div class="font-extrabold mt-8">{{units.key}}</div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-
-                <fuse-card
-                    class=" flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden filter-listing"
-                    *ngFor="let family of units.value">
-                    <img class="object-cover" src="assets/images/profile/family-mock.webp" alt="Family">
-                    <div class="m-8 mb-4">
-                        <div class="flex justify-between">
-                            <div class="flex flex-col">
-                                <div class="text-secondary text-md">{{family.address}}</div>
-                                <div class="text-2xl font-semibold leading-tight mt-1">{{family.preferred_name}}
-                                </div>
+                                <ng-container *ngFor="let family of familyGrouped.value">
+                                    <ng-container
+                                        *ngTemplateOutlet="familyTemplate; context: {family: family}"></ng-container>
+                                </ng-container>
                             </div>
-                            <button class="-mt-2 -mr-2" mat-icon-button>
-                                <mat-icon class="text-red-500 icon-size-5" [svgIcon]="'heroicons_solid:heart'">
-                                </mat-icon>
-                            </button>
-                        </div>
-                        <div class="mt-3 -mx-3">
-                            <button class="px-3 mr-1" mat-button [color]="'primary'"
-                                [routerLink]="['../member/', family.id ]">
-                                Details
-                            </button>
-                            <button class="px-3" mat-button [color]="'warn'" [routerLink]="['./']">
-                                See on map
-                            </button>
                         </div>
                     </div>
-                </fuse-card>
+                </ng-container>
+
+                <!-- Item template -->
+                <ng-template #familyTemplate let-family="family">
+                    <a [routerLink]="['./', family.id]"
+                       class="flex flex-col  flex-auto m-2 p-4 shadow rounded-2xl cursor-pointer bg-card  overflow-hidden">
+
+                        <div class="row">
+                            <img alt="Family" class="object-cover"
+                                 src="assets/images/profile/family-mock.webp">
+                        </div>
+                        <div class="m-8 mb-4">
+                            <div class="flex justify-between">
+                                <div class="flex flex-col">
+                                    <div class="text-secondary text-md">{{family.address}}</div>
+                                    <div class="text-2xl font-semibold leading-tight mt-1">
+                                        {{family.preferred_name}}
+                                    </div>
+                                </div>
+                                <button class="-mt-2 -mr-2" mat-icon-button>
+                                    <mat-icon [svgIcon]="'heroicons_solid:heart'"
+                                              class="text-red-500 icon-size-5">
+                                    </mat-icon>
+                                </button>
+                            </div>
+                            <div class="mt-3 -mx-3">
+                                <button [color]="'primary'" [routerLink]="['../member/', family.id ]" class="px-3 mr-1"
+                                        mat-button>
+                                    Details
+                                </button>
+                                <button [color]="'warn'" [routerLink]="['./']" class="px-3" mat-button>
+                                    See on map
+                                </button>
+                            </div>
+                        </div>
+
+                    </a>
+                </ng-template>
+
+                <!-- No items template -->
+                <ng-template #noItems>
+                    <div class="flex flex-auto flex-col items-center justify-center bg-gray-100 dark:bg-transparent">
+                        <mat-icon [svgIcon]="'iconsmind:file_hide'" class="icon-size-24"></mat-icon>
+                        <div class="mt-4 text-2xl font-semibold tracking-tight text-secondary">There are no items!</div>
+                    </div>
+                </ng-template>
+
             </div>
 
+        </mat-drawer-content>
 
-        </div>
+    </mat-drawer-container>
 
-    </div>
+</div>
