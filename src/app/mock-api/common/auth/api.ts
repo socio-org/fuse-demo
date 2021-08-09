@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import Base64 from 'crypto-js/enc-base64';
 import HmacSHA256 from 'crypto-js/hmac-sha256';
 import Utf8 from 'crypto-js/enc-utf8';
-import { cloneDeep } from 'lodash-es';
-import { FuseMockApiService } from '@fuse/lib/mock-api';
-import { user as userData } from 'app/mock-api/common/user/data';
+import {cloneDeep} from 'lodash-es';
+import {FuseMockApiService} from '@fuse/lib/mock-api';
+import {user as userData} from 'app/mock-api/common/user/data';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthMockApi
-{
+export class AuthMockApi {
     private readonly _secret: any;
     private _user: any = userData;
 
@@ -67,14 +66,13 @@ export class AuthMockApi
             .reply(({request}) => {
 
                 // Sign in successful
-                if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
-                {
+                if (request.body.email === 'adam.john@socio.com' && request.body.password === 'admin') {
                     return [
                         200,
                         {
-                            user       : cloneDeep(this._user),
+                            user: cloneDeep(this._user),
                             accessToken: this._generateJWTToken(),
-                            tokenType  : 'bearer'
+                            tokenType: 'bearer'
                         }
                     ];
                 }
@@ -140,14 +138,13 @@ export class AuthMockApi
             .reply(({request}) => {
 
                 // Sign in successful
-                if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
-                {
+                if (request.body.email === 'adam.john@socio.com' && request.body.password === 'admin') {
                     return [
                         200,
                         {
-                            user       : cloneDeep(this._user),
+                            user: cloneDeep(this._user),
                             accessToken: this._generateJWTToken(),
-                            tokenType  : 'bearer'
+                            tokenType: 'bearer'
                         }
                     ];
                 }

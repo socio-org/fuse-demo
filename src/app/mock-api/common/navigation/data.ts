@@ -23,13 +23,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:user-group',
         link: '/posts'
     },
-    {
-        id: 'groups',
-        title: 'Groups',
-        type: 'basic',
-        icon: 'heroicons_outline:user-group',
-        link: '/groups'
-    },
+    // {
+    //     id: 'groups',
+    //     title: 'Groups',
+    //     type: 'basic',
+    //     icon: 'heroicons_outline:user-group',
+    //     link: '/groups'
+    // },
     {
         id: 'families',
         title: 'Families',
@@ -55,7 +55,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 title: 'Parish Committee',
                 type: 'basic',
                 link: '/coming-soon/classic',
-            }, {
+            },/* {
                 id: 'coming-soon.accounting.estimate',
                 title: 'Metropolitan',
                 type: 'basic',
@@ -70,7 +70,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 title: 'Near By',
                 type: 'basic',
                 link: '/coming-soon/classic',
-            },
+            },*/
         ]
     }, {
         id: 'pages.about',
