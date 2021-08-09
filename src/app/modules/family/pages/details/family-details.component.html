@@ -47,11 +47,8 @@
                                 <div class="leading-5 truncate text-secondary">{{member.relation}}</div>
                             </div>
                             <div class="min-w-0 ml-4 ">
-                                <button
-                                    [color]="'primary'"
-                                    class="flex-auto"
-                                    mat-flat-button>
-                                    View
+                                <button [color]="'primary'" [routerLink]="['../../','member', member.id]"
+                                        class="flex-auto" mat-flat-button>View
                                 </button>
                             </div>
                         </a></div>
