@@ -13,7 +13,7 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
             <!-- Fixed demo sidebar -->
             <div class="mx-6 text-3xl font-bold tracking-tighter">Demo Sidebar</div>
             <fuse-vertical-navigation
-                [appearance]="'classic'"
+                [appearance]="'default'"
                 [navigation]="menuData"
                 [inner]="true"
                 [mode]="'side'"
