@@ -10,6 +10,36 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.5.0
+        {
+            version    : 'v13.5.0',
+            releaseDate: 'Aug 13, 2021',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        'Huge performance improvement due to Angular v12.2.0',
+                        '(dependencies) Updated Angular & Angular Material to v12.2.1',
+                        '(dependencies) Updated various other packages',
+                        '(tailwindcss) Removed old jsdoc from the config file',
+                        '(@fuse/theming) Better structuring on the themes.scss file',
+                        '(@fuse) Disabled Angular Material "theme" sanity check since we use "all-component-themes" without a color map',
+                        '(apps/mailbox) Style improvements',
+                        'Removed empty "styles" from component decorators',
+                        'Decreased budget sizes since new Fuse is a lot smaller compared to the one with the old design'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/overrides) Quill editor is not styled correctly by default',
+                        '(@fuse/confirmation) Dialog size cannot be updated using dialogRef\'s "updateSize" method',
+                        '(apps/mailbox) Compose dialog doesn\'t work correctly on small height resolutions',
+                        '(ui/page-layouts) Demo layout navigation appearance is not correct'
+                    ]
+                }
+            ]
+        },
         // v13.4.0
         {
             version    : 'v13.4.0',
