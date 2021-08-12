@@ -11,7 +11,6 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
 @Component({
     selector       : 'fuse-vertical-navigation-collapsable-item',
     templateUrl    : './collapsable.component.html',
-    styles         : [],
     animations     : fuseAnimations,
     changeDetection: ChangeDetectionStrategy.OnPush
 })

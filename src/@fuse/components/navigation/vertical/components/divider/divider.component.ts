@@ -8,7 +8,6 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
 @Component({
     selector       : 'fuse-vertical-navigation-divider-item',
     templateUrl    : './divider.component.html',
-    styles         : [],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FuseVerticalNavigationDividerItemComponent implements OnInit, OnDestroy

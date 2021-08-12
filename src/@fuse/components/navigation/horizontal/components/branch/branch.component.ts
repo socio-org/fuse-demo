@@ -10,7 +10,6 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
 @Component({
     selector       : 'fuse-horizontal-navigation-branch-item',
     templateUrl    : './branch.component.html',
-    styles         : [],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDestroy
