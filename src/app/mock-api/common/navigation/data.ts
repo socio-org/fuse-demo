@@ -77,13 +77,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'About',
         type: 'basic',
         icon: 'mat_outline:info',
-        link: '/coming-soon/classic'
+        link: '/about'
     }, {
         id: 'pages.settings',
         title: 'Settings',
         type: 'basic',
         icon: 'heroicons_outline:cog',
-        link: '/coming-soon/classic'
+        link: '/settings'
     },
     {
         id: 'divider-2',
@@ -126,7 +126,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'About',
         type: 'basic',
         icon: 'heroicons_outline:information-circle',
-        link: '/about'
+        link: '/socio/about'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [

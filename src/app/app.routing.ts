@@ -114,6 +114,14 @@ export const appRoutes: Route[] = [
                 path: 'member',
                 loadChildren: () => import('app/modules/members/members.module').then(m => m.MembersModule)
             },
+            {
+                path: 'about',
+                loadChildren: () => import('app/modules/common/about/about.module').then(m => m.AboutModule)
+            },
+            {
+                path: 'settings',
+                loadChildren: () => import('app/modules/settings/settings.module').then(m => m.SettingsModule)
+            },
 
             // Coming soon
             {
