@@ -1,9 +1,9 @@
 import { Component, ElementRef, HostBinding, HostListener, NgZone, OnDestroy, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Chat } from 'app/modules/admin/apps/chat/chat.types';
 import { QuickChatService } from 'app/layout/common/quick-chat/quick-chat.service';
-import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
+import { Chat } from 'app/layout/common/quick-chat/quick-chat.types';
 
 @Component({
     selector     : 'quick-chat',

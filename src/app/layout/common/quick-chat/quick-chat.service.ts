@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
-import { Chat } from 'app/modules/admin/apps/chat/chat.types';
+import { Chat } from 'app/layout/common/quick-chat/quick-chat.types';
 
 @Injectable({
     providedIn: 'root'
