@@ -10,6 +10,19 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.6.1
+        {
+            version    : 'v13.6.0',
+            releaseDate: 'Aug 31, 2021',
+            changes    : [
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(QuickChat) Fixed: Overflowing issue'
+                    ]
+                }
+            ]
+        },
         // v13.6.0
         {
             version    : 'v13.6.0',
