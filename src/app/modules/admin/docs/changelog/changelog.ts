@@ -10,9 +10,22 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v13.6.2
+        {
+            version    : 'v13.6.2',
+            releaseDate: 'Sep 01, 2021',
+            changes    : [
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(QuickChat) Fixed: Wrong css rule causing a lot of problems'
+                    ]
+                }
+            ]
+        },
         // v13.6.1
         {
-            version    : 'v13.6.0',
+            version    : 'v13.6.1',
             releaseDate: 'Aug 31, 2021',
             changes    : [
                 {
