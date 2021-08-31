@@ -176,7 +176,7 @@ const config = {
              * smaller by not generating useless utilities such as
              * p-1/4 or m-480.
              */
-            extendedSpacing: {
+            extendedSpacing         : {
                 // Fractional values
                 '1/2': '50%',
                 '1/3': '33.333333%',
@@ -202,30 +202,36 @@ const config = {
                 '400': '100rem',
                 '480': '120rem'
             },
-            height         : theme => ({
+            height                  : theme => ({
                 ...theme('extendedSpacing')
             }),
-            minHeight      : theme => ({
+            minHeight               : theme => ({
                 ...theme('spacing'),
                 ...theme('extendedSpacing')
             }),
-            maxHeight      : theme => ({
+            maxHeight               : theme => ({
                 ...theme('extendedSpacing'),
                 none: 'none'
             }),
-            width          : theme => ({
+            width                   : theme => ({
                 ...theme('extendedSpacing')
             }),
-            minWidth       : theme => ({
+            minWidth                : theme => ({
                 ...theme('spacing'),
                 ...theme('extendedSpacing'),
                 screen: '100vw'
             }),
-            maxWidth       : theme => ({
+            maxWidth                : theme => ({
                 ...theme('spacing'),
                 ...theme('extendedSpacing'),
                 screen: '100vw'
             }),
+            transitionDuration      : {
+                '400': '400ms'
+            },
+            transitionTimingFunction: {
+                'drawer': 'cubic-bezier(0.25, 0.8, 0.25, 1)'
+            },
 
             // @tailwindcss/typography
             typography: (theme) => ({
@@ -413,7 +419,7 @@ const config = {
         transitionDuration      : [],
         transitionProperty      : [],
         transitionTimingFunction: [],
-        translate               : ['hover'],
+        translate               : ['responsive', 'hover'],
         userSelect              : ['responsive'],
         visibility              : ['responsive'],
         whitespace              : ['responsive'],
