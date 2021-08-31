@@ -12,7 +12,7 @@ quick-chat {
         }
     }
 
-    :not(&.quick-chat-opened) {
+    &:not(.quick-chat-opened) {
 
         > div {
             overflow: visible;
