@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     events: CalendarEvent[] = [];
 
-    eventDisplayedColumns: string[] = ['title', 'start', 'duration'];
+    eventDisplayedColumns: string[] = ['title', 'start'];
 
     displayedColumns: string[] = ['position', 'name', 'date'];
 
