@@ -20,7 +20,7 @@
     </div>
 
     <!-- Main -->
-    <div class="flex-auto mt-4 sm:mt-6">
+    <div class="flex-auto mt-4 sm:mt-6 hidden">
         <div class="w-full max-w-screen-xl mx-auto">
             <div class="sm:px-2">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
@@ -121,7 +121,82 @@
     <div class="flex-auto mt-4 sm:mt-6">
         <div class="w-full max-w-screen-xl mx-auto">
             <div class="sm:px-2">
-                <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 w-full min-w-0">
+                <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 p-2 w-full min-w-0">
+
+                    <!-- Recent posts  -->
+                    <div class="sm:col-span-2 md:col-span-2 lg:col-span-1  flex flex-col flex-auto   rounded-2xl overflow-hidden">
+                        <div class="flex flex-col sm:flex-row items-start justify-between">
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Recent posts</div>
+                        </div>
+                        <!-- Card #67 -->
+                        <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2">
+                            <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-2">
+                                <img
+                                        alt="Card cover image"
+                                        class="w-10 h-10 rounded-full mr-4"
+                                        src="assets/images/avatars/female-01.jpg">
+                                <div class="flex flex-col">
+                                    <span class="font-medium leading-none">Caroline Lundu</span>
+                                    <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                                Hey!! I never saw this one, it was amazing.. I think I’m going to buy myself a set and
+                                try his
+                                technique at home!
+                            </div>
+                        </fuse-card>
+                        <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2">
+                            <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-2">
+                                <img
+                                        alt="Card cover image"
+                                        class="w-10 h-10 rounded-full mr-4"
+                                        src="assets/images/avatars/female-01.jpg">
+                                <div class="flex flex-col">
+                                    <span class="font-medium leading-none">Caroline Lundu</span>
+                                    <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                                Hey!! I never saw this one, it was amazing.. I think I’m going to buy myself a set and
+                                try his
+                                technique at home!
+                            </div>
+                        </fuse-card>
+                        <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2">
+                            <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-2">
+                                <img
+                                        alt="Card cover image"
+                                        class="w-10 h-10 rounded-full mr-4"
+                                        src="assets/images/avatars/female-01.jpg">
+                                <div class="flex flex-col">
+                                    <span class="font-medium leading-none">Caroline Lundu</span>
+                                    <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                                Hey!! I never saw this one, it was amazing.. I think I’m going to buy myself a set and
+                                try his
+                                technique at home!
+                            </div>
+                        </fuse-card>
+                    </div>
+
+                    <div class="sm:col-span-2 md:col-span-2 lg:col-span-1  flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                        <div class="flex flex-col sm:flex-row items-start justify-between">
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Watch Time</div>
+                        </div>
+                        <div class="flex flex-col mt-2 divide-y video-container ">
+
+                            <iframe src="https://www.youtube.com/embed/CSubI4e4aek"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="  picture-in-picture"
+                                    allowfullscreen>
+
+                            </iframe>
+                        </div>
+                    </div>
+
 
                     <!-- Events  -->
                     <div class="sm:col-span-2 md:col-span-2 lg:col-span-1  flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
@@ -137,14 +212,15 @@
                                 <!-- Position Column -->
                                 <ng-container matColumnDef="title">
                                     <th *matHeaderCellDef mat-header-cell> Event</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.title}} </td>
+                                    <td *matCellDef="let element" mat-cell> {{element.title}}</td>
                                 </ng-container>
 
                                 <!-- Name Column -->
                                 <ng-container matColumnDef="start">
                                     <th *matHeaderCellDef mat-header-cell> Date</th>
                                     <td *matCellDef="let element"
-                                        mat-cell> {{ element.start | date:'MMM d, y, h:mm a'}} </td>
+                                        mat-cell> {{ element.start | date:'MMM d, y, h:mm a'}}
+                                    </td>
                                 </ng-container>
                                 <tr *matHeaderRowDef="eventDisplayedColumns" mat-header-row></tr>
                                 <tr *matRowDef="let row; columns: eventDisplayedColumns;" mat-row></tr>
@@ -169,19 +245,19 @@
                                 <!-- Position Column -->
                                 <ng-container matColumnDef="position">
                                     <th *matHeaderCellDef mat-header-cell> No.</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.position}} </td>
+                                    <td *matCellDef="let element" mat-cell> {{element.position}}</td>
                                 </ng-container>
 
                                 <!-- Name Column -->
                                 <ng-container matColumnDef="name">
                                     <th *matHeaderCellDef mat-header-cell> Name</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+                                    <td *matCellDef="let element" mat-cell> {{element.name}}</td>
                                 </ng-container>
 
                                 <!-- Weight Column -->
                                 <ng-container matColumnDef="date">
                                     <th *matHeaderCellDef mat-header-cell> Date</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.dob}} </td>
+                                    <td *matCellDef="let element" mat-cell> {{element.dob}}</td>
                                 </ng-container>
 
 
@@ -208,19 +284,19 @@
                                 <!-- Position Column -->
                                 <ng-container matColumnDef="position">
                                     <th *matHeaderCellDef mat-header-cell> No.</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.position}} </td>
+                                    <td *matCellDef="let element" mat-cell> {{element.position}}</td>
                                 </ng-container>
 
                                 <!-- Name Column -->
                                 <ng-container matColumnDef="name">
                                     <th *matHeaderCellDef mat-header-cell> Name</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+                                    <td *matCellDef="let element" mat-cell> {{element.name}}</td>
                                 </ng-container>
 
                                 <!-- Weight Column -->
                                 <ng-container matColumnDef="date">
                                     <th *matHeaderCellDef mat-header-cell> Date</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.dob}} </td>
+                                    <td *matCellDef="let element" mat-cell> {{element.dob}}</td>
                                 </ng-container>
 
 

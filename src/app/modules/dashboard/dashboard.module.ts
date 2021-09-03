@@ -7,6 +7,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {Route, RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard.component';
+import {FuseCardModule} from '@fuse/components/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 const routes: Route[] = [
     {
@@ -25,7 +27,9 @@ const routes: Route[] = [
         MatButtonModule,
         MatIconModule,
         MatMenuModule,
+        FuseCardModule,
         CommonModule,
+        MatDividerModule,
         RouterModule.forChild(routes)
     ]
 })
