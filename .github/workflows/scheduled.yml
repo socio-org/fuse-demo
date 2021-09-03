@@ -1,12 +1,12 @@
 name: Scheduled CI/CD
 
-#on:
-#  push:
-#    branches:
-#      - develop
 on:
-    schedule:
-        -   cron: "0 6 * * *"
+  push:
+    branches:
+      - develop
+#on:
+#    schedule:
+#        -   cron: "0 1,18,23 * * *"
 
 jobs:
     build-and-deploy:
