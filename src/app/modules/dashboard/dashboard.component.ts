@@ -15,6 +15,26 @@ import {filter, takeUntil} from 'rxjs/operators';
 import {isNonNull} from '../../../main';
 import {CalendarService} from '../calendar/calendar.service';
 import {CalendarEvent} from '../calendar/calendar.types';
+import {DashboardService} from './dashboard.service';
+
+export interface Post {
+    id: string;
+
+    title: string;
+
+    description: string;
+
+    addedBy: string;
+
+    type: string;
+
+    addedOn: string;
+
+    addedByAvatar: string;
+
+    contentUrl: string;
+
+}
 
 export interface PeriodicElement {
     name: string;
@@ -22,6 +42,14 @@ export interface PeriodicElement {
     position: number;
 
     dob: string;
+}
+
+export interface Data {
+    posts: Post[];
+
+    birthdays: PeriodicElement[];
+
+    anniversaries: PeriodicElement[];
 }
 
 @Component({
@@ -33,6 +61,8 @@ export interface PeriodicElement {
 })
 export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
+    data: Data;
+
     events: CalendarEvent[] = [];
 
     event: CalendarEvent;
@@ -41,66 +71,15 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     displayedColumns: string[] = ['position', 'name', 'date'];
 
-    birthdays: PeriodicElement[] = [
-        {
-            'position': 1,
-            'name': 'Mcdowell Horton ',
-            'dob': 'Aug 31'
-        },
-        {
-            'position': 2,
-            'name': 'Evans Lyons ',
-            'dob': 'Apr 19'
-        },
-        {
-            'position': 3,
-            'name': 'Belinda Castillo ',
-            'dob': 'Jun 16'
-        },
-        {
-            'position': 4,
-            'name': 'Cathy Baxter ',
-            'dob': 'Jan 10'
-        },
-        {
-            'position': 5,
-            'name': 'Louise Pennington ',
-            'dob': 'Jul 13'
-        }
-    ];
-
-    anniversaries: PeriodicElement[] = [
-        {
-            'position': 1,
-            'name': 'Montoya Holcomb ',
-            'dob': 'Mar 07'
-        },
-        {
-            'position': 2,
-            'name': 'Lizzie Underwood ',
-            'dob': 'Nov 07'
-        },
-        {
-            'position': 3,
-            'name': 'Spence Little ',
-            'dob': 'Jun 22'
-        },
-        {
-            'position': 4,
-            'name': 'Norton Sharpe ',
-            'dob': 'Mar 09'
-        },
-        {
-            'position': 5,
-            'name': 'Stanton Hickman ',
-            'dob': 'Sep 15'
-        }
-    ];
+    anniversaries: PeriodicElement[] = [];
 
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
-    constructor(private _router: Router, private _calendarService: CalendarService,
-                private _changeDetectorRef: ChangeDetectorRef
+    constructor(
+        private _dashboardService: DashboardService,
+        private _router: Router,
+        private _calendarService: CalendarService,
+        private _changeDetectorRef: ChangeDetectorRef
     ) {
     }
 
@@ -109,6 +88,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
      */
     ngAfterViewInit(): void {
 
+        this._dashboardService.getData();
         // Get events
         this._calendarService.getEvents(moment(), moment().add(1, 'month'), true).subscribe();
     }
@@ -126,7 +106,13 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.event = this.events[0];
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
-                console.log(JSON.stringify(this.events));
+            });
+        // Get the data
+        this._dashboardService.data$
+            .pipe(takeUntil(this._unsubscribeAll) && filter(isNonNull))
+            .subscribe((data) => {
+                // Store the data
+                this.data = data;
             });
 
     }
