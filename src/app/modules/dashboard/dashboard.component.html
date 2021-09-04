@@ -5,7 +5,7 @@
         <div class="flex flex-wrap items-start w-full max-w-400 -m-4">
 
             <!-- Card #54 -->
-            <div class="relative flex flex-col  w-full p-8 filter-testimonial">
+            <div class="relative flex flex-col  w-full p-4 filter-testimonial">
                 <span class="absolute top-0 left-0 text-9xl font-serif text-primary leading-none ml-8">“</span>
                 <div class="text-md italic leading-relaxed mt-4 ql-align-justify" style="text-align: center">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -19,106 +19,9 @@
         </div>
     </div>
 
-    <!-- Main -->
-    <div class="flex-auto mt-4 sm:mt-6 hidden">
-        <div class="w-full max-w-screen-xl mx-auto">
-            <div class="sm:px-2">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-                    <!-- Families -->
-                    <div [routerLink]="['../family']"
-                         class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                        <div class="flex items-start justify-between">
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Families</div>
-
-                        </div>
-                        <div class="flex flex-col items-center mt-2">
-                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">21
-                            </div>
-                            <div class="text-lg font-medium text-blue-600 dark:text-blue-500">Active</div>
-                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
-                                <div class="text-md font-medium truncate">Total:</div>
-                                <div class="ml-1.5 text-lg font-semibold">66</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Members -->
-                    <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                        <div class="flex items-start justify-between">
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Members</div>
-
-                        </div>
-                        <div class="flex flex-col items-center mt-2">
-                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">121
-                            </div>
-                            <div class="text-lg font-medium text-blue-600 dark:text-blue-500">Active</div>
-                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
-                                <div class="text-md font-medium truncate">Total:</div>
-                                <div class="ml-1.5 text-lg font-semibold">160</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- App Installs -->
-                    <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                        <div class="flex items-start justify-between">
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate">App Installs</div>
-                            <div class="ml-2 -mt-2 -mr-3">
-                                <button [matMenuTriggerFor]="overdueMenu" mat-icon-button>
-                                    <mat-icon [svgIcon]="'heroicons_solid:dots-vertical'" class="icon-size-5">
-                                    </mat-icon>
-                                </button>
-                                <mat-menu #overdueMenu="matMenu">
-                                    <button mat-menu-item>Yesterday</button>
-                                    <button mat-menu-item>2 days ago</button>
-                                    <button mat-menu-item>3 days ago</button>
-                                </mat-menu>
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center mt-2">
-                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500">17
-                            </div>
-                            <div class="text-lg font-medium text-red-600 dark:text-red-500">Active</div>
-                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
-                                <div class="text-md font-medium truncate">Total:</div>
-                                <div class="ml-1.5 text-lg font-semibold">100</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Issues -->
-                    <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                        <div class="flex items-start justify-between">
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Issues</div>
-                            <div class="ml-2 -mt-2 -mr-3">
-                                <button [matMenuTriggerFor]="issuesMenu" mat-icon-button>
-                                    <mat-icon [svgIcon]="'heroicons_solid:dots-vertical'" class="icon-size-5">
-                                    </mat-icon>
-                                </button>
-                                <mat-menu #issuesMenu="matMenu">
-                                    <button mat-menu-item>Yesterday</button>
-                                    <button mat-menu-item>2 days ago</button>
-                                    <button mat-menu-item>3 days ago</button>
-                                </mat-menu>
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center mt-2">
-                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500">24
-                            </div>
-                            <div class="text-lg font-medium text-amber-600 dark:text-amber-500">Open</div>
-                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
-                                <div class="text-md font-medium truncate">Closed today:</div>
-                                <div class="ml-1.5 text-lg font-semibold">19</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Main -->
-    <div class="flex-auto mt-4 sm:mt-6">
+    <div class="flex-auto">
         <div class="w-full max-w-screen-xl mx-auto">
             <div class="sm:px-2">
                 <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 p-2 w-full min-w-0">
@@ -126,69 +29,121 @@
                     <!-- Recent posts  -->
                     <div class="sm:col-span-2 md:col-span-2 lg:col-span-1  flex flex-col flex-auto   rounded-2xl overflow-hidden">
                         <div class="flex flex-col sm:flex-row items-start justify-between">
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Recent posts</div>
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate">
+                                &nbsp;&nbsp;Recent posts
+                            </div>
                         </div>
-                        <!-- Card #67 -->
+                        <!-- Test card -->
                         <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2">
                             <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-2">
                                 <img
                                         alt="Card cover image"
                                         class="w-10 h-10 rounded-full mr-4"
-                                        src="assets/images/avatars/female-01.jpg">
+                                        src="assets/images/logo/logo.png">
                                 <div class="flex flex-col">
-                                    <span class="font-medium leading-none">Caroline Lundu</span>
+                                    <span class="font-medium leading-none"> Gregorian TV</span>
                                     <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
                                 </div>
                             </div>
                             <div class="mx-6 sm:mx-8 mt-2 mb-6">
-                                Hey!! I never saw this one, it was amazing.. I think I’m going to buy myself a set and
-                                try his
-                                technique at home!
+                                Church Feast, Kayamkulam Kadeesha
+                                Details
+                                Start: February 2, 2019 @ 6:00 pm
+                                End: February 3, 2019 @ 11:00 am
+                                Event Category: Metropolitan Calendar
+                                Venue : Kadeesha Cathedral
+
+
                             </div>
                         </fuse-card>
+
+                        <!--  ഓൺലൈൻ ധ്യാനം  -->
                         <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2">
                             <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-2">
                                 <img
                                         alt="Card cover image"
                                         class="w-10 h-10 rounded-full mr-4"
-                                        src="assets/images/avatars/female-01.jpg">
-                                <div class="flex flex-col">
-                                    <span class="font-medium leading-none">Caroline Lundu</span>
+                                        src="assets/images/logo/logo.png">
+                                <div class="flex flex-col">`
+                                    <span class="font-medium leading-none"> Gregorian TV</span>
                                     <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
                                 </div>
                             </div>
                             <div class="mx-6 sm:mx-8 mt-2 mb-6">
-                                Hey!! I never saw this one, it was amazing.. I think I’m going to buy myself a set and
-                                try his
-                                technique at home!
+                                ജീവമന്ന | ചെങ്ങന്നൂർ ഭദ്രാസന പ്രതിവാര ഓൺലൈൻ ധ്യാനം ✝️
+                                2021 സെപ്റ്റംബർ 01 ബുധൻ 11am
                             </div>
                         </fuse-card>
+
+                        <!-- എട്ടു നോമ്പ് ആരംഭ ദിനം   -->
                         <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2">
                             <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-2">
                                 <img
                                         alt="Card cover image"
                                         class="w-10 h-10 rounded-full mr-4"
-                                        src="assets/images/avatars/female-01.jpg">
+                                        src="assets/images/logo/logo.png">
                                 <div class="flex flex-col">
-                                    <span class="font-medium leading-none">Caroline Lundu</span>
+                                    <span class="font-medium leading-none"> Gregorian TV</span>
                                     <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
                                 </div>
                             </div>
                             <div class="mx-6 sm:mx-8 mt-2 mb-6">
-                                Hey!! I never saw this one, it was amazing.. I think I’m going to buy myself a set and
-                                try his
-                                technique at home!
+                                എട്ടു നോമ്പ് ആരംഭ ദിനം
+                                സെന്റ്.ജോർജ് ഓർത്തഡോൿസ് പള്ളി, ആനപ്രാമ്പാൽ
+                                റവ.ഫാ.ഷിബു ടോം
                             </div>
                         </fuse-card>
+
+                        <!-- calendar event -->
+                        <fuse-card *ngIf="event" class="flex flex-col  w-full filter-post mb-2 mt-2">
+                            <div class="flex-auto p-8">
+                                <!-- Info -->
+                                <div class="flex">
+                                    <mat-icon [svgIcon]="'heroicons_outline:calendar'"></mat-icon>
+                                    <div class="flex flex-auto justify-between ml-6">
+                                        <!-- Info -->
+                                        <div>
+                                            <div class="text-3xl font-semibold tracking-tight leading-none">{{event.title || '(No title)'}}</div>
+                                            <div class="mt-0.5 text-secondary">{{event.start | date:'EEEE, MMMM d'}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Description -->
+                                <div
+                                        class="flex mt-6"
+                                        *ngIf="event.description">
+                                    <mat-icon [svgIcon]="'heroicons_outline:menu-alt-2'"></mat-icon>
+                                    <div class="flex-auto ml-6">{{event.description}}</div>
+                                </div>
+
+
+                            </div>
+                        </fuse-card>
+
+
                     </div>
 
+                    <!-- Youtube  -->
                     <div class="sm:col-span-2 md:col-span-2 lg:col-span-1  flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                        <div class="flex flex-col sm:flex-row items-start justify-between">
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Watch Time</div>
+
+                        <div class="flex items-center  ">
+                            <img
+                                    alt="Card cover image"
+                                    class="w-10 h-10 rounded-full mr-4"
+                                    src="assets/images/logo/logo.png">
+                            <div class="flex flex-col">
+                                <span class="font-medium leading-none"> Gregorian TV</span>
+                                <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                            സെന്റ് മേരീസ് ഓര്‍ത്തഡോക്സ് പള്ളി (ആരാഴിപ്പള്ളി) ഹരിപ്പാട്
+                            വി.എട്ടുനോമ്പാചരണവും പള്ളിപ്പെരുന്നാളും | വിശുദ്ധ കുര്ബ്ബാന - അഭി. ഡോ. യാക്കോബ് മാര്‍
+                            ഐറേനിയോസ് മെത്രാപ്പോലിത്ത
                         </div>
                         <div class="flex flex-col mt-2 divide-y video-container ">
-
-                            <iframe src="https://www.youtube.com/embed/CSubI4e4aek"
+                            <iframe src="https://www.youtube.com/embed/s53ko8P8gAQ"
                                     title="YouTube video player" frameborder="0"
                                     allow="  picture-in-picture"
                                     allowfullscreen>

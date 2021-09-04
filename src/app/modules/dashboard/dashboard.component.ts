@@ -35,6 +35,8 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     events: CalendarEvent[] = [];
 
+    event: CalendarEvent;
+
     eventDisplayedColumns: string[] = ['title', 'start'];
 
     displayedColumns: string[] = ['position', 'name', 'date'];
@@ -121,7 +123,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
                 // Clone the events to change the object reference so
                 // that the FullCalendar can trigger a re-render.
                 this.events = cloneDeep(events);
-
+                this.event = this.events[0];
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
                 console.log(JSON.stringify(this.events));
