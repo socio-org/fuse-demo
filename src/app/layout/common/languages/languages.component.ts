@@ -1,16 +1,23 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { take } from 'rxjs/operators';
-import { AvailableLangs, TranslocoService } from '@ngneat/transloco';
-import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    OnDestroy,
+    OnInit,
+    ViewEncapsulation
+} from '@angular/core';
+import {FuseNavigationService, FuseVerticalNavigationComponent} from '@fuse/components/navigation';
+import {AvailableLangs, TranslocoService} from '@ngneat/transloco';
+import {take} from 'rxjs/operators';
 
 @Component({
-    selector       : 'language',
-    templateUrl    : './language.component.html',
+    selector       : 'languages',
+    templateUrl    : './languages.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs       : 'language'
+    exportAs       : 'languages'
 })
-export class LanguageComponent implements OnInit, OnDestroy
+export class LanguagesComponent implements OnInit, OnDestroy
 {
     availableLangs: AvailableLangs;
     activeLang: string;

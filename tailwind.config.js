@@ -63,10 +63,6 @@ const themes = {
 
 /**
  * Tailwind configuration
- *
- * @param isProd
- * This will be automatically supplied by the custom Angular builder
- * based on the current environment of the application (prod, dev etc.)
  */
 const config = {
     experimental: {},
@@ -78,7 +74,8 @@ const config = {
         content: ['./src/**/*.{html,scss,ts}'],
         options: {
             safelist: {
-                deep: [/^theme/, /^dark/, /^mat/]
+                standard: ['dark'],
+                deep    : [/^theme/, /^mat/]
             }
         }
     },
@@ -179,34 +176,14 @@ const config = {
              * smaller by not generating useless utilities such as
              * p-1/4 or m-480.
              */
-            extendedSpacing: {
+            extendedSpacing         : {
                 // Fractional values
-                '1/2'  : '50%',
-                '1/3'  : '33.333333%',
-                '2/3'  : '66.666667%',
-                '1/4'  : '25%',
-                '2/4'  : '50%',
-                '3/4'  : '75%',
-                '1/5'  : '20%',
-                '2/5'  : '40%',
-                '3/5'  : '60%',
-                '4/5'  : '80%',
-                '1/6'  : '16.666667%',
-                '2/6'  : '33.333333%',
-                '3/6'  : '50%',
-                '4/6'  : '66.666667%',
-                '5/6'  : '83.333333%',
-                '1/12' : '8.333333%',
-                '2/12' : '16.666667%',
-                '3/12' : '25%',
-                '4/12' : '33.333333%',
-                '5/12' : '41.666667%',
-                '6/12' : '50%',
-                '7/12' : '58.333333%',
-                '8/12' : '66.666667%',
-                '9/12' : '75%',
-                '10/12': '83.333333%',
-                '11/12': '91.666667%',
+                '1/2': '50%',
+                '1/3': '33.333333%',
+                '2/3': '66.666667%',
+                '1/4': '25%',
+                '2/4': '50%',
+                '3/4': '75%',
 
                 // Bigger values
                 '100': '25rem',
@@ -225,30 +202,36 @@ const config = {
                 '400': '100rem',
                 '480': '120rem'
             },
-            height         : theme => ({
+            height                  : theme => ({
                 ...theme('extendedSpacing')
             }),
-            minHeight      : theme => ({
+            minHeight               : theme => ({
                 ...theme('spacing'),
                 ...theme('extendedSpacing')
             }),
-            maxHeight      : theme => ({
+            maxHeight               : theme => ({
                 ...theme('extendedSpacing'),
                 none: 'none'
             }),
-            width          : theme => ({
+            width                   : theme => ({
                 ...theme('extendedSpacing')
             }),
-            minWidth       : theme => ({
+            minWidth                : theme => ({
                 ...theme('spacing'),
                 ...theme('extendedSpacing'),
                 screen: '100vw'
             }),
-            maxWidth       : theme => ({
+            maxWidth                : theme => ({
                 ...theme('spacing'),
                 ...theme('extendedSpacing'),
                 screen: '100vw'
             }),
+            transitionDuration      : {
+                '400': '400ms'
+            },
+            transitionTimingFunction: {
+                'drawer': 'cubic-bezier(0.25, 0.8, 0.25, 1)'
+            },
 
             // @tailwindcss/typography
             typography: (theme) => ({
@@ -309,7 +292,11 @@ const config = {
                         },
                         'tbody tr'         : {
                             borderBottomColor: 'var(--fuse-border)'
-                        }
+                        },
+                        'ol[type="A" s]'   : false,
+                        'ol[type="a" s]'   : false,
+                        'ol[type="I" s]'   : false,
+                        'ol[type="i" s]'   : false
                     }
                 },
                 sm     : {
@@ -432,7 +419,7 @@ const config = {
         transitionDuration      : [],
         transitionProperty      : [],
         transitionTimingFunction: [],
-        translate               : ['hover'],
+        translate               : ['responsive', 'hover'],
         userSelect              : ['responsive'],
         visibility              : ['responsive'],
         whitespace              : ['responsive'],

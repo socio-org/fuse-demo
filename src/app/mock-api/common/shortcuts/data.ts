@@ -3,9 +3,9 @@ export const shortcuts = [
     {
         id         : 'a1ae91d3-e2cb-459b-9be9-a184694f548b',
         label      : 'Changelog',
-        description: 'Latest version: v1.2',
+        description: 'List of changes',
         icon       : 'heroicons_outline:clipboard-list',
-        link       : '/dashboards/project',
+        link       : '/docs/changelog',
         useRouter  : true
     },
     {
@@ -13,7 +13,7 @@ export const shortcuts = [
         label      : 'Documentation',
         description: 'Getting started',
         icon       : 'heroicons_outline:book-open',
-        link       : '/dashboards/project',
+        link       : '/docs/guides/getting-started/introduction',
         useRouter  : true
     },
     {
@@ -21,7 +21,7 @@ export const shortcuts = [
         label      : 'Help center',
         description: 'FAQs and guides',
         icon       : 'heroicons_outline:support',
-        link       : '/pages/help-center',
+        link       : '/apps/help-center',
         useRouter  : true
     },
     {
@@ -29,7 +29,7 @@ export const shortcuts = [
         label      : 'Dashboard',
         description: 'User analytics',
         icon       : 'heroicons_outline:chart-pie',
-        link       : '/dashboards/project',
+        link       : '/dashboards/analytics',
         useRouter  : true
     },
     {
@@ -67,7 +67,7 @@ export const shortcuts = [
     {
         id         : '0a240ab8-e19d-4503-bf68-20013030d526',
         label      : 'Reload',
-        description: 'Restart the app',
+        description: 'Reload the app',
         icon       : 'heroicons_outline:refresh',
         link       : '/dashboards/project',
         useRouter  : false

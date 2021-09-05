@@ -21,7 +21,15 @@
                         [svgIcon]="'heroicons_solid:x'"></mat-icon>
                 </button>
             </div>
-            <div class="text-lg font-medium leading-10">Shortcuts</div>
+            <div class="flex items-center text-lg font-medium leading-10">
+                <span class="">Shortcuts</span>
+                <ng-container *ngIf="mode !== 'view'">
+                    <span class="ml-1">
+                        <ng-container *ngIf="mode === 'add'">- Add new</ng-container>
+                        <ng-container *ngIf="mode === 'modify' || mode === 'edit'">- Editing</ng-container>
+                    </span>
+                </ng-container>
+            </div>
             <div class="ml-auto">
 
                 <!-- View mode -->

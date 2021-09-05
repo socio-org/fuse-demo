@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - upgrade_fuse
 #on:
 #    schedule:
 #        -   cron: "0 1,18,23 * * *"

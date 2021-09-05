@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject } from 'rxjs';
-import { map, switchMap, take } from 'rxjs/operators';
-import { Shortcut } from 'app/layout/common/shortcuts/shortcuts.types';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Shortcut} from 'app/layout/common/shortcuts/shortcuts.types';
+import {Observable, ReplaySubject} from 'rxjs';
+import {map, switchMap, take, tap} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -35,17 +35,15 @@ export class ShortcutsService
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * Store shortcuts on the service
-     *
-     * @param shortcuts
+     * Get all messages
      */
-    store(shortcuts: Shortcut[]): Observable<Shortcut[]>
+    getAll(): Observable<Shortcut[]>
     {
-        // Load the shortcuts
-        this._shortcuts.next(shortcuts);
-
-        // Return the shortcuts
-        return this.shortcuts$;
+        return this._httpClient.get<Shortcut[]>('api/common/shortcuts').pipe(
+            tap((shortcuts) => {
+                this._shortcuts.next(shortcuts);
+            })
+        );
     }
 
     /**

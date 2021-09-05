@@ -6,13 +6,15 @@ import {cloneDeep} from 'lodash-es';
 @Injectable({
     providedIn: 'root'
 })
-export class ProjectMockApi {
+export class ProjectMockApi
+{
     private _project: any = projectData;
 
     /**
      * Constructor
      */
-    constructor(private _fuseMockApiService: FuseMockApiService) {
+    constructor(private _fuseMockApiService: FuseMockApiService)
+    {
         // Register Mock API handlers
         this.registerHandlers();
     }
@@ -24,16 +26,13 @@ export class ProjectMockApi {
     /**
      * Register Mock API handlers
      */
-    registerHandlers(): void {
-        console.log('77777777777777777777777777777')
+    registerHandlers(): void
+    {
         // -----------------------------------------------------------------------------------------------------
         // @ Sales - GET
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/dashboards/project')
-            .reply(() => {
-                console.log('------------------')
-                return [200, cloneDeep(this._project)];
-            });
+            .reply(() => [200, cloneDeep(this._project)]);
     }
 }

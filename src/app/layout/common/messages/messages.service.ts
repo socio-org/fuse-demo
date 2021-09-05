@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject } from 'rxjs';
-import { Message } from 'app/layout/common/messages/messages.types';
-import { map, switchMap, take } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Message} from 'app/layout/common/messages/messages.types';
+import {Observable, ReplaySubject} from 'rxjs';
+import {map, switchMap, take, tap} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -35,17 +35,15 @@ export class MessagesService
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * Store messages on the service
-     *
-     * @param messages
+     * Get all messages
      */
-    store(messages: Message[]): Observable<Message[]>
+    getAll(): Observable<Message[]>
     {
-        // Load the messages
-        this._messages.next(messages);
-
-        // Return the messages
-        return this.messages$;
+        return this._httpClient.get<Message[]>('api/common/messages').pipe(
+            tap((messages) => {
+                this._messages.next(messages);
+            })
+        );
     }
 
     /**

@@ -3003,5 +3003,5 @@ export const profile: any = {
     name: 'Adam John',
     email: 'adam.john@socio.com',
     avatar: 'assets/images/avatars/brian-hughes.jpg',
-    about: 'Hi there! I\'m using FuseChat.'
+    about: 'Hi there! I\'m using Socio.'
 };
