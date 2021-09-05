@@ -1,15 +1,14 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { BooleanInput } from '@angular/cdk/coercion';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
+import {BooleanInput} from '@angular/cdk/coercion';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {FuseNavigationService} from '@fuse/components/navigation/navigation.service';
+import {FuseNavigationItem} from '@fuse/components/navigation/navigation.types';
+import {FuseVerticalNavigationComponent} from '@fuse/components/navigation/vertical/vertical.component';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
     selector       : 'fuse-vertical-navigation-group-item',
     templateUrl    : './group.component.html',
-    styles         : [],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FuseVerticalNavigationGroupItemComponent implements OnInit, OnDestroy

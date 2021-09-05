@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Data, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
-import { InitialData } from 'app/app.types';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FuseNavigationService, FuseVerticalNavigationComponent} from '@fuse/components/navigation';
+import {FuseMediaWatcherService} from '@fuse/services/media-watcher';
+import {NavigationService} from 'app/core/navigation/navigation.service';
+import {Navigation} from 'app/core/navigation/navigation.types';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
     selector     : 'thin-layout',
@@ -13,8 +14,8 @@ import { InitialData } from 'app/app.types';
 })
 export class ThinLayoutComponent implements OnInit, OnDestroy
 {
-    data: InitialData;
     isScreenSmall: boolean;
+    navigation: Navigation;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -23,6 +24,7 @@ export class ThinLayoutComponent implements OnInit, OnDestroy
     constructor(
         private _activatedRoute: ActivatedRoute,
         private _router: Router,
+        private _navigationService: NavigationService,
         private _fuseMediaWatcherService: FuseMediaWatcherService,
         private _fuseNavigationService: FuseNavigationService
     )
@@ -50,10 +52,12 @@ export class ThinLayoutComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
-        // Subscribe to the resolved route data
-        this._activatedRoute.data.subscribe((data: Data) => {
-            this.data = data.initialData;
-        });
+        // Subscribe to navigation data
+        this._navigationService.navigation$
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe((navigation: Navigation) => {
+                this.navigation = navigation;
+            });
 
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$

@@ -1,14 +1,13 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
-import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {FuseNavigationService} from '@fuse/components/navigation/navigation.service';
+import {FuseNavigationItem} from '@fuse/components/navigation/navigation.types';
+import {FuseVerticalNavigationComponent} from '@fuse/components/navigation/vertical/vertical.component';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
     selector       : 'fuse-vertical-navigation-divider-item',
     templateUrl    : './divider.component.html',
-    styles         : [],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FuseVerticalNavigationDividerItemComponent implements OnInit, OnDestroy
