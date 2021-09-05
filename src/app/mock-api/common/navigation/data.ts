@@ -23,13 +23,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:user-group',
         link: '/posts'
     },
-    // {
-    //     id: 'groups',
-    //     title: 'Groups',
-    //     type: 'basic',
-    //     icon: 'heroicons_outline:user-group',
-    //     link: '/groups'
-    // },
+    {
+        id: 'groups',
+        title: 'Groups',
+        type: 'basic',
+        icon: 'heroicons_outline:user-group',
+        link: '/groups'
+    },
     {
         id: 'families',
         title: 'Families',

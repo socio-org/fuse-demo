@@ -5,7 +5,7 @@
 
         <!-- Cover image -->
         <div>
-            <img class="h-40 lg:h-80 object-cover" src="assets/images/profile/cover.jpg" alt="Cover image">
+            <img class="h-40 lg:h-80 object-cover" src="assets/images/profile/cover.webp" alt="Cover image">
         </div>
 
         <!-- User info -->
@@ -13,8 +13,8 @@
 
             <!-- Avatar -->
             <div class="-mt-26 lg:-mt-22 rounded-full">
-                <img class="w-32 h-32 rounded-full ring-4 ring-bg-card" src="assets/images/avatars/male-04.jpg"
-                    alt="User avatar">
+                <img class="w-32 h-32 rounded-full ring-4 ring-bg-card" src="assets/images/profile/anonymous-user.jpeg"
+                     alt="User avatar">
             </div>
 
             <!-- Details -->
@@ -38,11 +38,11 @@
     </div>
 
     <!-- Main -->
-    <div class="flex flex-wrap justify-center max-w-5xl mx-auto py-6 pt-3 pb-3">
+    <div class="flex flex-wrap justify-center max-w-5xl mx-6 py-6 pt-3 pb-3">
 
         <!-- Column -->
         <!-- About me -->
-        <fuse-card class="flex flex-col max-w-80 w-full lg:mr-2 px-8 pt-6 pb-4 mt-3">
+        <fuse-card class="flex flex-col  w-full lg:mr-2 px-8 pt-6 pb-4 mt-3">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-semibold leading-tight">About</div>
                 <div class="-mr-3">
@@ -70,45 +70,25 @@
                 </button> -->
         </fuse-card>
 
-        <!-- Followers -->
-        <fuse-card class="flex flex-col max-w-80 w-full px-8 lg:mr-2 pt-6 pb-4 mt-3">
+        <!-- My Family -->
+        <fuse-card class="flex flex-col  w-full px-8 lg:mr-2 pt-6 pb-4 mt-3">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-semibold leading-tight">My Family</div>
-                <div class="-mr-3">
-                    <button mat-icon-button [matMenuTriggerFor]="listCard08Menu">
-                        <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                    </button>
-                    <mat-menu #listCard08Menu="matMenu">
-                        <button mat-menu-item>Add new</button>
-                        <button mat-menu-item>two</button>
-                    </mat-menu>
-                </div>
             </div>
             <!-- Contacts list -->
             <div class="relative">
                 <ng-container *ngIf="members$ | async as contacts">
                     <ng-container *ngIf="contacts.length; else noContacts">
-                        <ng-container *ngFor="let contact of contacts.slice(0,4); let i = index; trackBy: trackByFn">
+                        <ng-container *ngFor="let contact of contacts.slice(0,4); let i = index; ">
                             <!-- Contact -->
-                            <a class="z-20 flex items-center px-0 py-4 md:px-2 cursor-pointer rounded-sm" [ngClass]="{'hover:bg-gray-100 dark:hover:bg-hover': !selectedContact || selectedContact.id !== contact.id,
-                                'bg-primary-50 dark:bg-hover': selectedContact && selectedContact.id === contact.id}"
-                                [routerLink]="['../', contact.id]">
-                                <div
-                                    class="flex flex-0 items-center justify-center w-10 h-10 rounded-full overflow-hidden">
-                                    <ng-container *ngIf="contact.avatar">
-                                        <img class="object-cover w-full h-full" [src]="contact.avatar"
-                                            alt="Contact avatar" />
-                                    </ng-container>
-                                    <ng-container *ngIf="!contact.avatar">
-                                        <div
-                                            class="flex items-center justify-center w-full h-full rounded-full text-lg uppercase bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-200">
-                                            {{contact.name.charAt(0)}}
-                                        </div>
-                                    </ng-container>
+                            <a class="z-20 flex items-center px-0 py-4 md:px-2 cursor-pointer rounded-sm 'hover:bg-gray-100 dark:hover:bg-hover">
+                                <div class="flex flex-0 items-center justify-center w-10 h-10 rounded-full overflow-hidden">
+                                    <img class="object-cover w-full h-full"
+                                         src="assets/images/profile/anonymous-user.jpeg"/>
                                 </div>
                                 <div class="min-w-0 ml-4">
                                     <div class="font-medium leading-5 truncate">{{contact.name}}</div>
-                                    <div class="leading-5 truncate text-secondary">{{contact.title}}</div>
+                                    <div class="leading-5 truncate text-secondary">{{ relation[i]}}</div>
                                 </div>
                             </a>
                         </ng-container>
@@ -118,14 +98,15 @@
                 <!-- No contacts -->
                 <ng-template #noContacts>
                     <div class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center">There are no
-                        contacts!</div>
+                        contacts!
+                    </div>
                 </ng-template>
 
             </div>
         </fuse-card>
 
         <!-- Gallery -->
-        <fuse-card class="flex flex-col max-w-80 w-full px-8 pt-6 pb-4 mt-3">
+        <!--<fuse-card class="flex flex-col  w-full px-8 pt-6 pb-4 mt-3 hidden">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-semibold leading-tight">Gallery</div>
                 <div class="-mr-3">
@@ -141,43 +122,43 @@
             <div class="flex flex-col">
                 <div class="flex justify-between mt-6">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/14-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/15-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/16-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/17-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                 </div>
                 <div class="flex justify-between mt-3">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/18-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/19-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/20-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/21-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                 </div>
                 <div class="flex justify-between mt-3">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/22-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/23-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/24-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/25-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                 </div>
                 <div class="flex justify-between mt-3">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/26-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/27-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/28-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <img class="w-14 h-14 rounded object-cover" src="assets/images/cards/29-640x480.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                 </div>
             </div>
             <div class="flex items-center mt-6 -mx-3">
@@ -185,10 +166,10 @@
                     See entire gallery
                 </button>
             </div>
-        </fuse-card>
+        </fuse-card>-->
 
         <!-- Groups -->
-        <fuse-card class="flex flex-col max-w-80 w-full mt-3 px-8 pt-6 pb-4 lg:mr-2">
+        <fuse-card class="flex flex-col  w-full px-8 lg:mr-2 pt-6 pb-4 mt-3">
             <div class="flex items-center justify-between">
                 <div class="text-2xl font-semibold leading-tight">Groups</div>
                 <div class="-mr-3">
@@ -203,7 +184,7 @@
             <div class="flex flex-col mt-5">
                 <div class="flex items-center">
                     <img class="w-14 h-14 mr-4 rounded object-cover"
-                        src="assets/images/cards/coffee-shop-01-320x200.jpg" alt="Card cover image">
+                         src="assets/images/cards/coffee-shop-01-320x200.jpg" alt="Card cover image">
                     <div class="flex flex-col min-w-0">
                         <div class="font-medium leading-none">The Port Cafe</div>
                         <div class="text-md truncate leading-none mt-1">Best cafe of the downtown New York</div>
@@ -212,7 +193,7 @@
                 </div>
                 <div class="flex items-center mt-6">
                     <img class="w-14 h-14 mr-4 rounded object-cover"
-                        src="assets/images/cards/coffee-shop-02-512x512.jpg" alt="Card cover image">
+                         src="assets/images/cards/coffee-shop-02-512x512.jpg" alt="Card cover image">
                     <div class="flex flex-col min-w-0">
                         <div class="font-medium leading-none">Design House LLC.</div>
                         <div class="text-md truncate leading-none mt-1">UI/UX, brand and product design</div>
@@ -221,7 +202,7 @@
                 </div>
                 <div class="flex items-center mt-6">
                     <img class="w-14 h-14 mr-4 rounded object-cover"
-                        src="assets/images/cards/coffee-shop-03-320x320.jpg" alt="Card cover image">
+                         src="assets/images/cards/coffee-shop-03-320x320.jpg" alt="Card cover image">
                     <div class="flex flex-col min-w-0">
                         <div class="font-medium leading-none">Crax Laser Tag</div>
                         <div class="text-md truncate leading-none mt-1">30% off with group of 6 people</div>
@@ -230,7 +211,7 @@
                 </div>
                 <div class="flex items-center mt-6">
                     <img class="w-14 h-14 mr-4 rounded object-cover" src="assets/images/cards/sneakers-01-320x200.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <div class="flex flex-col min-w-0">
                         <div class="font-medium leading-none">Roadster Clothing Inc.</div>
                         <div class="text-md truncate leading-none mt-1">$25 off on orders $500 and over</div>
@@ -245,105 +226,10 @@
             </div>
         </fuse-card>
 
-        <!-- News -->
-        <fuse-card class="flex flex-col max-w-80 w-full mt-3 px-8 pt-6 pb-4 lg:mr-2">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-semibold leading-tight">News</div>
-                <div class="-mr-3">
-                    <button mat-icon-button [matMenuTriggerFor]="listCard01Menu">
-                        <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                    </button>
-                    <mat-menu #listCard01Menu="matMenu">
-                        <button mat-menu-item>Mark all as read</button>
-                    </mat-menu>
-                </div>
-            </div>
-            <div class="flex flex-col mt-5">
-                <div class="flex">
-                    <mat-icon class="icon-size-5 mt-0.5 mr-2" [svgIcon]="'heroicons_solid:bell'"></mat-icon>
-                    <div><b>20% OFF</b> in your favorite hats shop on next Friday.</div>
-                </div>
-                <div class="flex mt-5">
-                    <mat-icon class="icon-size-5 mt-0.5 mr-2" [svgIcon]="'heroicons_solid:bell'"></mat-icon>
-                    <div>Upcoming meetups within 20 miles.
-                        <a class="text-secondary whitespace-nowrap hover:underline" [routerLink]="['./']">See
-                            details
-                        </a>
-                    </div>
-                </div>
-                <div class="flex mt-5">
-                    <mat-icon class="icon-size-5 mt-0.5 mr-2" [svgIcon]="'heroicons_solid:bell'"></mat-icon>
-                    <div>Concerts from your favorite bands available within 100 miles.
-                        <a class="text-secondary whitespace-nowrap hover:underline" [routerLink]="['./']">See
-                            details
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center mt-4 -mx-3">
-                <button class="px-3" mat-button [color]="'primary'" [routerLink]="['./']">
-                    See all news
-                </button>
-            </div>
-        </fuse-card>
-
-        <!-- Activity Feed -->
-        <fuse-card class="flex flex-col max-w-80 w-full mt-3 px-8 pt-6 pb-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-semibold leading-tight">Activity Feed</div>
-                <div class="-mr-3">
-                    <button mat-icon-button [matMenuTriggerFor]="listCard04Menu">
-                        <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
-                    </button>
-                    <mat-menu #listCard04Menu="matMenu">
-                        <button mat-menu-item>Clear activities</button>
-                    </mat-menu>
-                </div>
-            </div>
-            <div class="flex flex-col mt-5">
-                <div class="flex">
-                    <img class="w-10 h-10 mr-4 rounded-full" src="assets/images/avatars/female-01.jpg"
-                        alt="Card cover image">
-                    <div class="flex flex-col min-w-0">
-                        <div class="leading-tight">Amelia Edwards commented on John Silverton's photo</div>
-                        <div class="text-md leading-none text-secondary mt-2">4 minutes ago</div>
-                    </div>
-                </div>
-                <div class="flex mt-8">
-                    <img class="w-10 h-10 mr-4 rounded-full" src="assets/images/avatars/male-01.jpg"
-                        alt="Card cover image">
-                    <div class="flex flex-col min-w-0">
-                        <div class="leading-tight">Lew Silverton changed his profile photo</div>
-                        <div class="text-md leading-none text-secondary mt-2">25 minutes ago</div>
-                    </div>
-                </div>
-                <div class="flex mt-8">
-                    <img class="w-10 h-10 mr-4 rounded-full" src="assets/images/avatars/male-15.jpg"
-                        alt="Card cover image">
-                    <div class="flex flex-col min-w-0">
-                        <div class="leading-tight">Adam John liked your photo</div>
-                        <div class="text-md leading-none text-secondary mt-2">3 hours ago</div>
-                    </div>
-                </div>
-                <div class="flex mt-8">
-                    <img class="w-10 h-10 mr-4 rounded-full" src="assets/images/avatars/female-15.jpg"
-                        alt="Card cover image">
-                    <div class="flex flex-col min-w-0">
-                        <div class="leading-tight">Marleah Eagleston commented on John Silverton's photo</div>
-                        <div class="text-md leading-none text-secondary mt-2">Yesterday</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center mt-6 -mx-3">
-                <button class="px-3" mat-button [color]="'primary'" [routerLink]="['./']">
-                    See entire activity feed
-                </button>
-            </div>
-        </fuse-card>
 
         <!-- </div> -->
 
-        <!-- Column -->
+        <!-- Posts -->
         <div *ngIf="false" class="flex flex-col items-start">
 
             <!-- Create Post -->
@@ -352,12 +238,12 @@
                 <div class="flex flex-col sm:flex-row items-start mt-8">
                     <div class="flex items-center mb-6 sm:mb-0">
                         <img class="w-12 min-w-12 h-12 rounded-full mr-4" src="assets/images/avatars/brian-hughes.jpg"
-                            alt="Card cover image">
+                             alt="Card cover image">
                         <div class="sm:hidden">Adam John</div>
                     </div>
                     <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
                         <textarea matInput [placeholder]="'What\'s on your mind?'" [rows]="3"
-                            matTextareaAutosize></textarea>
+                                  matTextareaAutosize></textarea>
                     </mat-form-field>
                 </div>
                 <div class="flex items-center mt-6 sm:mt-8 -mx-3">
@@ -416,7 +302,7 @@
             <fuse-card class="flex flex-col max-w-140 w-full mt-8" #expandableCard02="fuseCard">
                 <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
                     <img class="w-10 h-10 rounded-full mr-4" src="assets/images/avatars/female-01.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <div class="flex flex-col">
                         <span class="font-semibold leading-none">Caroline Lundu</span>
                         <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
@@ -471,7 +357,7 @@
                 <div class="relative mb-4">
                     <img class="h-80 object-cover" src="assets/images/cards/14-640x480.jpg" alt="Card cover image">
                     <div class="absolute bottom-0 left-0 flex items-center justify-center w-8 h-8 m-4 rounded-full cursor-pointer bg-gray-700"
-                        [matTooltip]="'Barmouth / UK'" [matTooltipPosition]="'right'">
+                         [matTooltip]="'Barmouth / UK'" [matTooltipPosition]="'right'">
                         <mat-icon class="icon-size-4 text-gray-100" [svgIcon]="'heroicons_solid:location-marker'">
                         </mat-icon>
                     </div>
@@ -494,13 +380,13 @@
                 <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
                     <div class="flex items-center">
                         <img class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-02.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-02.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-04.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-04.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-09.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-09.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-07.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-07.jpg" alt="Card cover image">
                         <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
                     </div>
                     <div class="hidden sm:flex flex-auto"></div>
@@ -509,12 +395,12 @@
                             4 shares
                         </button>
                         <button class="px-3 sm:-mr-4" mat-button
-                            (click)="expandableCard02.expanded = !expandableCard02.expanded">
+                                (click)="expandableCard02.expanded = !expandableCard02.expanded">
                             <span class="mr-1">5 Comments</span>
                             <mat-icon
-                                class="icon-size-5 transform transition-transform ease-in-out duration-150 rotate-0"
-                                [ngClass]="{'rotate-180': expandableCard02.expanded}"
-                                [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
+                                    class="icon-size-5 transform transition-transform ease-in-out duration-150 rotate-0"
+                                    [ngClass]="{'rotate-180': expandableCard02.expanded}"
+                                    [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
                         </button>
                     </div>
                 </div>
@@ -524,10 +410,10 @@
                     <div class="flex flex-col mx-4 sm:mx-8 mt-6 mb-3">
                         <div class="flex items-start">
                             <img class="w-12 h-12 rounded-full mr-5" src="assets/images/avatars/brian-hughes.jpg"
-                                alt="Card cover image">
+                                 alt="Card cover image">
                             <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
                                 <textarea matInput [placeholder]="'Write a comment...'" [rows]="3"
-                                    matTextareaAutosize></textarea>
+                                          matTextareaAutosize></textarea>
                             </mat-form-field>
                         </div>
                         <div class="flex items-center mt-3 ml-auto -mr-3">
@@ -547,7 +433,7 @@
                         <div class="relative flex flex-col mx-4 sm:mx-8 my-6">
                             <div class="flex items-start">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/male-05.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Rutherford Brannan</b> Oh, I’m in.. Let’s arrange a trip for the next weekend
@@ -567,7 +453,7 @@
                             </div>
                             <div class="flex items-start mt-8 ml-12">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/female-01.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Caroline Lundu</b> Yes!! Let's talk about it on lunch!
@@ -584,7 +470,7 @@
                             </div>
                             <div class="flex items-start mt-8 ml-12">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/female-08.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Barbara Cotilla</b> Count me in !!!
@@ -601,7 +487,7 @@
                             </div>
                             <div class="flex items-start mt-8">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/male-11.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Alan Marti</b> The color of the sky doesn’t look natural at all, do you
@@ -622,7 +508,7 @@
                             </div>
                             <div class="flex items-start mt-8 ml-12">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/female-01.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Caroline Lundu</b> Hey, Alan! You must be fun at parties!
@@ -639,7 +525,7 @@
                             </div>
                             <div class="flex items-start mt-8 ml-12">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/male-11.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Alan Marti</b> Caroline, I'm telling the truth, and if you cannot stand the
@@ -657,7 +543,7 @@
                             </div>
                             <div class="flex items-start mt-8 ml-12">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/female-01.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Caroline Lundu</b> Dude! Relax! I'm just messing with you...
@@ -674,7 +560,7 @@
                             </div>
                             <div class="flex items-start mt-8 ml-12">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/male-11.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Alan Marti</b> Sorry! I had a bad morning, let's talk about this in couple
@@ -692,7 +578,7 @@
                             </div>
                             <div class="flex items-start mt-8">
                                 <img class="w-8 h-8 rounded-full mr-4" src="assets/images/avatars/female-05.jpg"
-                                    alt="Card cover image">
+                                     alt="Card cover image">
                                 <div class="flex flex-col mt-0.5">
                                     <span>
                                         <b>Marleah Eagleston</b> Count me in, too!
@@ -716,7 +602,7 @@
             <fuse-card class="flex flex-col max-w-140 w-full mt-8">
                 <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-1">
                     <img class="w-10 h-10 rounded-full mr-4" src="assets/images/avatars/female-01.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <div class="flex flex-col">
                         <span class="font-semibold leading-none">Caroline Lundu</span>
                         <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
@@ -798,13 +684,13 @@
                 <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
                     <div class="flex items-center">
                         <img class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-02.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-02.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-04.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-04.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-09.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-09.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-07.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-07.jpg" alt="Card cover image">
                         <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
                     </div>
                     <div class="hidden sm:flex flex-auto"></div>
@@ -823,7 +709,7 @@
             <fuse-card class="flex flex-col max-w-140 w-full mt-8">
                 <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
                     <img class="w-10 h-10 rounded-full mr-4" src="assets/images/avatars/female-14.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <div class="flex flex-col">
                         <span class="font-semibold leading-none">Marleah Eagleston</span>
                         <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
@@ -878,16 +764,16 @@
                 <div class="flex mx-6 sm:mx-8 mb-4">
                     <div class="flex h-80 pr-1">
                         <img class="rounded object-cover" src="assets/images/cards/17-640x480.jpg"
-                            alt="Card cover image">
+                             alt="Card cover image">
                     </div>
                     <div class="flex flex-col pl-1">
                         <div class="flex h-40 pb-1">
                             <img class="rounded object-cover" src="assets/images/cards/18-640x480.jpg"
-                                alt="Card cover image">
+                                 alt="Card cover image">
                         </div>
                         <div class="flex h-40 pt-1">
                             <img class="rounded object-cover" src="assets/images/cards/19-640x480.jpg"
-                                alt="Card cover image">
+                                 alt="Card cover image">
                         </div>
                     </div>
                 </div>
@@ -909,13 +795,13 @@
                 <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
                     <div class="flex items-center">
                         <img class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-02.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-02.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-04.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-04.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-09.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-09.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-07.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-07.jpg" alt="Card cover image">
                         <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
                     </div>
                     <div class="hidden sm:flex flex-auto"></div>
@@ -934,7 +820,7 @@
             <fuse-card class="flex flex-col max-w-140 w-full mt-8">
                 <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
                     <img class="w-10 h-10 rounded-full mr-4" src="assets/images/avatars/female-01.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <div class="flex flex-col">
                         <span class="font-medium leading-none">Caroline Lundu</span>
                         <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
@@ -1020,13 +906,13 @@
                 <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
                     <div class="flex items-center">
                         <img class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-02.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-02.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-04.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-04.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-09.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-09.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-07.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-07.jpg" alt="Card cover image">
                         <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
                     </div>
                     <div class="hidden sm:flex flex-auto"></div>
@@ -1045,7 +931,7 @@
             <fuse-card class="flex flex-col max-w-140 w-full mt-8">
                 <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
                     <img class="w-10 h-10 rounded-full mr-4" src="assets/images/avatars/female-14.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <div class="flex flex-col">
                         <span class="font-semibold leading-none">Marleah Eagleston</span>
                         <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
@@ -1100,11 +986,11 @@
                 <div class="flex mx-6 sm:mx-8 mb-4">
                     <div class="flex h-80 pr-1">
                         <img class="rounded object-cover" src="assets/images/cards/15-640x480.jpg"
-                            alt="Card cover image">
+                             alt="Card cover image">
                     </div>
                     <div class="flex h-80 pl-1">
                         <img class="rounded object-cover" src="assets/images/cards/16-640x480.jpg"
-                            alt="Card cover image">
+                             alt="Card cover image">
                     </div>
                 </div>
                 <div class="flex items-center mx-3 sm:mx-5">
@@ -1125,13 +1011,13 @@
                 <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
                     <div class="flex items-center">
                         <img class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-02.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-02.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-04.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-04.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-09.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-09.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-07.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-07.jpg" alt="Card cover image">
                         <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
                     </div>
                     <div class="hidden sm:flex flex-auto"></div>
@@ -1150,7 +1036,7 @@
             <fuse-card class="flex flex-col max-w-140 w-full mt-8">
                 <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
                     <img class="w-10 h-10 rounded-full mr-4" src="assets/images/avatars/female-01.jpg"
-                        alt="Card cover image">
+                         alt="Card cover image">
                     <div class="flex flex-col">
                         <span class="font-semibold leading-none">Caroline Lundu</span>
                         <span class="text-sm text-secondary leading-none mt-1">29 minutes ago</span>
@@ -1207,7 +1093,7 @@
                     <div class="flex rounded overflow-hidden border">
                         <div class="flex-0 w-40">
                             <img class="w-full h-full object-cover" src="assets/images/cards/35-640x480.jpg"
-                                alt="Card cover image">
+                                 alt="Card cover image">
                         </div>
                         <div class="m-4">
                             <div class="text-lg font-medium">Rob Boss - Season 09 Episode 04</div>
@@ -1237,13 +1123,13 @@
                 <div class="flex flex-col sm:flex-row sm:items-center mx-6 sm:mx-8 mb-4 sm:mb-6">
                     <div class="flex items-center">
                         <img class="w-6 h-6 m-0.5 rounded-full text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-02.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-02.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/female-04.jpg" alt="Card cover image">
+                             src="assets/images/avatars/female-04.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-09.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-09.jpg" alt="Card cover image">
                         <img class="w-6 h-6 m-0.5 rounded-full -ml-3 text-card ring-2 ring-white"
-                            src="assets/images/avatars/male-07.jpg" alt="Card cover image">
+                             src="assets/images/avatars/male-07.jpg" alt="Card cover image">
                         <div class="text-md tracking-tight ml-3">You and 24 more liked this</div>
                     </div>
                     <div class="hidden sm:flex flex-auto"></div>

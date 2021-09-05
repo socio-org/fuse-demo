@@ -14,17 +14,20 @@ import { Contact } from '../../member.type';
 })
 export class MemberDetailsComponent implements OnInit {
     public contacts: Contact[];
+    relation = ['Spouse', "Daughter", 'Son', 'Daughter'];
     public contactsCount: number = 0;
-    private _unsubscribeAll: Subject<any> = new Subject<any>();
     /**
      * @todo need to change the contact
      */
     public members$: Observable<Contact[]>;
+    private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     constructor(
         private _memberService: MemberService,
         private _changeDetectorRef: ChangeDetectorRef,
-    ) { }
+    ) {
+    }
+
     // activeIds: string[]
     ngOnInit(): void {
         this._memberService.getMembers().subscribe();
@@ -33,13 +36,6 @@ export class MemberDetailsComponent implements OnInit {
         this._memberService.members$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((contacts: Contact[]) => {
-                // let activeIds = ['cd5fa417-b667-482d-b208-798d9da3213c', 'beec5287-ed50-4504-858a-5dc3f8ce6935']
-                // this.contacts = contacts.filter(item => {
-                //     console.log(item, activeIds);
-
-                //     // activeIds.indexOf(item.id) === -1
-                // })
-
                 // Update the counts
                 this.contactsCount = contacts?.length ?? 0;
 

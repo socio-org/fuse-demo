@@ -3,8 +3,7 @@ name: Scheduled CI/CD
 on:
   push:
     branches:
-      - develop
-      - upgrade_fuse
+      - feature/**
 #on:
 #    schedule:
 #        -   cron: "0 1,18,23 * * *"
