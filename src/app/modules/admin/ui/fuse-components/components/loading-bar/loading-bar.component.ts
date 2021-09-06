@@ -89,9 +89,6 @@ export class LoadingBarComponent
         // Show the loading bar
         this._fuseLoadingBarService.show();
 
-        // Turn off the auto mode
-        this._fuseLoadingBarService.setAutoMode(false);
-
         // Set the mode
         this.mode = this.mode === 'indeterminate' ? 'determinate' : 'indeterminate';
         this._fuseLoadingBarService.setMode(this.mode);
