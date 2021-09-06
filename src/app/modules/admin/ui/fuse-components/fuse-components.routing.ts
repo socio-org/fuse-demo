@@ -7,6 +7,7 @@ import { DateRangeComponent } from 'app/modules/admin/ui/fuse-components/compone
 import { DrawerComponent } from 'app/modules/admin/ui/fuse-components/components/drawer/drawer.component';
 import { FullscreenComponent } from 'app/modules/admin/ui/fuse-components/components/fullscreen/fullscreen.component';
 import { HighlightComponent } from 'app/modules/admin/ui/fuse-components/components/highlight/highlight.component';
+import { LoadingBarComponent } from 'app/modules/admin/ui/fuse-components/components/loading-bar/loading-bar.component';
 import { MasonryComponent } from 'app/modules/admin/ui/fuse-components/components/masonry/masonry.component';
 import { NavigationComponent } from 'app/modules/admin/ui/fuse-components/components/navigation/navigation.component';
 import { ScrollbarComponent } from 'app/modules/admin/ui/fuse-components/directives/scrollbar/scrollbar.component';
@@ -68,6 +69,10 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path     : 'highlight',
                         component: HighlightComponent
+                    },
+                    {
+                        path     : 'loading-bar',
+                        component: LoadingBarComponent
                     },
                     {
                         path     : 'masonry',

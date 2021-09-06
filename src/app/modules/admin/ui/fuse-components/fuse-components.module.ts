@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTreeModule } from '@angular/material/tree';
@@ -31,6 +33,7 @@ import { ScrollbarComponent } from 'app/modules/admin/ui/fuse-components/directi
 import { ScrollResetComponent } from 'app/modules/admin/ui/fuse-components/directives/scroll-reset/scroll-reset.component';
 import { ConfigComponent } from 'app/modules/admin/ui/fuse-components/services/config/config.component';
 import { ConfirmationComponent } from 'app/modules/admin/ui/fuse-components/services/confirmation/confirmation.component';
+import { LoadingBarComponent } from 'app/modules/admin/ui/fuse-components/components/loading-bar/loading-bar.component';
 import { MediaWatcherComponent } from 'app/modules/admin/ui/fuse-components/services/media-watcher/media-watcher.component';
 import { SplashScreenComponent } from 'app/modules/admin/ui/fuse-components/services/splash-screen/splash-screen.component';
 import { FindByKeyComponent } from 'app/modules/admin/ui/fuse-components/pipes/find-by-key/find-by-key.component';
@@ -47,6 +50,7 @@ import { fuseComponentsRoutes } from 'app/modules/admin/ui/fuse-components/fuse-
         DrawerComponent,
         FullscreenComponent,
         HighlightComponent,
+        LoadingBarComponent,
         MasonryComponent,
         NavigationComponent,
         ScrollbarComponent,
@@ -58,13 +62,15 @@ import { fuseComponentsRoutes } from 'app/modules/admin/ui/fuse-components/fuse-
         FindByKeyComponent,
         MustMatchComponent
     ],
-    imports: [
+    imports     : [
         RouterModule.forChild(fuseComponentsRoutes),
         MatButtonModule,
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
         MatSelectModule,
+        MatSlideToggleModule,
+        MatSliderModule,
         MatSidenavModule,
         MatTabsModule,
         MatTreeModule,

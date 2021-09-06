@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FuseNavigationItem } from '@fuse/components/navigation';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Subject } from 'rxjs';
@@ -6,11 +6,10 @@ import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-    selector       : 'fuse-components',
-    templateUrl    : './fuse-components.component.html',
-    styleUrls      : ['./fuse-components.component.scss'],
-    encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    selector     : 'fuse-components',
+    templateUrl  : './fuse-components.component.html',
+    styleUrls    : ['./fuse-components.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class FuseComponentsComponent implements OnInit, OnDestroy
 {
@@ -24,7 +23,6 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
      * Constructor
      */
     constructor(
-        private _changeDetectorRef: ChangeDetectorRef,
         private _fuseMediaWatcherService: FuseMediaWatcherService
     )
     {
@@ -82,6 +80,12 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         title: 'Highlight',
                         type : 'basic',
                         link : '/ui/fuse-components/components/highlight'
+                    },
+                    {
+                        id   : 'fuse-components.components.loading-bar',
+                        title: 'Loading Bar',
+                        type : 'basic',
+                        link : '/ui/fuse-components/components/loading-bar'
                     },
                     {
                         id   : 'fuse-components.components.masonry',
@@ -201,9 +205,6 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                     this.drawerMode = 'over';
                     this.drawerOpened = false;
                 }
-
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
             });
     }
 
