@@ -1,0 +1,1 @@
+(self.webpackChunksocio=self.webpackChunksocio||[]).push([[592],{2312:(e,s,c)=>{"use strict";c.d(s,{Cv:()=>r});var n=c(5366),o=c(1116),t=c(7064);c(9861),c(6136),c(7570),c(7254),c(3835);let r=(()=>{class e{}return e.\u0275fac=function(s){return new(s||e)},e.\u0275mod=n.oAB({type:e}),e.\u0275inj=n.cJS({imports:[[o.ez,t.BQ],t.BQ]}),e})()}}]);
