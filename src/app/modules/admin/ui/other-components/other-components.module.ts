@@ -13,6 +13,7 @@ import { OverviewComponent } from 'app/modules/admin/ui/other-components/common/
 import { LanguagesComponent } from 'app/modules/admin/ui/other-components/common/languages/languages.component';
 import { MessagesComponent } from 'app/modules/admin/ui/other-components/common/messages/messages.component';
 import { NotificationsComponent } from 'app/modules/admin/ui/other-components/common/notifications/notifications.component';
+import { QuickChatComponent } from 'app/modules/admin/ui/other-components/common/quick-chat/quick-chat.component';
 import { SearchComponent } from 'app/modules/admin/ui/other-components/common/search/search.component';
 import { ShortcutsComponent } from 'app/modules/admin/ui/other-components/common/shortcuts/shortcuts.component';
 import { UserComponent } from 'app/modules/admin/ui/other-components/common/user/user.component';
@@ -29,6 +30,7 @@ import { otherComponentsRoutes } from 'app/modules/admin/ui/other-components/oth
         LanguagesComponent,
         MessagesComponent,
         NotificationsComponent,
+        QuickChatComponent,
         SearchComponent,
         ShortcutsComponent,
         UserComponent,
