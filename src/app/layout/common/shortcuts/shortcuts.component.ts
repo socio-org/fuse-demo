@@ -116,7 +116,7 @@ export class ShortcutsComponent implements OnInit, OnDestroy
     }
 
     /**
-     * Close the messages panel
+     * Close the shortcuts panel
      */
     closePanel(): void
     {

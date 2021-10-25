@@ -103,7 +103,7 @@ export class NotificationsComponent implements OnInit, OnDestroy
     }
 
     /**
-     * Close the messages panel
+     * Close the notifications panel
      */
     closePanel(): void
     {
