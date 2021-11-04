@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { FuseLoadingBarService } from '@fuse/components/loading-bar/loading-bar.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { FuseLoadingService } from '@fuse/services/loading';
 
 @Component({
     selector     : 'fuse-loading-bar',
@@ -22,7 +22,7 @@ export class FuseLoadingBarComponent implements OnChanges, OnInit, OnDestroy
     /**
      * Constructor
      */
-    constructor(private _fuseLoadingBarService: FuseLoadingBarService)
+    constructor(private _fuseLoadingService: FuseLoadingService)
     {
     }
 
@@ -41,7 +41,7 @@ export class FuseLoadingBarComponent implements OnChanges, OnInit, OnDestroy
         if ( 'autoMode' in changes )
         {
             // Set the auto mode in the service
-            this._fuseLoadingBarService.setAutoMode(coerceBooleanProperty(changes.autoMode.currentValue));
+            this._fuseLoadingService.setAutoMode(coerceBooleanProperty(changes.autoMode.currentValue));
         }
     }
 
@@ -51,19 +51,19 @@ export class FuseLoadingBarComponent implements OnChanges, OnInit, OnDestroy
     ngOnInit(): void
     {
         // Subscribe to the service
-        this._fuseLoadingBarService.mode$
+        this._fuseLoadingService.mode$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((value) => {
                 this.mode = value;
             });
 
-        this._fuseLoadingBarService.progress$
+        this._fuseLoadingService.progress$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((value) => {
                 this.progress = value;
             });
 
-        this._fuseLoadingBarService.show$
+        this._fuseLoadingService.show$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((value) => {
                 this.show = value;

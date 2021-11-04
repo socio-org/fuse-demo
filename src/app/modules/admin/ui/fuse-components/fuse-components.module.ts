@@ -10,11 +10,12 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTreeModule } from '@angular/material/tree';
+import { FuseAlertModule } from '@fuse/components/alert';
 import { FuseCardModule } from '@fuse/components/card';
 import { FuseDateRangeModule } from '@fuse/components/date-range';
 import { FuseDrawerModule } from '@fuse/components/drawer';
 import { FuseHighlightModule } from '@fuse/components/highlight';
-import { FuseAlertModule } from '@fuse/components/alert';
+import { FuseLoadingBarModule } from '@fuse/components/loading-bar';
 import { FuseMasonryModule } from '@fuse/components/masonry/masonry.module';
 import { FuseNavigationModule } from '@fuse/components/navigation';
 import { FuseScrollResetModule } from '@fuse/directives/scroll-reset';
@@ -79,6 +80,7 @@ import { fuseComponentsRoutes } from 'app/modules/admin/ui/fuse-components/fuse-
         FuseDateRangeModule,
         FuseDrawerModule,
         FuseHighlightModule,
+        FuseLoadingBarModule,
         FuseMasonryModule,
         FuseNavigationModule,
         FuseScrollResetModule,

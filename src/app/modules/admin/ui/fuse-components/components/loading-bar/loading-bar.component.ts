@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSliderChange } from '@angular/material/slider';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { finalize } from 'rxjs/operators';
-import { FuseLoadingBarService } from '@fuse/components/loading-bar';
+import { FuseLoadingService } from '@fuse/services/loading';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({
@@ -21,7 +21,7 @@ export class LoadingBarComponent
     constructor(
         private _httpClient: HttpClient,
         private _fuseComponentsComponent: FuseComponentsComponent,
-        private _fuseLoadingBarService: FuseLoadingBarService
+        private _fuseLoadingService: FuseLoadingService
     )
     {
     }
@@ -44,7 +44,7 @@ export class LoadingBarComponent
      */
     showLoadingBar(): void
     {
-        this._fuseLoadingBarService.show();
+        this._fuseLoadingService.show();
     }
 
     /**
@@ -52,7 +52,7 @@ export class LoadingBarComponent
      */
     hideLoadingBar(): void
     {
-        this._fuseLoadingBarService.hide();
+        this._fuseLoadingService.hide();
     }
 
     /**
@@ -62,7 +62,7 @@ export class LoadingBarComponent
      */
     setAutoMode(change: MatSlideToggleChange): void
     {
-        this._fuseLoadingBarService.setAutoMode(change.checked);
+        this._fuseLoadingService.setAutoMode(change.checked);
     }
 
     /**
@@ -87,11 +87,11 @@ export class LoadingBarComponent
     toggleMode(): void
     {
         // Show the loading bar
-        this._fuseLoadingBarService.show();
+        this._fuseLoadingService.show();
 
         // Set the mode
         this.mode = this.mode === 'indeterminate' ? 'determinate' : 'indeterminate';
-        this._fuseLoadingBarService.setMode(this.mode);
+        this._fuseLoadingService.setMode(this.mode);
     }
 
     /**
@@ -101,6 +101,6 @@ export class LoadingBarComponent
      */
     setProgress(change: MatSliderChange): void
     {
-        this._fuseLoadingBarService.setProgress(change.value);
+        this._fuseLoadingService.setProgress(change.value);
     }
 }
