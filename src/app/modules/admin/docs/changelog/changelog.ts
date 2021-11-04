@@ -10,6 +10,32 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v14.0.0
+        {
+            version    : 'v14.0.0',
+            releaseDate: 'Nov 05, 2021',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(FuseLoadingBar) Added the FuseLoadingBar component, its helper service and its interceptor'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v13.0.0',
+                        '(dependencies) Updated various other packages'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/overrides/angular-material) Fixed: Normal border color of the text field overrides the invalid and focus border colors on dark themes'
+                    ]
+                }
+            ]
+        },
         // v13.6.2
         {
             version    : 'v13.6.2',
