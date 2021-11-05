@@ -34,7 +34,8 @@ export class ChangelogComponent
                 {
                     type: 'Fixed',
                     list: [
-                        '(@fuse/overrides/angular-material) Fixed: Normal border color of the text field overrides the invalid and focus border colors on dark themes'
+                        '(@fuse/overrides/angular-material) Fixed: Normal border color of the text field overrides the invalid and focus border colors on dark themes',
+                        '(@fuse/navigation) Don\'t need to use interpolation on scss variables anymore since Tailwind doesn\'t cause any problems with them anymore'
                     ]
                 }
             ]
