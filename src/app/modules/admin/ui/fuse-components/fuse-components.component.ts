@@ -58,12 +58,6 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         link : '/ui/fuse-components/components/card'
                     },
                     {
-                        id   : 'fuse-components.components.date-range',
-                        title: 'DateRange',
-                        type : 'basic',
-                        link : '/ui/fuse-components/components/date-range'
-                    },
-                    {
                         id   : 'fuse-components.components.drawer',
                         title: 'Drawer',
                         type : 'basic',

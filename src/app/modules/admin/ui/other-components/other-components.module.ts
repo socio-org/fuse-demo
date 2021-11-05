@@ -18,7 +18,6 @@ import { SearchComponent } from 'app/modules/admin/ui/other-components/common/se
 import { ShortcutsComponent } from 'app/modules/admin/ui/other-components/common/shortcuts/shortcuts.component';
 import { UserComponent } from 'app/modules/admin/ui/other-components/common/user/user.component';
 import { ApexChartsComponent } from 'app/modules/admin/ui/other-components/third-party/apex-charts/apex-charts.component';
-import { FullCalendarComponent } from 'app/modules/admin/ui/other-components/third-party/full-calendar/full-calendar.component';
 import { NgxMarkdownComponent } from 'app/modules/admin/ui/other-components/third-party/ngx-markdown/ngx-markdown.component';
 import { QuillEditorComponent } from 'app/modules/admin/ui/other-components/third-party/quill-editor/quill-editor.component';
 import { otherComponentsRoutes } from 'app/modules/admin/ui/other-components/other-components.routing';
@@ -35,7 +34,6 @@ import { otherComponentsRoutes } from 'app/modules/admin/ui/other-components/oth
         ShortcutsComponent,
         UserComponent,
         ApexChartsComponent,
-        FullCalendarComponent,
         NgxMarkdownComponent,
         QuillEditorComponent
     ],

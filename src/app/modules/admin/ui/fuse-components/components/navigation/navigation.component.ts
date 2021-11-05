@@ -129,13 +129,6 @@ export class NavigationComponent
                         link : '/supported-components/apex-charts'
                     },
                     {
-                        id   : 'supported-components.full-calendar',
-                        title: 'FullCalendar',
-                        type : 'basic',
-                        icon : 'today',
-                        link : '/supported-components/full-calendar'
-                    },
-                    {
                         id   : 'supported-components.google-maps',
                         title: 'Google Maps',
                         type : 'basic',

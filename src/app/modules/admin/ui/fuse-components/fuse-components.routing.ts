@@ -3,7 +3,6 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 import { MockApiComponent } from 'app/modules/admin/ui/fuse-components/libraries/mock-api/mock-api.component';
 import { AlertComponent } from 'app/modules/admin/ui/fuse-components/components/alert/alert.component';
 import { CardComponent } from 'app/modules/admin/ui/fuse-components/components/card/card.component';
-import { DateRangeComponent } from 'app/modules/admin/ui/fuse-components/components/date-range/date-range.component';
 import { DrawerComponent } from 'app/modules/admin/ui/fuse-components/components/drawer/drawer.component';
 import { FullscreenComponent } from 'app/modules/admin/ui/fuse-components/components/fullscreen/fullscreen.component';
 import { HighlightComponent } from 'app/modules/admin/ui/fuse-components/components/highlight/highlight.component';
@@ -53,10 +52,6 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path     : 'card',
                         component: CardComponent
-                    },
-                    {
-                        path     : 'date-range',
-                        component: DateRangeComponent
                     },
                     {
                         path     : 'drawer',

@@ -102,12 +102,6 @@ export class OtherComponentsComponent implements OnInit, OnDestroy
                         link : '/ui/other-components/third-party/apex-charts'
                     },
                     {
-                        id   : 'other-components.third-party.full-calendar',
-                        title: 'FullCalendar',
-                        type : 'basic',
-                        link : '/ui/other-components/third-party/full-calendar'
-                    },
-                    {
                         id   : 'other-components.third-party.ngx-markdown',
                         title: 'ngx-markdown',
                         type : 'basic',

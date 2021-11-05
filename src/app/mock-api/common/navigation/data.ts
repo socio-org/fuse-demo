@@ -54,14 +54,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/apps/academy'
             },
             {
-                id      : 'apps.calendar',
-                title   : 'Calendar',
-                subtitle: '3 upcoming events',
-                type    : 'basic',
-                icon    : 'heroicons_outline:calendar',
-                link    : '/apps/calendar'
-            },
-            {
                 id   : 'apps.chat',
                 title: 'Chat',
                 type : 'basic',
