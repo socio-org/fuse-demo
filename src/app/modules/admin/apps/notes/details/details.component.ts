@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { debounceTime, map, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { Observable, of, Subject } from 'rxjs';
+import { debounceTime, map, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
 import { NotesService } from 'app/modules/admin/apps/notes/notes.service';
 import { Label, Note, Task } from 'app/modules/admin/apps/notes/notes.types';
 
@@ -91,7 +90,7 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 

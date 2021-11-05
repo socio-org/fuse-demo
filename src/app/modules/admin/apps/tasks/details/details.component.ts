@@ -5,8 +5,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { MatDrawerToggleResult } from '@angular/material/sidenav';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
-import { Subject } from 'rxjs';
-import { debounceTime, filter, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
 import { assign } from 'lodash-es';
 import * as moment from 'moment';
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
@@ -173,7 +172,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
 
         // Dispose the overlay

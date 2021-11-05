@@ -281,7 +281,7 @@ export const overviews = {
         }
     },
     simple: {
-        fullwidth1    : {
+        fullwidth1   : {
             title           : 'Fullwidth #1',
             description     : 'Layout that spans the entire width of the content area with a dedicated header and 3 different scroll modes.',
             availableOptions: [
@@ -317,7 +317,7 @@ export const overviews = {
                 }
             }
         },
-        fullwidth2    : {
+        fullwidth2   : {
             title           : 'Fullwidth #2',
             description     : 'Layout that spans the entire width of the content area with a dedicated header, tabs and 3 different scroll modes.',
             availableOptions: [

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector   : 'masonry',

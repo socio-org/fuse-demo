@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
 import { Chat, Contact, Profile } from 'app/modules/admin/apps/chat/chat.types';
 

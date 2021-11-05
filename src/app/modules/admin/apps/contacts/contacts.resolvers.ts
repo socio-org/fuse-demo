@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
 import { Contact, Country, Tag } from 'app/modules/admin/apps/contacts/contacts.types';
 

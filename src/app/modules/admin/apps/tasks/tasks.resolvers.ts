@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, Observable, throwError } from 'rxjs';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
 

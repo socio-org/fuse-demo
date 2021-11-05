@@ -3,7 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'shortcuts',
-    templateUrl: './shortcuts.component.html',
+    templateUrl: './shortcuts.component.html'
 })
 export class ShortcutsComponent
 {

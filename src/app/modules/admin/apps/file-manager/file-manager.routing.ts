@@ -11,12 +11,12 @@ export const fileManagerRoutes: Route[] = [
         component: FileManagerComponent,
         children : [
             {
-                path    : 'folders/:folderId',
+                path     : 'folders/:folderId',
                 component: FileManagerListComponent,
-                resolve : {
+                resolve  : {
                     item: FileManagerFolderResolver
                 },
-                children: [
+                children : [
                     {
                         path         : 'details/:id',
                         component    : FileManagerDetailsComponent,

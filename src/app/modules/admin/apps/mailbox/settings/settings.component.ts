@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { debounceTime, take } from 'rxjs/operators';
+import { debounceTime, take } from 'rxjs';
 import { MailboxComponent } from 'app/modules/admin/apps/mailbox/mailbox.component';
 import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { MailLabel } from 'app/modules/admin/apps/mailbox/mailbox.types';

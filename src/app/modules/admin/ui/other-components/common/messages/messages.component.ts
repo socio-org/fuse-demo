@@ -3,7 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'messages',
-    templateUrl: './messages.component.html',
+    templateUrl: './messages.component.html'
 })
 export class MessagesComponent
 {

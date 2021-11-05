@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, ReplaySubject, tap } from 'rxjs';
 import { FaqCategory, Guide, GuideCategory } from 'app/modules/admin/apps/help-center/help-center.type';
 
 @Injectable({

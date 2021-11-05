@@ -3,7 +3,7 @@ import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/
 
 @Component({
     selector   : 'notifications',
-    templateUrl: './notifications.component.html',
+    templateUrl: './notifications.component.html'
 })
 export class NotificationsComponent
 {
