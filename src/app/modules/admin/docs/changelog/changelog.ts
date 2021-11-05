@@ -26,6 +26,7 @@ export class ChangelogComponent
                     list: [
                         '(dependencies) Updated Angular & Angular Material to v13.0.0',
                         '(dependencies) Updated various other packages',
+                        '(dependencies) BREAKING: Updated RxJS to 7.4.0 and optimized import paths',
                         '(apps/calendar) BREAKING: Removed the Calendar app due to FullCalendar\'s Angular component not being properly developed',
                         '(FuseDateRange) BREAKING: Removed the FuseDateRange component, alternative: https://github.com/fetrarij/ngx-daterangepicker-material'
                     ]
