@@ -13,7 +13,7 @@ export class ChangelogComponent
         // v14.0.0
         {
             version    : 'v14.0.0',
-            releaseDate: 'Nov 05, 2021',
+            releaseDate: 'Nov 11, 2021',
             changes    : [
                 {
                     type: 'Added',
@@ -24,7 +24,7 @@ export class ChangelogComponent
                 {
                     type: 'Changed',
                     list: [
-                        '(dependencies) Updated Angular & Angular Material to v13.0.0',
+                        '(dependencies) Updated Angular & Angular Material to v13',
                         '(dependencies) Updated various other packages',
                         '(dependencies) BREAKING: Updated RxJS to 7.4.0 and optimized import paths',
                         '(apps/calendar) BREAKING: Removed the Calendar app due to FullCalendar\'s Angular component not being properly developed',
