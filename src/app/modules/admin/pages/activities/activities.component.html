@@ -36,7 +36,7 @@
                                     <div class="relative flex flex-auto">
                                         <!-- Icon -->
                                         <ng-container *ngIf="activity.icon && !activity.image">
-                                            <div class="flex flex-shrink-0 items-center justify-center w-10 h-10 mr-4 rounded-full bg-gray-400">
+                                            <div class="flex shrink-0 items-center justify-center w-10 h-10 mr-4 rounded-full bg-gray-400">
                                                 <mat-icon
                                                     class="icon-size-5 text-white"
                                                     [svgIcon]="activity.icon">
@@ -47,7 +47,7 @@
                                         <!-- Image -->
                                         <ng-container *ngIf="activity.image">
                                             <img
-                                                class="flex-shrink-0 w-10 h-10 mr-4 rounded-full overflow-hidden object-cover object-center"
+                                                class="shrink-0 w-10 h-10 mr-4 rounded-full overflow-hidden object-cover object-center"
                                                 [src]="activity.image"
                                                 [alt]="'Activity image'">
                                         </ng-container>

@@ -51,13 +51,13 @@
                 <mat-form-field class="min-w-40 ml-8 xs:ml-0">
                     <mat-label>Icon size</mat-label>
                     <mat-select [(ngModel)]="iconSize">
-                        <mat-option [value]="4">16</mat-option>
-                        <mat-option [value]="5">20</mat-option>
-                        <mat-option [value]="6">24</mat-option>
-                        <mat-option [value]="8">32</mat-option>
-                        <mat-option [value]="10">40</mat-option>
-                        <mat-option [value]="12">48</mat-option>
-                        <mat-option [value]="16">64</mat-option>
+                        <mat-option [value]="'icon-size-4'">16</mat-option>
+                        <mat-option [value]="'icon-size-5'">20</mat-option>
+                        <mat-option [value]="'icon-size-6'">24</mat-option>
+                        <mat-option [value]="'icon-size-8'">32</mat-option>
+                        <mat-option [value]="'icon-size-10'">40</mat-option>
+                        <mat-option [value]="'icon-size-12'">48</mat-option>
+                        <mat-option [value]="'icon-size-16'">64</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -75,7 +75,7 @@
 
                             <div class="flex items-center justify-center mb-3">
                                 <mat-icon
-                                    [ngClass]="'icon-size-' + iconSize"
+                                    [ngClass]="iconSize"
                                     [svgIcon]="icons.namespace + ':' + icon"></mat-icon>
                             </div>
 

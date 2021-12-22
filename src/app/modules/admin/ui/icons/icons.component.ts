@@ -14,7 +14,7 @@ export class IconsComponent implements OnInit, OnDestroy
     filteredIcons$: Observable<Icon>;
     filterValue$: BehaviorSubject<string> = new BehaviorSubject('');
 
-    iconSize: number = 24;
+    iconSize: string = 'icon-size-8';
     selectedIcon: string[];
     private _unsubscribeAll: Subject<any> = new Subject();
 

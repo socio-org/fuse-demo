@@ -10,6 +10,22 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v14.1.0
+        {
+            version    : 'v14.1.0',
+            releaseDate: 'Dec 22, 2021',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v13.1',
+                        '(dependencies) Updated Tailwind to v3',
+                        '(dependencies) Updated various other packages',
+                        '(AngularCLI) Disabled file based cache as it causes issues with Tailwind v3'
+                    ]
+                }
+            ]
+        },
         // v14.0.0
         {
             version    : 'v14.0.0',
