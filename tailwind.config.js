@@ -41,7 +41,7 @@ const themes = {
     'brand' : {
         primary: customPalettes.brand
     },
-    'teal': {
+    'teal'  : {
         primary: {
             ...colors.teal,
             DEFAULT: colors.teal[600]
@@ -87,10 +87,10 @@ const config = {
             '10xl': '8rem'
         },
         screens : {
-            sm   : '600px',
-            md   : '960px',
-            lg   : '1280px',
-            xl   : '1440px'
+            sm: '600px',
+            md: '960px',
+            lg: '1280px',
+            xl: '1440px'
         },
         extend  : {
             animation               : {
@@ -273,7 +273,6 @@ const config = {
     },
     corePlugins: {
         appearance        : false,
-        gradientColorStops: false,
         container         : false,
         float             : false,
         clear             : false,
@@ -284,7 +283,6 @@ const config = {
     plugins    : [
 
         // Fuse - Tailwind plugins
-        require(path.resolve(__dirname, ('src/@fuse/tailwind/plugins/extract-config'))),
         require(path.resolve(__dirname, ('src/@fuse/tailwind/plugins/utilities'))),
         require(path.resolve(__dirname, ('src/@fuse/tailwind/plugins/icon-size'))),
         require(path.resolve(__dirname, ('src/@fuse/tailwind/plugins/theming')))({themes}),
