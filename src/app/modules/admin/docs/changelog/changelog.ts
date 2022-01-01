@@ -10,6 +10,27 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v14.1.1
+        {
+            version    : 'v14.1.1',
+            releaseDate: 'Jan 02, 2022',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated various packages',
+                        '(TailwindCSS) Moved to the new syntax on Tailwind config'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(TailwindCSS) Accent and Warn colors are not being generated for themes other than the Default',
+                        '(Contacts) Fixed: Typo on resolve object'
+                    ]
+                }
+            ]
+        },
         // v14.1.0
         {
             version    : 'v14.1.0',
