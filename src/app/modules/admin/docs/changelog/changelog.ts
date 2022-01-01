@@ -26,7 +26,7 @@ export class ChangelogComponent
                     type: 'Fixed',
                     list: [
                         '(TailwindCSS) Accent and Warn colors are not being generated for themes other than the Default',
-                        '(Contacts) Fixed: Typo on resolve object'
+                        '(Contacts) Typo on resolve object'
                     ]
                 }
             ]
