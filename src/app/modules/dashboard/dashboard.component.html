@@ -1,12 +1,13 @@
 <div class="flex flex-col flex-auto min-w-0">
+
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
         <div class="flex flex-wrap items-start w-full max-w-400 -m-4">
 
             <!-- Card #54 -->
             <div class="relative flex flex-col  w-full p-4 filter-testimonial">
-                <span class="absolute top-0 left-0 text-9xl font-serif text-primary leading-none ml-8">“</span>
-                <div class="text-md italic leading-relaxed mt-4 ql-align-justify" style="text-align: center">
+                <span class="absolute top-0 left-0 text-7xl font-serif text-primary leading-none ml-5">“</span>
+                <div class="text-md italic leading-relaxed mt-2 ql-align-justify" style="text-align: center">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     ആരും ദൈവത്തെ കണ്ടിട്ടില്ല; എന്നാൽ നാം പരസ്പരം സ്നേഹിക്കുന്നുവെങ്കിൽ, ദൈവം നമ്മിൽ വസിക്കുന്നു, അവന്റെ
                     സ്നേഹം നമ്മിൽ പരിപൂർണ്ണമാണ്.
@@ -17,38 +18,120 @@
             </div>
         </div>
     </div>
-
     <!-- Main -->
-    <div class="flex-auto">
+    <div class="flex-auto mt-4 sm:mt-6">
         <div class="w-full max-w-screen-xl mx-auto">
             <div class="sm:px-2">
-                <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 p-2 w-full min-w-0">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                    <!-- Families -->
+                    <div [routerLink]="['../family']"
+                         class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                        <div class="flex items-start justify-between">
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Families</div>
 
-                    <!-- Recent posts  -->
-                    <div class="sm:col-span-2 md:col-span-2 lg:col-span-1  flex flex-col flex-auto   rounded-2xl overflow-hidden">
-                        <div class="flex flex-col sm:flex-row items-start justify-between">
-                            <div class="text-lg font-medium tracking-tight leading-6 truncate">
-                                &nbsp;&nbsp;Recent posts
+                        </div>
+                        <div class="flex flex-col items-center mt-2">
+                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">21
+                            </div>
+                            <div class="text-lg font-medium text-blue-600 dark:text-blue-500">Active</div>
+                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
+                                <div class="text-md font-medium truncate">Total:</div>
+                                <div class="ml-1.5 text-lg font-semibold">66</div>
                             </div>
                         </div>
+                    </div>
+                    <!-- Members -->
+                    <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                        <div class="flex items-start justify-between">
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Members</div>
 
-
-                        <ng-container *ngFor="let post of data.posts;  ">
-
-                            <!-- Test card -->
-                            <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2" *ngIf="post.type=='post'">
-                                <ng-container *ngTemplateOutlet="postText; context: {post: post}"></ng-container>
-                            </fuse-card>
-                            <!-- Test card -->
-                            <fuse-card class="flex flex-col  w-full filter-post mb-2 mt-2" *ngIf="post.type=='event'">
-                                <ng-container *ngTemplateOutlet="postEvent; context: {event: post}"></ng-container>
-                            </fuse-card>
-
-                        </ng-container>
-
-
+                        </div>
+                        <div class="flex flex-col items-center mt-2">
+                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500">121
+                            </div>
+                            <div class="text-lg font-medium text-blue-600 dark:text-blue-500">Active</div>
+                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
+                                <div class="text-md font-medium truncate">Total:</div>
+                                <div class="ml-1.5 text-lg font-semibold">160</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- App Installs -->
+                    <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                        <div class="flex items-start justify-between">
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate">App Installs</div>
+                            <div class="ml-2 -mt-2 -mr-3">
+                                <button [matMenuTriggerFor]="overdueMenu" mat-icon-button>
+                                    <mat-icon [svgIcon]="'heroicons_solid:dots-vertical'" class="icon-size-5">
+                                    </mat-icon>
+                                </button>
+                                <mat-menu #overdueMenu="matMenu">
+                                    <button mat-menu-item>Yesterday</button>
+                                    <button mat-menu-item>2 days ago</button>
+                                    <button mat-menu-item>3 days ago</button>
+                                </mat-menu>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center mt-2">
+                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500">17
+                            </div>
+                            <div class="text-lg font-medium text-red-600 dark:text-red-500">Active</div>
+                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
+                                <div class="text-md font-medium truncate">Total:</div>
+                                <div class="ml-1.5 text-lg font-semibold">100</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Issues -->
+                    <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
+                        <div class="flex items-start justify-between">
+                            <div class="text-lg font-medium tracking-tight leading-6 truncate">Issues</div>
+                            <div class="ml-2 -mt-2 -mr-3">
+                                <button [matMenuTriggerFor]="issuesMenu" mat-icon-button>
+                                    <mat-icon [svgIcon]="'heroicons_solid:dots-vertical'" class="icon-size-5">
+                                    </mat-icon>
+                                </button>
+                                <mat-menu #issuesMenu="matMenu">
+                                    <button mat-menu-item>Yesterday</button>
+                                    <button mat-menu-item>2 days ago</button>
+                                    <button mat-menu-item>3 days ago</button>
+                                </mat-menu>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center mt-2">
+                            <div class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500">24
+                            </div>
+                            <div class="text-lg font-medium text-amber-600 dark:text-amber-500">Open</div>
+                            <div class="flex items-center justify-center w-full mt-5 text-secondary">
+                                <div class="text-md font-medium truncate">Closed today:</div>
+                                <div class="ml-1.5 text-lg font-semibold">19</div>
+                            </div>
+                        </div>
                     </div>
 
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex-auto p-6">
+        <div class="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-6 w-full min-w-0">
+            <div class="flex flex-wrap items-middle object-center w-full max-w-400 max-h-100 -m-4 video-container">
+                <iframe allow="picture-in-picture" allowfullscreen class="video" frameborder="0"
+                        src="https://www.youtube.com/embed/8CxkzeeuoIA"
+                        title="YouTube video player"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main -->
+    <div class="flex-auto mt-4 sm:mt-6">
+        <div class="w-full max-w-screen-xl mx-auto">
+            <div class="sm:px-2">
+                <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 w-full min-w-0">
 
                     <!-- Events  -->
                     <div class="sm:col-span-2 md:col-span-2 lg:col-span-1  flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
@@ -64,15 +147,14 @@
                                 <!-- Position Column -->
                                 <ng-container matColumnDef="title">
                                     <th *matHeaderCellDef mat-header-cell> Event</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.title}}</td>
+                                    <td *matCellDef="let element" mat-cell> {{element.title}} </td>
                                 </ng-container>
 
                                 <!-- Name Column -->
                                 <ng-container matColumnDef="start">
                                     <th *matHeaderCellDef mat-header-cell> Date</th>
                                     <td *matCellDef="let element"
-                                        mat-cell> {{ element.start | date:'MMM d, y, h:mm a'}}
-                                    </td>
+                                        mat-cell> {{ element.start | date:'MMM d, y, h:mm a'}} </td>
                                 </ng-container>
                                 <tr *matHeaderRowDef="eventDisplayedColumns" mat-header-row></tr>
                                 <tr *matRowDef="let row; columns: eventDisplayedColumns;" mat-row></tr>
@@ -97,19 +179,19 @@
                                 <!-- Position Column -->
                                 <ng-container matColumnDef="position">
                                     <th *matHeaderCellDef mat-header-cell> No.</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.position}}</td>
+                                    <td *matCellDef="let element" mat-cell> {{element.position}} </td>
                                 </ng-container>
 
                                 <!-- Name Column -->
                                 <ng-container matColumnDef="name">
                                     <th *matHeaderCellDef mat-header-cell> Name</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.name}}</td>
+                                    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
                                 </ng-container>
 
                                 <!-- Weight Column -->
                                 <ng-container matColumnDef="date">
                                     <th *matHeaderCellDef mat-header-cell> Date</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.dob}}</td>
+                                    <td *matCellDef="let element" mat-cell> {{element.dob}} </td>
                                 </ng-container>
 
 
@@ -136,19 +218,19 @@
                                 <!-- Position Column -->
                                 <ng-container matColumnDef="position">
                                     <th *matHeaderCellDef mat-header-cell> No.</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.position}}</td>
+                                    <td *matCellDef="let element" mat-cell> {{element.position}} </td>
                                 </ng-container>
 
                                 <!-- Name Column -->
                                 <ng-container matColumnDef="name">
                                     <th *matHeaderCellDef mat-header-cell> Name</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.name}}</td>
+                                    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
                                 </ng-container>
 
                                 <!-- Weight Column -->
                                 <ng-container matColumnDef="date">
                                     <th *matHeaderCellDef mat-header-cell> Date</th>
-                                    <td *matCellDef="let element" mat-cell> {{element.dob}}</td>
+                                    <td *matCellDef="let element" mat-cell> {{element.dob}} </td>
                                 </ng-container>
 
 

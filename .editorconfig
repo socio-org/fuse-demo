@@ -33,16 +33,8 @@ ij_css_space_before_opening_brace = true
 ij_css_use_double_quotes = true
 ij_css_value_alignment = do_not_align
 
-[*.feature]
-indent_size = 2
-ij_gherkin_keep_indents_on_empty_lines = false
-
-[*.haml]
-indent_size = 2
-ij_haml_keep_indents_on_empty_lines = false
-
 [*.less]
-indent_size = 2
+indent_size = 4
 ij_less_align_closing_brace_with_properties = false
 ij_less_blank_lines_around_nested_selector = 1
 ij_less_blank_lines_between_blocks = 1
@@ -316,8 +308,8 @@ ij_typescript_while_on_new_line = false
 ij_typescript_wrap_comments = false
 
 [{*.bash, *.sh, *.zsh}]
-indent_size = 2
-tab_width = 2
+indent_size = 4
+tab_width = 4
 ij_shell_binary_ops_start_line = false
 ij_shell_keep_column_alignment_padding = false
 ij_shell_minify_program = false
@@ -627,6 +619,9 @@ ij_html_space_inside_empty_tag = false
 ij_html_text_wrap = normal
 
 [{*.yaml, *.yml}]
-indent_size = 2
+indent_size = 4
 ij_yaml_keep_indents_on_empty_lines = false
 ij_yaml_keep_line_breaks = true
+
+[*.json]
+indent_size = 4
