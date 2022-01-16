@@ -38,14 +38,15 @@
 
                         <div class="p-6 md:p-8">
                             <!-- Folders -->
+                            <div class="z-10 sticky top-0 -mt-px p-6 py-1 md:px-8 border-t border-b font-medium uppercase text-secondary bg-gray-50 dark:bg-gray-900">
+                                {{familyGrouped.key}}
+                            </div>
                             <div
-                                class="z-10 sticky top-0 -mt-px p-6 py-1 md:px-8 border-t border-b font-medium uppercase text-secondary bg-gray-50 dark:bg-gray-900">{{familyGrouped.key}}</div>
-                            <div
-                                class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3  lg:grid-cols-3 gap-2 w-full min-w-0">
+                                    class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3  lg:grid-cols-3 gap-2 w-full min-w-0">
 
                                 <ng-container *ngFor="let family of familyGrouped.value">
                                     <ng-container
-                                        *ngTemplateOutlet="familyTemplate; context: {family: family}"></ng-container>
+                                            *ngTemplateOutlet="familyTemplate; context: {family: family}"></ng-container>
                                 </ng-container>
                             </div>
                         </div>
@@ -54,9 +55,10 @@
 
                 <!-- Item template -->
                 <ng-template #familyTemplate let-family="family">
-                    <div
-                        class="flex flex-col  flex-auto m-2 px-4 pt-4 shadow rounded-2xl cursor-pointer bg-card  overflow-hidden">
-
+                    <div class="flex flex-col  flex-auto m-2 px-4 pt-4 shadow rounded-2xl cursor-pointer bg-card  overflow-hidden">
+                        <div class="text-hint">
+                            #{{family.uid}}
+                        </div>
                         <div class="row">
                             <img alt="Family" class="object-cover"
                                  src="assets/images/profile/family-mock.webp">
@@ -81,9 +83,8 @@
                                     <mat-icon [svgIcon]="'feather:navigation'" class="icon-size-5"></mat-icon>
                                 </button>
                                 <button [routerLink]="['./', family.id]" class="flex-auto mat-primary"
-                                        mat-stroked-button
-                                        type="button">
-                                    <mat-icon [svgIcon]="'feather:info'" class="icon-size-5"></mat-icon>
+                                        mat-stroked-button type="button">
+                                    Details
                                 </button>
                             </div>
                         </div>
