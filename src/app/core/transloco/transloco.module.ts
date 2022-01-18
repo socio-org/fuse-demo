@@ -25,8 +25,8 @@ import {environment} from 'environments/environment';
                         label: 'English'
                     },
                     {
-                        id   : 'tr',
-                        label: 'Turkish'
+                        id   : 'ml',
+                        label: 'Malayalam'
                     }
                 ],
                 defaultLang         : 'en',

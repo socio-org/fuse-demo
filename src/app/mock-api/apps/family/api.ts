@@ -68,7 +68,7 @@ export class FamiliesMockApi {
 //      about: '{{lorem(5, "words")}}',
 //      addedOn: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
 //      memberSince: '{{date(new Date(2001, 0, 1), new Date(2014, 0, 1), "YYYY-MM-dd")}}',
-//      status: 1
-//
+//      status: 1,
+//      divisionId: 'Ward {{integer(1, 3)}}'
 //    }
 //  ]

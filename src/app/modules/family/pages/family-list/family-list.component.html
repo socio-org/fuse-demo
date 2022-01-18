@@ -56,8 +56,10 @@
                 <!-- Item template -->
                 <ng-template #familyTemplate let-family="family">
                     <div class="flex flex-col  flex-auto m-2 px-4 pt-4 shadow rounded-2xl cursor-pointer bg-card  overflow-hidden">
-                        <div class="text-hint">
-                            #{{family.uid}}
+                        <div class="flex  justify-between">
+
+                            <div class="text-hint">#{{family.uid}}</div>
+                            <div class=" text-md">{{family.divisionId}}</div>
                         </div>
                         <div class="row">
                             <img alt="Family" class="object-cover"
@@ -66,7 +68,6 @@
                         <div class="mx-8 mt-4 mb-2">
                             <div class="flex justify-between">
                                 <div class="flex flex-col">
-                                    <div class="text-secondary text-md">{{family.divisionId}}</div>
                                     <div class="text-2xl font-semibold leading-tight mt-1">
                                         {{family.name}}
                                     </div>
