@@ -1,8 +1,7 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Message} from 'app/layout/common/messages/messages.types';
-import {Observable, ReplaySubject} from 'rxjs';
-import {map, switchMap, take, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable, ReplaySubject, switchMap, take, tap } from 'rxjs';
+import { Message } from 'app/layout/common/messages/messages.types';
 
 @Injectable({
     providedIn: 'root'

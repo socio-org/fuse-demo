@@ -1,16 +1,8 @@
-import {
-    HttpErrorResponse,
-    HttpEvent,
-    HttpHandler,
-    HttpInterceptor,
-    HttpRequest,
-    HttpResponse
-} from '@angular/common/http';
-import {Inject, Injectable} from '@angular/core';
-import {FUSE_MOCK_API_DEFAULT_DELAY} from '@fuse/lib/mock-api/mock-api.constants';
-import {FuseMockApiService} from '@fuse/lib/mock-api/mock-api.service';
-import {Observable, of, throwError} from 'rxjs';
-import {delay, switchMap} from 'rxjs/operators';
+import { Inject, Injectable } from '@angular/core';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { delay, Observable, of, switchMap, throwError } from 'rxjs';
+import { FUSE_MOCK_API_DEFAULT_DELAY } from '@fuse/lib/mock-api/mock-api.constants';
+import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
 
 @Injectable({
     providedIn: 'root'

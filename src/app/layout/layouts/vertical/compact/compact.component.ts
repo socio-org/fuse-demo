@@ -1,11 +1,10 @@
-import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FuseNavigationService, FuseVerticalNavigationComponent} from '@fuse/components/navigation';
-import {FuseMediaWatcherService} from '@fuse/services/media-watcher';
-import {NavigationService} from 'app/core/navigation/navigation.service';
-import {Navigation} from 'app/core/navigation/navigation.types';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
+import { Navigation } from 'app/core/navigation/navigation.types';
+import { NavigationService } from 'app/core/navigation/navigation.service';
 
 @Component({
     selector     : 'compact-layout',
@@ -75,7 +74,7 @@ export class CompactLayoutComponent implements OnInit, OnDestroy
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 

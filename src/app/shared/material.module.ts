@@ -14,40 +14,31 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { NgModule } from '@angular/core';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRippleModule } from '@angular/material/core';
+const modules = [
+  MatButtonModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule,
+  MatSliderModule,
+  MatProgressBarModule,
+  MatAutocompleteModule,
+  MatInputModule,
+  MatGridListModule,
+  MatSnackBarModule,
+  MatProgressSpinnerModule,
+  MatTooltipModule,
+  MatListModule,
+  MatDialogModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule
+];
 @NgModule({
-  imports: [
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule,
-    MatCardModule,
-    MatSliderModule,
-    MatProgressBarModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    MatGridListModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatTooltipModule,
-    MatListModule,
-    MatDialogModule
-  ],
-  exports: [
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule,
-    MatCardModule,
-    MatSliderModule,
-    MatProgressBarModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    MatGridListModule,
-    MatSnackBarModule,
-    MatProgressSpinnerModule,
-    MatTooltipModule,
-    MatListModule,
-    MatDialogModule
-  ]
+  imports: [...modules],
+  exports: [...modules]
 })
 
 export class MaterialModule {

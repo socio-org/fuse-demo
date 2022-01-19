@@ -1,20 +1,11 @@
-import {BooleanInput} from '@angular/cdk/coercion';
-import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    HostBinding,
-    Input,
-    OnDestroy,
-    OnInit
-} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-import {fuseAnimations} from '@fuse/animations';
-import {FuseNavigationService} from '@fuse/components/navigation/navigation.service';
-import {FuseNavigationItem} from '@fuse/components/navigation/navigation.types';
-import {FuseVerticalNavigationComponent} from '@fuse/components/navigation/vertical/vertical.component';
-import {Subject} from 'rxjs';
-import {filter, takeUntil} from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { filter, Subject, takeUntil } from 'rxjs';
+import { fuseAnimations } from '@fuse/animations';
+import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
     selector       : 'fuse-vertical-navigation-collapsable-item',
@@ -184,7 +175,7 @@ export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, O
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 

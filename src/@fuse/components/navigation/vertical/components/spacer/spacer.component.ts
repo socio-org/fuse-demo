@@ -1,9 +1,8 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {FuseNavigationService} from '@fuse/components/navigation/navigation.service';
-import {FuseNavigationItem} from '@fuse/components/navigation/navigation.types';
-import {FuseVerticalNavigationComponent} from '@fuse/components/navigation/vertical/vertical.component';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/vertical/vertical.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
     selector       : 'fuse-vertical-navigation-spacer-item',
@@ -56,7 +55,7 @@ export class FuseVerticalNavigationSpacerItemComponent implements OnInit, OnDest
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 }

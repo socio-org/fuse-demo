@@ -24,6 +24,7 @@ import {CalendarRecurrenceComponent} from 'app/modules/calendar/recurrence/recur
 import {CalendarSettingsComponent} from 'app/modules/calendar/settings/settings.component';
 import {CalendarSidebarComponent} from 'app/modules/calendar/sidebar/sidebar.component';
 import {calendarRoutes} from 'app/modules/calendar/calendar.routing';
+import { MaterialModule } from 'app/shared/material.module';
 
 @NgModule({
     declarations: [
@@ -49,6 +50,7 @@ import {calendarRoutes} from 'app/modules/calendar/calendar.routing';
         MatSelectModule,
         MatSidenavModule,
         MatTooltipModule,
+        MaterialModule,
         FullCalendarModule,
         FuseDateRangeModule,
         SharedModule

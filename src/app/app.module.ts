@@ -1,6 +1,7 @@
 import {APP_BASE_HREF, PlatformLocation} from '@angular/common';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ExtraOptions, PreloadAllModules, RouterModule} from '@angular/router';
@@ -54,6 +55,7 @@ export const getBaseHref = (platformLocation: PlatformLocation): string => platf
 
         // Layout module of your application
         LayoutModule,
+        MatIconModule,
 
         // 3rd party modules that require global configuration via forRoot
         MarkdownModule.forRoot({})

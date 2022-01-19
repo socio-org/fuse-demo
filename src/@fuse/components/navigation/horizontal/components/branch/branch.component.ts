@@ -1,19 +1,10 @@
-import {BooleanInput} from '@angular/cdk/coercion';
-import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    Input,
-    OnDestroy,
-    OnInit,
-    ViewChild
-} from '@angular/core';
-import {MatMenu} from '@angular/material/menu';
-import {FuseHorizontalNavigationComponent} from '@fuse/components/navigation/horizontal/horizontal.component';
-import {FuseNavigationService} from '@fuse/components/navigation/navigation.service';
-import {FuseNavigationItem} from '@fuse/components/navigation/navigation.types';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { BooleanInput } from '@angular/cdk/coercion';
+import { MatMenu } from '@angular/material/menu';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseHorizontalNavigationComponent } from '@fuse/components/navigation/horizontal/horizontal.component';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
     selector       : 'fuse-horizontal-navigation-branch-item',
@@ -72,7 +63,7 @@ export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDe
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 

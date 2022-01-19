@@ -1,13 +1,12 @@
-import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FuseNavigationService, FuseVerticalNavigationComponent} from '@fuse/components/navigation';
-import {FuseMediaWatcherService} from '@fuse/services/media-watcher';
-import {NavigationService} from 'app/core/navigation/navigation.service';
-import {Navigation} from 'app/core/navigation/navigation.types';
-import {UserService} from 'app/core/user/user.service';
-import {User} from 'app/core/user/user.types';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
+import { Navigation } from 'app/core/navigation/navigation.types';
+import { NavigationService } from 'app/core/navigation/navigation.service';
+import { User } from 'app/core/user/user.types';
+import { UserService } from 'app/core/user/user.service';
 
 @Component({
     selector     : 'classy-layout',
@@ -86,7 +85,7 @@ export class ClassyLayoutComponent implements OnInit, OnDestroy
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 

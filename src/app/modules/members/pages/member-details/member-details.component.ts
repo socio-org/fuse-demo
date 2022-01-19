@@ -14,6 +14,7 @@ import { Contact } from '../../member.type';
 })
 export class MemberDetailsComponent implements OnInit {
     public contacts: Contact[];
+    public selectedContact: Contact;
     public contactsCount: number = 0;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
     /**
