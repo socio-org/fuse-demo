@@ -1,21 +1,10 @@
-import {Overlay, OverlayRef} from '@angular/cdk/overlay';
-import {TemplatePortal} from '@angular/cdk/portal';
-import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    OnDestroy,
-    OnInit,
-    TemplateRef,
-    ViewChild,
-    ViewContainerRef,
-    ViewEncapsulation
-} from '@angular/core';
-import {MatButton} from '@angular/material/button';
-import {MessagesService} from 'app/layout/common/messages/messages.service';
-import {Message} from 'app/layout/common/messages/messages.types';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { MatButton } from '@angular/material/button';
+import { Subject, takeUntil } from 'rxjs';
+import { Message } from 'app/layout/common/messages/messages.types';
+import { MessagesService } from 'app/layout/common/messages/messages.service';
 
 @Component({
     selector       : 'messages',
@@ -77,7 +66,7 @@ export class MessagesComponent implements OnInit, OnDestroy
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
 
         // Dispose the overlay

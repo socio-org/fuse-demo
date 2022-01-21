@@ -22,6 +22,7 @@ import {Contact} from '../../member.type';
 export class MemberListComponent implements OnInit, OnDestroy {
 
     public contactsCount: number = 0;
+    public selectedContact: Contact ;
     public members$: Observable<Contact[]>;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
     public searchInputControl: FormControl = new FormControl();
@@ -64,7 +65,7 @@ export class MemberListComponent implements OnInit, OnDestroy {
     */
     ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 

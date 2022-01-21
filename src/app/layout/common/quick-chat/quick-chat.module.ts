@@ -1,19 +1,19 @@
-import {NgModule} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {RouterModule} from '@angular/router';
-import {FuseDrawerModule} from '@fuse/components/drawer';
-import {FuseScrollbarModule} from '@fuse/directives/scrollbar';
-import {QuickChatComponent} from 'app/layout/common/quick-chat/quick-chat.component';
-import {SharedModule} from 'app/shared/shared.module';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { FuseDrawerModule } from '@fuse/components/drawer';
+import { FuseScrollbarModule } from '@fuse/directives/scrollbar';
+import { SharedModule } from 'app/shared/shared.module';
+import { QuickChatComponent } from 'app/layout/common/quick-chat/quick-chat.component';
 
 @NgModule({
     declarations: [
         QuickChatComponent
     ],
-    imports: [
+    imports     : [
         RouterModule,
         MatButtonModule,
         MatFormFieldModule,
@@ -21,7 +21,7 @@ import {SharedModule} from 'app/shared/shared.module';
         MatInputModule,
         FuseDrawerModule,
         FuseScrollbarModule,
-        SharedModule,
+        SharedModule
     ],
     exports     : [
         QuickChatComponent

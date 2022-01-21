@@ -1,21 +1,10 @@
-import {Overlay, OverlayRef} from '@angular/cdk/overlay';
-import {TemplatePortal} from '@angular/cdk/portal';
-import {
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    OnDestroy,
-    OnInit,
-    TemplateRef,
-    ViewChild,
-    ViewContainerRef,
-    ViewEncapsulation
-} from '@angular/core';
-import {MatButton} from '@angular/material/button';
-import {NotificationsService} from 'app/layout/common/notifications/notifications.service';
-import {Notification} from 'app/layout/common/notifications/notifications.types';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { MatButton } from '@angular/material/button';
+import { Subject, takeUntil } from 'rxjs';
+import { Notification } from 'app/layout/common/notifications/notifications.types';
+import { NotificationsService } from 'app/layout/common/notifications/notifications.service';
 
 @Component({
     selector       : 'notifications',
@@ -77,7 +66,7 @@ export class NotificationsComponent implements OnInit, OnDestroy
     ngOnDestroy(): void
     {
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
 
         // Dispose the overlay
@@ -113,7 +102,7 @@ export class NotificationsComponent implements OnInit, OnDestroy
     }
 
     /**
-     * Close the messages panel
+     * Close the notifications panel
      */
     closePanel(): void
     {

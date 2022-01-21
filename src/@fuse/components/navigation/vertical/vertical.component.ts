@@ -1,40 +1,14 @@
-import {animate, AnimationBuilder, AnimationPlayer, style} from '@angular/animations';
-import {BooleanInput, coerceBooleanProperty} from '@angular/cdk/coercion';
-import {ScrollStrategy, ScrollStrategyOptions} from '@angular/cdk/overlay';
-import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    EventEmitter,
-    HostBinding,
-    HostListener,
-    Input,
-    OnChanges,
-    OnDestroy,
-    OnInit,
-    Output,
-    QueryList,
-    Renderer2,
-    SimpleChanges,
-    ViewChild,
-    ViewChildren,
-    ViewEncapsulation
-} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-import {fuseAnimations} from '@fuse/animations';
-import {FuseNavigationService} from '@fuse/components/navigation/navigation.service';
-import {
-    FuseNavigationItem,
-    FuseVerticalNavigationAppearance,
-    FuseVerticalNavigationMode,
-    FuseVerticalNavigationPosition
-} from '@fuse/components/navigation/navigation.types';
-import {FuseScrollbarDirective} from '@fuse/directives/scrollbar/scrollbar.directive';
-import {FuseUtilsService} from '@fuse/services/utils/utils.service';
-import {merge, ReplaySubject, Subject, Subscription} from 'rxjs';
-import {delay, filter, takeUntil} from 'rxjs/operators';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { animate, AnimationBuilder, AnimationPlayer, style } from '@angular/animations';
+import { NavigationEnd, Router } from '@angular/router';
+import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
+import { delay, filter, merge, ReplaySubject, Subject, Subscription, takeUntil } from 'rxjs';
+import { fuseAnimations } from '@fuse/animations';
+import { FuseNavigationItem, FuseVerticalNavigationAppearance, FuseVerticalNavigationMode, FuseVerticalNavigationPosition } from '@fuse/components/navigation/navigation.types';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseScrollbarDirective } from '@fuse/directives/scrollbar/scrollbar.directive';
+import { FuseUtilsService } from '@fuse/services/utils/utils.service';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
     selector       : 'fuse-vertical-navigation',
@@ -407,7 +381,7 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
         this._fuseNavigationService.deregisterComponent(this.name);
 
         // Unsubscribe from all subscriptions
-        this._unsubscribeAll.next();
+        this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
     }
 
