@@ -10,6 +10,20 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v14.2.0
+        {
+            version    : 'v14.2.0',
+            releaseDate: 'Feb 21, 2022',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated various packages',
+                        '(AngularCLI) Re-enabled the cache since Tailwind related issues are fixed'
+                    ]
+                }
+            ]
+        },
         // v14.1.1
         {
             version    : 'v14.1.1',
