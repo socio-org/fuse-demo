@@ -19,7 +19,16 @@ export class ChangelogComponent
                     type: 'Changed',
                     list: [
                         '(dependencies) Updated various packages',
-                        '(AngularCLI) Re-enabled the cache since Tailwind related issues are fixed'
+                        '(AngularCLI) Re-enabled the cache since Tailwind related issues are fixed',
+                        '(@fuse/navigation) Expose the width variables as css custom properties, so they can be overridden from the outside',
+                        '(@fuse/drawer) Expose the width variable as a css custom property, so it can be overridden from the outside',
+                        '(@fuse/masonry) Removed the unnecessary scss file'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(layouts/dense) Fixed: Navigation appearance doesn\'t set correctly on small devices'
                     ]
                 }
             ]
