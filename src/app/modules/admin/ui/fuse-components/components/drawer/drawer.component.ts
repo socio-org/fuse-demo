@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FuseDrawerMode, FuseDrawerService } from '@fuse/components/drawer';
+import { FuseDrawerMode } from '@fuse/components/drawer';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({
@@ -9,17 +9,18 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
 export class DrawerComponent
 {
     drawerMode: FuseDrawerMode;
+    drawerOpened: boolean;
 
     /**
      * Constructor
      */
     constructor(
-        private _fuseDrawerService: FuseDrawerService,
         private _fuseComponentsComponent: FuseComponentsComponent
     )
     {
         // Set the defaults
         this.drawerMode = 'side';
+        this.drawerOpened = true;
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -28,32 +29,28 @@ export class DrawerComponent
 
     /**
      * Toggle the drawer mode
-     *
-     * @param name
      */
-    toggleDrawerMode(name: string): void
+    toggleDrawerMode(): void
     {
-        const drawer = this._fuseDrawerService.getComponent(name);
-
-        if ( drawer )
-        {
-            drawer.mode = drawer.mode === 'side' ? 'over' : 'side';
-        }
+        this.drawerMode = this.drawerMode === 'side' ? 'over' : 'side';
     }
 
     /**
      * Toggle the drawer open
-     *
-     * @param name
      */
-    toggleDrawerOpen(name: string): void
+    toggleDrawerOpen(): void
     {
-        const drawer = this._fuseDrawerService.getComponent(name);
+        this.drawerOpened = !this.drawerOpened;
+    }
 
-        if ( drawer )
-        {
-            drawer.toggle();
-        }
+    /**
+     * Drawer opened changed
+     *
+     * @param opened
+     */
+    drawerOpenedChanged(opened: boolean): void
+    {
+        this.drawerOpened = opened;
     }
 
     /**

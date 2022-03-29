@@ -241,7 +241,7 @@
                         <button
                             mat-flat-button
                             [color]="'primary'"
-                            (click)="toggleDrawerMode('leftDrawer');">
+                            (click)="toggleDrawerMode();">
                             Toggle drawer mode
                         </button>
 
@@ -249,7 +249,7 @@
                             class="ml-4"
                             mat-flat-button
                             [color]="'primary'"
-                            (click)="toggleDrawerOpen('leftDrawer');">
+                            (click)="toggleDrawerOpen();">
                             Toggle drawer open
                         </button>
 
@@ -257,12 +257,12 @@
 
                             <fuse-drawer
                                 [name]="'leftDrawer'"
-                                [opened]="true"
-                                [mode]="'side'"
-                                #drawer>
+                                [opened]="drawerOpened"
+                                [mode]="drawerMode"
+                                (openedChanged)="drawerOpenedChanged($event)">
                                 <div class="p-4">
                                     Left drawer
-                                    <div>Current mode: {{drawer.mode}}</div>
+                                    <div>Current mode: {{drawerMode}}</div>
                                 </div>
                             </fuse-drawer>
 
@@ -285,7 +285,7 @@
                         <button
                             mat-flat-button
                             [color]="'primary'"
-                            (click)="toggleDrawerMode('leftDrawer');">
+                            (click)="toggleDrawerMode();">
                                 Toggle drawer mode
                         </button>
 
@@ -293,15 +293,15 @@
                             class="ml-4"
                             mat-flat-button
                             [color]="'primary'"
-                            (click)="toggleDrawerOpen('leftDrawer');">
+                            (click)="toggleDrawerOpen();">
                             Toggle drawer open
                         </button>
 
                         <div class="relative flex overflow-hidden border mt-8 min-h-80">
                             <fuse-drawer
                                 [name]="'leftDrawer'"
-                                [opened]="true"
-                                [mode]="'side'">
+                                [opened]="drawerOpened"
+                                [mode]="drawerMode">
                                 <div class="p-4">
                                     Left drawer
                                 </div>
@@ -310,6 +310,20 @@
                             <div class="flex-auto bg-gray-100 p-4">
                                 Some content
                             </div>
+
+                            <!-- Right drawer must be positioned after the content
+
+                                <fuse-drawer
+                                    [name]="'leftDrawer'"
+                                    [opened]="true"
+                                    [position]="'right'"
+                                    [mode]="'side'">
+                                    <div class="p-4">
+                                        Right drawer
+                                    </div>
+                                </fuse-drawer>
+
+                            -->
                         </div>
                     </textarea>
                     <!-- @formatter:on -->
@@ -322,26 +336,34 @@
                     <textarea fuse-highlight
                               [lang]="'typescript'">
 
+                        // Set the defaults
+                        this.drawerMode = 'side';
+                        this.drawerOpened = true;
+
                         /**
                          * Toggle the drawer mode
-                         *
-                         * @param drawerName
                          */
-                        toggleDrawerMode(drawerName): void
+                        toggleDrawerMode(): void
                         {
-                            const drawer = this._fuseDrawerService.getComponent(drawerName);
-                            drawer.mode = drawer.mode === 'side' ? 'over' : 'side';
+                            this.drawerMode = this.drawerMode === 'side' ? 'over' : 'side';
                         }
 
                         /**
                          * Toggle the drawer open
-                         *
-                         * @param drawerName
                          */
-                        toggleDrawerOpen(drawerName): void
+                        toggleDrawerOpen(): void
                         {
-                            const drawer = this._fuseDrawerService.getComponent(drawerName);
-                            drawer.toggle();
+                            this.drawerOpened = !this.drawerOpened;
+                        }
+
+                        /**
+                         * Drawer opened changed
+                         *
+                         * @param opened
+                         */
+                        drawerOpenedChanged(opened: boolean): void
+                        {
+                            this.drawerOpened = opened;
                         }
 
                     </textarea>
