@@ -66,6 +66,9 @@ export class DirectoryStructureComponent implements OnInit
                         children: [
                             {name: 'auth/'},
                             {name: 'config/'},
+                            {name: 'icons/'},
+                            {name: 'navigation/'},
+                            {name: 'transloco/'},
                             {name: 'user/'},
                             {name: 'core.module.ts'}
                         ]
@@ -112,8 +115,7 @@ export class DirectoryStructureComponent implements OnInit
                     {name: 'app.component.ts'},
                     {name: 'app.module.ts'},
                     {name: 'app.resolvers.ts'},
-                    {name: 'app.routing.ts'},
-                    {name: 'app.types.ts'}
+                    {name: 'app.routing.ts'}
                 ]
             }
         ];
@@ -136,8 +138,8 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'tailwind/'},
                             {name: 'validators/'},
                             {name: 'version/'},
-                            {name: 'index.ts'},
-                            {name: 'fuse.module.ts'}
+                            {name: 'fuse.module.ts'},
+                            {name: 'index.ts'}
                         ]
                     },
                     this.appDir[0],
@@ -145,6 +147,7 @@ export class DirectoryStructureComponent implements OnInit
                         name    : 'assets/',
                         children: [
                             {name: 'fonts/'},
+                            {name: 'i18n/'},
                             {name: 'icons/'},
                             {name: 'images/'},
                             {name: 'styles/'}
