@@ -18,16 +18,11 @@ export const routes: Route[] = [
         redirectTo: 'material-twotone'
     },
     {
-        path     : '',
+        path     : '**',
         component: IconsComponent,
-        children : [
-            {
-                path   : '**',
-                resolve: {
-                    icons: IconsResolver
-                }
-            }
-        ]
+        resolve  : {
+            icons: IconsResolver
+        }
     }
 ];
 
