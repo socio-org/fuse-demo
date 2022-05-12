@@ -3,6 +3,7 @@ import { ChatChatResolver, ChatChatsResolver, ChatContactsResolver, ChatProfileR
 import { ChatComponent } from 'app/modules/admin/apps/chat/chat.component';
 import { ChatsComponent } from 'app/modules/admin/apps/chat/chats/chats.component';
 import { ConversationComponent } from 'app/modules/admin/apps/chat/conversation/conversation.component';
+import { EmptyConversationComponent } from 'app/modules/admin/apps/chat/empty-conversation/empty-conversation.component';
 
 export const chatRoutes: Route[] = [
     {
@@ -20,15 +21,14 @@ export const chatRoutes: Route[] = [
                 children : [
                     {
                         path     : '',
+                        component: EmptyConversationComponent
+                    },
+                    {
+                        path     : ':id',
                         component: ConversationComponent,
-                        children : [
-                            {
-                                path   : ':id',
-                                resolve: {
-                                    conversation: ChatChatResolver
-                                }
-                            }
-                        ]
+                        resolve  : {
+                            conversation: ChatChatResolver
+                        }
                     }
                 ]
             }

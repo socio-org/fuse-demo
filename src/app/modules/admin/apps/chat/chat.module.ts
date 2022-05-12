@@ -12,6 +12,7 @@ import { chatRoutes } from 'app/modules/admin/apps/chat/chat.routing';
 import { ChatComponent } from 'app/modules/admin/apps/chat/chat.component';
 import { ChatsComponent } from 'app/modules/admin/apps/chat/chats/chats.component';
 import { ContactInfoComponent } from 'app/modules/admin/apps/chat/contact-info/contact-info.component';
+import { EmptyConversationComponent } from 'app/modules/admin/apps/chat/empty-conversation/empty-conversation.component';
 import { ConversationComponent } from 'app/modules/admin/apps/chat/conversation/conversation.component';
 import { NewChatComponent } from 'app/modules/admin/apps/chat/new-chat/new-chat.component';
 import { ProfileComponent } from 'app/modules/admin/apps/chat/profile/profile.component';
@@ -22,6 +23,7 @@ import { ProfileComponent } from 'app/modules/admin/apps/chat/profile/profile.co
         ChatsComponent,
         ContactInfoComponent,
         ConversationComponent,
+        EmptyConversationComponent,
         NewChatComponent,
         ProfileComponent
     ],
