@@ -21,6 +21,7 @@ export const chatRoutes: Route[] = [
                 children : [
                     {
                         path     : '',
+                        pathMatch: 'full',
                         component: EmptyConversationComponent
                     },
                     {
