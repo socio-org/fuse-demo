@@ -5,6 +5,7 @@ import { MailboxFiltersResolver, MailboxFoldersResolver, MailboxLabelsResolver, 
 import { MailboxListComponent } from 'app/modules/admin/apps/mailbox/list/list.component';
 import { MailboxDetailsComponent } from 'app/modules/admin/apps/mailbox/details/details.component';
 import { MailboxSettingsComponent } from 'app/modules/admin/apps/mailbox/settings/settings.component';
+import { MailboxEmptyDetailsComponent } from 'app/modules/admin/apps/mailbox/empty-details/empty-details.component';
 
 /**
  * Mailbox custom route matcher
@@ -141,15 +142,15 @@ export const mailboxRoutes: Route[] = [
                 children             : [
                     {
                         path     : '',
+                        pathMatch: 'full',
+                        component: MailboxEmptyDetailsComponent
+                    },
+                    {
+                        path     : ':id',
                         component: MailboxDetailsComponent,
-                        children : [
-                            {
-                                path   : ':id',
-                                resolve: {
-                                    mail: MailboxMailResolver
-                                }
-                            }
-                        ]
+                        resolve  : {
+                            mail: MailboxMailResolver
+                        }
                     }
                 ]
             },
