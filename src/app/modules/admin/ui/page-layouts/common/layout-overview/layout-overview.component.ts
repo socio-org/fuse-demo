@@ -36,7 +36,7 @@ export interface PageLayoutsOverviewData
                             <mat-button-toggle
                                 *ngFor="let option of overview.availableOptions"
                                 class="m-2 font-medium bg-transparent"
-                                [ngClass]="{'bg-gray-200 dark:bg-gray-700': option.value === overview.selectedOption}"
+                                [ngClass]="{'bg-gray-300 dark:bg-gray-700': option.value === overview.selectedOption}"
                                 [value]="option.value">
                                 {{option.title}}
                             </mat-button-toggle>
