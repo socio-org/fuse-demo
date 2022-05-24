@@ -61,8 +61,8 @@
                                 class="relative flex items-start cursor-pointer"
                                 (click)="goToStep(step.order)">
                                 <div
-                                    class="flex flex-0 items-center justify-center w-8 h-8 rounded-full ring-2 ring-inset ring-transparent bg-card dark:bg-default"
-                                    [ngClass]="{'bg-primary dark:bg-primary text-on-primary group-hover:bg-primary-800': step.order < currentStep,
+                                    class="flex flex-0 items-center justify-center w-8 h-8 rounded-full ring-2 ring-inset bg-card dark:bg-default"
+                                    [ngClass]="{'bg-primary dark:bg-primary text-on-primary group-hover:bg-primary-800 ring-transparent': step.order < currentStep,
                                                 'ring-primary': step.order === currentStep,
                                                 'ring-gray-300 dark:ring-gray-600 group-hover:ring-gray-400': step.order > currentStep}">
                                     <!-- Check icon, show if the step is completed -->
