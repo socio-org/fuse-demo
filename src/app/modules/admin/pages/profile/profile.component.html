@@ -106,13 +106,13 @@
                         <span class="leading-none">April, 24</span>
                     </div>
                 </div>
-                <button
+                <a
                     class="px-6 mt-8"
                     mat-flat-button
                     [color]="'primary'"
                     [routerLink]="['./']">
                     See complete bio
-                </button>
+                </a>
             </fuse-card>
 
             <!-- Followers -->
@@ -207,13 +207,13 @@
                     </div>
                 </div>
                 <div class="flex items-center mt-6 -mx-3">
-                    <button
+                    <a
                         class="px-3"
                         mat-button
                         [color]="'primary'"
                         [routerLink]="['./']">
                         See all followers
-                    </button>
+                    </a>
                 </div>
             </fuse-card>
 
@@ -310,13 +310,13 @@
                     </div>
                 </div>
                 <div class="flex items-center mt-6 -mx-3">
-                    <button
+                    <a
                         class="px-3"
                         mat-button
                         [color]="'primary'"
                         [routerLink]="['./']">
                         See entire gallery
-                    </button>
+                    </a>
                 </div>
             </fuse-card>
 
@@ -384,13 +384,13 @@
                     </div>
                 </div>
                 <div class="flex items-center mt-6 -mx-3">
-                    <button
+                    <a
                         class="px-3"
                         mat-button
                         [color]="'primary'"
                         [routerLink]="['./']">
                         See all groups
-                    </button>
+                    </a>
                 </div>
             </fuse-card>
 
@@ -442,13 +442,13 @@
                     </div>
                 </div>
                 <div class="flex items-center mt-4 -mx-3">
-                    <button
+                    <a
                         class="px-3"
                         mat-button
                         [color]="'primary'"
                         [routerLink]="['./']">
                         See all news
-                    </button>
+                    </a>
                 </div>
             </fuse-card>
 
@@ -512,13 +512,13 @@
                     </div>
                 </div>
                 <div class="flex items-center mt-6 -mx-3">
-                    <button
+                    <a
                         class="px-3"
                         mat-button
                         [color]="'primary'"
                         [routerLink]="['./']">
                         See entire activity feed
-                    </button>
+                    </a>
                 </div>
             </fuse-card>
 
@@ -549,8 +549,7 @@
                 <div class="flex items-center mt-6 sm:mt-8 -mx-3">
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:photograph'"></mat-icon>
@@ -558,8 +557,7 @@
                     </button>
                     <button
                         class="px-3 mr-1 hidden sm:inline-flex"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
@@ -567,8 +565,7 @@
                     </button>
                     <button
                         class="px-3 mr-1 hidden sm:inline-flex"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:emoji-happy'"></mat-icon>
@@ -585,8 +582,7 @@
                     <mat-menu #postCardMenu01="matMenu">
                         <button
                             class="sm:hidden"
-                            mat-menu-item
-                            [routerLink]="['./']">
+                            mat-menu-item>
                             <span class="flex items-center">
                                 <mat-icon
                                     class="icon-size-5 mr-3"
@@ -596,8 +592,7 @@
                         </button>
                         <button
                             class="sm:hidden"
-                            mat-menu-item
-                            [routerLink]="['./']">
+                            mat-menu-item>
                             <span class="flex items-center">
                                 <mat-icon
                                     class="icon-size-5 mr-3"
@@ -726,8 +721,7 @@
                 <div class="flex items-center mx-3 sm:mx-5">
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 text-red-500 mr-2"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
@@ -735,8 +729,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
@@ -744,8 +737,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
@@ -840,18 +832,9 @@
                                         <b>Rutherford Brannan</b> Oh, I’m in.. Let’s arrange a trip for the next weekend if you want!
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Hide replies
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Hide replies</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>17 min</span>
                                     </div>
@@ -867,14 +850,8 @@
                                         <b>Caroline Lundu</b> Yes!! Let's talk about it on lunch!
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>15 min</span>
                                     </div>
@@ -890,14 +867,8 @@
                                         <b>Barbara Cotilla</b> Count me in !!!
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>12 min</span>
                                     </div>
@@ -914,18 +885,9 @@
                                         Your trip isn't going to worth it since you won't be seeing this exact sky.
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Hide replies
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Hide replies</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>24 min</span>
                                     </div>
@@ -941,14 +903,8 @@
                                         <b>Caroline Lundu</b> Hey, Alan! You must be fun at parties!
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>22 min</span>
                                     </div>
@@ -964,14 +920,8 @@
                                         <b>Alan Marti</b> Caroline, I'm telling the truth, and if you cannot stand the truth, maybe we shouldn't be friends anymore...
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>20 min</span>
                                     </div>
@@ -987,14 +937,8 @@
                                         <b>Caroline Lundu</b> Dude! Relax! I'm just messing with you...
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>18 min</span>
                                     </div>
@@ -1010,14 +954,8 @@
                                         <b>Alan Marti</b> Sorry! I had a bad morning, let's talk about this in couple hours, I need to relax a bit :(
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>16 min</span>
                                     </div>
@@ -1033,14 +971,8 @@
                                         <b>Marleah Eagleston</b> Count me in, too!
                                     </span>
                                     <div class="flex items-center text-sm text-secondary mt-2">
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Like
-                                        </a>
-                                        <a
-                                            class="mr-2 hover:underline"
-                                            [routerLink]="'./'">Reply
-                                        </a>
+                                        <span class="mr-2 cursor-pointer hover:underline">Like</span>
+                                        <span class="mr-2 cursor-pointer hover:underline">Reply</span>
                                         <span class="mr-2">&bull;</span>
                                         <span>34 min</span>
                                     </div>
@@ -1136,8 +1068,7 @@
                 <div class="flex items-center mx-3 sm:mx-5">
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 text-red-500 mr-2"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
@@ -1145,8 +1076,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
@@ -1154,8 +1084,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
@@ -1298,8 +1227,7 @@
                 <div class="flex items-center mx-3 sm:mx-5">
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 text-red-500 mr-2"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
@@ -1307,8 +1235,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
@@ -1316,8 +1243,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
@@ -1455,8 +1381,7 @@
                 <div class="flex items-center mx-3 sm:mx-5">
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 text-red-500 mr-2"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
@@ -1464,8 +1389,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
@@ -1473,8 +1397,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
@@ -1609,8 +1532,7 @@
                 <div class="flex items-center mx-3 sm:mx-5">
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 text-red-500 mr-2"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
@@ -1618,8 +1540,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
@@ -1627,8 +1548,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
@@ -1766,8 +1686,7 @@
                 <div class="flex items-center mx-3 sm:mx-5">
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 text-red-500 mr-2"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
@@ -1775,8 +1694,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
@@ -1784,8 +1702,7 @@
                     </button>
                     <button
                         class="px-3 mr-1"
-                        mat-button
-                        [routerLink]="['./']">
+                        mat-button>
                         <mat-icon
                             class="icon-size-5 mr-2"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>

@@ -88,7 +88,7 @@ export interface PageLayoutsOverviewData
                                 </div>
                             </div>
                             <div *ngIf="selectedOption.link">
-                                <button
+                                <a
                                     mat-flat-button
                                     [color]="'primary'"
                                     [routerLink]="selectedOption.link">
@@ -96,7 +96,7 @@ export interface PageLayoutsOverviewData
                                         class="mr-2 icon-size-5"
                                         [svgIcon]="'heroicons_solid:external-link'"></mat-icon>
                                     <span>View</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
