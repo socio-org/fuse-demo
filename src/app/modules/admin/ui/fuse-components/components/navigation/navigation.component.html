@@ -95,6 +95,10 @@
                 disabled?: boolean;
                 tooltip?: string;
                 link?: string;
+                fragment?: string;
+                preserveFragment?: boolean;
+                queryParams?: Params | null;
+                queryParamsHandling?: QueryParamsHandling | null;
                 externalLink?: boolean;
                 target?:
                     | '_blank'
@@ -202,6 +206,38 @@
                         </td>
                         <td>
                             String representation of the item link. It can be either a <em>router</em> link or a normal, outgoing link.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-mono text-md text-secondary">
+                            <div>fragment</div>
+                        </td>
+                        <td>
+                            Sets the hash fragment for the URL.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-mono text-md text-secondary">
+                            <div>preserveFragment</div>
+                        </td>
+                        <td>
+                            When true, preserves the URL fragment for the next navigation.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-mono text-md text-secondary">
+                            <div>queryParams</div>
+                        </td>
+                        <td>
+                            Sets query parameters to the URL.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font-mono text-md text-secondary">
+                            <div>queryParamsHandling</div>
+                        </td>
+                        <td>
+                            How to handle query parameters in the router link for the next navigation.
                         </td>
                     </tr>
                     <tr>
