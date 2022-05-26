@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, HostBinding, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { debounceTime, filter, map, Subject, takeUntil } from 'rxjs';
@@ -21,7 +21,7 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
 
     opened: boolean = false;
     resultSets: any[];
-    searchControl: FormControl = new FormControl();
+    searchControl: UntypedFormControl = new UntypedFormControl();
     private _matAutocomplete: MatAutocomplete;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
