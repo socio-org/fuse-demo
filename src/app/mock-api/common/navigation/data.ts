@@ -820,12 +820,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         link : '/ui/icons/material-solid'
                     },
                     {
-                        id   : 'user-interface.icons.iconsmind',
-                        title: 'Iconsmind',
-                        type : 'basic',
-                        link : '/ui/icons/iconsmind'
-                    },
-                    {
                         id   : 'user-interface.icons.feather',
                         title: 'Feather',
                         type : 'basic',
