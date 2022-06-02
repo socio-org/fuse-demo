@@ -10,6 +10,54 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v15.0.0
+        {
+            version    : 'v15.0.0',
+            releaseDate: 'TBA',
+            changes    : [
+                {
+                    type: 'Added',
+                    list: [
+                        '(@fuse/navigation) Added "fragment" and "queryParams" support along with "preserveFragment" and "queryParamsHandling" on navigation items',
+                        '(@fuse/overrides/quill) Added tooltip styles for better compatibility',
+                        '(@fuse/services/platform) Added platform checker service',
+                        '(global) Added custom scrollbar styling for platforms other than macOS and iOS',
+                        '(layout/common/search) Implemented the new MatAutocomplete "autoSelectActiveOption" functionality',
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v14',
+                        '(dependencies) Updated various other packages',
+                        '(global) Replace @import with @use in scss files',
+                        '(global) Replaced linked buttons with a tags + removed unnecessary routerLink attributes from some buttons',
+                        '(global) Replaced iconsmind icons with heroicons and removed the iconsmind because of the bundle size concerns',
+                        '(FuseDrawer) Updated the overlay and animation handling code for better stability',
+                        '(@fuse/overrides/quill) Better scrolling for Quill editor',
+                        '(auth) Made the renewing token on "sign-in-with-token" process an optional step to simplify the login process',
+                        '(auth) Changed the url on "signInUsingToken" method to reflect the mock-api changes',
+                        '(mock-api) Replaced the "refresh-access-token" url with "sign-in-with-token"',
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/navigation) Collapse animation doesn"t work smoothly because of the parent"s margin',
+                        '(@fuse/service/confirmation) Cleaned-up the dialog component',
+                        '(layout) The theme settings cog is not positioned correctly in Empty layout',
+                        '(auth/sign-up) Missing ngForm reference',
+                        '(apps/academy) Ring outside the current step"s number is not visible',
+                        '(apps/chat) Empty route related issues',
+                        '(apps/chat) Empty route related issues',
+                        '(apps/mailbox) Empty route related issues',
+                        '(apps/mailbox) Quill editor tooltips are not positioning correctly',
+                        '(mock-api/file-manager) http params are not working properly because of the new string conversion',
+                        '(ui/page-layouts) Toggle button selected background is not visible'
+                    ]
+                }
+            ]
+        },
         // v14.2.0
         {
             version    : 'v14.2.0',
