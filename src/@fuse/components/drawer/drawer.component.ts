@@ -62,6 +62,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
      */
     @HostBinding('class') get classList(): any
     {
+        /* eslint-disable @typescript-eslint/naming-convention */
         return {
             'fuse-drawer-animations-enabled'         : this._animationsEnabled,
             'fuse-drawer-fixed'                      : this.fixed,
@@ -70,6 +71,7 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
             'fuse-drawer-opened'                     : this.opened,
             [`fuse-drawer-position-${this.position}`]: true
         };
+        /* eslint-enable @typescript-eslint/naming-convention */
     }
 
     /**
