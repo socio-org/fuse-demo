@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import * as moment from 'moment';
+import { DateTime } from 'luxon';
 import { Board } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
 import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
 
@@ -68,7 +68,8 @@ export class ScrumboardBoardsComponent implements OnInit, OnDestroy
      */
     formatDateAsRelative(date: string): string
     {
-        return moment(date, moment.ISO_8601).fromNow();
+        // not quite the same behavior as moment, which rounds up
+        return DateTime.fromISO(date).toRelative();
     }
 
     /**

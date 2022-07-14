@@ -7,7 +7,7 @@ import { MatDrawerToggleResult } from '@angular/material/sidenav';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
 import { assign } from 'lodash-es';
-import * as moment from 'moment';
+import { DateTime } from 'luxon';
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
 import { TasksListComponent } from 'app/modules/admin/apps/tasks/list/list.component';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
@@ -465,7 +465,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
      */
     isOverdue(): boolean
     {
-        return moment(this.task.dueDate, moment.ISO_8601).isBefore(moment(), 'days');
+        return DateTime.fromISO(this.task.dueDate).startOf('day') < DateTime.now().startOf('day');
     }
 
     /**

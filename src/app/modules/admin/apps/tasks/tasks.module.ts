@@ -11,13 +11,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatLuxonDateModule, MAT_LUXON_DATE_FORMATS } from '@angular/material-luxon-adapter';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import * as moment from 'moment';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 import { tasksRoutes } from 'app/modules/admin/apps/tasks/tasks.routing';
@@ -43,7 +42,7 @@ import { TasksListComponent } from 'app/modules/admin/apps/tasks/list/list.compo
         MatIconModule,
         MatInputModule,
         MatMenuModule,
-        MatMomentDateModule,
+        MatLuxonDateModule,
         MatProgressBarModule,
         MatRadioModule,
         MatRippleModule,
@@ -56,17 +55,7 @@ import { TasksListComponent } from 'app/modules/admin/apps/tasks/list/list.compo
     providers   : [
         {
             provide : MAT_DATE_FORMATS,
-            useValue: {
-                parse  : {
-                    dateInput: moment.ISO_8601
-                },
-                display: {
-                    dateInput         : 'll',
-                    monthYearLabel    : 'MMM YYYY',
-                    dateA11yLabel     : 'LL',
-                    monthYearA11yLabel: 'MMMM YYYY'
-                }
-            }
+            useValue: MAT_LUXON_DATE_FORMATS
         }
     ]
 })

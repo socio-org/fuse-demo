@@ -3,7 +3,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatDialogRef } from '@angular/material/dialog';
 import { debounceTime, Subject, takeUntil, tap } from 'rxjs';
-import * as moment from 'moment';
+import { DateTime } from 'luxon';
 import { assign } from 'lodash-es';
 import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
 import { Board, Card, Label } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
@@ -237,7 +237,7 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
      */
     isOverdue(date: string): boolean
     {
-        return moment(date, moment.ISO_8601).isBefore(moment(), 'days');
+        return DateTime.fromISO(date).startOf('day') < DateTime.now().startOf('day');
     }
 
     /**

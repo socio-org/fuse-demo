@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { DateTime } from 'luxon';
 import { Subject, takeUntil } from 'rxjs';
-import * as moment from 'moment';
 import { ApexOptions, ChartComponent } from 'ng-apexcharts';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { CryptoService } from 'app/modules/admin/dashboards/crypto/crypto.service';
@@ -183,7 +183,7 @@ export class CryptoComponent implements OnInit, OnDestroy
                     rotate               : 0,
                     minHeight            : 40,
                     hideOverlappingLabels: true,
-                    formatter            : (value): string => moment().subtract(Math.abs(parseInt(value, 10)), 'minutes').format('HH:mm'),
+                    formatter            : (value): string => DateTime.now().minus({ minutes: Math.abs(parseInt(value, 10)) }).toFormat('HH:mm'),
                     style                : {
                         colors: 'currentColor'
                     }
