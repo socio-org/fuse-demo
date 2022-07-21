@@ -10,6 +10,26 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v15.1.0
+        {
+            version    : 'v15.0.0',
+            releaseDate: 'Jul 21, 2022',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v14.1.0',
+                        '(dependencies) Updated various other packages'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/overrides/angular-material) mat-hint position is not working correctly on fields'
+                    ]
+                }
+            ]
+        },
         // v15.0.0
         {
             version    : 'v15.0.0',
@@ -22,7 +42,7 @@ export class ChangelogComponent
                         '(@fuse/overrides/quill) Added tooltip styles for better compatibility',
                         '(@fuse/services/platform) Added platform checker service',
                         '(global) Added custom scrollbar styling for platforms other than macOS and iOS',
-                        '(layout/common/search) Implemented the new MatAutocomplete "autoSelectActiveOption" functionality',
+                        '(layout/common/search) Implemented the new MatAutocomplete "autoSelectActiveOption" functionality'
                     ]
                 },
                 {
@@ -38,7 +58,7 @@ export class ChangelogComponent
                         '(@fuse/overrides/quill) Better scrolling for Quill editor',
                         '(auth) Made the renewing token on "sign-in-with-token" process an optional step to simplify the login process',
                         '(auth) Changed the url on "signInUsingToken" method to reflect the mock-api changes',
-                        '(mock-api) Replaced the "refresh-access-token" url with "sign-in-with-token"',
+                        '(mock-api) Replaced the "refresh-access-token" url with "sign-in-with-token"'
                     ]
                 },
                 {
