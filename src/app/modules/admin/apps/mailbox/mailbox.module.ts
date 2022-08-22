@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRippleModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { QuillModule } from 'ngx-quill';
@@ -36,7 +37,7 @@ import { mailboxRoutes } from 'app/modules/admin/apps/mailbox/mailbox.routing';
         MailboxSettingsComponent,
         MailboxSidebarComponent
     ],
-    imports     : [
+    imports: [
         RouterModule.forChild(mailboxRoutes),
         MatButtonModule,
         MatCheckboxModule,
@@ -47,6 +48,7 @@ import { mailboxRoutes } from 'app/modules/admin/apps/mailbox/mailbox.routing';
         MatInputModule,
         MatMenuModule,
         MatProgressBarModule,
+        MatRippleModule,
         MatSelectModule,
         MatSidenavModule,
         QuillModule.forRoot(),
@@ -54,7 +56,7 @@ import { mailboxRoutes } from 'app/modules/admin/apps/mailbox/mailbox.routing';
         FuseNavigationModule,
         FuseScrollbarModule,
         FuseScrollResetModule,
-        SharedModule
+        SharedModule,
     ]
 })
 export class MailboxModule

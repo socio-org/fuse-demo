@@ -25,9 +25,12 @@
                 </button>
                 <mat-menu #toggleLabelMenu="matMenu">
                     <ng-container *ngFor="let label of labels; trackBy: trackByFn">
-                        <div mat-menu-item>
+                        <div
+                            mat-menu-item
+                            (click)="toggleLabel(label)"
+                            matRipple>
                             <mat-checkbox
-                                (change)="toggleLabel(label)"
+                                class="pointer-events-none"
                                 [color]="'primary'"
                                 [checked]="mail.labels.includes(label.id)"
                                 [disableRipple]="true">
