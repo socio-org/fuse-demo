@@ -10,9 +10,38 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v15.2.0
+        {
+            version    : 'v15.2.0',
+            releaseDate: 'Aug 22, 2022',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v14.1.3',
+                        '(dependencies) Updated various other packages'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/tailwind/plugins/theming) Simplified the plugin and added more detailed comments',
+                        '(tailwind.config) Fixed: typo on comment',
+                        '(tailwind) Removed the "aspect-ratio" plugin in favor of the included "aspect" utility',
+                        '(layout/common/messages) Fixed: Wrong color classes on "No Messages" icon',
+                        '(layout/common/notifications) Fixed: Wrong color classes on "No Notifications" icon',
+                        '(layout/common/shortcuts) Fixed: Wrong color classes on "No Shortcuts" icon',
+                        '(dashboards/project) Removed unnecessary classes from the buttons',
+                        '(apps/mailbox) Better label toggle behavior',
+                        '(apps/tasks) Better tag toggle behavior',
+                        '(docs) Fixed: Typos'
+                    ]
+                }
+            ]
+        },
         // v15.1.0
         {
-            version    : 'v15.0.0',
+            version    : 'v15.1.0',
             releaseDate: 'Jul 21, 2022',
             changes    : [
                 {
