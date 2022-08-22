@@ -10,6 +10,55 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v15.2.0
+        {
+            version    : 'v15.2.0',
+            releaseDate: 'Aug 22, 2022',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v14.1.3',
+                        '(dependencies) Updated various other packages'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/tailwind/plugins/theming) Simplified the plugin and added more detailed comments',
+                        '(tailwind.config) Fixed: typo on comment',
+                        '(tailwind) Removed the "aspect-ratio" plugin in favor of the included "aspect" utility',
+                        '(layout/common/messages) Fixed: Wrong color classes on "No Messages" icon',
+                        '(layout/common/notifications) Fixed: Wrong color classes on "No Notifications" icon',
+                        '(layout/common/shortcuts) Fixed: Wrong color classes on "No Shortcuts" icon',
+                        '(dashboards/project) Removed unnecessary classes from the buttons',
+                        '(apps/mailbox) Better label toggle behavior',
+                        '(apps/tasks) Better tag toggle behavior',
+                        '(docs) Fixed: Typos'
+                    ]
+                }
+            ]
+        },
+        // v15.1.0
+        {
+            version    : 'v15.1.0',
+            releaseDate: 'Jul 21, 2022',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v14.1.0',
+                        '(dependencies) Updated various other packages'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/overrides/angular-material) mat-hint position is not working correctly on fields'
+                    ]
+                }
+            ]
+        },
         // v15.0.0
         {
             version    : 'v15.0.0',
@@ -22,7 +71,7 @@ export class ChangelogComponent
                         '(@fuse/overrides/quill) Added tooltip styles for better compatibility',
                         '(@fuse/services/platform) Added platform checker service',
                         '(global) Added custom scrollbar styling for platforms other than macOS and iOS',
-                        '(layout/common/search) Implemented the new MatAutocomplete "autoSelectActiveOption" functionality',
+                        '(layout/common/search) Implemented the new MatAutocomplete "autoSelectActiveOption" functionality'
                     ]
                 },
                 {
@@ -38,7 +87,7 @@ export class ChangelogComponent
                         '(@fuse/overrides/quill) Better scrolling for Quill editor',
                         '(auth) Made the renewing token on "sign-in-with-token" process an optional step to simplify the login process',
                         '(auth) Changed the url on "signInUsingToken" method to reflect the mock-api changes',
-                        '(mock-api) Replaced the "refresh-access-token" url with "sign-in-with-token"',
+                        '(mock-api) Replaced the "refresh-access-token" url with "sign-in-with-token"'
                     ]
                 },
                 {
