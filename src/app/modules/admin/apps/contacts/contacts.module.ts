@@ -8,15 +8,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import * as moment from 'moment';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
 import { contactsRoutes } from 'app/modules/admin/apps/contacts/contacts.routing';
@@ -39,8 +38,8 @@ import { ContactsListComponent } from 'app/modules/admin/apps/contacts/list/list
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
+        MatLuxonDateModule,
         MatMenuModule,
-        MatMomentDateModule,
         MatProgressBarModule,
         MatRadioModule,
         MatRippleModule,
@@ -56,13 +55,13 @@ import { ContactsListComponent } from 'app/modules/admin/apps/contacts/list/list
             provide : MAT_DATE_FORMATS,
             useValue: {
                 parse  : {
-                    dateInput: moment.ISO_8601
+                    dateInput: 'D'
                 },
                 display: {
-                    dateInput         : 'LL',
-                    monthYearLabel    : 'MMM YYYY',
-                    dateA11yLabel     : 'LL',
-                    monthYearA11yLabel: 'MMMM YYYY'
+                    dateInput         : 'DDD',
+                    monthYearLabel    : 'LLL yyyy',
+                    dateA11yLabel     : 'DD',
+                    monthYearA11yLabel: 'LLLL yyyy'
                 }
             }
         }

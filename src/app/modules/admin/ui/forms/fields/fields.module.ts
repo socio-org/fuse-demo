@@ -8,8 +8,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatSelectModule } from '@angular/material/select';
 import { FuseHighlightModule } from '@fuse/components/highlight';
 import { SharedModule } from 'app/shared/shared.module';
@@ -36,8 +36,8 @@ export const routes: Route[] = [
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
+        MatLuxonDateModule,
         MatMenuModule,
-        MatMomentDateModule,
         MatSelectModule,
         FuseHighlightModule,
         SharedModule

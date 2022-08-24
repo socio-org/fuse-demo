@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnIni
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Subject, takeUntil } from 'rxjs';
-import * as moment from 'moment';
+import { DateTime } from 'luxon';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
 import { Board, Card, List } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
@@ -243,7 +243,7 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
      */
     isOverdue(date: string): boolean
     {
-        return moment(date, moment.ISO_8601).isBefore(moment(), 'days');
+        return DateTime.fromISO(date).startOf('day') < DateTime.now().startOf('day');
     }
 
     /**
