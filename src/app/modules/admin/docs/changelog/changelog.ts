@@ -10,6 +10,36 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v16.0.0
+        {
+            version    : 'v16.0.0',
+            releaseDate: 'Oct 04, 2022',
+            changes    : [
+                {
+                    type: 'Breaking',
+                    list: [
+                        '(dependencies) Replaced moment.js with luxon, big thanks to @steveschmitt (https://github.com/steveschmitt) for the PR'
+                    ]
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(dependencies) Updated Angular & Angular Material to v14.2.x',
+                        '(dependencies) Updated various other packages',
+                        '(app.resolvers) Removed the extra user getter call since the user data already comes with the sign-in process to prevent confusion for the newcomers',
+                        '(ui/forms/fields) Added examples for number input'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(FuseVerticalNavigation) Fixed: Sticky positioning breaks inside a fixed positioned parent (Firefox)',
+                        '(layout/common/quick-chat) Fixed: Sticky positioning breaks inside a fixed positioned parent (Firefox)',
+                        '(apps/mailbox) Fixed: Back button on details view is not working'
+                    ]
+                }
+            ]
+        },
         // v15.2.0
         {
             version    : 'v15.2.0',
