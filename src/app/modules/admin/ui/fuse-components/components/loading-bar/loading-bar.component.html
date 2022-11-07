@@ -393,9 +393,11 @@
                                     Toggle determinate mode
                                 </mat-slide-toggle>
 
-                                <mat-slider
-                                    [color]="'primary'"
-                                    (change)="setProgress($event)">
+                                <mat-slider [color]="'primary'">
+                                    <input
+                                        matSliderThumb
+                                        [(value)]="sliderValue"
+                                        (valueChange)="setProgress()">
                                     Progress value
                                 </mat-slider>
 

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatSliderChange } from '@angular/material/slider';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { finalize } from 'rxjs';
 import { FuseLoadingService } from '@fuse/services/loading';
@@ -14,6 +13,7 @@ export class LoadingBarComponent
 {
     apiCallStatus: string = '-';
     mode: 'determinate' | 'indeterminate' = 'indeterminate';
+    sliderValue: number = 0;
 
     /**
      * Constructor
@@ -96,11 +96,9 @@ export class LoadingBarComponent
 
     /**
      * Set the progress
-     *
-     * @param change
      */
-    setProgress(change: MatSliderChange): void
+    setProgress(): void
     {
-        this._fuseLoadingService.setProgress(change.value);
+        this._fuseLoadingService.setProgress(this.sliderValue);
     }
 }
