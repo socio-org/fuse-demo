@@ -10,8 +10,7 @@
         "start": "ng serve",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test",
-        "lint": "ng lint"
+        "test": "ng test"
     },
     "dependencies": {
         "@angular/animations": "15.0.0-rc.2",
@@ -42,11 +41,6 @@
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "15.0.0-rc.2",
-        "@angular-eslint/builder": "14.1.2",
-        "@angular-eslint/eslint-plugin": "14.1.2",
-        "@angular-eslint/eslint-plugin-template": "14.1.2",
-        "@angular-eslint/schematics": "14.1.2",
-        "@angular-eslint/template-parser": "14.1.2",
         "@angular/cli": "15.0.0-rc.2",
         "@angular/compiler-cli": "15.0.0-rc.2",
         "@tailwindcss/line-clamp": "0.4.2",
@@ -58,14 +52,8 @@
         "@types/lodash": "4.14.188",
         "@types/lodash-es": "4.17.6",
         "@types/luxon": "3.1.0",
-        "@typescript-eslint/eslint-plugin": "5.42.0",
-        "@typescript-eslint/parser": "5.42.0",
         "autoprefixer": "10.4.13",
         "chroma-js": "2.4.2",
-        "eslint": "8.27.0",
-        "eslint-plugin-import": "2.26.0",
-        "eslint-plugin-jsdoc": "39.6.2",
-        "eslint-plugin-prefer-arrow": "1.2.3",
         "jasmine-core": "4.5.0",
         "karma": "6.4.1",
         "karma-chrome-launcher": "3.1.1",
