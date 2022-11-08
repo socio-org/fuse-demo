@@ -96,14 +96,32 @@ const theming = plugin.withOptions((options) => ({
         /* Generate the SASS map using the themes object */
         const sassMap = jsonToSassMap(JSON.stringify({'user-themes': themes}));
 
-        /* Write the SASS map to the file */
-        fs.writeFile(path.resolve(__dirname, ('../../styles/user-themes.scss')), sassMap, (err) =>
+        /* Get the file path */
+        const filename = path.resolve(__dirname, ('../../styles/user-themes.scss'));
+
+        /* Read the file and get its data */
+        let data;
+        try
         {
-            if ( err )
+            data = fs.readFileSync(filename, {encoding: 'utf8'});
+        }
+        catch ( err )
+        {
+            console.error(err);
+        }
+
+        /* Write the file if the map has been changed */
+        if ( data !== sassMap )
+        {
+            try
             {
-                return console.log(err);
+                fs.writeFileSync(filename, sassMap, {encoding: 'utf8'});
             }
-        });
+            catch ( err )
+            {
+                console.error(err);
+            }
+        }
 
         /**
          * Iterate through the user's themes and build Tailwind components containing
