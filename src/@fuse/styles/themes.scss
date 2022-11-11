@@ -89,10 +89,19 @@ $dark-base: (
     density: 0,
     typography: mat.define-typography-config(
         $font-family: theme('fontFamily.sans'),
-            /* $title: mat.define-typography-level(1.25rem, 2rem, 600), */
-        $body-2: mat.define-typography-level(0.875rem, 1.5rem, 600),
-        $button: mat.define-typography-level(0.875rem, 0.875rem, 500),
-        $subtitle-1: mat.define-typography-level(0.875rem, 1.2857142857, 400) /* line-height: 20px */
+        $headline-1: mat.define-typography-level(1.875rem, 2.25rem, 800, theme('fontFamily.sans')),
+        $headline-2: mat.define-typography-level(1.25rem, 1.75rem, 700, theme('fontFamily.sans')),
+        $headline-3: mat.define-typography-level(1.125rem, 1.75rem, 600, theme('fontFamily.sans')),
+        $headline-4: mat.define-typography-level(0.875rem, 1.25rem, 600, theme('fontFamily.sans')),
+        $headline-5: mat.define-typography-level(0.875rem, 1.5rem, 400, theme('fontFamily.sans')),
+        $headline-6: mat.define-typography-level(0.875rem, 1.5rem, 400, theme('fontFamily.sans')),
+        $subtitle-1: mat.define-typography-level(1rem, 1.75rem, 400, theme('fontFamily.sans')),
+        $subtitle-2: mat.define-typography-level(0.875rem, 1.25rem, 600, theme('fontFamily.sans')),
+        $body-1: mat.define-typography-level(0.875rem, 1.5rem, 400, theme('fontFamily.sans')),
+        $body-2: mat.define-typography-level(0.875rem, 1.5rem, 400, theme('fontFamily.sans')),
+        $caption: mat.define-typography-level(0.75rem, 1rem, 400, theme('fontFamily.sans')),
+        $button: mat.define-typography-level(0.875rem, 0.875rem, 500, theme('fontFamily.sans')),
+        $overline: mat.define-typography-level(0.75rem, 2rem, 500, theme('fontFamily.sans'))
     )
 ));
 
@@ -114,7 +123,7 @@ $dark-base: (
             text: map.get(map.get($theme, $name), DEFAULT),
             default-contrast: map.get(map.get(map.get($theme, $name), contrast), DEFAULT),
             lighter-contrast: map.get(map.get(map.get($theme, $name), contrast), 100),
-            darker-contrast: map.get(map.get(map.get($theme, $name), contrast), 700),
+            darker-contrast: map.get(map.get(map.get($theme, $name), contrast), 700)
         ));
 
         $palettes: map.merge($palettes, (#{$name}: $palette));
@@ -130,8 +139,17 @@ $dark-base: (
     ));
 
     /* Merge the custom base colors with the generated themes */
-    $light-theme: map.merge($light-theme, $light-base);
-    $dark-theme: map.merge($dark-theme, $dark-base);
+    $light-theme-colors: map.merge(map.get($light-theme, color), $light-base);
+    $light-theme: map.merge(
+            (color: $light-theme-colors),
+            $light-theme-colors
+    );
+
+    $dark-theme-colors: map.merge(map.get($dark-theme, color), $dark-base);
+    $dark-theme: map.merge(
+            (color: $dark-theme-colors),
+            $dark-theme-colors
+    );
 
     /* Generate and encapsulate Angular Material themes */
     #{map.get($theme, selector)} .light,
