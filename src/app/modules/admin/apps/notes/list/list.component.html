@@ -82,7 +82,9 @@
                             (click)="drawer.toggle()">
                             <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
                         </button>
-                        <mat-form-field class="fuse-mat-rounded fuse-mat-dense fuse-mat-no-subscript flex-auto ml-4 lg:ml-0">
+                        <mat-form-field
+                            class="fuse-mat-rounded fuse-mat-dense flex-auto ml-4 lg:ml-0"
+                            [subscriptSizing]="'dynamic'">
                             <mat-icon
                                 class="icon-size-5"
                                 [svgIcon]="'heroicons_solid:search'"

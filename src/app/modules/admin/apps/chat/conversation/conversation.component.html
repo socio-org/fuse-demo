@@ -167,12 +167,12 @@
                             <mat-icon [svgIcon]="'heroicons_outline:paper-clip'"></mat-icon>
                         </button>
                     </div>
-                    <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded fuse-mat-bold w-full ml-4">
+                    <mat-form-field
+                        class="fuse-mat-dense fuse-mat-rounded fuse-mat-bold w-full ml-4"
+                        subscriptSizing="dynamic">
                         <textarea
-                            class="min-h-5 my-0 resize-none"
-                            style="margin: 11px 0 !important; padding: 0 !important;"
-                            [rows]="1"
                             matInput
+                            cdkTextareaAutosize
                             #messageInput></textarea>
                     </mat-form-field>
                     <div class="flex items-center h-11 my-px ml-4">

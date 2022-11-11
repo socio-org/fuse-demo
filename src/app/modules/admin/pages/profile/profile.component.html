@@ -538,12 +538,14 @@
                             alt="Card cover image">
                         <div class="sm:hidden">Brian Hughes</div>
                     </div>
-                    <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+                    <mat-form-field
+                        class="w-full"
+                        [subscriptSizing]="'dynamic'">
                         <textarea
                             matInput
                             [placeholder]="'What\'s on your mind?'"
                             [rows]="3"
-                            matTextareaAutosize></textarea>
+                            cdkTextareaAutosize></textarea>
                     </mat-form-field>
                 </div>
                 <div class="flex items-center mt-6 sm:mt-8 -mx-3">
@@ -551,25 +553,25 @@
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:photograph'"></mat-icon>
-                        <span>Photo / Video</span>
+                        <span class="ml-2">Photo / Video</span>
                     </button>
                     <button
                         class="px-3 mr-1 hidden sm:inline-flex"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
-                        <span>Tag Friends</span>
+                        <span class="ml-2">Tag Friends</span>
                     </button>
                     <button
                         class="px-3 mr-1 hidden sm:inline-flex"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:emoji-happy'"></mat-icon>
-                        <span>Feeling</span>
+                        <span class="ml-2">Feeling</span>
                     </button>
                     <button
                         class="px-3"
@@ -723,25 +725,25 @@
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 text-red-500 mr-2"
+                            class="icon-size-5 text-red-500"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
-                        <span>Unlike</span>
+                        <span class="ml-2">Unlike</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
-                        <span>Comment</span>
+                        <span class="ml-2">Comment</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
-                        <span>Share</span>
+                        <span class="ml-2">Share</span>
                     </button>
                 </div>
                 <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
@@ -793,12 +795,14 @@
                                 class="w-12 h-12 rounded-full mr-5"
                                 src="assets/images/avatars/brian-hughes.jpg"
                                 alt="Card cover image">
-                            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+                            <mat-form-field
+                                class="w-full"
+                                [subscriptSizing]="'dynamic'">
                                 <textarea
                                     matInput
                                     [placeholder]="'Write a comment...'"
                                     [rows]="3"
-                                    matTextareaAutosize></textarea>
+                                    cdkTextareaAutosize></textarea>
                             </mat-form-field>
                         </div>
                         <div class="flex items-center mt-3 ml-auto -mr-3">
@@ -1070,25 +1074,25 @@
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 text-red-500 mr-2"
+                            class="icon-size-5 text-red-500"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
-                        <span>Unlike</span>
+                        <span class="ml-2">Unlike</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
-                        <span>Comment</span>
+                        <span class="ml-2">Comment</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
-                        <span>Share</span>
+                        <span class="ml-2">Share</span>
                     </button>
                 </div>
                 <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
@@ -1229,25 +1233,25 @@
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 text-red-500 mr-2"
+                            class="icon-size-5 text-red-500"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
-                        <span>Unlike</span>
+                        <span class="ml-2">Unlike</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
-                        <span>Comment</span>
+                        <span class="ml-2">Comment</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
-                        <span>Share</span>
+                        <span class="ml-2">Share</span>
                     </button>
                 </div>
                 <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
@@ -1383,25 +1387,25 @@
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 text-red-500 mr-2"
+                            class="icon-size-5 text-red-500"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
-                        <span>Unlike</span>
+                        <span class="ml-2">Unlike</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
-                        <span>Comment</span>
+                        <span class="ml-2">Comment</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
-                        <span>Share</span>
+                        <span class="ml-2">Share</span>
                     </button>
                 </div>
                 <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
@@ -1534,25 +1538,25 @@
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 text-red-500 mr-2"
+                            class="icon-size-5 text-red-500"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
-                        <span>Unlike</span>
+                        <span class="ml-2">Unlike</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
-                        <span>Comment</span>
+                        <span class="ml-2">Comment</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
-                        <span>Share</span>
+                        <span class="ml-2">Share</span>
                     </button>
                 </div>
                 <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">
@@ -1688,25 +1692,25 @@
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 text-red-500 mr-2"
+                            class="icon-size-5 text-red-500"
                             [svgIcon]="'heroicons_solid:heart'"></mat-icon>
-                        <span>Unlike</span>
+                        <span class="ml-2">Unlike</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:chat-alt'"></mat-icon>
-                        <span>Comment</span>
+                        <span class="ml-2">Comment</span>
                     </button>
                     <button
                         class="px-3 mr-1"
                         mat-button>
                         <mat-icon
-                            class="icon-size-5 mr-2"
+                            class="icon-size-5"
                             [svgIcon]="'heroicons_solid:share'"></mat-icon>
-                        <span>Share</span>
+                        <span class="ml-2">Share</span>
                     </button>
                 </div>
                 <hr class="border-b mx-6 sm:mx-8 mt-4 mb-6">

@@ -62,13 +62,15 @@
 
         <!-- Title -->
         <div>
-            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
                 <mat-label>{{task.type === 'task' ? 'Task title' : 'Section title'}}</mat-label>
                 <textarea
                     matInput
                     [formControlName]="'title'"
                     [spellcheck]="false"
-                    matTextareaAutosize
+                    cdkTextareaAutosize
                     #titleField></textarea>
             </mat-form-field>
         </div>
@@ -144,7 +146,7 @@
                                 <ng-container *ngIf="!tagsEditMode">
                                     <ng-container *ngFor="let tag of filteredTags; trackBy: trackByFn">
                                         <div
-                                            class="flex items-center h-10 min-h-10 px-4 cursor-pointer hover:bg-hover"
+                                            class="flex items-center h-10 min-h-10 pl-1 pr-4 cursor-pointer hover:bg-hover"
                                             (click)="toggleTaskTag(tag)"
                                             matRipple>
                                             <mat-checkbox
@@ -162,7 +164,9 @@
                                     <div class="py-2 space-y-2">
                                         <ng-container *ngFor="let tag of filteredTags; trackBy: trackByFn">
                                             <div class="flex items-center">
-                                                <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript w-full mx-4">
+                                                <mat-form-field
+                                                    class="fuse-mat-dense w-full mx-4"
+                                                    [subscriptSizing]="'dynamic'">
                                                     <input
                                                         matInput
                                                         [value]="tag.title"
@@ -293,7 +297,9 @@
                         <ng-container *ngIf="task.dueDate">{{task.dueDate | date:'longDate'}}</ng-container>
                         <ng-container *ngIf="!task.dueDate">Not set</ng-container>
                     </span>
-                    <mat-form-field class="fuse-mat-no-subscript fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none">
+                    <mat-form-field
+                        class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                        [subscriptSizing]="'dynamic'">
                         <input
                             matInput
                             [formControlName]="'dueDate'"
@@ -321,13 +327,15 @@
 
         <!-- Notes -->
         <div class="mt-8">
-            <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
                 <mat-label>Notes</mat-label>
                 <textarea
                     matInput
                     [formControlName]="'notes'"
                     [spellcheck]="false"
-                    matTextareaAutosize></textarea>
+                    cdkTextareaAutosize></textarea>
             </mat-form-field>
         </div>
 

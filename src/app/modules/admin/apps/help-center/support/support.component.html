@@ -71,13 +71,13 @@
                         </mat-error>
                     </mat-form-field>
                     <!-- Message -->
-                    <mat-form-field class="fuse-mat-textarea w-full">
+                    <mat-form-field class="w-full">
                         <textarea
                             matInput
                             [formControlName]="'message'"
                             [required]="true"
                             [rows]="5"
-                            matTextareaAutosize></textarea>
+                            cdkTextareaAutosize></textarea>
                         <mat-label>Message</mat-label>
                         <mat-error *ngIf="supportForm.get('message').hasError('required')">
                             Required

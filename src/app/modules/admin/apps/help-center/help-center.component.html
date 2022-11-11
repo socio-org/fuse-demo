@@ -20,7 +20,9 @@
             <div class="mt-3 sm:text-2xl text-center tracking-tight text-secondary">
                 Search for a topic or question, check out our FAQs and guides, contact us for detailed support
             </div>
-            <mat-form-field class="fuse-mat-no-subscript fuse-mat-rounded fuse-mat-bold w-full max-w-80 sm:max-w-120 mt-10 sm:mt-20">
+            <mat-form-field
+                class="fuse-mat-rounded fuse-mat-bold w-full max-w-80 sm:max-w-120 mt-10 sm:mt-20"
+                [subscriptSizing]="'dynamic'">
                 <input
                     matInput
                     [placeholder]="'Enter a question, topic or keyword'">

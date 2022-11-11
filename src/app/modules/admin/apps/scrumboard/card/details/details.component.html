@@ -19,7 +19,9 @@
         [formGroup]="cardForm">
 
         <!-- Title -->
-        <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+        <mat-form-field
+            class="w-full"
+            [subscriptSizing]="'dynamic'">
             <mat-label>Title</mat-label>
             <textarea
                 matInput
@@ -31,7 +33,9 @@
         </mat-form-field>
 
         <!-- Description -->
-        <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+        <mat-form-field
+            class="w-full"
+            [subscriptSizing]="'dynamic'">
             <mat-label>Description</mat-label>
             <textarea
                 matInput
@@ -58,7 +62,9 @@
                     <ng-container *ngIf="card.dueDate">{{card.dueDate | date:'longDate'}}</ng-container>
                     <ng-container *ngIf="!card.dueDate">Not set</ng-container>
                 </span>
-                <mat-form-field class="fuse-mat-no-subscript fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none">
+                <mat-form-field
+                    class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                    [subscriptSizing]="'dynamic'">
                     <input
                         matInput
                         [formControlName]="'dueDate'"
@@ -107,7 +113,7 @@
                     <!-- Labels -->
                     <ng-container *ngFor="let label of filteredLabels; trackBy: trackByFn">
                         <mat-checkbox
-                            class="flex items-center h-10 min-h-10 px-4"
+                            class="flex items-center h-10 min-h-10 pl-1 pr-4"
                             [color]="'primary'"
                             [checked]="hasLabel(label)"
                             (change)="toggleProductTag(label, $event)">

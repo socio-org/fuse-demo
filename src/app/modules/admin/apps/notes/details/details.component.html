@@ -33,7 +33,7 @@
                     [placeholder]="'Note'"
                     [(ngModel)]="note.content"
                     (input)="updateNoteDetails(note)"
-                    matTextareaAutosize></textarea>
+                    cdkTextareaAutosize></textarea>
             </div>
             <!-- Tasks -->
             <ng-container *ngIf="note.tasks">

@@ -44,7 +44,9 @@
                 [formGroup]="searchForm">
 
                 <!-- Keywords -->
-                <mat-form-field class="fuse-mat-no-subscript w-full">
+                <mat-form-field
+                    class="w-full"
+                    [subscriptSizing]="'dynamic'">
                     <mat-label>Keywords</mat-label>
                     <input
                         [autocomplete]="'off'"
@@ -53,7 +55,9 @@
                 </mat-form-field>
 
                 <!-- Type -->
-                <mat-form-field class="fuse-mat-no-subscript w-full">
+                <mat-form-field
+                    class="w-full"
+                    [subscriptSizing]="'dynamic'">
                     <mat-label>Type</mat-label>
                     <mat-select [formControlName]="'type'">
                         <mat-option [value]="'any'">Any</mat-option>
@@ -62,7 +66,7 @@
                     </mat-select>
                 </mat-form-field>
 
-                <div class="flex items-center space-x-8">
+                <div class="flex flex-col items-start -ml-2">
                     <!-- In trash -->
                     <mat-checkbox
                         [color]="'primary'"

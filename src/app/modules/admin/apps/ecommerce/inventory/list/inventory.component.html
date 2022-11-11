@@ -13,7 +13,9 @@
         <!-- Actions -->
         <div class="flex shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
             <!-- Search -->
-            <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-64">
+            <mat-form-field
+                class="fuse-mat-dense fuse-mat-rounded min-w-64"
+                [subscriptSizing]="'dynamic'">
                 <mat-icon
                     class="icon-size-5"
                     matPrefix
@@ -398,7 +400,7 @@
                                                 <ng-container *ngIf="!tagsEditMode">
                                                     <ng-container *ngFor="let tag of filteredTags; trackBy: trackByFn">
                                                         <mat-checkbox
-                                                            class="flex items-center h-10 min-h-10 px-4"
+                                                            class="flex items-center h-10 min-h-10 pl-1 pr-4"
                                                             [color]="'primary'"
                                                             [checked]="selectedProduct.tags.includes(tag.id)"
                                                             (change)="toggleProductTag(tag, $event)">
@@ -410,7 +412,9 @@
                                                 <ng-container *ngIf="tagsEditMode">
                                                     <div class="p-4 space-y-2">
                                                         <ng-container *ngFor="let tag of filteredTags; trackBy: trackByFn">
-                                                            <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript w-full">
+                                                            <mat-form-field
+                                                                class="fuse-mat-dense w-full"
+                                                                [subscriptSizing]="'dynamic'">
                                                                 <input
                                                                     matInput
                                                                     [value]="tag.title"

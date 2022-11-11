@@ -66,12 +66,12 @@
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <mat-label>Address</mat-label>
                         <textarea
                             matInput
-                            [rows]="3"
-                            matTextareaAutosize></textarea>
+                            cdkTextareaAutosize
+                            [cdkAutosizeMinRows]="3"></textarea>
                         <mat-icon
                             class="icon-size-5"
                             matSuffix
@@ -142,8 +142,7 @@
                 </mat-form-field>
                 <mat-form-field
                     [ngClass]="formFieldHelpers"
-                    class="w-full"
-                    [floatLabel]="'always'">
+                    class="w-full">
                     <mat-label>Label and Placeholder</mat-label>
                     <input
                         matInput
@@ -160,34 +159,80 @@
             </form>
 
             <div class="prose prose-sm max-w-3xl">
+                <h2 class="mt-12">Subscript sizing</h2>
+                <p>
+                    Following form contains examples to showcase different subscript sizing methods. Focus on the inputs and then blur them
+                    to see how the <em>mat-error</em> acts differently in different cases.
+                </p>
+                <p>
+                    The best way of using Form Fields is to have <em>dynamic</em> subscript sizing with
+                    fixed spacing around the fields.
+                </p>
+            </div>
+
+            <form class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden">
+                <mat-form-field
+                    class="flex-auto"
+                    subscriptSizing="fixed">
+                    <mat-label>Fixed subscript sizing</mat-label>
+                    <input
+                        matInput
+                        [formControl]="fixedSubscriptInput"
+                        required>
+                    <mat-error>Required field!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field
+                    class="flex-auto"
+                    subscriptSizing="fixed">
+                    <mat-label>Fixed subscript sizing with mat-hint</mat-label>
+                    <input
+                        matInput
+                        [formControl]="fixedSubscriptInputWithHint"
+                        required>
+                    <mat-hint>Hint text for the field</mat-hint>
+                    <mat-error>Required field!</mat-error>
+                </mat-form-field>
+            </form>
+
+            <form class="flex flex-col mt-8 p-8 pb-4 bg-card rounded-2xl shadow overflow-hidden">
+                <mat-form-field
+                    class="flex-auto"
+                    subscriptSizing="dynamic">
+                    <mat-label>Dynamic subscript sizing</mat-label>
+                    <input
+                        matInput
+                        [formControl]="dynamicSubscriptInput"
+                        required>
+                    <mat-error>Required field!</mat-error>
+                </mat-form-field>
+
+                <mat-form-field
+                    class="flex-auto"
+                    subscriptSizing="dynamic">
+                    <mat-label>Dynamic subscript sizing with mat-hint</mat-label>
+                    <input
+                        matInput
+                        [formControl]="dynamicSubscriptInputWithHint"
+                        required>
+                    <mat-hint>Hint text for the field</mat-hint>
+                    <mat-error>Required field!</mat-error>
+                </mat-form-field>
+            </form>
+
+            <div class="prose prose-sm max-w-3xl">
                 <h2 class="mt-12">Field variations</h2>
                 <p>
                     Following form contains examples to showcase form field variations. In addition to the heavy modifications,
                     Fuse also provides set of helper classes to further modify the style of the form fields.
                 </p>
-                <h3>Required classes</h3>
                 <ul>
                     <li>
-                        <p><code>.fuse-mat-textarea</code></p>
+                        <p><code>.fuse-mat-bold</code></p>
                         <p>
-                            This helper class is required if you are using a textarea as your input. Since Angular Material doesn't differentiate a textarea from a
-                            normal input while using them with <strong>mat-form-field</strong>, this helper class is required for <strong>textarea</strong> inputs to look good and
-                            consistent.
+                            Provides set of adjustments to make the fields' border bolder.
                         </p>
                     </li>
-                </ul>
-                <!-- @formatter:off -->
-                <textarea
-                    fuse-highlight
-                    lang="html">
-                    <mat-form-field class="fuse-mat-textarea">
-                        <mat-label>Note</mat-label>
-                        &lt;textarea matInput&gt;&lt;/textarea&gt;
-                    </mat-form-field>
-                </textarea>
-                <!-- @formatter:on -->
-                <h3>Optional classes</h3>
-                <ul>
                     <li>
                         <p><code>.fuse-mat-dense</code></p>
                         <p>
@@ -198,14 +243,6 @@
                     <li>
                         <p><code>.fuse-mat-rounded</code></p>
                         <p>Provides set of adjustments to make the fields look fully rounded.</p>
-                    </li>
-                    <li>
-                        <p><code>.fuse-mat-no-subscript</code></p>
-                        <p>
-                            Provides set of adjustments to remove the bottom spacing where <em>hint</em> and <em>error</em> messages placed. This helper is particularly useful to align the
-                            field easily if you don't need to show error messages or hint text. For example a search bar in the toolbar uses this helper to fit the field to the toolbar
-                            without having an extra bottom spacing.
-                        </p>
                     </li>
                     <li>
                         <p><code>.fuse-mat-emphasized-affix</code></p>
@@ -223,9 +260,9 @@
                     <mat-button-toggle-group
                         [(ngModel)]="formFieldHelpers"
                         multiple>
+                        <mat-button-toggle [value]="'fuse-mat-bold'">Bold</mat-button-toggle>
                         <mat-button-toggle [value]="'fuse-mat-dense'">Dense</mat-button-toggle>
                         <mat-button-toggle [value]="'fuse-mat-rounded'">Rounded</mat-button-toggle>
-                        <mat-button-toggle [value]="'fuse-mat-no-subscript'">No subscript</mat-button-toggle>
                         <mat-button-toggle [value]="'fuse-mat-emphasized-affix'">Emphasized affix</mat-button-toggle>
                     </mat-button-toggle-group>
                 </p>
@@ -340,7 +377,7 @@
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <mat-label>Textarea</mat-label>
                         <textarea matInput></textarea>
                     </mat-form-field>
@@ -348,7 +385,7 @@
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <mat-label>Textarea with prefix & suffix</mat-label>
                         <textarea matInput></textarea>
                         <mat-icon
@@ -364,21 +401,21 @@
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <mat-label>Textarea with autosize</mat-label>
                         <textarea
                             matInput
-                            matTextareaAutosize></textarea>
+                            cdkTextareaAutosize></textarea>
                     </mat-form-field>
                 </div>
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <mat-label>Textarea with autosize, prefix & suffix</mat-label>
                         <textarea
                             matInput
-                            matTextareaAutosize></textarea>
+                            cdkTextareaAutosize></textarea>
                         <mat-icon
                             class="icon-size-5"
                             matPrefix
@@ -611,7 +648,7 @@
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <textarea
                             matInput
                             [placeholder]="'Textarea'"></textarea>
@@ -620,7 +657,7 @@
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <textarea
                             matInput
                             [placeholder]="'Textarea with prefix & suffix'"></textarea>
@@ -637,21 +674,21 @@
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <textarea
                             matInput
                             [placeholder]="'Textarea with autosize'"
-                            matTextareaAutosize></textarea>
+                            cdkTextareaAutosize></textarea>
                     </mat-form-field>
                 </div>
                 <div class="flex">
                     <mat-form-field
                         [ngClass]="formFieldHelpers"
-                        class="fuse-mat-textarea flex-auto">
+                        class="flex-auto">
                         <textarea
                             matInput
                             [placeholder]="'Textarea with autosize, prefix & suffix'"
-                            matTextareaAutosize></textarea>
+                            cdkTextareaAutosize></textarea>
                         <mat-icon
                             class="icon-size-5"
                             matPrefix

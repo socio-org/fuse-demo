@@ -18,7 +18,16 @@
 
             <!-- Alert -->
             <fuse-alert
-                class="mt-8 -mb-4"
+                class="mt-8"
+                [appearance]="'outline'"
+                [showIcon]="false"
+                [type]="'info'">
+                You are browsing <strong>Fuse Demo</strong>. Click on the "Sign in" button to access the Demo and Documentation.
+            </fuse-alert>
+
+            <!-- Alert -->
+            <fuse-alert
+                class="mt-8"
                 *ngIf="showAlert"
                 [appearance]="'outline'"
                 [showIcon]="false"
@@ -77,8 +86,9 @@
                 </mat-form-field>
 
                 <!-- Actions -->
-                <div class="inline-flex items-end justify-between w-full mt-1.5">
+                <div class="inline-flex items-center justify-between w-full mt-1.5">
                     <mat-checkbox
+                        class="-ml-2"
                         [color]="'primary'"
                         [formControlName]="'rememberMe'">
                         Remember me

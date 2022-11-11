@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder } from '@angular/forms';
+import { FormControl, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector     : 'forms-fields',
@@ -9,6 +9,10 @@ import { UntypedFormBuilder } from '@angular/forms';
 export class FormsFieldsComponent
 {
     formFieldHelpers: string[] = [''];
+    fixedSubscriptInput: FormControl = new FormControl('', [Validators.required]);
+    dynamicSubscriptInput: FormControl = new FormControl('', [Validators.required]);
+    fixedSubscriptInputWithHint: FormControl = new FormControl('', [Validators.required]);
+    dynamicSubscriptInputWithHint: FormControl = new FormControl('', [Validators.required]);
 
     /**
      * Constructor

@@ -1,24 +1,24 @@
 animations {
 
-    .mat-form-field {
+    .mat-mdc-form-field {
         width: 100%;
         margin-top: 32px;
     }
 
-    mat-tab-group {
+    .mat-mdc-tab-group {
 
-        .mat-tab-header {
+        .mat-mdc-tab-header {
             padding: 24px 0;
             border-top-width: 1px;
         }
 
-        .mat-tab-body-wrapper {
+        .mat-mdc-tab-body-wrapper {
 
-            .mat-tab-body {
+            .mat-mdc-tab-body {
 
                 &:first-child {
 
-                    .mat-tab-body-content {
+                    .mat-mdc-tab-body-content {
                         display: flex;
                         justify-content: center;
                         min-height: 200px;

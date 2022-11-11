@@ -3,8 +3,8 @@
     <!-- Add team member -->
     <div class="w-full">
         <mat-form-field
-            class="fuse-mat-no-subscript w-full"
-            [floatLabel]="'always'">
+            class="w-full"
+            [subscriptSizing]="'dynamic'">
             <mat-label>Add team members</mat-label>
             <mat-icon
                 class="icon-size-5"
@@ -48,7 +48,9 @@
                 </div>
                 <div class="flex items-center mt-4 sm:mt-0 sm:ml-auto">
                     <div class="order-2 sm:order-1 ml-4 sm:ml-0">
-                        <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript w-32">
+                        <mat-form-field
+                            class="fuse-mat-dense w-32"
+                            [subscriptSizing]="'dynamic'">
                             <mat-select
                                 [panelClass]="'w-72 min-w-72 max-w-72 h-auto max-h-none'"
                                 [value]="member.role"

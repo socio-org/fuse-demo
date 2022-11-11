@@ -248,7 +248,9 @@
 
                     <!-- Name -->
                     <div class="mt-8">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-form-field
+                            class="w-full"
+                            [subscriptSizing]="'dynamic'">
                             <mat-label>Name</mat-label>
                             <mat-icon
                                 matPrefix
@@ -332,7 +334,7 @@
                                         <ng-container *ngIf="!tagsEditMode">
                                             <ng-container *ngFor="let tag of filteredTags; trackBy: trackByFn">
                                                 <div
-                                                    class="flex items-center h-10 min-h-10 px-4 cursor-pointer hover:bg-hover"
+                                                    class="flex items-center h-10 min-h-10 pl-1 pr-4 cursor-pointer hover:bg-hover"
                                                     (click)="toggleContactTag(tag)"
                                                     matRipple>
                                                     <mat-checkbox
@@ -341,7 +343,7 @@
                                                         [color]="'primary'"
                                                         [disableRipple]="true">
                                                     </mat-checkbox>
-                                                    <div class="ml-1">{{tag.title}}</div>
+                                                    <div>{{tag.title}}</div>
                                                 </div>
                                             </ng-container>
                                         </ng-container>
@@ -350,7 +352,9 @@
                                             <div class="py-2 space-y-2">
                                                 <ng-container *ngFor="let tag of filteredTags; trackBy: trackByFn">
                                                     <div class="flex items-center">
-                                                        <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript w-full mx-4">
+                                                        <mat-form-field
+                                                            class="fuse-mat-dense w-full mx-4"
+                                                            [subscriptSizing]="'dynamic'">
                                                             <input
                                                                 matInput
                                                                 [value]="tag.title"
@@ -387,7 +391,9 @@
 
                     <!-- Title -->
                     <div class="mt-8">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-form-field
+                            class="w-full"
+                            [subscriptSizing]="'dynamic'">
                             <mat-label>Title</mat-label>
                             <mat-icon
                                 matPrefix
@@ -402,7 +408,9 @@
 
                     <!-- Company -->
                     <div class="mt-8">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-form-field
+                            class="w-full"
+                            [subscriptSizing]="'dynamic'">
                             <mat-label>Company</mat-label>
                             <mat-icon
                                 matPrefix
@@ -420,7 +428,9 @@
                         <div class="space-y-4">
                             <ng-container *ngFor="let email of contactForm.get('emails')['controls']; let i = index; let first = first; let last = last; trackBy: trackByFn">
                                 <div class="flex">
-                                    <mat-form-field class="fuse-mat-no-subscript flex-auto">
+                                    <mat-form-field
+                                        class="flex-auto"
+                                        [subscriptSizing]="'dynamic'">
                                         <mat-label *ngIf="first">Email</mat-label>
                                         <mat-icon
                                             matPrefix
@@ -432,7 +442,9 @@
                                             [placeholder]="'Email address'"
                                             [spellcheck]="false">
                                     </mat-form-field>
-                                    <mat-form-field class="fuse-mat-no-subscript flex-auto w-full max-w-24 sm:max-w-40 ml-2 sm:ml-4">
+                                    <mat-form-field
+                                        class="flex-auto w-full max-w-24 sm:max-w-40 ml-2 sm:ml-4"
+                                        [subscriptSizing]="'dynamic'">
                                         <mat-label *ngIf="first">Label</mat-label>
                                         <mat-icon
                                             matPrefix
@@ -477,7 +489,9 @@
                         <div class="space-y-4">
                             <ng-container *ngFor="let phoneNumber of contactForm.get('phoneNumbers')['controls']; let i = index; let first = first; let last = last; trackBy: trackByFn">
                                 <div class="relative flex">
-                                    <mat-form-field class="fuse-mat-no-subscript flex-auto">
+                                    <mat-form-field
+                                        class="flex-auto"
+                                        [subscriptSizing]="'dynamic'">
                                         <mat-label *ngIf="first">Phone</mat-label>
                                         <input
                                             matInput
@@ -512,7 +526,9 @@
                                             </ng-container>
                                         </mat-select>
                                     </mat-form-field>
-                                    <mat-form-field class="fuse-mat-no-subscript flex-auto w-full max-w-24 sm:max-w-40 ml-2 sm:ml-4">
+                                    <mat-form-field
+                                        class="flex-auto w-full max-w-24 sm:max-w-40 ml-2 sm:ml-4"
+                                        [subscriptSizing]="'dynamic'">
                                         <mat-label *ngIf="first">Label</mat-label>
                                         <mat-icon
                                             matPrefix
@@ -554,7 +570,9 @@
 
                     <!-- Address -->
                     <div class="mt-8">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-form-field
+                            class="w-full"
+                            [subscriptSizing]="'dynamic'">
                             <mat-label>Address</mat-label>
                             <mat-icon
                                 matPrefix
@@ -569,7 +587,9 @@
 
                     <!-- Birthday -->
                     <div class="mt-8">
-                        <mat-form-field class="fuse-mat-no-subscript w-full">
+                        <mat-form-field
+                            class="w-full"
+                            [subscriptSizing]="'dynamic'">
                             <mat-label>Birthday</mat-label>
                             <mat-icon
                                 matPrefix
@@ -590,7 +610,9 @@
 
                     <!-- Notes -->
                     <div class="mt-8">
-                        <mat-form-field class="fuse-mat-textarea fuse-mat-no-subscript w-full">
+                        <mat-form-field
+                            class="w-full"
+                            [subscriptSizing]="'dynamic'">
                             <mat-label>Notes</mat-label>
                             <mat-icon
                                 matPrefix
@@ -602,7 +624,7 @@
                                 [placeholder]="'Notes'"
                                 [rows]="5"
                                 [spellcheck]="false"
-                                matTextareaAutosize></textarea>
+                                cdkTextareaAutosize></textarea>
                         </mat-form-field>
                     </div>
 
