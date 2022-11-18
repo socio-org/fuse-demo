@@ -9,7 +9,6 @@ import { SearchComponent } from 'app/modules/admin/ui/other-components/common/se
 import { ShortcutsComponent } from 'app/modules/admin/ui/other-components/common/shortcuts/shortcuts.component';
 import { UserComponent } from 'app/modules/admin/ui/other-components/common/user/user.component';
 import { ApexChartsComponent } from 'app/modules/admin/ui/other-components/third-party/apex-charts/apex-charts.component';
-import { NgxMarkdownComponent } from 'app/modules/admin/ui/other-components/third-party/ngx-markdown/ngx-markdown.component';
 import { QuillEditorComponent } from 'app/modules/admin/ui/other-components/third-party/quill-editor/quill-editor.component';
 
 export const otherComponentsRoutes: Route[] = [
@@ -75,10 +74,6 @@ export const otherComponentsRoutes: Route[] = [
                     {
                         path     : 'apex-charts',
                         component: ApexChartsComponent
-                    },
-                    {
-                        path     : 'ngx-markdown',
-                        component: NgxMarkdownComponent
                     },
                     {
                         path     : 'quill-editor',

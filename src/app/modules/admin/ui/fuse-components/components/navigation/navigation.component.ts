@@ -136,13 +136,6 @@ export class NavigationComponent
                         link : '/supported-components/google-maps'
                     },
                     {
-                        id   : 'supported-components.ngx-markdown',
-                        title: 'ngx-markdown',
-                        type : 'basic',
-                        icon : 'text_format',
-                        link : '/supported-components/ngx-markdown'
-                    },
-                    {
                         id   : 'supported-components.quill-editor',
                         title: 'Quill editor',
                         type : 'basic',
