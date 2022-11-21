@@ -10,6 +10,20 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v17.0.1
+        {
+            version    : 'v17.0.1',
+            releaseDate: 'Nov 21, 2022',
+            changes    : [
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(@fuse/confirmation-dialog) Fixed: Extra padding on the confirmation dialogs',
+                    ]
+                }
+            ]
+        },
+
         // v17.0.0
         {
             version    : 'v17.0.0',
