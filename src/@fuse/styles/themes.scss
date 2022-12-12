@@ -131,11 +131,11 @@ $dark-base: (
 
     /* Define a light & dark Angular Material theme with the generated palettes */
     $light-theme: mat.define-light-theme((
-        color: ($palettes)
+        color: $palettes
     ));
 
     $dark-theme: mat.define-dark-theme((
-        color: ($palettes)
+        color: $palettes
     ));
 
     /* Merge the custom base colors with the generated themes */
