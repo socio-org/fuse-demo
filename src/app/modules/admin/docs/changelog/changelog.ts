@@ -10,6 +10,29 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v17.1.0
+        {
+            version    : 'v17.1.0',
+            releaseDate: 'Dec 12, 2022',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(Dependencies) Updated Angular & Angular Material to v15.0.0',
+                        '(Dependencies) Updated various other packages',
+                        '(Core) Use the new "CanMatch" guard for routes rather than "CanLoad" & "CanActivate" combination'
+                    ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(Angular Material) Fixed: Autocompleted input background color does not look right',
+                        '(Angular Material) Fixed: Tailwind breaks the disabled mat-checkbox styling',
+                    ]
+                }
+            ]
+        },
+
         // v17.0.1
         {
             version    : 'v17.0.1',
