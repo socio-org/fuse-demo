@@ -21,6 +21,12 @@ export class ChangelogComponent
                         '(Dependencies) Updated Angular & Angular Material to v15.1.1',
                         '(Dependencies) Updated various other packages'
                     ]
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        '(Angular Material) Fixed: Tooltip background color is not correct',
+                    ]
                 }
             ]
         },
