@@ -967,7 +967,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 icon : 'heroicons_outline:speakerphone',
                 link : '/docs/changelog',
                 badge: {
-                    title  : '17.1.0',
+                    title  : '17.2.0',
                     classes: 'px-2 bg-yellow-300 text-black rounded-full'
                 }
             },

@@ -10,6 +10,21 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v17.2.0
+        {
+            version    : 'v17.2.0',
+            releaseDate: 'TBA',
+            changes    : [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(Dependencies) Updated Angular & Angular Material to v15.1.1',
+                        '(Dependencies) Updated various other packages'
+                    ]
+                }
+            ]
+        },
+
         // v17.1.0
         {
             version    : 'v17.1.0',
