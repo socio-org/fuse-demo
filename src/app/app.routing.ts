@@ -22,7 +22,8 @@ export const appRoutes: Route[] = [
     // Auth routes for guests
     {
         path: '',
-        canMatch: [NoAuthGuard],
+        canActivate: [NoAuthGuard],
+        canActivateChild: [NoAuthGuard],
         component: LayoutComponent,
         data: {
             layout: 'empty'
@@ -39,7 +40,8 @@ export const appRoutes: Route[] = [
     // Auth routes for authenticated users
     {
         path: '',
-        canMatch: [AuthGuard],
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         component: LayoutComponent,
         data: {
             layout: 'empty'
@@ -65,7 +67,8 @@ export const appRoutes: Route[] = [
     // Admin routes
     {
         path: '',
-        canMatch: [AuthGuard],
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         component: LayoutComponent,
         resolve: {
             initialData: InitialDataResolver,
