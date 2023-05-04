@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
 import { InventoryService } from 'app/modules/admin/apps/ecommerce/inventory/inventory.service';
 import { InventoryBrand, InventoryCategory, InventoryPagination, InventoryProduct, InventoryTag, InventoryVendor } from 'app/modules/admin/apps/ecommerce/inventory/inventory.types';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryBrandsResolver implements Resolve<any>
 {
@@ -33,7 +33,7 @@ export class InventoryBrandsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryCategoriesResolver implements Resolve<any>
 {
@@ -61,7 +61,7 @@ export class InventoryCategoriesResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryProductResolver implements Resolve<any>
 {
@@ -70,7 +70,7 @@ export class InventoryProductResolver implements Resolve<any>
      */
     constructor(
         private _inventoryService: InventoryService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -88,28 +88,29 @@ export class InventoryProductResolver implements Resolve<any>
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<InventoryProduct>
     {
         return this._inventoryService.getProductById(route.paramMap.get('id'))
-                   .pipe(
-                       // Error here means the requested product is not available
-                       catchError((error) => {
+            .pipe(
+                // Error here means the requested product is not available
+                catchError((error) =>
+                {
 
-                           // Log the error
-                           console.error(error);
+                    // Log the error
+                    console.error(error);
 
-                           // Get the parent url
-                           const parentUrl = state.url.split('/').slice(0, -1).join('/');
+                    // Get the parent url
+                    const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
-                           // Navigate to there
-                           this._router.navigateByUrl(parentUrl);
+                    // Navigate to there
+                    this._router.navigateByUrl(parentUrl);
 
-                           // Throw an error
-                           return throwError(error);
-                       })
-                   );
+                    // Throw an error
+                    return throwError(error);
+                }),
+            );
     }
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryProductsResolver implements Resolve<any>
 {
@@ -137,7 +138,7 @@ export class InventoryProductsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryTagsResolver implements Resolve<any>
 {
@@ -165,7 +166,7 @@ export class InventoryTagsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryVendorsResolver implements Resolve<any>
 {

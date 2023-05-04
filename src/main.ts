@@ -1,5 +1,39 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from 'app/app.module';
+import { importProvidersFrom } from '@angular/core';
+import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { ExtraOptions, PreloadAllModules, RouterModule } from '@angular/router';
+import { FuseModule } from '@fuse';
+import { FuseMockApiModule } from '@fuse/lib/mock-api';
+import { FuseConfigModule } from '@fuse/services/config';
+import { AppComponent } from 'app/app.component';
+import { appRoutes } from 'app/app.routing';
+import { appConfig } from 'app/core/config/app.config';
+import { CoreModule } from 'app/core/core.module';
+import { LayoutModule } from 'app/layout/layout.module';
+import { mockApiServices } from 'app/mock-api';
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-                        .catch(err => console.error(err));
+const routerConfig: ExtraOptions = {
+    preloadingStrategy       : PreloadAllModules,
+    scrollPositionRestoration: 'enabled',
+};
+
+bootstrapApplication(AppComponent, {
+    providers: [
+        importProvidersFrom(
+            BrowserModule,
+            RouterModule.forRoot(appRoutes, routerConfig),
+
+            // Fuse, FuseConfig & FuseMockAPI
+            FuseModule,
+            FuseConfigModule.forRoot(appConfig),
+            FuseMockApiModule.forRoot(mockApiServices),
+
+            // Core module of your application
+            CoreModule,
+
+            // Layout module of your application
+            LayoutModule,
+        ),
+        provideAnimations(),
+    ],
+}).catch(err => console.error(err));

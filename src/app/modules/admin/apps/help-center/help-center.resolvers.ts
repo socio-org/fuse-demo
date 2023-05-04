@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
 import { HelpCenterService } from 'app/modules/admin/apps/help-center/help-center.service';
 import { FaqCategory, GuideCategory } from 'app/modules/admin/apps/help-center/help-center.type';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class HelpCenterMostAskedFaqsResolver implements Resolve<any>
 {
@@ -33,7 +33,7 @@ export class HelpCenterMostAskedFaqsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class HelpCenterFaqsResolver implements Resolve<any>
 {
@@ -61,7 +61,7 @@ export class HelpCenterFaqsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class HelpCenterGuidesResolver implements Resolve<any>
 {
@@ -89,7 +89,7 @@ export class HelpCenterGuidesResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class HelpCenterGuidesCategoryResolver implements Resolve<any>
 {
@@ -117,7 +117,7 @@ export class HelpCenterGuidesCategoryResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class HelpCenterGuidesGuideResolver implements Resolve<any>
 {

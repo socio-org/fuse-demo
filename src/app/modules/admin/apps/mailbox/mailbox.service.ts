@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Mail, MailCategory, MailFilter, MailFolder, MailLabel } from 'app/modules/admin/apps/mailbox/mailbox.types';
+import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MailboxService
 {
@@ -103,9 +103,10 @@ export class MailboxService
     getFilters(): Observable<any>
     {
         return this._httpClient.get<MailFilter[]>('api/apps/mailbox/filters').pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._filters.next(response);
-            })
+            }),
         );
     }
 
@@ -115,9 +116,10 @@ export class MailboxService
     getFolders(): Observable<any>
     {
         return this._httpClient.get<MailFolder[]>('api/apps/mailbox/folders').pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._folders.next(response);
-            })
+            }),
         );
     }
 
@@ -127,9 +129,10 @@ export class MailboxService
     getLabels(): Observable<any>
     {
         return this._httpClient.get<MailLabel[]>('api/apps/mailbox/labels').pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._labels.next(response);
-            })
+            }),
         );
     }
 
@@ -144,30 +147,32 @@ export class MailboxService
         return this._httpClient.get<Mail[]>('api/apps/mailbox/mails', {
             params: {
                 filter,
-                page
-            }
+                page,
+            },
         }).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._category.next({
                     type: 'filter',
-                    name: filter
+                    name: filter,
                 });
                 this._mails.next(response.mails);
                 this._pagination.next(response.pagination);
                 this._mailsLoading.next(false);
             }),
-            switchMap((response) => {
+            switchMap((response) =>
+            {
 
                 if ( response.mails === null )
                 {
                     return throwError({
                         message   : 'Requested page is not available!',
-                        pagination: response.pagination
+                        pagination: response.pagination,
                     });
                 }
 
                 return of(response);
-            })
+            }),
         );
     }
 
@@ -182,30 +187,32 @@ export class MailboxService
         return this._httpClient.get<Mail[]>('api/apps/mailbox/mails', {
             params: {
                 folder,
-                page
-            }
+                page,
+            },
         }).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._category.next({
                     type: 'folder',
-                    name: folder
+                    name: folder,
                 });
                 this._mails.next(response.mails);
                 this._pagination.next(response.pagination);
                 this._mailsLoading.next(false);
             }),
-            switchMap((response) => {
+            switchMap((response) =>
+            {
 
                 if ( response.mails === null )
                 {
                     return throwError({
                         message   : 'Requested page is not available!',
-                        pagination: response.pagination
+                        pagination: response.pagination,
                     });
                 }
 
                 return of(response);
-            })
+            }),
         );
     }
 
@@ -220,30 +227,32 @@ export class MailboxService
         return this._httpClient.get<Mail[]>('api/apps/mailbox/mails', {
             params: {
                 label,
-                page
-            }
+                page,
+            },
         }).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._category.next({
                     type: 'label',
-                    name: label
+                    name: label,
                 });
                 this._mails.next(response.mails);
                 this._pagination.next(response.pagination);
                 this._mailsLoading.next(false);
             }),
-            switchMap((response) => {
+            switchMap((response) =>
+            {
 
                 if ( response.mails === null )
                 {
                     return throwError({
                         message   : 'Requested page is not available!',
-                        pagination: response.pagination
+                        pagination: response.pagination,
                     });
                 }
 
                 return of(response);
-            })
+            }),
         );
     }
 
@@ -254,7 +263,8 @@ export class MailboxService
     {
         return this._mails.pipe(
             take(1),
-            map((mails) => {
+            map((mails) =>
+            {
 
                 // Find the mail
                 const mail = mails.find(item => item.id === id) || null;
@@ -265,7 +275,8 @@ export class MailboxService
                 // Return the mail
                 return mail;
             }),
-            switchMap((mail) => {
+            switchMap((mail) =>
+            {
 
                 if ( !mail )
                 {
@@ -273,7 +284,7 @@ export class MailboxService
                 }
 
                 return of(mail);
-            })
+            }),
         );
     }
 
@@ -287,14 +298,15 @@ export class MailboxService
     {
         return this._httpClient.patch('api/apps/mailbox/mail', {
             id,
-            mail
+            mail,
         }).pipe(
-            tap(() => {
+            tap(() =>
+            {
 
                 // Re-fetch the folders on mail update
                 // to get the updated counts on the sidebar
                 this.getFolders().subscribe();
-            })
+            }),
         );
     }
 
@@ -305,9 +317,10 @@ export class MailboxService
     {
         return of(true).pipe(
             take(1),
-            tap(() => {
+            tap(() =>
+            {
                 this._mail.next(null);
-            })
+            }),
         );
     }
 
@@ -321,15 +334,16 @@ export class MailboxService
         return this.labels$.pipe(
             take(1),
             switchMap(labels => this._httpClient.post<MailLabel>('api/apps/mailbox/label', {label}).pipe(
-                map((newLabel) => {
+                map((newLabel) =>
+                {
 
                     // Update the labels with the new label
                     this._labels.next([...labels, newLabel]);
 
                     // Return the new label
                     return newLabel;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -345,9 +359,10 @@ export class MailboxService
             take(1),
             switchMap(labels => this._httpClient.patch<MailLabel>('api/apps/mailbox/label', {
                 id,
-                label
+                label,
             }).pipe(
-                map((updatedLabel: any) => {
+                map((updatedLabel: any) =>
+                {
 
                     // Find the index of the updated label within the labels
                     const index = labels.findIndex(item => item.id === id);
@@ -360,8 +375,8 @@ export class MailboxService
 
                     // Return the updated label
                     return updatedLabel;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -375,7 +390,8 @@ export class MailboxService
         return this.labels$.pipe(
             take(1),
             switchMap(labels => this._httpClient.delete('api/apps/mailbox/label', {params: {id}}).pipe(
-                map((isDeleted: any) => {
+                map((isDeleted: any) =>
+                {
 
                     // Find the index of the deleted label within the labels
                     const index = labels.findIndex(item => item.id === id);
@@ -388,8 +404,8 @@ export class MailboxService
 
                     // Return the deleted status
                     return isDeleted;
-                })
-            ))
+                }),
+            )),
         );
     }
 }

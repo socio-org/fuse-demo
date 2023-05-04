@@ -1,14 +1,24 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterLink } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
-import { FuseAlertType } from '@fuse/components/alert';
+import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector     : 'sign-up-split-screen-reversed',
     templateUrl  : './sign-up.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : fuseAnimations,
+    standalone   : true,
+    imports      : [RouterLink, NgIf, FuseAlertComponent, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCheckboxModule, MatProgressSpinnerModule],
 })
 export class SignUpSplitScreenReversedComponent implements OnInit
 {
@@ -16,7 +26,7 @@ export class SignUpSplitScreenReversedComponent implements OnInit
 
     alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
-        message: ''
+        message: '',
     };
     signUpForm: UntypedFormGroup;
     showAlert: boolean = false;
@@ -26,7 +36,7 @@ export class SignUpSplitScreenReversedComponent implements OnInit
      */
     constructor(
         private _authService: AuthService,
-        private _formBuilder: UntypedFormBuilder
+        private _formBuilder: UntypedFormBuilder,
     )
     {
     }
@@ -46,8 +56,8 @@ export class SignUpSplitScreenReversedComponent implements OnInit
                 email     : ['', [Validators.required, Validators.email]],
                 password  : ['', Validators.required],
                 company   : [''],
-                agreements: ['', Validators.requiredTrue]
-            }
+                agreements: ['', Validators.requiredTrue],
+            },
         );
     }
 

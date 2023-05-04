@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component';
 
 @Component({
     selector   : 'multi-language',
-    templateUrl: './multi-language.html'
+    templateUrl: './multi-language.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule],
 })
 export class MultiLanguageCustomizationComponent
 {

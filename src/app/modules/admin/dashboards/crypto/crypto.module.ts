@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,16 +10,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
-import { NgApexchartsModule } from 'ng-apexcharts';
-import { SharedModule } from 'app/shared/shared.module';
+import { RouterModule } from '@angular/router';
+
 import { CryptoComponent } from 'app/modules/admin/dashboards/crypto/crypto.component';
 import { cryptoRoutes } from 'app/modules/admin/dashboards/crypto/crypto.routing';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
-    declarations: [
-        CryptoComponent
-    ],
-    imports     : [
+    imports: [
         RouterModule.forChild(cryptoRoutes),
         MatButtonModule,
         MatButtonToggleModule,
@@ -34,8 +31,8 @@ import { cryptoRoutes } from 'app/modules/admin/dashboards/crypto/crypto.routing
         MatTableModule,
         MatTabsModule,
         NgApexchartsModule,
-        SharedModule
-    ]
+        CryptoComponent,
+    ],
 })
 export class CryptoModule
 {

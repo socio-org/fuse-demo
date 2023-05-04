@@ -4,6 +4,6 @@ import { Error500Component } from 'app/modules/admin/pages/error/error-500/error
 export const error500Routes: Route[] = [
     {
         path     : '',
-        component: Error500Component
-    }
+        component: Error500Component,
+    },
 ];

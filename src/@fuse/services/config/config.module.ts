@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { FuseConfigService } from '@fuse/services/config/config.service';
 import { FUSE_APP_CONFIG } from '@fuse/services/config/config.constants';
+import { FuseConfigService } from '@fuse/services/config/config.service';
 
 @NgModule()
 export class FuseConfigModule
@@ -24,9 +24,9 @@ export class FuseConfigModule
             providers: [
                 {
                     provide : FUSE_APP_CONFIG,
-                    useValue: config
-                }
-            ]
+                    useValue: config,
+                },
+            ],
         };
     }
 }

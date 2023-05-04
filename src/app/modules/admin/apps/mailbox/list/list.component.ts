@@ -1,13 +1,20 @@
+import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { MailboxComponent } from 'app/modules/admin/apps/mailbox/mailbox.component';
+import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { Mail, MailCategory } from 'app/modules/admin/apps/mailbox/mailbox.types';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'mailbox-list',
     templateUrl  : './list.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [NgIf, MatButtonModule, MatIconModule, RouterLink, MatProgressBarModule, NgFor, NgClass, RouterOutlet, DatePipe],
 })
 export class MailboxListComponent implements OnInit, OnDestroy
 {
@@ -25,7 +32,7 @@ export class MailboxListComponent implements OnInit, OnDestroy
      */
     constructor(
         public mailboxComponent: MailboxComponent,
-        private _mailboxService: MailboxService
+        private _mailboxService: MailboxService,
     )
     {
     }
@@ -42,21 +49,24 @@ export class MailboxListComponent implements OnInit, OnDestroy
         // Category
         this._mailboxService.category$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((category: MailCategory) => {
+            .subscribe((category: MailCategory) =>
+            {
                 this.category = category;
             });
 
         // Mails
         this._mailboxService.mails$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((mails: Mail[]) => {
+            .subscribe((mails: Mail[]) =>
+            {
                 this.mails = mails;
             });
 
         // Mails loading
         this._mailboxService.mailsLoading$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((mailsLoading: boolean) => {
+            .subscribe((mailsLoading: boolean) =>
+            {
                 this.mailsLoading = mailsLoading;
 
                 // If the mail list element is available & the mails are loaded...
@@ -70,14 +80,16 @@ export class MailboxListComponent implements OnInit, OnDestroy
         // Pagination
         this._mailboxService.pagination$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((pagination) => {
+            .subscribe((pagination) =>
+            {
                 this.pagination = pagination;
             });
 
         // Selected mail
         this._mailboxService.mail$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((mail: Mail) => {
+            .subscribe((mail: Mail) =>
+            {
                 this.selectedMail = mail;
             });
     }

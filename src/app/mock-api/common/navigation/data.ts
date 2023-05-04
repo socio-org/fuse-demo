@@ -14,30 +14,30 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 title: 'Project',
                 type : 'basic',
                 icon : 'heroicons_outline:clipboard-check',
-                link : '/dashboards/project'
+                link : '/dashboards/project',
             },
             {
                 id   : 'dashboards.analytics',
                 title: 'Analytics',
                 type : 'basic',
                 icon : 'heroicons_outline:chart-pie',
-                link : '/dashboards/analytics'
+                link : '/dashboards/analytics',
             },
             {
                 id   : 'dashboards.finance',
                 title: 'Finance',
                 type : 'basic',
                 icon : 'heroicons_outline:cash',
-                link : '/dashboards/finance'
+                link : '/dashboards/finance',
             },
             {
                 id   : 'dashboards.crypto',
                 title: 'Crypto',
                 type : 'basic',
                 icon : 'heroicons_outline:currency-dollar',
-                link : '/dashboards/crypto'
-            }
-        ]
+                link : '/dashboards/crypto',
+            },
+        ],
     },
     {
         id      : 'apps',
@@ -51,21 +51,21 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 title: 'Academy',
                 type : 'basic',
                 icon : 'heroicons_outline:academic-cap',
-                link : '/apps/academy'
+                link : '/apps/academy',
             },
             {
                 id   : 'apps.chat',
                 title: 'Chat',
                 type : 'basic',
                 icon : 'heroicons_outline:chat-alt',
-                link : '/apps/chat'
+                link : '/apps/chat',
             },
             {
                 id   : 'apps.contacts',
                 title: 'Contacts',
                 type : 'basic',
                 icon : 'heroicons_outline:user-group',
-                link : '/apps/contacts'
+                link : '/apps/contacts',
             },
             {
                 id      : 'apps.ecommerce',
@@ -77,16 +77,16 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id   : 'apps.ecommerce.inventory',
                         title: 'Inventory',
                         type : 'basic',
-                        link : '/apps/ecommerce/inventory'
-                    }
-                ]
+                        link : '/apps/ecommerce/inventory',
+                    },
+                ],
             },
             {
                 id   : 'apps.file-manager',
                 title: 'File Manager',
                 type : 'basic',
                 icon : 'heroicons_outline:cloud',
-                link : '/apps/file-manager'
+                link : '/apps/file-manager',
             },
             {
                 id      : 'apps.help-center',
@@ -100,27 +100,27 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         title     : 'Home',
                         type      : 'basic',
                         link      : '/apps/help-center',
-                        exactMatch: true
+                        exactMatch: true,
                     },
                     {
                         id   : 'apps.help-center.faqs',
                         title: 'FAQs',
                         type : 'basic',
-                        link : '/apps/help-center/faqs'
+                        link : '/apps/help-center/faqs',
                     },
                     {
                         id   : 'apps.help-center.guides',
                         title: 'Guides',
                         type : 'basic',
-                        link : '/apps/help-center/guides'
+                        link : '/apps/help-center/guides',
                     },
                     {
                         id   : 'apps.help-center.support',
                         title: 'Support',
                         type : 'basic',
-                        link : '/apps/help-center/support'
-                    }
-                ]
+                        link : '/apps/help-center/support',
+                    },
+                ],
             },
             {
                 id   : 'apps.mailbox',
@@ -130,31 +130,31 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/apps/mailbox',
                 badge: {
                     title  : '27',
-                    classes: 'px-2 bg-pink-600 text-white rounded-full'
-                }
+                    classes: 'px-2 bg-pink-600 text-white rounded-full',
+                },
             },
             {
                 id   : 'apps.notes',
                 title: 'Notes',
                 type : 'basic',
                 icon : 'heroicons_outline:pencil-alt',
-                link : '/apps/notes'
+                link : '/apps/notes',
             },
             {
                 id   : 'apps.scrumboard',
                 title: 'Scrumboard',
                 type : 'basic',
                 icon : 'heroicons_outline:view-boards',
-                link : '/apps/scrumboard'
+                link : '/apps/scrumboard',
             },
             {
                 id   : 'apps.tasks',
                 title: 'Tasks',
                 type : 'basic',
                 icon : 'heroicons_outline:check-circle',
-                link : '/apps/tasks'
-            }
-        ]
+                link : '/apps/tasks',
+            },
+        ],
     },
     {
         id      : 'pages',
@@ -168,7 +168,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 title: 'Activities',
                 type : 'basic',
                 icon : 'heroicons_outline:menu-alt-2',
-                link : '/pages/activities'
+                link : '/pages/activities',
             },
             {
                 id      : 'pages.authentication',
@@ -185,45 +185,45 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.authentication.sign-in.classic',
                                 title: 'Classic',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-in/classic'
+                                link : '/pages/authentication/sign-in/classic',
                             },
                             {
                                 id   : 'pages.authentication.sign-in.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-in/modern'
+                                link : '/pages/authentication/sign-in/modern',
                             },
                             {
                                 id   : 'pages.authentication.sign-in.modern-reversed',
                                 title: 'Modern Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-in/modern-reversed'
+                                link : '/pages/authentication/sign-in/modern-reversed',
                             },
                             {
                                 id   : 'pages.authentication.sign-in.split-screen',
                                 title: 'Split Screen',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-in/split-screen'
+                                link : '/pages/authentication/sign-in/split-screen',
                             },
                             {
                                 id   : 'pages.authentication.sign-in.split-screen-reversed',
                                 title: 'Split Screen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-in/split-screen-reversed'
+                                link : '/pages/authentication/sign-in/split-screen-reversed',
                             },
                             {
                                 id   : 'pages.authentication.sign-in.fullscreen',
                                 title: 'Fullscreen',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-in/fullscreen'
+                                link : '/pages/authentication/sign-in/fullscreen',
                             },
                             {
                                 id   : 'pages.authentication.sign-in.fullscreen-reversed',
                                 title: 'Fullscreen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-in/fullscreen-reversed'
-                            }
-                        ]
+                                link : '/pages/authentication/sign-in/fullscreen-reversed',
+                            },
+                        ],
                     },
                     {
                         id      : 'pages.authentication.sign-up',
@@ -235,45 +235,45 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.authentication.sign-up.classic',
                                 title: 'Classic',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-up/classic'
+                                link : '/pages/authentication/sign-up/classic',
                             },
                             {
                                 id   : 'pages.authentication.sign-up.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-up/modern'
+                                link : '/pages/authentication/sign-up/modern',
                             },
                             {
                                 id   : 'pages.authentication.sign-up.modern-reversed',
                                 title: 'Modern Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-up/modern-reversed'
+                                link : '/pages/authentication/sign-up/modern-reversed',
                             },
                             {
                                 id   : 'pages.authentication.sign-up.split-screen',
                                 title: 'Split Screen',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-up/split-screen'
+                                link : '/pages/authentication/sign-up/split-screen',
                             },
                             {
                                 id   : 'pages.authentication.sign-up.split-screen-reversed',
                                 title: 'Split Screen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-up/split-screen-reversed'
+                                link : '/pages/authentication/sign-up/split-screen-reversed',
                             },
                             {
                                 id   : 'pages.authentication.sign-up.fullscreen',
                                 title: 'Fullscreen',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-up/fullscreen'
+                                link : '/pages/authentication/sign-up/fullscreen',
                             },
                             {
                                 id   : 'pages.authentication.sign-up.fullscreen-reversed',
                                 title: 'Fullscreen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-up/fullscreen-reversed'
-                            }
-                        ]
+                                link : '/pages/authentication/sign-up/fullscreen-reversed',
+                            },
+                        ],
                     },
                     {
                         id      : 'pages.authentication.sign-out',
@@ -285,45 +285,45 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.authentication.sign-out.classic',
                                 title: 'Classic',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-out/classic'
+                                link : '/pages/authentication/sign-out/classic',
                             },
                             {
                                 id   : 'pages.authentication.sign-out.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-out/modern'
+                                link : '/pages/authentication/sign-out/modern',
                             },
                             {
                                 id   : 'pages.authentication.sign-out.modern-reversed',
                                 title: 'Modern Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-out/modern-reversed'
+                                link : '/pages/authentication/sign-out/modern-reversed',
                             },
                             {
                                 id   : 'pages.authentication.sign-out.split-screen',
                                 title: 'Split Screen',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-out/split-screen'
+                                link : '/pages/authentication/sign-out/split-screen',
                             },
                             {
                                 id   : 'pages.authentication.sign-out.split-screen-reversed',
                                 title: 'Split Screen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-out/split-screen-reversed'
+                                link : '/pages/authentication/sign-out/split-screen-reversed',
                             },
                             {
                                 id   : 'pages.authentication.sign-out.fullscreen',
                                 title: 'Fullscreen',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-out/fullscreen'
+                                link : '/pages/authentication/sign-out/fullscreen',
                             },
                             {
                                 id   : 'pages.authentication.sign-out.fullscreen-reversed',
                                 title: 'Fullscreen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/sign-out/fullscreen-reversed'
-                            }
-                        ]
+                                link : '/pages/authentication/sign-out/fullscreen-reversed',
+                            },
+                        ],
                     },
                     {
                         id      : 'pages.authentication.forgot-password',
@@ -335,45 +335,45 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.authentication.forgot-password.classic',
                                 title: 'Classic',
                                 type : 'basic',
-                                link : '/pages/authentication/forgot-password/classic'
+                                link : '/pages/authentication/forgot-password/classic',
                             },
                             {
                                 id   : 'pages.authentication.forgot-password.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/authentication/forgot-password/modern'
+                                link : '/pages/authentication/forgot-password/modern',
                             },
                             {
                                 id   : 'pages.authentication.forgot-password.modern-reversed',
                                 title: 'Modern Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/forgot-password/modern-reversed'
+                                link : '/pages/authentication/forgot-password/modern-reversed',
                             },
                             {
                                 id   : 'pages.authentication.forgot-password.split-screen',
                                 title: 'Split Screen',
                                 type : 'basic',
-                                link : '/pages/authentication/forgot-password/split-screen'
+                                link : '/pages/authentication/forgot-password/split-screen',
                             },
                             {
                                 id   : 'pages.authentication.forgot-password.split-screen-reversed',
                                 title: 'Split Screen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/forgot-password/split-screen-reversed'
+                                link : '/pages/authentication/forgot-password/split-screen-reversed',
                             },
                             {
                                 id   : 'pages.authentication.forgot-password.fullscreen',
                                 title: 'Fullscreen',
                                 type : 'basic',
-                                link : '/pages/authentication/forgot-password/fullscreen'
+                                link : '/pages/authentication/forgot-password/fullscreen',
                             },
                             {
                                 id   : 'pages.authentication.forgot-password.fullscreen-reversed',
                                 title: 'Fullscreen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/forgot-password/fullscreen-reversed'
-                            }
-                        ]
+                                link : '/pages/authentication/forgot-password/fullscreen-reversed',
+                            },
+                        ],
                     },
                     {
                         id      : 'pages.authentication.reset-password',
@@ -385,45 +385,45 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.authentication.reset-password.classic',
                                 title: 'Classic',
                                 type : 'basic',
-                                link : '/pages/authentication/reset-password/classic'
+                                link : '/pages/authentication/reset-password/classic',
                             },
                             {
                                 id   : 'pages.authentication.reset-password.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/authentication/reset-password/modern'
+                                link : '/pages/authentication/reset-password/modern',
                             },
                             {
                                 id   : 'pages.authentication.reset-password.modern-reversed',
                                 title: 'Modern Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/reset-password/modern-reversed'
+                                link : '/pages/authentication/reset-password/modern-reversed',
                             },
                             {
                                 id   : 'pages.authentication.reset-password.split-screen',
                                 title: 'Split Screen',
                                 type : 'basic',
-                                link : '/pages/authentication/reset-password/split-screen'
+                                link : '/pages/authentication/reset-password/split-screen',
                             },
                             {
                                 id   : 'pages.authentication.reset-password.split-screen-reversed',
                                 title: 'Split Screen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/reset-password/split-screen-reversed'
+                                link : '/pages/authentication/reset-password/split-screen-reversed',
                             },
                             {
                                 id   : 'pages.authentication.reset-password.fullscreen',
                                 title: 'Fullscreen',
                                 type : 'basic',
-                                link : '/pages/authentication/reset-password/fullscreen'
+                                link : '/pages/authentication/reset-password/fullscreen',
                             },
                             {
                                 id   : 'pages.authentication.reset-password.fullscreen-reversed',
                                 title: 'Fullscreen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/reset-password/fullscreen-reversed'
-                            }
-                        ]
+                                link : '/pages/authentication/reset-password/fullscreen-reversed',
+                            },
+                        ],
                     },
                     {
                         id      : 'pages.authentication.unlock-session',
@@ -435,45 +435,45 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.authentication.unlock-session.classic',
                                 title: 'Classic',
                                 type : 'basic',
-                                link : '/pages/authentication/unlock-session/classic'
+                                link : '/pages/authentication/unlock-session/classic',
                             },
                             {
                                 id   : 'pages.authentication.unlock-session.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/authentication/unlock-session/modern'
+                                link : '/pages/authentication/unlock-session/modern',
                             },
                             {
                                 id   : 'pages.authentication.unlock-session.modern-reversed',
                                 title: 'Modern Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/unlock-session/modern-reversed'
+                                link : '/pages/authentication/unlock-session/modern-reversed',
                             },
                             {
                                 id   : 'pages.authentication.unlock-session.split-screen',
                                 title: 'Split Screen',
                                 type : 'basic',
-                                link : '/pages/authentication/unlock-session/split-screen'
+                                link : '/pages/authentication/unlock-session/split-screen',
                             },
                             {
                                 id   : 'pages.authentication.unlock-session.split-screen-reversed',
                                 title: 'Split Screen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/unlock-session/split-screen-reversed'
+                                link : '/pages/authentication/unlock-session/split-screen-reversed',
                             },
                             {
                                 id   : 'pages.authentication.unlock-session.fullscreen',
                                 title: 'Fullscreen',
                                 type : 'basic',
-                                link : '/pages/authentication/unlock-session/fullscreen'
+                                link : '/pages/authentication/unlock-session/fullscreen',
                             },
                             {
                                 id   : 'pages.authentication.unlock-session.fullscreen-reversed',
                                 title: 'Fullscreen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/unlock-session/fullscreen-reversed'
-                            }
-                        ]
+                                link : '/pages/authentication/unlock-session/fullscreen-reversed',
+                            },
+                        ],
                     },
                     {
                         id      : 'pages.authentication.confirmation-required',
@@ -485,47 +485,47 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.authentication.confirmation-required.classic',
                                 title: 'Classic',
                                 type : 'basic',
-                                link : '/pages/authentication/confirmation-required/classic'
+                                link : '/pages/authentication/confirmation-required/classic',
                             },
                             {
                                 id   : 'pages.authentication.confirmation-required.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/authentication/confirmation-required/modern'
+                                link : '/pages/authentication/confirmation-required/modern',
                             },
                             {
                                 id   : 'pages.authentication.confirmation-required.modern-reversed',
                                 title: 'Modern Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/confirmation-required/modern-reversed'
+                                link : '/pages/authentication/confirmation-required/modern-reversed',
                             },
                             {
                                 id   : 'pages.authentication.confirmation-required.split-screen',
                                 title: 'Split Screen',
                                 type : 'basic',
-                                link : '/pages/authentication/confirmation-required/split-screen'
+                                link : '/pages/authentication/confirmation-required/split-screen',
                             },
                             {
                                 id   : 'pages.authentication.confirmation-required.split-screen-reversed',
                                 title: 'Split Screen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/confirmation-required/split-screen-reversed'
+                                link : '/pages/authentication/confirmation-required/split-screen-reversed',
                             },
                             {
                                 id   : 'pages.authentication.confirmation-required.fullscreen',
                                 title: 'Fullscreen',
                                 type : 'basic',
-                                link : '/pages/authentication/confirmation-required/fullscreen'
+                                link : '/pages/authentication/confirmation-required/fullscreen',
                             },
                             {
                                 id   : 'pages.authentication.confirmation-required.fullscreen-reversed',
                                 title: 'Fullscreen Reversed',
                                 type : 'basic',
-                                link : '/pages/authentication/confirmation-required/fullscreen-reversed'
-                            }
-                        ]
-                    }
-                ]
+                                link : '/pages/authentication/confirmation-required/fullscreen-reversed',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id      : 'pages.coming-soon',
@@ -538,45 +538,45 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id   : 'pages.coming-soon.classic',
                         title: 'Classic',
                         type : 'basic',
-                        link : '/pages/coming-soon/classic'
+                        link : '/pages/coming-soon/classic',
                     },
                     {
                         id   : 'pages.coming-soon.modern',
                         title: 'Modern',
                         type : 'basic',
-                        link : '/pages/coming-soon/modern'
+                        link : '/pages/coming-soon/modern',
                     },
                     {
                         id   : 'pages.coming-soon.modern-reversed',
                         title: 'Modern Reversed',
                         type : 'basic',
-                        link : '/pages/coming-soon/modern-reversed'
+                        link : '/pages/coming-soon/modern-reversed',
                     },
                     {
                         id   : 'pages.coming-soon.split-screen',
                         title: 'Split Screen',
                         type : 'basic',
-                        link : '/pages/coming-soon/split-screen'
+                        link : '/pages/coming-soon/split-screen',
                     },
                     {
                         id   : 'pages.coming-soon.split-screen-reversed',
                         title: 'Split Screen Reversed',
                         type : 'basic',
-                        link : '/pages/coming-soon/split-screen-reversed'
+                        link : '/pages/coming-soon/split-screen-reversed',
                     },
                     {
                         id   : 'pages.coming-soon.fullscreen',
                         title: 'Fullscreen',
                         type : 'basic',
-                        link : '/pages/coming-soon/fullscreen'
+                        link : '/pages/coming-soon/fullscreen',
                     },
                     {
                         id   : 'pages.coming-soon.fullscreen-reversed',
                         title: 'Fullscreen Reversed',
                         type : 'basic',
-                        link : '/pages/coming-soon/fullscreen-reversed'
-                    }
-                ]
+                        link : '/pages/coming-soon/fullscreen-reversed',
+                    },
+                ],
             },
             {
                 id      : 'pages.error',
@@ -588,15 +588,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id   : 'pages.error.404',
                         title: '404',
                         type : 'basic',
-                        link : '/pages/error/404'
+                        link : '/pages/error/404',
                     },
                     {
                         id   : 'pages.error.500',
                         title: '500',
                         type : 'basic',
-                        link : '/pages/error/500'
-                    }
-                ]
+                        link : '/pages/error/500',
+                    },
+                ],
             },
             {
                 id      : 'pages.invoice',
@@ -613,24 +613,24 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'pages.invoice.printable.compact',
                                 title: 'Compact',
                                 type : 'basic',
-                                link : '/pages/invoice/printable/compact'
+                                link : '/pages/invoice/printable/compact',
                             },
                             {
                                 id   : 'pages.invoice.printable.modern',
                                 title: 'Modern',
                                 type : 'basic',
-                                link : '/pages/invoice/printable/modern'
-                            }
-                        ]
-                    }
-                ]
+                                link : '/pages/invoice/printable/modern',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id   : 'pages.maintenance',
                 title: 'Maintenance',
                 type : 'basic',
                 icon : 'heroicons_outline:exclamation',
-                link : '/pages/maintenance'
+                link : '/pages/maintenance',
             },
             {
                 id      : 'pages.pricing',
@@ -642,43 +642,43 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id   : 'pages.pricing.modern',
                         title: 'Modern',
                         type : 'basic',
-                        link : '/pages/pricing/modern'
+                        link : '/pages/pricing/modern',
                     },
                     {
                         id   : 'pages.pricing.simple',
                         title: 'Simple',
                         type : 'basic',
-                        link : '/pages/pricing/simple'
+                        link : '/pages/pricing/simple',
                     },
                     {
                         id   : 'pages.pricing.single',
                         title: 'Single',
                         type : 'basic',
-                        link : '/pages/pricing/single'
+                        link : '/pages/pricing/single',
                     },
                     {
                         id   : 'pages.pricing.table',
                         title: 'Table',
                         type : 'basic',
-                        link : '/pages/pricing/table'
-                    }
-                ]
+                        link : '/pages/pricing/table',
+                    },
+                ],
             },
             {
                 id   : 'pages.profile',
                 title: 'Profile',
                 type : 'basic',
                 icon : 'heroicons_outline:user-circle',
-                link : '/pages/profile'
+                link : '/pages/profile',
             },
             {
                 id   : 'pages.settings',
                 title: 'Settings',
                 type : 'basic',
                 icon : 'heroicons_outline:cog',
-                link : '/pages/settings'
-            }
-        ]
+                link : '/pages/settings',
+            },
+        ],
     },
     {
         id      : 'user-interface',
@@ -692,70 +692,70 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 title: 'Material Components',
                 type : 'basic',
                 icon : 'heroicons_outline:chip',
-                link : '/ui/material-components'
+                link : '/ui/material-components',
             },
             {
                 id   : 'user-interface.fuse-components',
                 title: 'Fuse Components',
                 type : 'basic',
                 icon : 'heroicons_outline:chip',
-                link : '/ui/fuse-components'
+                link : '/ui/fuse-components',
             },
             {
                 id   : 'user-interface.other-components',
                 title: 'Other Components',
                 type : 'basic',
                 icon : 'heroicons_outline:chip',
-                link : '/ui/other-components'
+                link : '/ui/other-components',
             },
             {
                 id   : 'user-interface.tailwindcss',
                 title: 'TailwindCSS',
                 type : 'basic',
                 icon : 'heroicons_outline:sparkles',
-                link : '/ui/tailwindcss'
+                link : '/ui/tailwindcss',
             },
             {
                 id   : 'user-interface.advanced-search',
                 title: 'Advanced Search',
                 type : 'basic',
                 icon : 'heroicons_outline:search-circle',
-                link : '/ui/advanced-search'
+                link : '/ui/advanced-search',
             },
             {
                 id   : 'user-interface.animations',
                 title: 'Animations',
                 type : 'basic',
                 icon : 'heroicons_outline:play',
-                link : '/ui/animations'
+                link : '/ui/animations',
             },
             {
                 id   : 'user-interface.cards',
                 title: 'Cards',
                 type : 'basic',
                 icon : 'heroicons_outline:duplicate',
-                link : '/ui/cards'
+                link : '/ui/cards',
             },
             {
                 id   : 'user-interface.colors',
                 title: 'Colors',
                 type : 'basic',
                 icon : 'heroicons_outline:color-swatch',
-                link : '/ui/colors'
+                link : '/ui/colors',
             },
             {
                 id   : 'user-interface.confirmation-dialog',
                 title: 'Confirmation Dialog',
                 type : 'basic',
                 icon : 'heroicons_outline:question-mark-circle',
-                link : '/ui/confirmation-dialog'
+                link : '/ui/confirmation-dialog',
             },
             {
                 id   : 'user-interface.datatable',
                 title: 'Datatable',
                 type : 'basic',
                 icon : 'heroicons_outline:view-list',
-                link : '/ui/datatable'
+                link : '/ui/datatable',
             },
             {
                 id      : 'user-interface.forms',
@@ -767,21 +767,21 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id   : 'user-interface.forms.fields',
                         title: 'Fields',
                         type : 'basic',
-                        link : '/ui/forms/fields'
+                        link : '/ui/forms/fields',
                     },
                     {
                         id   : 'user-interface.forms.layouts',
                         title: 'Layouts',
                         type : 'basic',
-                        link : '/ui/forms/layouts'
+                        link : '/ui/forms/layouts',
                     },
                     {
                         id   : 'user-interface.forms.wizards',
                         title: 'Wizards',
                         type : 'basic',
-                        link : '/ui/forms/wizards'
-                    }
-                ]
+                        link : '/ui/forms/wizards',
+                    },
+                ],
             },
             {
                 id      : 'user-interface.icons',
@@ -793,39 +793,39 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id   : 'user-interface.icons.heroicons-outline',
                         title: 'Heroicons Outline',
                         type : 'basic',
-                        link : '/ui/icons/heroicons-outline'
+                        link : '/ui/icons/heroicons-outline',
                     },
                     {
                         id   : 'user-interface.icons.heroicons-solid',
                         title: 'Heroicons Solid',
                         type : 'basic',
-                        link : '/ui/icons/heroicons-solid'
+                        link : '/ui/icons/heroicons-solid',
                     },
                     {
                         id   : 'user-interface.icons.material-twotone',
                         title: 'Material Twotone',
                         type : 'basic',
-                        link : '/ui/icons/material-twotone'
+                        link : '/ui/icons/material-twotone',
                     },
                     {
                         id   : 'user-interface.icons.material-outline',
                         title: 'Material Outline',
                         type : 'basic',
-                        link : '/ui/icons/material-outline'
+                        link : '/ui/icons/material-outline',
                     },
                     {
                         id   : 'user-interface.icons.material-solid',
                         title: 'Material Solid',
                         type : 'basic',
-                        link : '/ui/icons/material-solid'
+                        link : '/ui/icons/material-solid',
                     },
                     {
                         id   : 'user-interface.icons.feather',
                         title: 'Feather',
                         type : 'basic',
-                        link : '/ui/icons/feather'
-                    }
-                ]
+                        link : '/ui/icons/feather',
+                    },
+                ],
             },
             {
                 id      : 'user-interface.page-layouts',
@@ -837,13 +837,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id   : 'user-interface.page-layouts.overview',
                         title: 'Overview',
                         type : 'basic',
-                        link : '/ui/page-layouts/overview'
+                        link : '/ui/page-layouts/overview',
                     },
                     {
                         id   : 'user-interface.page-layouts.empty',
                         title: 'Empty',
                         type : 'basic',
-                        link : '/ui/page-layouts/empty'
+                        link : '/ui/page-layouts/empty',
                     },
                     {
                         id: 'user-interface.page-layouts.carded',
@@ -855,33 +855,33 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'user-interface.page-layouts.carded.fullwidth',
                                 title: 'Fullwidth',
                                 type : 'basic',
-                                link : '/ui/page-layouts/carded/fullwidth'
+                                link : '/ui/page-layouts/carded/fullwidth',
                             },
                             {
                                 id   : 'user-interface.page-layouts.carded.left-sidebar-1',
                                 title: 'Left Sidebar #1',
                                 type : 'basic',
-                                link : '/ui/page-layouts/carded/left-sidebar-1'
+                                link : '/ui/page-layouts/carded/left-sidebar-1',
                             },
                             {
                                 id   : 'user-interface.page-layouts.carded.left-sidebar-2',
                                 title: 'Left Sidebar #2',
                                 type : 'basic',
-                                link : '/ui/page-layouts/carded/left-sidebar-2'
+                                link : '/ui/page-layouts/carded/left-sidebar-2',
                             },
                             {
                                 id   : 'user-interface.page-layouts.carded.right-sidebar-1',
                                 title: 'Right Sidebar #1',
                                 type : 'basic',
-                                link : '/ui/page-layouts/carded/right-sidebar-1'
+                                link : '/ui/page-layouts/carded/right-sidebar-1',
                             },
                             {
                                 id   : 'user-interface.page-layouts.carded.right-sidebar-2',
                                 title: 'Right Sidebar #2',
                                 type : 'basic',
-                                link : '/ui/page-layouts/carded/right-sidebar-2'
-                            }
-                        ]
+                                link : '/ui/page-layouts/carded/right-sidebar-2',
+                            },
+                        ],
                     },
                     {
                         id      : 'user-interface.page-layouts.simple',
@@ -892,66 +892,66 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                 id   : 'user-interface.page-layouts.simple.fullwidth-1',
                                 title: 'Fullwidth #1',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/fullwidth-1'
+                                link : '/ui/page-layouts/simple/fullwidth-1',
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.fullwidth-2',
                                 title: 'Fullwidth #2',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/fullwidth-2'
+                                link : '/ui/page-layouts/simple/fullwidth-2',
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.left-sidebar-1',
                                 title: 'Left Sidebar #1',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/left-sidebar-1'
+                                link : '/ui/page-layouts/simple/left-sidebar-1',
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.left-sidebar-2',
                                 title: 'Left Sidebar #2',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/left-sidebar-2'
+                                link : '/ui/page-layouts/simple/left-sidebar-2',
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.left-sidebar-3',
                                 title: 'Left Sidebar #3',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/left-sidebar-3'
+                                link : '/ui/page-layouts/simple/left-sidebar-3',
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.right-sidebar-1',
                                 title: 'Right Sidebar #1',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/right-sidebar-1'
+                                link : '/ui/page-layouts/simple/right-sidebar-1',
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.right-sidebar-2',
                                 title: 'Right Sidebar #2',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/right-sidebar-2'
+                                link : '/ui/page-layouts/simple/right-sidebar-2',
                             },
                             {
                                 id   : 'user-interface.page-layouts.simple.right-sidebar-3',
                                 title: 'Right Sidebar #3',
                                 type : 'basic',
-                                link : '/ui/page-layouts/simple/right-sidebar-3'
-                            }
-                        ]
-                    }
-                ]
+                                link : '/ui/page-layouts/simple/right-sidebar-3',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id   : 'user-interface.typography',
                 title: 'Typography',
                 type : 'basic',
                 icon : 'heroicons_outline:pencil',
-                link : '/ui/typography'
-            }
-        ]
+                link : '/ui/typography',
+            },
+        ],
     },
     {
         id  : 'divider-1',
-        type: 'divider'
+        type: 'divider',
     },
     {
         id      : 'documentation',
@@ -968,21 +968,21 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/docs/changelog',
                 badge: {
                     title  : '17.2.0',
-                    classes: 'px-2 bg-yellow-300 text-black rounded-full'
-                }
+                    classes: 'px-2 bg-yellow-300 text-black rounded-full',
+                },
             },
             {
                 id   : 'documentation.guides',
                 title: 'Guides',
                 type : 'basic',
                 icon : 'heroicons_outline:book-open',
-                link : '/docs/guides'
-            }
-        ]
+                link : '/docs/guides',
+            },
+        ],
     },
     {
         id  : 'divider-2',
-        type: 'divider'
+        type: 'divider',
     },
     {
         id      : 'navigation-features',
@@ -1025,19 +1025,19 @@ export const defaultNavigation: FuseNavigationItem[] = [
                                                             {
                                                                 id   : 'navigation-features.level.0.1.2.3.4.5.6',
                                                                 title: 'Level 6',
-                                                                type : 'basic'
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
+                                                                type : 'basic',
+                                                            },
+                                                        ],
+                                                    },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id      : 'navigation-features.level.0',
@@ -1049,14 +1049,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                     {
                         id   : 'navigation-features.level.0.1-1',
                         title: 'Level 1.1',
-                        type : 'basic'
+                        type : 'basic',
                     },
                     {
                         id   : 'navigation-features.level.0.1-2',
                         title: 'Level 1.2',
-                        type : 'basic'
-                    }
-                ]
+                        type : 'basic',
+                    },
+                ],
             },
             {
                 id      : 'navigation-features.active',
@@ -1064,7 +1064,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 subtitle: 'Manually marked as active',
                 icon    : 'heroicons_outline:check-circle',
                 type    : 'basic',
-                active  : true
+                active  : true,
             },
             {
                 id      : 'navigation-features.disabled-collapsable',
@@ -1077,9 +1077,9 @@ export const defaultNavigation: FuseNavigationItem[] = [
                     {
                         id   : 'navigation-features.disabled-collapsable.child',
                         title: 'You shouldn\'t be able to see this child',
-                        type : 'basic'
-                    }
-                ]
+                        type : 'basic',
+                    },
+                ],
             },
             {
                 id      : 'navigation-features.disabled-basic',
@@ -1087,7 +1087,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 subtitle: 'Some subtitle',
                 icon    : 'heroicons_outline:check-circle',
                 type    : 'basic',
-                disabled: true
+                disabled: true,
             },
             {
                 id   : 'navigation-features.badge-style-oval',
@@ -1096,8 +1096,8 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 badge: {
                     title  : '8',
-                    classes: 'w-5 h-5 bg-teal-400 text-black rounded-full'
-                }
+                    classes: 'w-5 h-5 bg-teal-400 text-black rounded-full',
+                },
             },
             {
                 id   : 'navigation-features.badge-style-rectangle',
@@ -1106,8 +1106,8 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 badge: {
                     title  : 'Updated!',
-                    classes: 'px-2 bg-teal-400 text-black rounded'
-                }
+                    classes: 'px-2 bg-teal-400 text-black rounded',
+                },
             },
             {
                 id   : 'navigation-features.badge-style-rounded',
@@ -1116,8 +1116,8 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 badge: {
                     title  : 'NEW',
-                    classes: 'px-2.5 bg-teal-400 text-black rounded-full'
-                }
+                    classes: 'px-2.5 bg-teal-400 text-black rounded-full',
+                },
             },
             {
                 id   : 'navigation-features.badge-style-simple',
@@ -1126,17 +1126,17 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 badge: {
                     title  : '87 Unread',
-                    classes: 'text-teal-500'
-                }
+                    classes: 'text-teal-500',
+                },
             },
             {
                 id   : 'navigation-features.multi-line',
                 title: 'A multi line navigation item title example which works just fine',
                 icon : 'heroicons_outline:check-circle',
-                type : 'basic'
-            }
-        ]
-    }
+                type : 'basic',
+            },
+        ],
+    },
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {
@@ -1145,7 +1145,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         tooltip : 'Dashboards',
         type    : 'aside',
         icon    : 'heroicons_outline:home',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'apps',
@@ -1153,7 +1153,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         tooltip : 'Apps',
         type    : 'aside',
         icon    : 'heroicons_outline:qrcode',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'pages',
@@ -1161,7 +1161,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         tooltip : 'Pages',
         type    : 'aside',
         icon    : 'heroicons_outline:document-duplicate',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'user-interface',
@@ -1169,7 +1169,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         tooltip : 'UI',
         type    : 'aside',
         icon    : 'heroicons_outline:collection',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'navigation-features',
@@ -1177,48 +1177,48 @@ export const compactNavigation: FuseNavigationItem[] = [
         tooltip : 'Navigation',
         type    : 'aside',
         icon    : 'heroicons_outline:menu',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
-    }
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+    },
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
         id      : 'dashboards',
         title   : 'DASHBOARDS',
         type    : 'group',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'apps',
         title   : 'APPS',
         type    : 'group',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id   : 'others',
         title: 'OTHERS',
-        type : 'group'
+        type : 'group',
     },
     {
         id      : 'pages',
         title   : 'Pages',
         type    : 'aside',
         icon    : 'heroicons_outline:document-duplicate',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'user-interface',
         title   : 'User Interface',
         type    : 'aside',
         icon    : 'heroicons_outline:collection',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'navigation-features',
         title   : 'Navigation Features',
         type    : 'aside',
         icon    : 'heroicons_outline:menu',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
-    }
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+    },
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
@@ -1226,34 +1226,34 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         title   : 'Dashboards',
         type    : 'group',
         icon    : 'heroicons_outline:home',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'apps',
         title   : 'Apps',
         type    : 'group',
         icon    : 'heroicons_outline:qrcode',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'pages',
         title   : 'Pages',
         type    : 'group',
         icon    : 'heroicons_outline:document-duplicate',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'user-interface',
         title   : 'UI',
         type    : 'group',
         icon    : 'heroicons_outline:collection',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'navigation-features',
         title   : 'Misc',
         type    : 'group',
         icon    : 'heroicons_outline:menu',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
-    }
+        children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
+    },
 ];

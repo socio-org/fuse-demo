@@ -4,6 +4,6 @@ import { AuthUnlockSessionComponent } from 'app/modules/auth/unlock-session/unlo
 export const authUnlockSessionRoutes: Route[] = [
     {
         path     : '',
-        component: AuthUnlockSessionComponent
-    }
+        component: AuthUnlockSessionComponent,
+    },
 ];

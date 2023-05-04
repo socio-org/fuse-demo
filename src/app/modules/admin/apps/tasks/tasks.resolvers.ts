@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class TasksTagsResolver implements Resolve<any>
 {
@@ -33,7 +33,7 @@ export class TasksTagsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class TasksResolver implements Resolve<any>
 {
@@ -61,7 +61,7 @@ export class TasksResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class TasksTaskResolver implements Resolve<any>
 {
@@ -70,7 +70,7 @@ export class TasksTaskResolver implements Resolve<any>
      */
     constructor(
         private _router: Router,
-        private _tasksService: TasksService
+        private _tasksService: TasksService,
     )
     {
     }
@@ -88,22 +88,23 @@ export class TasksTaskResolver implements Resolve<any>
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Task>
     {
         return this._tasksService.getTaskById(route.paramMap.get('id'))
-                   .pipe(
-                       // Error here means the requested task is not available
-                       catchError((error) => {
+            .pipe(
+                // Error here means the requested task is not available
+                catchError((error) =>
+                {
 
-                           // Log the error
-                           console.error(error);
+                    // Log the error
+                    console.error(error);
 
-                           // Get the parent url
-                           const parentUrl = state.url.split('/').slice(0, -1).join('/');
+                    // Get the parent url
+                    const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
-                           // Navigate to there
-                           this._router.navigateByUrl(parentUrl);
+                    // Navigate to there
+                    this._router.navigateByUrl(parentUrl);
 
-                           // Throw an error
-                           return throwError(error);
-                       })
-                   );
+                    // Throw an error
+                    return throwError(error);
+                }),
+            );
     }
 }

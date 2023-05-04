@@ -1,18 +1,19 @@
 import { ActivatedRouteSnapshot, Route, UrlMatchResult, UrlSegment } from '@angular/router';
-import { isEqual } from 'lodash-es';
+import { MailboxDetailsComponent } from 'app/modules/admin/apps/mailbox/details/details.component';
+import { MailboxEmptyDetailsComponent } from 'app/modules/admin/apps/mailbox/empty-details/empty-details.component';
+import { MailboxListComponent } from 'app/modules/admin/apps/mailbox/list/list.component';
 import { MailboxComponent } from 'app/modules/admin/apps/mailbox/mailbox.component';
 import { MailboxFiltersResolver, MailboxFoldersResolver, MailboxLabelsResolver, MailboxMailResolver, MailboxMailsResolver } from 'app/modules/admin/apps/mailbox/mailbox.resolvers';
-import { MailboxListComponent } from 'app/modules/admin/apps/mailbox/list/list.component';
-import { MailboxDetailsComponent } from 'app/modules/admin/apps/mailbox/details/details.component';
 import { MailboxSettingsComponent } from 'app/modules/admin/apps/mailbox/settings/settings.component';
-import { MailboxEmptyDetailsComponent } from 'app/modules/admin/apps/mailbox/empty-details/empty-details.component';
+import { isEqual } from 'lodash-es';
 
 /**
  * Mailbox custom route matcher
  *
  * @param url
  */
-export const mailboxRouteMatcher: (url: UrlSegment[]) => UrlMatchResult = (url: UrlSegment[]) => {
+export const mailboxRouteMatcher: (url: UrlSegment[]) => UrlMatchResult = (url: UrlSegment[]) =>
+{
 
     // Prepare consumed url and positional parameters
     let consumed = url;
@@ -51,11 +52,12 @@ export const mailboxRouteMatcher: (url: UrlSegment[]) => UrlMatchResult = (url: 
 
     return {
         consumed,
-        posParams
+        posParams,
     };
 };
 
-export const mailboxRunGuardsAndResolvers: (from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot) => boolean = (from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot) => {
+export const mailboxRunGuardsAndResolvers: (from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot) => boolean = (from: ActivatedRouteSnapshot, to: ActivatedRouteSnapshot) =>
+{
 
     // If we are navigating from mail to mails, meaning there is an id in
     // from's deepest first child and there isn't one in the to's, we will
@@ -85,11 +87,13 @@ export const mailboxRunGuardsAndResolvers: (from: ActivatedRouteSnapshot, to: Ac
     const fromParams = {};
     const toParams = {};
 
-    from.paramMap.keys.forEach((key) => {
+    from.paramMap.keys.forEach((key) =>
+    {
         fromParams[key] = from.paramMap.get(key);
     });
 
-    to.paramMap.keys.forEach((key) => {
+    to.paramMap.keys.forEach((key) =>
+    {
         toParams[key] = to.paramMap.get(key);
     });
 
@@ -106,22 +110,22 @@ export const mailboxRoutes: Route[] = [
     {
         path      : '',
         redirectTo: 'inbox/1',
-        pathMatch : 'full'
+        pathMatch : 'full',
     },
     {
         path      : 'filter/:filter',
         redirectTo: 'filter/:filter/1',
-        pathMatch : 'full'
+        pathMatch : 'full',
     },
     {
         path      : 'label/:label',
         redirectTo: 'label/:label/1',
-        pathMatch : 'full'
+        pathMatch : 'full',
     },
     {
         path      : ':folder',
         redirectTo: ':folder/1',
-        pathMatch : 'full'
+        pathMatch : 'full',
     },
     {
         path     : '',
@@ -129,7 +133,7 @@ export const mailboxRoutes: Route[] = [
         resolve  : {
             filters: MailboxFiltersResolver,
             folders: MailboxFoldersResolver,
-            labels : MailboxLabelsResolver
+            labels : MailboxLabelsResolver,
         },
         children : [
             {
@@ -137,27 +141,27 @@ export const mailboxRoutes: Route[] = [
                 matcher              : mailboxRouteMatcher,
                 runGuardsAndResolvers: mailboxRunGuardsAndResolvers,
                 resolve              : {
-                    mails: MailboxMailsResolver
+                    mails: MailboxMailsResolver,
                 },
                 children             : [
                     {
                         path     : '',
                         pathMatch: 'full',
-                        component: MailboxEmptyDetailsComponent
+                        component: MailboxEmptyDetailsComponent,
                     },
                     {
                         path     : ':id',
                         component: MailboxDetailsComponent,
                         resolve  : {
-                            mail: MailboxMailResolver
-                        }
-                    }
-                ]
+                            mail: MailboxMailResolver,
+                        },
+                    },
+                ],
             },
             {
                 path     : 'settings',
-                component: MailboxSettingsComponent
-            }
-        ]
-    }
+                component: MailboxSettingsComponent,
+            },
+        ],
+    },
 ];

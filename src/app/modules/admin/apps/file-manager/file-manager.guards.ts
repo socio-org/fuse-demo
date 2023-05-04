@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { FileManagerDetailsComponent } from 'app/modules/admin/apps/file-manager/details/details.component';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class CanDeactivateFileManagerDetails implements CanDeactivate<FileManagerDetailsComponent>
 {
@@ -12,7 +12,7 @@ export class CanDeactivateFileManagerDetails implements CanDeactivate<FileManage
         component: FileManagerDetailsComponent,
         currentRoute: ActivatedRouteSnapshot,
         currentState: RouterStateSnapshot,
-        nextState: RouterStateSnapshot
+        nextState: RouterStateSnapshot,
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
     {
         // Get the next route

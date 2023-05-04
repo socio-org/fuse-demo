@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
 import { FileManagerService } from 'app/modules/admin/apps/file-manager/file-manager.service';
 import { Item } from 'app/modules/admin/apps/file-manager/file-manager.types';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FileManagerItemsResolver implements Resolve<any>
 {
@@ -33,7 +33,7 @@ export class FileManagerItemsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FileManagerFolderResolver implements Resolve<any>
 {
@@ -42,7 +42,7 @@ export class FileManagerFolderResolver implements Resolve<any>
      */
     constructor(
         private _router: Router,
-        private _fileManagerService: FileManagerService
+        private _fileManagerService: FileManagerService,
     )
     {
     }
@@ -60,28 +60,29 @@ export class FileManagerFolderResolver implements Resolve<any>
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item[]>
     {
         return this._fileManagerService.getItems(route.paramMap.get('folderId'))
-                   .pipe(
-                       // Error here means the requested task is not available
-                       catchError((error) => {
+            .pipe(
+                // Error here means the requested task is not available
+                catchError((error) =>
+                {
 
-                           // Log the error
-                           console.error(error);
+                    // Log the error
+                    console.error(error);
 
-                           // Get the parent url
-                           const parentUrl = state.url.split('/').slice(0, -1).join('/');
+                    // Get the parent url
+                    const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
-                           // Navigate to there
-                           this._router.navigateByUrl(parentUrl);
+                    // Navigate to there
+                    this._router.navigateByUrl(parentUrl);
 
-                           // Throw an error
-                           return throwError(error);
-                       })
-                   );
+                    // Throw an error
+                    return throwError(error);
+                }),
+            );
     }
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FileManagerItemResolver implements Resolve<any>
 {
@@ -90,7 +91,7 @@ export class FileManagerItemResolver implements Resolve<any>
      */
     constructor(
         private _router: Router,
-        private _fileManagerService: FileManagerService
+        private _fileManagerService: FileManagerService,
     )
     {
     }
@@ -108,22 +109,23 @@ export class FileManagerItemResolver implements Resolve<any>
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item>
     {
         return this._fileManagerService.getItemById(route.paramMap.get('id'))
-                   .pipe(
-                       // Error here means the requested task is not available
-                       catchError((error) => {
+            .pipe(
+                // Error here means the requested task is not available
+                catchError((error) =>
+                {
 
-                           // Log the error
-                           console.error(error);
+                    // Log the error
+                    console.error(error);
 
-                           // Get the parent url
-                           const parentUrl = state.url.split('/').slice(0, -1).join('/');
+                    // Get the parent url
+                    const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
-                           // Navigate to there
-                           this._router.navigateByUrl(parentUrl);
+                    // Navigate to there
+                    this._router.navigateByUrl(parentUrl);
 
-                           // Throw an error
-                           return throwError(error);
-                       })
-                   );
+                    // Throw an error
+                    return throwError(error);
+                }),
+            );
     }
 }

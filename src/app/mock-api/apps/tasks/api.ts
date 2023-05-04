@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { assign, cloneDeep } from 'lodash-es';
-import { FuseMockApiUtils } from '@fuse/lib/mock-api/mock-api.utils';
 import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
+import { FuseMockApiUtils } from '@fuse/lib/mock-api/mock-api.utils';
 import { tags as tagsData, tasks as tasksData } from 'app/mock-api/apps/tasks/data';
+import { assign, cloneDeep } from 'lodash-es';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class TasksMockApi
 {
@@ -37,7 +37,7 @@ export class TasksMockApi
             .onGet('api/apps/tasks/tags')
             .reply(() => [
                 200,
-                cloneDeep(this._tags)
+                cloneDeep(this._tags),
             ]);
 
         // -----------------------------------------------------------------------------------------------------
@@ -45,7 +45,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/apps/tasks/tag')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the tag
                 const newTag = cloneDeep(request.body.tag);
@@ -58,7 +59,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    newTag
+                    newTag,
                 ];
             });
 
@@ -67,7 +68,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/apps/tasks/tag')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id and tag
                 const id = request.body.id;
@@ -77,7 +79,8 @@ export class TasksMockApi
                 let updatedTag = null;
 
                 // Find the tag and update it
-                this._tags.forEach((item, index, tags) => {
+                this._tags.forEach((item, index, tags) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -91,7 +94,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    updatedTag
+                    updatedTag,
                 ];
             });
 
@@ -100,7 +103,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onDelete('api/apps/tasks/tag')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id
                 const id = request.params.get('id');
@@ -113,13 +117,14 @@ export class TasksMockApi
                 const tasksWithTag = this._tasks.filter(task => task.tags.indexOf(id) > -1);
 
                 // Iterate through them and remove the tag
-                tasksWithTag.forEach((task) => {
+                tasksWithTag.forEach((task) =>
+                {
                     task.tags.splice(task.tags.indexOf(id), 1);
                 });
 
                 return [
                     200,
-                    true
+                    true,
                 ];
             });
 
@@ -128,7 +133,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/tasks/all')
-            .reply(() => {
+            .reply(() =>
+            {
 
                 // Clone the tasks
                 const tasks = cloneDeep(this._tasks);
@@ -138,7 +144,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    tasks
+                    tasks,
                 ];
             });
 
@@ -147,7 +153,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/tasks/search')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the search query
                 const query = request.params.get('query');
@@ -163,10 +170,11 @@ export class TasksMockApi
 
                     // Filter the tasks
                     tasks = tasks.filter(task => task.title && task.title.toLowerCase().includes(query.toLowerCase()) || task.notes && task.notes.toLowerCase()
-                                                                                                                                           .includes(query.toLowerCase()));
+                        .includes(query.toLowerCase()));
 
                     // Mark the found chars
-                    tasks.forEach((task) => {
+                    tasks.forEach((task) =>
+                    {
                         const re = new RegExp('(' + query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'ig');
                         task.title = task.title.replace(re, '<mark>$1</mark>');
                     });
@@ -182,7 +190,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    results
+                    results,
                 ];
             });
 
@@ -191,13 +199,15 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/apps/tasks/order')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the tasks
                 const tasks = request.body.tasks;
 
                 // Go through the tasks
-                this._tasks.forEach((task) => {
+                this._tasks.forEach((task) =>
+                {
 
                     // Find this task's index within the tasks array that comes with the request
                     // and assign that index as the new order number for the task
@@ -209,7 +219,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    updatedTasks
+                    updatedTasks,
                 ];
             });
 
@@ -218,7 +228,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/tasks/task')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id from the params
                 const id = request.params.get('id');
@@ -231,7 +242,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    task
+                    task,
                 ];
             });
 
@@ -240,7 +251,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/apps/tasks/task')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Generate a new task
                 const newTask = {
@@ -252,20 +264,21 @@ export class TasksMockApi
                     dueDate  : null,
                     priority : 1,
                     tags     : [],
-                    order    : 0
+                    order    : 0,
                 };
 
                 // Unshift the new task
                 this._tasks.unshift(newTask);
 
                 // Go through the tasks and update their order numbers
-                this._tasks.forEach((task, index) => {
+                this._tasks.forEach((task, index) =>
+                {
                     task.order = index;
                 });
 
                 return [
                     200,
-                    newTask
+                    newTask,
                 ];
             });
 
@@ -274,7 +287,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/apps/tasks/task')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id and task
                 const id = request.body.id;
@@ -284,7 +298,8 @@ export class TasksMockApi
                 let updatedTask = null;
 
                 // Find the task and update it
-                this._tasks.forEach((item, index, tasks) => {
+                this._tasks.forEach((item, index, tasks) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -298,7 +313,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    updatedTask
+                    updatedTask,
                 ];
             });
 
@@ -307,7 +322,8 @@ export class TasksMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onDelete('api/apps/tasks/task')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id
                 const id = request.params.get('id');
@@ -318,7 +334,7 @@ export class TasksMockApi
 
                 return [
                     200,
-                    true
+                    true,
                 ];
             });
     }

@@ -7,7 +7,7 @@ export const analyticsRoutes: Route[] = [
         path     : '',
         component: AnalyticsComponent,
         resolve  : {
-            data: AnalyticsResolver
-        }
-    }
+            data: AnalyticsResolver,
+        },
+    },
 ];

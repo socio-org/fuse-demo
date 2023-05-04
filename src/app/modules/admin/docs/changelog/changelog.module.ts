@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from 'app/shared/shared.module';
+
 import { ChangelogComponent } from 'app/modules/admin/docs/changelog/changelog';
 import { changelogRoutes } from 'app/modules/admin/docs/changelog/changelog.routing';
 
 @NgModule({
-    declarations: [
-        ChangelogComponent
-    ],
-    imports     : [
+    imports: [
         RouterModule.forChild(changelogRoutes),
-        SharedModule
-    ]
+        ChangelogComponent,
+    ],
 })
 export class ChangelogModule
 {

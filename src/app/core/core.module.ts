@@ -7,8 +7,8 @@ import { TranslocoCoreModule } from 'app/core/transloco/transloco.module';
     imports: [
         AuthModule,
         IconsModule,
-        TranslocoCoreModule
-    ]
+        TranslocoCoreModule,
+    ],
 })
 export class CoreModule
 {
@@ -16,7 +16,7 @@ export class CoreModule
      * Constructor
      */
     constructor(
-        @Optional() @SkipSelf() parentModule?: CoreModule
+        @Optional() @SkipSelf() parentModule?: CoreModule,
     )
     {
         // Do not allow multiple injections

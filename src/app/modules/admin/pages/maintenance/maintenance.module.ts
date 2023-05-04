@@ -4,12 +4,10 @@ import { MaintenanceComponent } from 'app/modules/admin/pages/maintenance/mainte
 import { maintenanceRoutes } from 'app/modules/admin/pages/maintenance/maintenance.routing';
 
 @NgModule({
-    declarations: [
-        MaintenanceComponent
+    imports: [
+        RouterModule.forChild(maintenanceRoutes),
+        MaintenanceComponent,
     ],
-    imports     : [
-        RouterModule.forChild(maintenanceRoutes)
-    ]
 })
 export class MaintenanceModule
 {

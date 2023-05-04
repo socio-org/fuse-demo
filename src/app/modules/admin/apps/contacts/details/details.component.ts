@@ -1,20 +1,34 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatOptionModule, MatRippleModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDrawerToggleResult } from '@angular/material/sidenav';
-import { debounceTime, Subject, takeUntil } from 'rxjs';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { FuseFindByKeyPipe } from '@fuse/pipes/find-by-key/find-by-key.pipe';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
+import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
 import { Contact, Country, Tag } from 'app/modules/admin/apps/contacts/contacts.types';
 import { ContactsListComponent } from 'app/modules/admin/apps/contacts/list/list.component';
-import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
+import { debounceTime, Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'contacts-details',
     templateUrl    : './details.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [NgIf, MatButtonModule, MatTooltipModule, RouterLink, MatIconModule, NgFor, FormsModule, ReactiveFormsModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, NgClass, MatSelectModule, MatOptionModule, MatDatepickerModule, TextFieldModule, FuseFindByKeyPipe, DatePipe],
 })
 export class ContactsDetailsComponent implements OnInit, OnDestroy
 {
@@ -46,7 +60,7 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         private _renderer2: Renderer2,
         private _router: Router,
         private _overlay: Overlay,
-        private _viewContainerRef: ViewContainerRef
+        private _viewContainerRef: ViewContainerRef,
     )
     {
     }
@@ -75,13 +89,14 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
             birthday    : [null],
             address     : [null],
             notes       : [null],
-            tags        : [[]]
+            tags        : [[]],
         });
 
         // Get the contacts
         this._contactsService.contacts$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((contacts: Contact[]) => {
+            .subscribe((contacts: Contact[]) =>
+            {
                 this.contacts = contacts;
 
                 // Mark for check
@@ -91,7 +106,8 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Get the contact
         this._contactsService.contact$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((contact: Contact) => {
+            .subscribe((contact: Contact) =>
+            {
 
                 // Open the drawer in case it is closed
                 this._contactsListComponent.matDrawer.open();
@@ -112,14 +128,15 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                 if ( contact.emails.length > 0 )
                 {
                     // Iterate through them
-                    contact.emails.forEach((email) => {
+                    contact.emails.forEach((email) =>
+                    {
 
                         // Create an email form group
                         emailFormGroups.push(
                             this._formBuilder.group({
                                 email: [email.email],
-                                label: [email.label]
-                            })
+                                label: [email.label],
+                            }),
                         );
                     });
                 }
@@ -129,13 +146,14 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                     emailFormGroups.push(
                         this._formBuilder.group({
                             email: [''],
-                            label: ['']
-                        })
+                            label: [''],
+                        }),
                     );
                 }
 
                 // Add the email form groups to the emails form array
-                emailFormGroups.forEach((emailFormGroup) => {
+                emailFormGroups.forEach((emailFormGroup) =>
+                {
                     (this.contactForm.get('emails') as UntypedFormArray).push(emailFormGroup);
                 });
 
@@ -145,15 +163,16 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                 if ( contact.phoneNumbers.length > 0 )
                 {
                     // Iterate through them
-                    contact.phoneNumbers.forEach((phoneNumber) => {
+                    contact.phoneNumbers.forEach((phoneNumber) =>
+                    {
 
                         // Create an email form group
                         phoneNumbersFormGroups.push(
                             this._formBuilder.group({
                                 country    : [phoneNumber.country],
                                 phoneNumber: [phoneNumber.phoneNumber],
-                                label      : [phoneNumber.label]
-                            })
+                                label      : [phoneNumber.label],
+                            }),
                         );
                     });
                 }
@@ -164,13 +183,14 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                         this._formBuilder.group({
                             country    : ['us'],
                             phoneNumber: [''],
-                            label      : ['']
-                        })
+                            label      : [''],
+                        }),
                     );
                 }
 
                 // Add the phone numbers form groups to the phone numbers form array
-                phoneNumbersFormGroups.forEach((phoneNumbersFormGroup) => {
+                phoneNumbersFormGroups.forEach((phoneNumbersFormGroup) =>
+                {
                     (this.contactForm.get('phoneNumbers') as UntypedFormArray).push(phoneNumbersFormGroup);
                 });
 
@@ -184,7 +204,8 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Get the country telephone codes
         this._contactsService.countries$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((codes: Country[]) => {
+            .subscribe((codes: Country[]) =>
+            {
                 this.countries = codes;
 
                 // Mark for check
@@ -194,7 +215,8 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Get the tags
         this._contactsService.tags$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((tags: Tag[]) => {
+            .subscribe((tags: Tag[]) =>
+            {
                 this.tags = tags;
                 this.filteredTags = tags;
 
@@ -265,7 +287,8 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         contact.phoneNumbers = contact.phoneNumbers.filter(phoneNumber => phoneNumber.phoneNumber);
 
         // Update the contact on the server
-        this._contactsService.updateContact(contact.id, contact).subscribe(() => {
+        this._contactsService.updateContact(contact.id, contact).subscribe(() =>
+        {
 
             // Toggle the edit mode off
             this.toggleEditMode(false);
@@ -283,13 +306,14 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
             message: 'Are you sure you want to delete this contact? This action cannot be undone!',
             actions: {
                 confirm: {
-                    label: 'Delete'
-                }
-            }
+                    label: 'Delete',
+                },
+            },
         });
 
         // Subscribe to the confirmation dialog closed action
-        confirmation.afterClosed().subscribe((result) => {
+        confirmation.afterClosed().subscribe((result) =>
+        {
 
             // If the confirm button pressed...
             if ( result === 'confirmed' )
@@ -304,7 +328,8 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
 
                 // Delete the contact
                 this._contactsService.deleteContact(id)
-                    .subscribe((isDeleted) => {
+                    .subscribe((isDeleted) =>
+                    {
 
                         // Return if the contact wasn't deleted...
                         if ( !isDeleted )
@@ -389,22 +414,23 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
             hasBackdrop     : true,
             scrollStrategy  : this._overlay.scrollStrategies.block(),
             positionStrategy: this._overlay.position()
-                                  .flexibleConnectedTo(this._tagsPanelOrigin.nativeElement)
-                                  .withFlexibleDimensions(true)
-                                  .withViewportMargin(64)
-                                  .withLockedPosition(true)
-                                  .withPositions([
-                                      {
-                                          originX : 'start',
-                                          originY : 'bottom',
-                                          overlayX: 'start',
-                                          overlayY: 'top'
-                                      }
-                                  ])
+                .flexibleConnectedTo(this._tagsPanelOrigin.nativeElement)
+                .withFlexibleDimensions(true)
+                .withViewportMargin(64)
+                .withLockedPosition(true)
+                .withPositions([
+                    {
+                        originX : 'start',
+                        originY : 'bottom',
+                        overlayX: 'start',
+                        overlayY: 'top',
+                    },
+                ]),
         });
 
         // Subscribe to the attachments observable
-        this._tagsPanelOverlayRef.attachments().subscribe(() => {
+        this._tagsPanelOverlayRef.attachments().subscribe(() =>
+        {
 
             // Add a class to the origin
             this._renderer2.addClass(this._tagsPanelOrigin.nativeElement, 'panel-opened');
@@ -420,7 +446,8 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         this._tagsPanelOverlayRef.attach(templatePortal);
 
         // Subscribe to the backdrop click
-        this._tagsPanelOverlayRef.backdropClick().subscribe(() => {
+        this._tagsPanelOverlayRef.backdropClick().subscribe(() =>
+        {
 
             // Remove the class from the origin
             this._renderer2.removeClass(this._tagsPanelOrigin.nativeElement, 'panel-opened');
@@ -520,12 +547,13 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
     createTag(title: string): void
     {
         const tag = {
-            title
+            title,
         };
 
         // Create tag on the server
         this._contactsService.createTag(tag)
-            .subscribe((response) => {
+            .subscribe((response) =>
+            {
 
                 // Add the tag to the contact
                 this.addTagToContact(response);
@@ -635,7 +663,7 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Create an empty email form group
         const emailFormGroup = this._formBuilder.group({
             email: [''],
-            label: ['']
+            label: [''],
         });
 
         // Add the email form group to the emails form array
@@ -671,7 +699,7 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         const phoneNumberFormGroup = this._formBuilder.group({
             country    : ['us'],
             phoneNumber: [''],
-            label      : ['']
+            label      : [''],
         });
 
         // Add the phone number form group to the phoneNumbers form array

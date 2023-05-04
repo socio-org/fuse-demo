@@ -1,9 +1,14 @@
+import { NgClass, NgFor } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { FuseDrawerComponent } from '@fuse/components/drawer';
 import { FuseConfigService } from '@fuse/services/config';
 import { AppConfig, Scheme, Theme, Themes } from 'app/core/config/app.config';
 import { Layout } from 'app/layout/layout.types';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'settings',
@@ -23,9 +28,11 @@ import { Layout } from 'app/layout/layout.types';
                     right: 0 !important;
                 }
             }
-        `
+        `,
     ],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatIconModule, FuseDrawerComponent, MatButtonModule, NgFor, NgClass, MatTooltipModule],
 })
 export class SettingsComponent implements OnInit, OnDestroy
 {
@@ -41,7 +48,7 @@ export class SettingsComponent implements OnInit, OnDestroy
      */
     constructor(
         private _router: Router,
-        private _fuseConfigService: FuseConfigService
+        private _fuseConfigService: FuseConfigService,
     )
     {
     }
@@ -58,7 +65,8 @@ export class SettingsComponent implements OnInit, OnDestroy
         // Subscribe to config changes
         this._fuseConfigService.config$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((config: AppConfig) => {
+            .subscribe((config: AppConfig) =>
+            {
 
                 // Store the config
                 this.config = config;
@@ -89,10 +97,11 @@ export class SettingsComponent implements OnInit, OnDestroy
         // Clear the 'layout' query param to allow layout changes
         this._router.navigate([], {
             queryParams        : {
-                layout: null
+                layout: null,
             },
-            queryParamsHandling: 'merge'
-        }).then(() => {
+            queryParamsHandling: 'merge',
+        }).then(() =>
+        {
 
             // Set the config
             this._fuseConfigService.config = {layout};

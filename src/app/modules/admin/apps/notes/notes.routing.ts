@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { NotesComponent } from 'app/modules/admin/apps/notes/notes.component';
 import { NotesListComponent } from 'app/modules/admin/apps/notes/list/list.component';
+import { NotesComponent } from 'app/modules/admin/apps/notes/notes.component';
 
 export const notesRoutes: Route[] = [
     {
@@ -9,8 +9,8 @@ export const notesRoutes: Route[] = [
         children : [
             {
                 path     : '',
-                component: NotesListComponent
-            }
-        ]
-    }
+                component: NotesListComponent,
+            },
+        ],
+    },
 ];

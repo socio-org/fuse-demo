@@ -1,12 +1,22 @@
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { BehaviorSubject, combineLatest, map, Observable, Subject, takeUntil } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { IconsService } from 'app/modules/admin/ui/icons/icons.service';
 import { Icon } from 'app/modules/admin/ui/icons/icons.types';
+import { BehaviorSubject, combineLatest, map, Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'icons',
     templateUrl  : './icons.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatIconModule, NgIf, FuseHighlightComponent, MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, MatOptionModule, NgFor, NgClass, AsyncPipe],
 })
 export class IconsComponent implements OnInit, OnDestroy
 {
@@ -40,7 +50,8 @@ export class IconsComponent implements OnInit, OnDestroy
         // Subscribe to icons
         this._iconsService.icons
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((icons) => {
+            .subscribe((icons) =>
+            {
 
                 // Set the icon size in case the icon set
                 // has a special base grid size
@@ -53,7 +64,8 @@ export class IconsComponent implements OnInit, OnDestroy
         // Create filtered icons
         this.filteredIcons$ = combineLatest([this.icons$, this.filterValue$])
             .pipe(
-                map(([icons, filterValue]) => {
+                map(([icons, filterValue]) =>
+                {
 
                     // Filter the icons
                     const filteredIcons = icons.list.filter(icon => icon.toLowerCase().includes(filterValue.toLowerCase()));
@@ -61,9 +73,9 @@ export class IconsComponent implements OnInit, OnDestroy
                     // Update the list with the filtered icons
                     return {
                         ...icons,
-                        list: filteredIcons
+                        list: filteredIcons,
                     };
-                })
+                }),
             );
     }
 
@@ -102,7 +114,7 @@ export class IconsComponent implements OnInit, OnDestroy
     {
         this.selectedIcon = [
             namespace,
-            icon
+            icon,
         ];
     }
 

@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
-import { FuseDrawerMode } from '@fuse/components/drawer';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FuseAlertComponent } from '@fuse/components/alert';
+import { FuseDrawerComponent, FuseDrawerMode } from '@fuse/components/drawer';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({
     selector   : 'drawer',
-    templateUrl: './drawer.component.html'
+    templateUrl: './drawer.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseAlertComponent, FuseHighlightComponent, MatTabsModule, FuseDrawerComponent],
 })
 export class DrawerComponent
 {
@@ -15,7 +22,7 @@ export class DrawerComponent
      * Constructor
      */
     constructor(
-        private _fuseComponentsComponent: FuseComponentsComponent
+        private _fuseComponentsComponent: FuseComponentsComponent,
     )
     {
         // Set the defaults

@@ -4,6 +4,6 @@ import { ModernComponent } from 'app/modules/admin/pages/invoice/printable/moder
 export const modernRoutes: Route[] = [
     {
         path     : '',
-        component: ModernComponent
-    }
+        component: ModernComponent,
+    },
 ];

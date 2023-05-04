@@ -4,6 +4,6 @@ import { PricingTableComponent } from 'app/modules/admin/pages/pricing/table/tab
 export const pricingTableRoutes: Route[] = [
     {
         path     : '',
-        component: PricingTableComponent
-    }
+        component: PricingTableComponent,
+    },
 ];

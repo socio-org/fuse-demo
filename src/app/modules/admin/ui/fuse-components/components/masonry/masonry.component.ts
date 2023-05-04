@@ -1,11 +1,19 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
+import { FuseMasonryComponent } from '@fuse/components/masonry';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 import { Subject, takeUntil } from 'rxjs';
-import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 
 @Component({
     selector   : 'masonry',
-    templateUrl: './masonry.component.html'
+    templateUrl: './masonry.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseHighlightComponent, MatTabsModule, FuseMasonryComponent, NgFor],
 })
 export class MasonryComponent implements OnInit
 {
@@ -17,7 +25,7 @@ export class MasonryComponent implements OnInit
      */
     constructor(
         private _fuseComponentsComponent: FuseComponentsComponent,
-        private _fuseMediaWatcherService: FuseMediaWatcherService
+        private _fuseMediaWatcherService: FuseMediaWatcherService,
     )
     {
     }
@@ -34,7 +42,8 @@ export class MasonryComponent implements OnInit
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the masonry columns
                 //

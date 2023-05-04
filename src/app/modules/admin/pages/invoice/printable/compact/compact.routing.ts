@@ -4,6 +4,6 @@ import { CompactComponent } from 'app/modules/admin/pages/invoice/printable/comp
 export const compactRoutes: Route[] = [
     {
         path     : '',
-        component: CompactComponent
-    }
+        component: CompactComponent,
+    },
 ];

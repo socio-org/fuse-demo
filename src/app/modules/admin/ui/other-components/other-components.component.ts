@@ -1,15 +1,19 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { Subject, takeUntil } from 'rxjs';
-import { FuseNavigationItem } from '@fuse/components/navigation';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
+import { FuseNavigationItem, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
+import { FuseScrollResetDirective } from '@fuse/directives/scroll-reset';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'other-components',
     templateUrl    : './other-components.component.html',
     styleUrls      : ['./other-components.component.scss'],
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatSidenavModule, FuseVerticalNavigationComponent, FuseScrollResetDirective, RouterOutlet],
 })
 export class OtherComponentsComponent implements OnInit, OnDestroy
 {
@@ -24,7 +28,7 @@ export class OtherComponentsComponent implements OnInit, OnDestroy
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseMediaWatcherService: FuseMediaWatcherService
+        private _fuseMediaWatcherService: FuseMediaWatcherService,
     )
     {
         this.menuData = [
@@ -38,55 +42,55 @@ export class OtherComponentsComponent implements OnInit, OnDestroy
                         id   : 'other-components.common.overview',
                         title: 'Overview',
                         type : 'basic',
-                        link : '/ui/other-components/common/overview'
+                        link : '/ui/other-components/common/overview',
                     },
                     {
                         id   : 'other-components.common.languages',
                         title: 'Languages',
                         type : 'basic',
-                        link : '/ui/other-components/common/languages'
+                        link : '/ui/other-components/common/languages',
                     },
                     {
                         id   : 'other-components.common.messages',
                         title: 'Messages',
                         type : 'basic',
-                        link : '/ui/other-components/common/messages'
+                        link : '/ui/other-components/common/messages',
                     },
                     {
                         id   : 'other-components.common.notifications',
                         title: 'Notifications',
                         type : 'basic',
-                        link : '/ui/other-components/common/notifications'
+                        link : '/ui/other-components/common/notifications',
                     },
                     {
                         id   : 'other-components.common.quick-chat',
                         title: 'Quick chat',
                         type : 'basic',
-                        link : '/ui/other-components/common/quick-chat'
+                        link : '/ui/other-components/common/quick-chat',
                     },
                     {
                         id   : 'other-components.common.search',
                         title: 'Search',
                         type : 'basic',
-                        link : '/ui/other-components/common/search'
+                        link : '/ui/other-components/common/search',
                     },
                     {
                         id   : 'other-components.common.shortcuts',
                         title: 'Shortcuts',
                         type : 'basic',
-                        link : '/ui/other-components/common/shortcuts'
+                        link : '/ui/other-components/common/shortcuts',
                     },
                     {
                         id   : 'other-components.common.user',
                         title: 'User',
                         type : 'basic',
-                        link : '/ui/other-components/common/user'
-                    }
-                ]
+                        link : '/ui/other-components/common/user',
+                    },
+                ],
             },
             {
                 id  : 'other-components.divider-1',
-                type: 'divider'
+                type: 'divider',
             },
             {
                 id      : 'other-components.third-party',
@@ -98,16 +102,16 @@ export class OtherComponentsComponent implements OnInit, OnDestroy
                         id   : 'other-components.third-party.apex-charts',
                         title: 'ApexCharts',
                         type : 'basic',
-                        link : '/ui/other-components/third-party/apex-charts'
+                        link : '/ui/other-components/third-party/apex-charts',
                     },
                     {
                         id   : 'other-components.third-party.quill-editor',
                         title: 'Quill editor',
                         type : 'basic',
-                        link : '/ui/other-components/third-party/quill-editor'
-                    }
-                ]
-            }
+                        link : '/ui/other-components/third-party/quill-editor',
+                    },
+                ],
+            },
         ];
     }
 
@@ -123,7 +127,8 @@ export class OtherComponentsComponent implements OnInit, OnDestroy
         // Subscribe to media query change
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('md') )

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, finalize, forkJoin, Observable, throwError } from 'rxjs';
 import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { Mail, MailFilter, MailFolder, MailLabel } from 'app/modules/admin/apps/mailbox/mailbox.types';
+import { catchError, finalize, forkJoin, Observable, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MailboxFoldersResolver implements Resolve<any>
 {
@@ -33,7 +33,7 @@ export class MailboxFoldersResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MailboxFiltersResolver implements Resolve<any>
 {
@@ -61,7 +61,7 @@ export class MailboxFiltersResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MailboxLabelsResolver implements Resolve<any>
 {
@@ -89,7 +89,7 @@ export class MailboxLabelsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MailboxMailsResolver implements Resolve<any>
 {
@@ -98,7 +98,7 @@ export class MailboxMailsResolver implements Resolve<any>
      */
     constructor(
         private _mailboxService: MailboxService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -152,7 +152,8 @@ export class MailboxMailsResolver implements Resolve<any>
         // Fork join all the sources
         return forkJoin(sources)
             .pipe(
-                finalize(() => {
+                finalize(() =>
+                {
 
                     // If there is no selected mail, reset the mail every
                     // time mail list changes. This will ensure that the
@@ -176,7 +177,8 @@ export class MailboxMailsResolver implements Resolve<any>
                 }),
 
                 // Error here means the requested page is not available
-                catchError((error) => {
+                catchError((error) =>
+                {
 
                     // Log the error
                     console.error(error.message);
@@ -189,13 +191,13 @@ export class MailboxMailsResolver implements Resolve<any>
 
                     // Throw an error
                     return throwError(error);
-                })
+                }),
             );
     }
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MailboxMailResolver implements Resolve<any>
 {
@@ -204,7 +206,7 @@ export class MailboxMailResolver implements Resolve<any>
      */
     constructor(
         private _mailboxService: MailboxService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -222,24 +224,25 @@ export class MailboxMailResolver implements Resolve<any>
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Mail>
     {
         return this._mailboxService.getMailById(route.paramMap.get('id'))
-                   .pipe(
-                       // Error here means the requested mail is either
-                       // not available on the requested page or not
-                       // available at all
-                       catchError((error) => {
+            .pipe(
+                // Error here means the requested mail is either
+                // not available on the requested page or not
+                // available at all
+                catchError((error) =>
+                {
 
-                           // Log the error
-                           console.error(error);
+                    // Log the error
+                    console.error(error);
 
-                           // Get the parent url
-                           const parentUrl = state.url.split('/').slice(0, -1).join('/');
+                    // Get the parent url
+                    const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
-                           // Navigate to there
-                           this._router.navigateByUrl(parentUrl);
+                    // Navigate to there
+                    this._router.navigateByUrl(parentUrl);
 
-                           // Throw an error
-                           return throwError(error);
-                       })
-                   );
+                    // Throw an error
+                    return throwError(error);
+                }),
+            );
     }
 }

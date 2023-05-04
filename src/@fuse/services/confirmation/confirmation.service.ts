@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { merge } from 'lodash-es';
-import { FuseConfirmationDialogComponent } from '@fuse/services/confirmation/dialog/dialog.component';
 import { FuseConfirmationConfig } from '@fuse/services/confirmation/confirmation.types';
+import { FuseConfirmationDialogComponent } from '@fuse/services/confirmation/dialog/dialog.component';
+import { merge } from 'lodash-es';
 
 @Injectable()
 export class FuseConfirmationService
@@ -13,27 +13,27 @@ export class FuseConfirmationService
         icon       : {
             show : true,
             name : 'heroicons_outline:exclamation',
-            color: 'warn'
+            color: 'warn',
         },
         actions    : {
             confirm: {
                 show : true,
                 label: 'Confirm',
-                color: 'warn'
+                color: 'warn',
             },
             cancel : {
                 show : true,
-                label: 'Cancel'
-            }
+                label: 'Cancel',
+            },
         },
-        dismissible: false
+        dismissible: false,
     };
 
     /**
      * Constructor
      */
     constructor(
-        private _matDialog: MatDialog
+        private _matDialog: MatDialog,
     )
     {
     }
@@ -52,7 +52,7 @@ export class FuseConfirmationService
             autoFocus   : false,
             disableClose: !userConfig.dismissible,
             data        : userConfig,
-            panelClass  : 'fuse-confirmation-dialog-panel'
+            panelClass  : 'fuse-confirmation-dialog-panel',
         });
     }
 }

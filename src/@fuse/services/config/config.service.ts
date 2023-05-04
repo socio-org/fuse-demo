@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { merge } from 'lodash-es';
 import { FUSE_APP_CONFIG } from '@fuse/services/config/config.constants';
+import { merge } from 'lodash-es';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FuseConfigService
 {

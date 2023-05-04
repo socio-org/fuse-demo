@@ -3,8 +3,8 @@ import { FuseSplashScreenService } from '@fuse/services/splash-screen/splash-scr
 
 @NgModule({
     providers: [
-        FuseSplashScreenService
-    ]
+        FuseSplashScreenService,
+    ],
 })
 export class FuseSplashScreenModule
 {

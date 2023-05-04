@@ -7,7 +7,7 @@ export const financeRoutes: Route[] = [
         path     : '',
         component: FinanceComponent,
         resolve  : {
-            data: FinanceResolver
-        }
-    }
+            data: FinanceResolver,
+        },
+    },
 ];

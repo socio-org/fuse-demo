@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { FaqCategory, Guide, GuideCategory } from 'app/modules/admin/apps/help-center/help-center.type';
+import { Observable, ReplaySubject, tap } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class HelpCenterService
 {
@@ -57,9 +57,10 @@ export class HelpCenterService
     getAllFaqs(): Observable<FaqCategory[]>
     {
         return this._httpClient.get<FaqCategory[]>('api/apps/help-center/faqs').pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._faqs.next(response);
-            })
+            }),
         );
     }
 
@@ -71,11 +72,12 @@ export class HelpCenterService
     getFaqsByCategory(slug: string): Observable<FaqCategory[]>
     {
         return this._httpClient.get<FaqCategory[]>('api/apps/help-center/faqs', {
-            params: {slug}
+            params: {slug},
         }).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._faqs.next(response);
-            })
+            }),
         );
     }
 
@@ -87,11 +89,12 @@ export class HelpCenterService
     getAllGuides(limit = '4'): Observable<GuideCategory[]>
     {
         return this._httpClient.get<GuideCategory[]>('api/apps/help-center/guides', {
-            params: {limit}
+            params: {limit},
         }).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._guides.next(response);
-            })
+            }),
         );
     }
 
@@ -103,11 +106,12 @@ export class HelpCenterService
     getGuidesByCategory(slug: string): Observable<GuideCategory[]>
     {
         return this._httpClient.get<GuideCategory[]>('api/apps/help-center/guides', {
-            params: {slug}
+            params: {slug},
         }).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._guides.next(response);
-            })
+            }),
         );
     }
 
@@ -122,12 +126,13 @@ export class HelpCenterService
         return this._httpClient.get<GuideCategory>('api/apps/help-center/guide', {
             params: {
                 categorySlug,
-                guideSlug
-            }
+                guideSlug,
+            },
         }).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._guide.next(response);
-            })
+            }),
         );
     }
 }

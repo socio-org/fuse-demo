@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { finalize, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { FuseLoadingService } from '@fuse/services/loading/loading.service';
+import { finalize, Observable } from 'rxjs';
 
 @Injectable()
 export class FuseLoadingInterceptor implements HttpInterceptor
@@ -12,12 +12,13 @@ export class FuseLoadingInterceptor implements HttpInterceptor
      * Constructor
      */
     constructor(
-        private _fuseLoadingService: FuseLoadingService
+        private _fuseLoadingService: FuseLoadingService,
     )
     {
         // Subscribe to the auto
         this._fuseLoadingService.auto$
-            .subscribe((value) => {
+            .subscribe((value) =>
+            {
                 this.handleRequestsAutomatically = value;
             });
     }
@@ -40,7 +41,8 @@ export class FuseLoadingInterceptor implements HttpInterceptor
         this._fuseLoadingService._setLoadingStatus(true, req.url);
 
         return next.handle(req).pipe(
-            finalize(() => {
+            finalize(() =>
+            {
                 // Set the status to false if there are any errors or the request is completed
                 this._fuseLoadingService._setLoadingStatus(false, req.url);
             }));

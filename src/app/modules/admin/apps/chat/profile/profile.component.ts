@@ -1,14 +1,22 @@
+import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatDrawer } from '@angular/material/sidenav';
-import { Subject, takeUntil } from 'rxjs';
-import { Profile } from 'app/modules/admin/apps/chat/chat.types';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
+import { Profile } from 'app/modules/admin/apps/chat/chat.types';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'chat-profile',
     templateUrl    : './profile.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonModule, MatIconModule, NgIf, MatFormFieldModule, MatInputModule, FormsModule],
 })
 export class ProfileComponent implements OnInit, OnDestroy
 {
@@ -35,7 +43,8 @@ export class ProfileComponent implements OnInit, OnDestroy
         // Profile
         this._chatService.profile$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((profile: Profile) => {
+            .subscribe((profile: Profile) =>
+            {
                 this.profile = profile;
             });
     }

@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FuseAlertModule } from '@fuse/components/alert';
-import { SharedModule } from 'app/shared/shared.module';
+import { RouterModule, Routes } from '@angular/router';
+
 import { SignInClassicComponent } from 'app/modules/admin/pages/authentication/sign-in/classic/sign-in.component';
-import { SignInModernComponent } from 'app/modules/admin/pages/authentication/sign-in/modern/sign-in.component';
-import { SignInModernReversedComponent } from 'app/modules/admin/pages/authentication/sign-in/modern-reversed/sign-in.component';
-import { SignInFullscreenComponent } from 'app/modules/admin/pages/authentication/sign-in/fullscreen/sign-in.component';
 import { SignInFullscreenReversedComponent } from 'app/modules/admin/pages/authentication/sign-in/fullscreen-reversed/sign-in.component';
-import { SignInSplitScreenComponent } from 'app/modules/admin/pages/authentication/sign-in/split-screen/sign-in.component';
+import { SignInFullscreenComponent } from 'app/modules/admin/pages/authentication/sign-in/fullscreen/sign-in.component';
+import { SignInModernReversedComponent } from 'app/modules/admin/pages/authentication/sign-in/modern-reversed/sign-in.component';
+import { SignInModernComponent } from 'app/modules/admin/pages/authentication/sign-in/modern/sign-in.component';
 import { SignInSplitScreenReversedComponent } from 'app/modules/admin/pages/authentication/sign-in/split-screen-reversed/sign-in.component';
+import { SignInSplitScreenComponent } from 'app/modules/admin/pages/authentication/sign-in/split-screen/sign-in.component';
 
 const routes: Routes = [
     {
@@ -22,47 +21,38 @@ const routes: Routes = [
         children: [
             {
                 path     : 'classic',
-                component: SignInClassicComponent
+                component: SignInClassicComponent,
             },
             {
                 path     : 'modern',
-                component: SignInModernComponent
+                component: SignInModernComponent,
             },
             {
                 path     : 'modern-reversed',
-                component: SignInModernReversedComponent
+                component: SignInModernReversedComponent,
             },
             {
                 path     : 'split-screen',
-                component: SignInSplitScreenComponent
+                component: SignInSplitScreenComponent,
             },
             {
                 path     : 'split-screen-reversed',
-                component: SignInSplitScreenReversedComponent
+                component: SignInSplitScreenReversedComponent,
             },
             {
                 path     : 'fullscreen',
-                component: SignInFullscreenComponent
+                component: SignInFullscreenComponent,
             },
             {
                 path     : 'fullscreen-reversed',
-                component: SignInFullscreenReversedComponent
-            }
-        ]
-    }
+                component: SignInFullscreenReversedComponent,
+            },
+        ],
+    },
 ];
 
 @NgModule({
-    declarations: [
-        SignInClassicComponent,
-        SignInModernComponent,
-        SignInModernReversedComponent,
-        SignInFullscreenComponent,
-        SignInFullscreenReversedComponent,
-        SignInSplitScreenComponent,
-        SignInSplitScreenReversedComponent
-    ],
-    imports     : [
+    imports: [
         RouterModule.forChild(routes),
         MatButtonModule,
         MatCheckboxModule,
@@ -70,9 +60,14 @@ const routes: Routes = [
         MatIconModule,
         MatInputModule,
         MatProgressSpinnerModule,
-        FuseAlertModule,
-        SharedModule
-    ]
+        SignInClassicComponent,
+        SignInModernComponent,
+        SignInModernReversedComponent,
+        SignInFullscreenComponent,
+        SignInFullscreenReversedComponent,
+        SignInSplitScreenComponent,
+        SignInSplitScreenReversedComponent,
+    ],
 })
 export class SignInModule
 {

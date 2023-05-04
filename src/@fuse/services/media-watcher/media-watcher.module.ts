@@ -3,8 +3,8 @@ import { FuseMediaWatcherService } from '@fuse/services/media-watcher/media-watc
 
 @NgModule({
     providers: [
-        FuseMediaWatcherService
-    ]
+        FuseMediaWatcherService,
+    ],
 })
 export class FuseMediaWatcherModule
 {

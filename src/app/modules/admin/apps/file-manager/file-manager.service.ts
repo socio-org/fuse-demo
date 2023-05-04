@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Item, Items } from 'app/modules/admin/apps/file-manager/file-manager.types';
+import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FileManagerService
 {
@@ -49,9 +49,10 @@ export class FileManagerService
     getItems(folderId: string | null = null): Observable<Item[]>
     {
         return this._httpClient.get<Items>('api/apps/file-manager', {params: {folderId}}).pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._items.next(response);
-            })
+            }),
         );
     }
 
@@ -62,7 +63,8 @@ export class FileManagerService
     {
         return this._items.pipe(
             take(1),
-            map((items) => {
+            map((items) =>
+            {
 
                 // Find within the folders and files
                 const item = [...items.folders, ...items.files].find(value => value.id === id) || null;
@@ -73,7 +75,8 @@ export class FileManagerService
                 // Return the item
                 return item;
             }),
-            switchMap((item) => {
+            switchMap((item) =>
+            {
 
                 if ( !item )
                 {
@@ -81,7 +84,7 @@ export class FileManagerService
                 }
 
                 return of(item);
-            })
+            }),
         );
     }
 }

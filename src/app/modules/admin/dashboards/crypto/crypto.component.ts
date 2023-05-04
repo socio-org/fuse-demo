@@ -1,15 +1,26 @@
+import { CurrencyPipe, DecimalPipe, NgClass, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { DateTime } from 'luxon';
-import { ApexOptions, ChartComponent } from 'ng-apexcharts';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { CryptoService } from 'app/modules/admin/dashboards/crypto/crypto.service';
+import { DateTime } from 'luxon';
+import { ApexOptions, ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'crypto',
     templateUrl    : './crypto.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatSidenavModule, NgFor, MatIconModule, NgClass, NgApexchartsModule, MatFormFieldModule, MatSelectModule, MatOptionModule, NgIf, FormsModule, MatInputModule, MatButtonModule, UpperCasePipe, DecimalPipe, CurrencyPipe],
 })
 export class CryptoComponent implements OnInit, OnDestroy
 {
@@ -28,7 +39,7 @@ export class CryptoComponent implements OnInit, OnDestroy
     constructor(
         private _cryptoService: CryptoService,
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseMediaWatcherService: FuseMediaWatcherService
+        private _fuseMediaWatcherService: FuseMediaWatcherService,
     )
     {
     }
@@ -45,7 +56,8 @@ export class CryptoComponent implements OnInit, OnDestroy
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the drawerMode and drawerOpened if 'lg' breakpoint is active
                 if ( matchingAliases.includes('lg') )
@@ -66,7 +78,8 @@ export class CryptoComponent implements OnInit, OnDestroy
         // Get the data
         this._cryptoService.data$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((data) => {
+            .subscribe((data) =>
+            {
 
                 // Store the data
                 this.data = data;
@@ -101,7 +114,7 @@ export class CryptoComponent implements OnInit, OnDestroy
         this.btcOptions = {
             chart     : {
                 animations: {
-                    enabled: false
+                    enabled: false,
                 },
                 fontFamily: 'inherit',
                 foreColor : 'inherit',
@@ -109,15 +122,15 @@ export class CryptoComponent implements OnInit, OnDestroy
                 height    : '100%',
                 type      : 'line',
                 toolbar   : {
-                    show: false
+                    show: false,
                 },
                 zoom      : {
-                    enabled: false
-                }
+                    enabled: false,
+                },
             },
             colors    : ['#5A67D8'],
             dataLabels: {
-                enabled: false
+                enabled: false,
             },
             grid      : {
                 borderColor    : 'var(--fuse-border)',
@@ -126,29 +139,29 @@ export class CryptoComponent implements OnInit, OnDestroy
                 strokeDashArray: 6,
                 xaxis          : {
                     lines: {
-                        show: true
-                    }
+                        show: true,
+                    },
                 },
                 yaxis          : {
                     lines: {
-                        show: true
-                    }
-                }
+                        show: true,
+                    },
+                },
             },
             legend    : {
-                show: false
+                show: false,
             },
             series    : this.data.btc.price.series,
             stroke    : {
                 width: 2,
-                curve: 'straight'
+                curve: 'straight',
             },
             tooltip   : {
                 shared: true,
                 theme : 'dark',
                 y     : {
-                    formatter: (value: number): string => '$' + value.toFixed(2)
-                }
+                    formatter: (value: number): string => '$' + value.toFixed(2),
+                },
             },
             xaxis     : {
                 type      : 'numeric',
@@ -157,25 +170,25 @@ export class CryptoComponent implements OnInit, OnDestroy
                     position: 'back',
                     fill    : {
                         type : 'color',
-                        color: 'var(--fuse-border)'
+                        color: 'var(--fuse-border)',
                     },
                     width   : 3,
                     stroke  : {
                         dashArray: 0,
-                        width    : 0
+                        width    : 0,
                     },
-                    opacity : 0.9
+                    opacity : 0.9,
                 },
                 tickAmount: 8,
                 axisTicks : {
                     show : true,
-                    color: 'var(--fuse-border)'
+                    color: 'var(--fuse-border)',
                 },
                 axisBorder: {
-                    show: false
+                    show: false,
                 },
                 tooltip   : {
-                    enabled: false
+                    enabled: false,
                 },
                 labels    : {
                     show                 : true,
@@ -185,53 +198,53 @@ export class CryptoComponent implements OnInit, OnDestroy
                     hideOverlappingLabels: true,
                     formatter            : (value): string => DateTime.now().minus({minutes: Math.abs(parseInt(value, 10))}).toFormat('HH:mm'),
                     style                : {
-                        colors: 'currentColor'
-                    }
-                }
+                        colors: 'currentColor',
+                    },
+                },
             },
             yaxis     : {
                 axisTicks     : {
                     show : true,
-                    color: 'var(--fuse-border)'
+                    color: 'var(--fuse-border)',
                 },
                 axisBorder    : {
-                    show: false
+                    show: false,
                 },
                 forceNiceScale: true,
                 labels        : {
                     minWidth : 40,
                     formatter: (value: number): string => '$' + value.toFixed(0),
                     style    : {
-                        colors: 'currentColor'
-                    }
-                }
-            }
+                        colors: 'currentColor',
+                    },
+                },
+            },
         };
 
         // Watchlist options
         this.watchlistChartOptions = {
             chart  : {
                 animations: {
-                    enabled: false
+                    enabled: false,
                 },
                 width     : '100%',
                 height    : '100%',
                 type      : 'line',
                 sparkline : {
-                    enabled: true
-                }
+                    enabled: true,
+                },
             },
             colors : ['#A0AEC0'],
             stroke : {
                 width: 2,
-                curve: 'smooth'
+                curve: 'smooth',
             },
             tooltip: {
-                enabled: false
+                enabled: false,
             },
             xaxis  : {
-                type: 'category'
-            }
+                type: 'category',
+            },
         };
     }
 }

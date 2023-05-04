@@ -1,26 +1,26 @@
 import { Route } from '@angular/router';
-import { HelpCenterComponent } from 'app/modules/admin/apps/help-center/help-center.component';
 import { HelpCenterFaqsComponent } from 'app/modules/admin/apps/help-center/faqs/faqs.component';
-import { HelpCenterGuidesComponent } from 'app/modules/admin/apps/help-center/guides/guides.component';
 import { HelpCenterGuidesCategoryComponent } from 'app/modules/admin/apps/help-center/guides/category/category.component';
 import { HelpCenterGuidesGuideComponent } from 'app/modules/admin/apps/help-center/guides/guide/guide.component';
-import { HelpCenterSupportComponent } from 'app/modules/admin/apps/help-center/support/support.component';
+import { HelpCenterGuidesComponent } from 'app/modules/admin/apps/help-center/guides/guides.component';
+import { HelpCenterComponent } from 'app/modules/admin/apps/help-center/help-center.component';
 import { HelpCenterFaqsResolver, HelpCenterGuidesCategoryResolver, HelpCenterGuidesGuideResolver, HelpCenterGuidesResolver, HelpCenterMostAskedFaqsResolver } from 'app/modules/admin/apps/help-center/help-center.resolvers';
+import { HelpCenterSupportComponent } from 'app/modules/admin/apps/help-center/support/support.component';
 
 export const helpCenterRoutes: Route[] = [
     {
         path     : '',
         component: HelpCenterComponent,
         resolve  : {
-            faqs: HelpCenterMostAskedFaqsResolver
-        }
+            faqs: HelpCenterMostAskedFaqsResolver,
+        },
     },
     {
         path     : 'faqs',
         component: HelpCenterFaqsComponent,
         resolve  : {
-            faqs: HelpCenterFaqsResolver
-        }
+            faqs: HelpCenterFaqsResolver,
+        },
     },
     {
         path    : 'guides',
@@ -29,8 +29,8 @@ export const helpCenterRoutes: Route[] = [
                 path     : '',
                 component: HelpCenterGuidesComponent,
                 resolve  : {
-                    guides: HelpCenterGuidesResolver
-                }
+                    guides: HelpCenterGuidesResolver,
+                },
             },
             {
                 path    : ':categorySlug',
@@ -39,22 +39,22 @@ export const helpCenterRoutes: Route[] = [
                         path     : '',
                         component: HelpCenterGuidesCategoryComponent,
                         resolve  : {
-                            guides: HelpCenterGuidesCategoryResolver
-                        }
+                            guides: HelpCenterGuidesCategoryResolver,
+                        },
                     },
                     {
                         path     : ':guideSlug',
                         component: HelpCenterGuidesGuideComponent,
                         resolve  : {
-                            guide: HelpCenterGuidesGuideResolver
-                        }
-                    }
-                ]
-            }
-        ]
+                            guide: HelpCenterGuidesGuideResolver,
+                        },
+                    },
+                ],
+            },
+        ],
     },
     {
         path     : 'support',
-        component: HelpCenterSupportComponent
-    }
+        component: HelpCenterSupportComponent,
+    },
 ];

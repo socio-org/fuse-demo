@@ -1,13 +1,23 @@
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { RouterLink } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
+import { FuseAlertComponent } from '@fuse/components/alert';
 import { HelpCenterService } from 'app/modules/admin/apps/help-center/help-center.service';
 
 @Component({
     selector     : 'help-center-support',
     templateUrl  : './support.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : fuseAnimations,
+    standalone   : true,
+    imports      : [MatButtonModule, RouterLink, MatIconModule, NgIf, FuseAlertComponent, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TextFieldModule],
 })
 export class HelpCenterSupportComponent implements OnInit
 {
@@ -21,7 +31,7 @@ export class HelpCenterSupportComponent implements OnInit
      */
     constructor(
         private _formBuilder: UntypedFormBuilder,
-        private _helpCenterService: HelpCenterService
+        private _helpCenterService: HelpCenterService,
     )
     {
     }
@@ -40,7 +50,7 @@ export class HelpCenterSupportComponent implements OnInit
             name   : ['', Validators.required],
             email  : ['', [Validators.required, Validators.email]],
             subject: ['', Validators.required],
-            message: ['', Validators.required]
+            message: ['', Validators.required],
         });
     }
 
@@ -69,10 +79,11 @@ export class HelpCenterSupportComponent implements OnInit
         // and remove it after 5 seconds
         this.alert = {
             type   : 'success',
-            message: 'Your request has been delivered! A member of our support staff will respond as soon as possible.'
+            message: 'Your request has been delivered! A member of our support staff will respond as soon as possible.',
         };
 
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             this.alert = null;
         }, 7000);
 

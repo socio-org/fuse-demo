@@ -4,6 +4,6 @@ import { SettingsComponent } from 'app/modules/admin/pages/settings/settings.com
 export const settingsRoutes: Route[] = [
     {
         path     : '',
-        component: SettingsComponent
-    }
+        component: SettingsComponent,
+    },
 ];

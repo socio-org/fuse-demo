@@ -4,6 +4,6 @@ import { AuthSignOutComponent } from 'app/modules/auth/sign-out/sign-out.compone
 export const authSignOutRoutes: Route[] = [
     {
         path     : '',
-        component: AuthSignOutComponent
-    }
+        component: AuthSignOutComponent,
+    },
 ];

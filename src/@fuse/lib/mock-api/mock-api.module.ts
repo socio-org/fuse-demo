@@ -1,5 +1,5 @@
-import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 import { FUSE_MOCK_API_DEFAULT_DELAY } from '@fuse/lib/mock-api/mock-api.constants';
 import { FuseMockApiInterceptor } from '@fuse/lib/mock-api/mock-api.interceptor';
 
@@ -8,9 +8,9 @@ import { FuseMockApiInterceptor } from '@fuse/lib/mock-api/mock-api.interceptor'
         {
             provide : HTTP_INTERCEPTORS,
             useClass: FuseMockApiInterceptor,
-            multi   : true
-        }
-    ]
+            multi   : true,
+        },
+    ],
 })
 export class FuseMockApiModule
 {
@@ -30,13 +30,13 @@ export class FuseMockApiModule
                     provide   : APP_INITIALIZER,
                     deps      : [...mockApiServices],
                     useFactory: () => (): any => null,
-                    multi     : true
+                    multi     : true,
                 },
                 {
                     provide : FUSE_MOCK_API_DEFAULT_DELAY,
-                    useValue: config?.delay ?? 0
-                }
-            ]
+                    useValue: config?.delay ?? 0,
+                },
+            ],
         };
     }
 }

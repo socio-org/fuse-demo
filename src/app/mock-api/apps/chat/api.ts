@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { assign, cloneDeep, omit } from 'lodash-es';
 import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { chats as chatsData, contacts as contactsData, messages as messagesData, profile as profileData } from 'app/mock-api/apps/chat/data';
+import { assign, cloneDeep, omit } from 'lodash-es';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ChatMockApi
 {
@@ -31,8 +31,8 @@ export class ChatMockApi
                 ...message,
                 chatId   : chat.id,
                 contactId: message.contactId === 'me' ? this._profile.id : chat.contactId,
-                isMine   : message.contactId === 'me'
-            }))
+                isMine   : message.contactId === 'me',
+            })),
         }));
     }
 
@@ -50,7 +50,8 @@ export class ChatMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/chat/chats')
-            .reply(() => {
+            .reply(() =>
+            {
 
                 // Clone the chats
                 const chats = cloneDeep(this._chats);
@@ -64,7 +65,8 @@ export class ChatMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/chat/chat')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the chat id
                 const id = request.params.get('id');
@@ -84,7 +86,8 @@ export class ChatMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/apps/chat/chat')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id and chat
                 const id = request.body.id;
@@ -94,7 +97,8 @@ export class ChatMockApi
                 let updatedChat = null;
 
                 // Find the chat and update it
-                this._chats.forEach((item, index, chats) => {
+                this._chats.forEach((item, index, chats) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -115,7 +119,8 @@ export class ChatMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/chat/contacts')
-            .reply(() => {
+            .reply(() =>
+            {
 
                 // Clone the contacts
                 let contacts = cloneDeep(this._contacts);
@@ -135,7 +140,8 @@ export class ChatMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/chat/contact')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the contact id
                 const id = request.params.get('id');
@@ -155,7 +161,8 @@ export class ChatMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/chat/profile')
-            .reply(() => {
+            .reply(() =>
+            {
 
                 // Clone the profile
                 const profile = cloneDeep(this._profile);

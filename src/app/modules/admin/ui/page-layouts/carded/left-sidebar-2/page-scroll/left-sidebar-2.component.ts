@@ -1,11 +1,19 @@
+import { CdkScrollable } from '@angular/cdk/scrolling';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterLink } from '@angular/router';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { DemoSidebarComponent } from 'app/modules/admin/ui/page-layouts/common/demo-sidebar/demo-sidebar.component';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'carded-left-sidebar-2-page-scroll',
     templateUrl  : './left-sidebar-2.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [CdkScrollable, MatIconModule, RouterLink, MatButtonModule, MatSidenavModule, DemoSidebarComponent],
 })
 export class CardedLeftSidebar2PageScrollComponent implements OnInit, OnDestroy
 {
@@ -32,7 +40,8 @@ export class CardedLeftSidebar2PageScrollComponent implements OnInit, OnDestroy
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the drawerMode and drawerOpened if
                 if ( matchingAliases.includes('lg') )

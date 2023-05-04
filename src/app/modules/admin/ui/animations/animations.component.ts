@@ -1,12 +1,21 @@
+import { NgIf } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 import { fuseAnimations } from '@fuse/animations';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 
 @Component({
     selector     : 'animations',
     templateUrl  : './animations.component.html',
     styleUrls    : ['./animations.component.scss'],
     animations   : fuseAnimations,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [FuseHighlightComponent, MatButtonModule, MatTabsModule, NgIf, MatFormFieldModule, MatSelectModule, MatOptionModule],
 })
 export class AnimationsComponent
 {
@@ -27,7 +36,7 @@ export class AnimationsComponent
                 top      : '*',
                 bottom   : '*',
                 left     : '*',
-                right    : '*'
+                right    : '*',
             },
             fadeOut       : {
                 direction: 'out',
@@ -35,31 +44,31 @@ export class AnimationsComponent
                 top      : '*',
                 bottom   : '*',
                 left     : '*',
-                right    : '*'
+                right    : '*',
             },
             shake         : {
-                shake: true
+                shake: true,
             },
             slideIn       : {
                 direction: 'top',
                 top      : '*',
                 bottom   : '*',
                 left     : '*',
-                right    : '*'
+                right    : '*',
             },
             slideOut      : {
                 direction: 'top',
                 top      : '*',
                 bottom   : '*',
                 left     : '*',
-                right    : '*'
+                right    : '*',
             },
             zoomIn        : {
-                in: '*'
+                in: '*',
             },
             zoomOut       : {
-                out: '*'
-            }
+                out: '*',
+            },
         };
 
         this.visibilityStates = {
@@ -69,36 +78,36 @@ export class AnimationsComponent
                 top   : true,
                 bottom: true,
                 left  : true,
-                right : true
+                right : true,
             },
             fadeOut       : {
                 out   : true,
                 top   : true,
                 bottom: true,
                 left  : true,
-                right : true
+                right : true,
             },
             shake         : {
-                shake: true
+                shake: true,
             },
             slideIn       : {
                 top   : true,
                 bottom: true,
                 left  : true,
-                right : true
+                right : true,
             },
             slideOut      : {
                 top   : true,
                 bottom: true,
                 left  : true,
-                right : true
+                right : true,
             },
             zoomIn        : {
-                in: true
+                in: true,
             },
             zoomOut       : {
-                out: true
-            }
+                out: true,
+            },
         };
     }
 
@@ -122,7 +131,8 @@ export class AnimationsComponent
         // Toggle the animation state
         this.animationStates[animationPath[0]][animationPath[1]] = firstState;
 
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             this.animationStates[animationPath[0]][animationPath[1]] = secondState;
         }, timeout);
     }
@@ -142,7 +152,8 @@ export class AnimationsComponent
         this.visibilityStates[animationPath[0]][animationPath[1]] = false;
         this.animationStates[animationPath[0]][animationPath[1]] = 'void';
 
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             this.visibilityStates[animationPath[0]][animationPath[1]] = true;
             this.animationStates[animationPath[0]][animationPath[1]] = '*';
         }, timeout);

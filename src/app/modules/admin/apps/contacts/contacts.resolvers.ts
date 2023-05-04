@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
 import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
 import { Contact, Country, Tag } from 'app/modules/admin/apps/contacts/contacts.types';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ContactsResolver implements Resolve<any>
 {
@@ -33,7 +33,7 @@ export class ContactsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ContactsContactResolver implements Resolve<any>
 {
@@ -42,7 +42,7 @@ export class ContactsContactResolver implements Resolve<any>
      */
     constructor(
         private _contactsService: ContactsService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -60,28 +60,29 @@ export class ContactsContactResolver implements Resolve<any>
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Contact>
     {
         return this._contactsService.getContactById(route.paramMap.get('id'))
-                   .pipe(
-                       // Error here means the requested contact is not available
-                       catchError((error) => {
+            .pipe(
+                // Error here means the requested contact is not available
+                catchError((error) =>
+                {
 
-                           // Log the error
-                           console.error(error);
+                    // Log the error
+                    console.error(error);
 
-                           // Get the parent url
-                           const parentUrl = state.url.split('/').slice(0, -1).join('/');
+                    // Get the parent url
+                    const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
-                           // Navigate to there
-                           this._router.navigateByUrl(parentUrl);
+                    // Navigate to there
+                    this._router.navigateByUrl(parentUrl);
 
-                           // Throw an error
-                           return throwError(error);
-                       })
-                   );
+                    // Throw an error
+                    return throwError(error);
+                }),
+            );
     }
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ContactsCountriesResolver implements Resolve<any>
 {
@@ -109,7 +110,7 @@ export class ContactsCountriesResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ContactsTagsResolver implements Resolve<any>
 {

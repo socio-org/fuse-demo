@@ -1,18 +1,28 @@
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject, combineLatest, distinctUntilChanged, map, Observable, Subject, takeUntil } from 'rxjs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { FuseMasonryComponent } from '@fuse/components/masonry';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { NotesDetailsComponent } from 'app/modules/admin/apps/notes/details/details.component';
 import { NotesLabelsComponent } from 'app/modules/admin/apps/notes/labels/labels.component';
 import { NotesService } from 'app/modules/admin/apps/notes/notes.service';
 import { Label, Note } from 'app/modules/admin/apps/notes/notes.types';
 import { cloneDeep } from 'lodash-es';
+import { BehaviorSubject, combineLatest, distinctUntilChanged, map, Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'notes-list',
     templateUrl    : './list.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatSidenavModule, MatRippleModule, NgClass, MatIconModule, NgIf, NgFor, MatButtonModule, MatFormFieldModule, MatInputModule, FuseMasonryComponent, AsyncPipe],
 })
 export class NotesListComponent implements OnInit, OnDestroy
 {
@@ -34,7 +44,7 @@ export class NotesListComponent implements OnInit, OnDestroy
         private _changeDetectorRef: ChangeDetectorRef,
         private _fuseMediaWatcherService: FuseMediaWatcherService,
         private _matDialog: MatDialog,
-        private _notesService: NotesService
+        private _notesService: NotesService,
     )
     {
     }
@@ -70,7 +80,8 @@ export class NotesListComponent implements OnInit, OnDestroy
         // Get notes
         this.notes$ = combineLatest([this._notesService.notes$, this.filter$, this.searchQuery$]).pipe(
             distinctUntilChanged(),
-            map(([notes, filter, searchQuery]) => {
+            map(([notes, filter, searchQuery]) =>
+            {
 
                 if ( !notes || !notes.length )
                 {
@@ -105,13 +116,14 @@ export class NotesListComponent implements OnInit, OnDestroy
                 }
 
                 return filteredNotes;
-            })
+            }),
         );
 
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the drawerMode and drawerOpened if the given breakpoint is active
                 if ( matchingAliases.includes('lg') )
@@ -178,8 +190,8 @@ export class NotesListComponent implements OnInit, OnDestroy
         this._matDialog.open(NotesDetailsComponent, {
             autoFocus: false,
             data     : {
-                note: {}
-            }
+                note: {},
+            },
         });
     }
 
@@ -199,8 +211,8 @@ export class NotesListComponent implements OnInit, OnDestroy
         this._matDialog.open(NotesDetailsComponent, {
             autoFocus: false,
             data     : {
-                note: cloneDeep(note)
-            }
+                note: cloneDeep(note),
+            },
         });
     }
 

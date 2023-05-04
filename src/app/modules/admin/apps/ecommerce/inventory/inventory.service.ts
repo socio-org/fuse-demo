@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { InventoryBrand, InventoryCategory, InventoryPagination, InventoryProduct, InventoryTag, InventoryVendor } from 'app/modules/admin/apps/ecommerce/inventory/inventory.types';
+import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class InventoryService
 {
@@ -94,9 +94,10 @@ export class InventoryService
     getBrands(): Observable<InventoryBrand[]>
     {
         return this._httpClient.get<InventoryBrand[]>('api/apps/ecommerce/inventory/brands').pipe(
-            tap((brands) => {
+            tap((brands) =>
+            {
                 this._brands.next(brands);
-            })
+            }),
         );
     }
 
@@ -106,9 +107,10 @@ export class InventoryService
     getCategories(): Observable<InventoryCategory[]>
     {
         return this._httpClient.get<InventoryCategory[]>('api/apps/ecommerce/inventory/categories').pipe(
-            tap((categories) => {
+            tap((categories) =>
+            {
                 this._categories.next(categories);
-            })
+            }),
         );
     }
 
@@ -131,13 +133,14 @@ export class InventoryService
                 size: '' + size,
                 sort,
                 order,
-                search
-            }
+                search,
+            },
         }).pipe(
-            tap((response) => {
+            tap((response) =>
+            {
                 this._pagination.next(response.pagination);
                 this._products.next(response.products);
-            })
+            }),
         );
     }
 
@@ -148,7 +151,8 @@ export class InventoryService
     {
         return this._products.pipe(
             take(1),
-            map((products) => {
+            map((products) =>
+            {
 
                 // Find the product
                 const product = products.find(item => item.id === id) || null;
@@ -159,7 +163,8 @@ export class InventoryService
                 // Return the product
                 return product;
             }),
-            switchMap((product) => {
+            switchMap((product) =>
+            {
 
                 if ( !product )
                 {
@@ -167,7 +172,7 @@ export class InventoryService
                 }
 
                 return of(product);
-            })
+            }),
         );
     }
 
@@ -179,15 +184,16 @@ export class InventoryService
         return this.products$.pipe(
             take(1),
             switchMap(products => this._httpClient.post<InventoryProduct>('api/apps/ecommerce/inventory/product', {}).pipe(
-                map((newProduct) => {
+                map((newProduct) =>
+                {
 
                     // Update the products with the new product
                     this._products.next([newProduct, ...products]);
 
                     // Return the new product
                     return newProduct;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -203,9 +209,10 @@ export class InventoryService
             take(1),
             switchMap(products => this._httpClient.patch<InventoryProduct>('api/apps/ecommerce/inventory/product', {
                 id,
-                product
+                product,
             }).pipe(
-                map((updatedProduct) => {
+                map((updatedProduct) =>
+                {
 
                     // Find the index of the updated product
                     const index = products.findIndex(item => item.id === id);
@@ -222,16 +229,17 @@ export class InventoryService
                 switchMap(updatedProduct => this.product$.pipe(
                     take(1),
                     filter(item => item && item.id === id),
-                    tap(() => {
+                    tap(() =>
+                    {
 
                         // Update the product if it's selected
                         this._product.next(updatedProduct);
 
                         // Return the updated product
                         return updatedProduct;
-                    })
-                ))
-            ))
+                    }),
+                )),
+            )),
         );
     }
 
@@ -245,7 +253,8 @@ export class InventoryService
         return this.products$.pipe(
             take(1),
             switchMap(products => this._httpClient.delete('api/apps/ecommerce/inventory/product', {params: {id}}).pipe(
-                map((isDeleted: boolean) => {
+                map((isDeleted: boolean) =>
+                {
 
                     // Find the index of the deleted product
                     const index = products.findIndex(item => item.id === id);
@@ -258,8 +267,8 @@ export class InventoryService
 
                     // Return the deleted status
                     return isDeleted;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -269,9 +278,10 @@ export class InventoryService
     getTags(): Observable<InventoryTag[]>
     {
         return this._httpClient.get<InventoryTag[]>('api/apps/ecommerce/inventory/tags').pipe(
-            tap((tags) => {
+            tap((tags) =>
+            {
                 this._tags.next(tags);
-            })
+            }),
         );
     }
 
@@ -285,15 +295,16 @@ export class InventoryService
         return this.tags$.pipe(
             take(1),
             switchMap(tags => this._httpClient.post<InventoryTag>('api/apps/ecommerce/inventory/tag', {tag}).pipe(
-                map((newTag) => {
+                map((newTag) =>
+                {
 
                     // Update the tags with the new tag
                     this._tags.next([...tags, newTag]);
 
                     // Return new tag from observable
                     return newTag;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -309,9 +320,10 @@ export class InventoryService
             take(1),
             switchMap(tags => this._httpClient.patch<InventoryTag>('api/apps/ecommerce/inventory/tag', {
                 id,
-                tag
+                tag,
             }).pipe(
-                map((updatedTag) => {
+                map((updatedTag) =>
+                {
 
                     // Find the index of the updated tag
                     const index = tags.findIndex(item => item.id === id);
@@ -324,8 +336,8 @@ export class InventoryService
 
                     // Return the updated tag
                     return updatedTag;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -339,7 +351,8 @@ export class InventoryService
         return this.tags$.pipe(
             take(1),
             switchMap(tags => this._httpClient.delete('api/apps/ecommerce/inventory/tag', {params: {id}}).pipe(
-                map((isDeleted: boolean) => {
+                map((isDeleted: boolean) =>
+                {
 
                     // Find the index of the deleted tag
                     const index = tags.findIndex(item => item.id === id);
@@ -356,10 +369,12 @@ export class InventoryService
                 filter(isDeleted => isDeleted),
                 switchMap(isDeleted => this.products$.pipe(
                     take(1),
-                    map((products) => {
+                    map((products) =>
+                    {
 
                         // Iterate through the contacts
-                        products.forEach((product) => {
+                        products.forEach((product) =>
+                        {
 
                             const tagIndex = product.tags.findIndex(tag => tag === id);
 
@@ -372,9 +387,9 @@ export class InventoryService
 
                         // Return the deleted status
                         return isDeleted;
-                    })
-                ))
-            ))
+                    }),
+                )),
+            )),
         );
     }
 
@@ -384,9 +399,10 @@ export class InventoryService
     getVendors(): Observable<InventoryVendor[]>
     {
         return this._httpClient.get<InventoryVendor[]>('api/apps/ecommerce/inventory/vendors').pipe(
-            tap((vendors) => {
+            tap((vendors) =>
+            {
                 this._vendors.next(vendors);
-            })
+            }),
         );
     }
 

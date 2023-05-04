@@ -1,13 +1,13 @@
 import { Route } from '@angular/router';
 import { InventoryComponent } from 'app/modules/admin/apps/ecommerce/inventory/inventory.component';
-import { InventoryListComponent } from 'app/modules/admin/apps/ecommerce/inventory/list/inventory.component';
 import { InventoryBrandsResolver, InventoryCategoriesResolver, InventoryProductsResolver, InventoryTagsResolver, InventoryVendorsResolver } from 'app/modules/admin/apps/ecommerce/inventory/inventory.resolvers';
+import { InventoryListComponent } from 'app/modules/admin/apps/ecommerce/inventory/list/inventory.component';
 
 export const ecommerceRoutes: Route[] = [
     {
         path      : '',
         pathMatch : 'full',
-        redirectTo: 'inventory'
+        redirectTo: 'inventory',
     },
     {
         path     : 'inventory',
@@ -21,10 +21,10 @@ export const ecommerceRoutes: Route[] = [
                     categories: InventoryCategoriesResolver,
                     products  : InventoryProductsResolver,
                     tags      : InventoryTagsResolver,
-                    vendors   : InventoryVendorsResolver
-                }
-            }
-        ]
+                    vendors   : InventoryVendorsResolver,
+                },
+            },
+        ],
         /*children : [
             {
                 path     : '',
@@ -46,5 +46,5 @@ export const ecommerceRoutes: Route[] = [
                 ]
             }
         ]*/
-    }
+    },
 ];

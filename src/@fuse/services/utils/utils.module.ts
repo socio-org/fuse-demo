@@ -3,8 +3,8 @@ import { FuseUtilsService } from '@fuse/services/utils/utils.service';
 
 @NgModule({
     providers: [
-        FuseUtilsService
-    ]
+        FuseUtilsService,
+    ],
 })
 export class FuseUtilsModule
 {

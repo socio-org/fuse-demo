@@ -7,7 +7,7 @@ export const activitiesRoutes: Route[] = [
         path     : '',
         component: ActivitiesComponent,
         resolve  : {
-            activities: ActivitiesResolver
-        }
-    }
+            activities: ActivitiesResolver,
+        },
+    },
 ];

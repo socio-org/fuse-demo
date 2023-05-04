@@ -4,6 +4,6 @@ import { ProfileComponent } from 'app/modules/admin/pages/profile/profile.compon
 export const profileRoutes: Route[] = [
     {
         path     : '',
-        component: ProfileComponent
-    }
+        component: ProfileComponent,
+    },
 ];

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FuseNavigationService
 {
@@ -160,7 +160,7 @@ export class FuseNavigationService
     getItemParent(
         id: string,
         navigation: FuseNavigationItem[],
-        parent: FuseNavigationItem[] | FuseNavigationItem
+        parent: FuseNavigationItem[] | FuseNavigationItem,
     ): FuseNavigationItem[] | FuseNavigationItem | null
     {
         for ( const item of navigation )

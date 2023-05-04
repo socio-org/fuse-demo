@@ -1,12 +1,17 @@
+import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector       : 'scrumboard-board-add-card',
     templateUrl    : './add-card.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonModule, NgClass, MatIconModule, FormsModule, ReactiveFormsModule, TextFieldModule],
 })
 export class ScrumboardBoardAddCardComponent implements OnInit
 {
@@ -23,7 +28,7 @@ export class ScrumboardBoardAddCardComponent implements OnInit
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _formBuilder: UntypedFormBuilder
+        private _formBuilder: UntypedFormBuilder,
     )
     {
     }
@@ -39,7 +44,7 @@ export class ScrumboardBoardAddCardComponent implements OnInit
     {
         // Initialize the new list form
         this.form = this._formBuilder.group({
-            title: ['']
+            title: [''],
         });
     }
 
@@ -69,7 +74,8 @@ export class ScrumboardBoardAddCardComponent implements OnInit
         this.form.get('title').setValue('');
 
         // Reset the size of the textarea
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             this.titleInput.nativeElement.value = '';
             this.titleAutosize.reset();
         });

@@ -1,14 +1,20 @@
+import { CdkScrollable } from '@angular/cdk/scrolling';
+import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { DateTime } from 'luxon';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 import { Board } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
 import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
+import { DateTime } from 'luxon';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'scrumboard-boards',
     templateUrl    : './boards.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [CdkScrollable, NgFor, RouterLink, MatIconModule, NgIf],
 })
 export class ScrumboardBoardsComponent implements OnInit, OnDestroy
 {
@@ -22,7 +28,7 @@ export class ScrumboardBoardsComponent implements OnInit, OnDestroy
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _scrumboardService: ScrumboardService
+        private _scrumboardService: ScrumboardService,
     )
     {
     }
@@ -39,7 +45,8 @@ export class ScrumboardBoardsComponent implements OnInit, OnDestroy
         // Get the boards
         this._scrumboardService.boards$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((boards: Board[]) => {
+            .subscribe((boards: Board[]) =>
+            {
                 this.boards = boards;
 
                 // Mark for check

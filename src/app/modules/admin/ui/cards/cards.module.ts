@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -10,22 +9,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FuseCardModule } from '@fuse/components/card';
-import { SharedModule } from 'app/shared/shared.module';
+import { Route, RouterModule } from '@angular/router';
+
 import { CardsComponent } from 'app/modules/admin/ui/cards/cards.component';
 
 export const routes: Route[] = [
     {
         path     : '',
-        component: CardsComponent
-    }
+        component: CardsComponent,
+    },
 ];
 
 @NgModule({
-    declarations: [
-        CardsComponent
-    ],
-    imports     : [
+    imports: [
         RouterModule.forChild(routes),
         MatButtonModule,
         MatButtonToggleModule,
@@ -37,9 +33,8 @@ export const routes: Route[] = [
         MatMenuModule,
         MatProgressBarModule,
         MatTooltipModule,
-        FuseCardModule,
-        SharedModule
-    ]
+        CardsComponent,
+    ],
 })
 export class CardsModule
 {

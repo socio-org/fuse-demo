@@ -1,14 +1,21 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { fuseAnimations } from '@fuse/animations';
-import { FuseAlertType } from '@fuse/components/alert';
+import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector     : 'coming-soon-classic',
     templateUrl  : './coming-soon.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : fuseAnimations,
+    standalone   : true,
+    imports      : [NgIf, FuseAlertComponent, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule],
 })
 export class ComingSoonSplitScreenReversedComponent implements OnInit
 {
@@ -16,7 +23,7 @@ export class ComingSoonSplitScreenReversedComponent implements OnInit
 
     alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
-        message: ''
+        message: '',
     };
     comingSoonForm: UntypedFormGroup;
     showAlert: boolean = false;
@@ -26,7 +33,7 @@ export class ComingSoonSplitScreenReversedComponent implements OnInit
      */
     constructor(
         private _authService: AuthService,
-        private _formBuilder: UntypedFormBuilder
+        private _formBuilder: UntypedFormBuilder,
     )
     {
     }
@@ -42,7 +49,7 @@ export class ComingSoonSplitScreenReversedComponent implements OnInit
     {
         // Create the form
         this.comingSoonForm = this._formBuilder.group({
-            email: ['', [Validators.required, Validators.email]]
+            email: ['', [Validators.required, Validators.email]],
         });
     }
 
@@ -69,7 +76,8 @@ export class ComingSoonSplitScreenReversedComponent implements OnInit
 
         // Do your action here...
         // Emulate server delay
-        setTimeout(() => {
+        setTimeout(() =>
+        {
 
             // Re-enable the form
             this.comingSoonForm.enable();
@@ -80,7 +88,7 @@ export class ComingSoonSplitScreenReversedComponent implements OnInit
             // Set the alert
             this.alert = {
                 type   : 'success',
-                message: 'You have been registered to the list.'
+                message: 'You have been registered to the list.',
             };
 
         }, 1000);

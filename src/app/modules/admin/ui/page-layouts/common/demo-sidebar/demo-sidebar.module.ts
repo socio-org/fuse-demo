@@ -1,23 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { FuseNavigationModule } from '@fuse/components/navigation/navigation.module';
+import { RouterModule } from '@angular/router';
+
 import { DemoSidebarComponent } from 'app/modules/admin/ui/page-layouts/common/demo-sidebar/demo-sidebar.component';
 
 @NgModule({
-    declarations: [
-        DemoSidebarComponent
-    ],
-    imports     : [
+    imports: [
         RouterModule.forChild([]),
         MatIconModule,
         MatProgressBarModule,
-        FuseNavigationModule
+        DemoSidebarComponent,
     ],
-    exports     : [
-        DemoSidebarComponent
-    ]
+    exports: [
+        DemoSidebarComponent,
+    ],
 })
 export class DemoSidebarModule
 {

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, ReplaySubject, switchMap, take, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Notification } from 'app/layout/common/notifications/notifications.types';
+import { map, Observable, ReplaySubject, switchMap, take, tap } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class NotificationsService
 {
@@ -39,9 +39,10 @@ export class NotificationsService
     getAll(): Observable<Notification[]>
     {
         return this._httpClient.get<Notification[]>('api/common/notifications').pipe(
-            tap((notifications) => {
+            tap((notifications) =>
+            {
                 this._notifications.next(notifications);
-            })
+            }),
         );
     }
 
@@ -55,15 +56,16 @@ export class NotificationsService
         return this.notifications$.pipe(
             take(1),
             switchMap(notifications => this._httpClient.post<Notification>('api/common/notifications', {notification}).pipe(
-                map((newNotification) => {
+                map((newNotification) =>
+                {
 
                     // Update the notifications with the new notification
                     this._notifications.next([...notifications, newNotification]);
 
                     // Return the new notification from observable
                     return newNotification;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -79,9 +81,10 @@ export class NotificationsService
             take(1),
             switchMap(notifications => this._httpClient.patch<Notification>('api/common/notifications', {
                 id,
-                notification
+                notification,
             }).pipe(
-                map((updatedNotification: Notification) => {
+                map((updatedNotification: Notification) =>
+                {
 
                     // Find the index of the updated notification
                     const index = notifications.findIndex(item => item.id === id);
@@ -94,8 +97,8 @@ export class NotificationsService
 
                     // Return the updated notification
                     return updatedNotification;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -109,7 +112,8 @@ export class NotificationsService
         return this.notifications$.pipe(
             take(1),
             switchMap(notifications => this._httpClient.delete<boolean>('api/common/notifications', {params: {id}}).pipe(
-                map((isDeleted: boolean) => {
+                map((isDeleted: boolean) =>
+                {
 
                     // Find the index of the deleted notification
                     const index = notifications.findIndex(item => item.id === id);
@@ -122,8 +126,8 @@ export class NotificationsService
 
                     // Return the deleted status
                     return isDeleted;
-                })
-            ))
+                }),
+            )),
         );
     }
 
@@ -135,10 +139,12 @@ export class NotificationsService
         return this.notifications$.pipe(
             take(1),
             switchMap(notifications => this._httpClient.get<boolean>('api/common/notifications/mark-all-as-read').pipe(
-                map((isUpdated: boolean) => {
+                map((isUpdated: boolean) =>
+                {
 
                     // Go through all notifications and set them as read
-                    notifications.forEach((notification, index) => {
+                    notifications.forEach((notification, index) =>
+                    {
                         notifications[index].read = true;
                     });
 
@@ -147,8 +153,8 @@ export class NotificationsService
 
                     // Return the updated status
                     return isUpdated;
-                })
-            ))
+                }),
+            )),
         );
     }
 }

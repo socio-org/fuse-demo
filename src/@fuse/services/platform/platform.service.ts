@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FusePlatformService
 {

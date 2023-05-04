@@ -1,13 +1,18 @@
+import { NgFor } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HelpCenterService } from 'app/modules/admin/apps/help-center/help-center.service';
 import { GuideCategory } from 'app/modules/admin/apps/help-center/help-center.type';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'help-center-guides-category',
     templateUrl  : './category.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatButtonModule, RouterLink, MatIconModule, NgFor],
 })
 export class HelpCenterGuidesCategoryComponent implements OnInit, OnDestroy
 {
@@ -20,7 +25,7 @@ export class HelpCenterGuidesCategoryComponent implements OnInit, OnDestroy
     constructor(
         private _activatedRoute: ActivatedRoute,
         private _helpCenterService: HelpCenterService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -37,7 +42,8 @@ export class HelpCenterGuidesCategoryComponent implements OnInit, OnDestroy
         // Get the Guides
         this._helpCenterService.guides$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((guideCategories) => {
+            .subscribe((guideCategories) =>
+            {
                 this.guideCategory = guideCategories[0];
             });
     }

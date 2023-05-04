@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { AuthService } from 'app/core/auth/auth.service';
 import { AuthUtils } from 'app/core/auth/auth.utils';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor
@@ -36,13 +36,14 @@ export class AuthInterceptor implements HttpInterceptor
         if ( this._authService.accessToken && !AuthUtils.isTokenExpired(this._authService.accessToken) )
         {
             newReq = req.clone({
-                headers: req.headers.set('Authorization', 'Bearer ' + this._authService.accessToken)
+                headers: req.headers.set('Authorization', 'Bearer ' + this._authService.accessToken),
             });
         }
 
         // Response
         return next.handle(newReq).pipe(
-            catchError((error) => {
+            catchError((error) =>
+            {
 
                 // Catch "401 Unauthorized" responses
                 if ( error instanceof HttpErrorResponse && error.status === 401 )
@@ -55,7 +56,7 @@ export class AuthInterceptor implements HttpInterceptor
                 }
 
                 return throwError(error);
-            })
+            }),
         );
     }
 }

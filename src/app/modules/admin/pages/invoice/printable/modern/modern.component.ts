@@ -4,7 +4,8 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
     selector       : 'modern',
     templateUrl    : './modern.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
 })
 export class ModernComponent
 {

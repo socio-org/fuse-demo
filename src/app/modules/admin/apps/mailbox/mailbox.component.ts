@@ -1,12 +1,16 @@
 import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { Subject, takeUntil } from 'rxjs';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { Subject, takeUntil } from 'rxjs';
+import { MailboxSidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
     selector     : 'mailbox',
     templateUrl  : './mailbox.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatSidenavModule, MailboxSidebarComponent, RouterOutlet],
 })
 export class MailboxComponent implements OnInit, OnDestroy
 {
@@ -35,7 +39,8 @@ export class MailboxComponent implements OnInit, OnDestroy
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the drawerMode and drawerOpened if the given breakpoint is active
                 if ( matchingAliases.includes('md') )

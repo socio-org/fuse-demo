@@ -1,6 +1,4 @@
 import { Route } from '@angular/router';
-import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
-import { MockApiComponent } from 'app/modules/admin/ui/fuse-components/libraries/mock-api/mock-api.component';
 import { AlertComponent } from 'app/modules/admin/ui/fuse-components/components/alert/alert.component';
 import { CardComponent } from 'app/modules/admin/ui/fuse-components/components/card/card.component';
 import { DrawerComponent } from 'app/modules/admin/ui/fuse-components/components/drawer/drawer.component';
@@ -9,13 +7,15 @@ import { HighlightComponent } from 'app/modules/admin/ui/fuse-components/compone
 import { LoadingBarComponent } from 'app/modules/admin/ui/fuse-components/components/loading-bar/loading-bar.component';
 import { MasonryComponent } from 'app/modules/admin/ui/fuse-components/components/masonry/masonry.component';
 import { NavigationComponent } from 'app/modules/admin/ui/fuse-components/components/navigation/navigation.component';
-import { ScrollbarComponent } from 'app/modules/admin/ui/fuse-components/directives/scrollbar/scrollbar.component';
 import { ScrollResetComponent } from 'app/modules/admin/ui/fuse-components/directives/scroll-reset/scroll-reset.component';
+import { ScrollbarComponent } from 'app/modules/admin/ui/fuse-components/directives/scrollbar/scrollbar.component';
+import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
+import { MockApiComponent } from 'app/modules/admin/ui/fuse-components/libraries/mock-api/mock-api.component';
+import { FindByKeyComponent } from 'app/modules/admin/ui/fuse-components/pipes/find-by-key/find-by-key.component';
 import { ConfigComponent } from 'app/modules/admin/ui/fuse-components/services/config/config.component';
 import { ConfirmationComponent } from 'app/modules/admin/ui/fuse-components/services/confirmation/confirmation.component';
 import { MediaWatcherComponent } from 'app/modules/admin/ui/fuse-components/services/media-watcher/media-watcher.component';
 import { SplashScreenComponent } from 'app/modules/admin/ui/fuse-components/services/splash-screen/splash-screen.component';
-import { FindByKeyComponent } from 'app/modules/admin/ui/fuse-components/pipes/find-by-key/find-by-key.component';
 import { MustMatchComponent } from 'app/modules/admin/ui/fuse-components/validators/must-match/must-match.component';
 
 export const fuseComponentsRoutes: Route[] = [
@@ -26,16 +26,16 @@ export const fuseComponentsRoutes: Route[] = [
             {
                 path      : '',
                 pathMatch : 'full',
-                redirectTo: 'libraries/mock-api'
+                redirectTo: 'libraries/mock-api',
             },
             {
                 path    : 'libraries',
                 children: [
                     {
                         path     : 'mock-api',
-                        component: MockApiComponent
-                    }
-                ]
+                        component: MockApiComponent,
+                    },
+                ],
             },
             {
                 path    : 'components',
@@ -43,41 +43,41 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path      : '',
                         pathMatch : 'full',
-                        redirectTo: 'alert'
+                        redirectTo: 'alert',
                     },
                     {
                         path     : 'alert',
-                        component: AlertComponent
+                        component: AlertComponent,
                     },
                     {
                         path     : 'card',
-                        component: CardComponent
+                        component: CardComponent,
                     },
                     {
                         path     : 'drawer',
-                        component: DrawerComponent
+                        component: DrawerComponent,
                     },
                     {
                         path     : 'fullscreen',
-                        component: FullscreenComponent
+                        component: FullscreenComponent,
                     },
                     {
                         path     : 'highlight',
-                        component: HighlightComponent
+                        component: HighlightComponent,
                     },
                     {
                         path     : 'loading-bar',
-                        component: LoadingBarComponent
+                        component: LoadingBarComponent,
                     },
                     {
                         path     : 'masonry',
-                        component: MasonryComponent
+                        component: MasonryComponent,
                     },
                     {
                         path     : 'navigation',
-                        component: NavigationComponent
-                    }
-                ]
+                        component: NavigationComponent,
+                    },
+                ],
             },
             {
                 path    : 'directives',
@@ -85,17 +85,17 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path      : '',
                         pathMatch : 'full',
-                        redirectTo: 'scrollbar'
+                        redirectTo: 'scrollbar',
                     },
                     {
                         path     : 'scrollbar',
-                        component: ScrollbarComponent
+                        component: ScrollbarComponent,
                     },
                     {
                         path     : 'scroll-reset',
-                        component: ScrollResetComponent
-                    }
-                ]
+                        component: ScrollResetComponent,
+                    },
+                ],
             },
             {
                 path    : 'services',
@@ -103,25 +103,25 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path      : '',
                         pathMatch : 'full',
-                        redirectTo: 'config'
+                        redirectTo: 'config',
                     },
                     {
                         path     : 'config',
-                        component: ConfigComponent
+                        component: ConfigComponent,
                     },
                     {
                         path     : 'confirmation',
-                        component: ConfirmationComponent
+                        component: ConfirmationComponent,
                     },
                     {
                         path     : 'splash-screen',
-                        component: SplashScreenComponent
+                        component: SplashScreenComponent,
                     },
                     {
                         path     : 'media-watcher',
-                        component: MediaWatcherComponent
-                    }
-                ]
+                        component: MediaWatcherComponent,
+                    },
+                ],
             },
             {
                 path    : 'pipes',
@@ -129,13 +129,13 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path      : '',
                         pathMatch : 'full',
-                        redirectTo: 'find-by-key'
+                        redirectTo: 'find-by-key',
                     },
                     {
                         path     : 'find-by-key',
-                        component: FindByKeyComponent
-                    }
-                ]
+                        component: FindByKeyComponent,
+                    },
+                ],
             },
             {
                 path    : 'validators',
@@ -143,14 +143,14 @@ export const fuseComponentsRoutes: Route[] = [
                     {
                         path      : '',
                         pathMatch : 'full',
-                        redirectTo: 'must-match'
+                        redirectTo: 'must-match',
                     },
                     {
                         path     : 'must-match',
-                        component: MustMatchComponent
-                    }
-                ]
-            }
-        ]
-    }
+                        component: MustMatchComponent,
+                    },
+                ],
+            },
+        ],
+    },
 ];

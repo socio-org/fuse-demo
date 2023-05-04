@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component';
 
 @Component({
     selector   : 'tailwindcss',
-    templateUrl: './tailwindcss.html'
+    templateUrl: './tailwindcss.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule],
 })
 export class TailwindCSSComponent
 {

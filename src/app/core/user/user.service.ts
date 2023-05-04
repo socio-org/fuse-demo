@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, ReplaySubject, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { User } from 'app/core/user/user.types';
+import { map, Observable, ReplaySubject, tap } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class UserService
 {
@@ -47,9 +47,10 @@ export class UserService
     get(): Observable<User>
     {
         return this._httpClient.get<User>('api/common/user').pipe(
-            tap((user) => {
+            tap((user) =>
+            {
                 this._user.next(user);
-            })
+            }),
         );
     }
 
@@ -61,9 +62,10 @@ export class UserService
     update(user: User): Observable<any>
     {
         return this._httpClient.patch<User>('api/common/user', {user}).pipe(
-            map((response) => {
+            map((response) =>
+            {
                 this._user.next(response);
-            })
+            }),
         );
     }
 }

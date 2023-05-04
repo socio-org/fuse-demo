@@ -4,6 +4,6 @@ import { PricingModernComponent } from 'app/modules/admin/pages/pricing/modern/m
 export const pricingModernRoutes: Route[] = [
     {
         path     : '',
-        component: PricingModernComponent
-    }
+        component: PricingModernComponent,
+    },
 ];

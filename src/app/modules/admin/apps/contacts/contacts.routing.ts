@@ -1,16 +1,16 @@
 import { Route } from '@angular/router';
+import { ContactsComponent } from 'app/modules/admin/apps/contacts/contacts.component';
 import { CanDeactivateContactsDetails } from 'app/modules/admin/apps/contacts/contacts.guards';
 import { ContactsContactResolver, ContactsCountriesResolver, ContactsResolver, ContactsTagsResolver } from 'app/modules/admin/apps/contacts/contacts.resolvers';
-import { ContactsComponent } from 'app/modules/admin/apps/contacts/contacts.component';
-import { ContactsListComponent } from 'app/modules/admin/apps/contacts/list/list.component';
 import { ContactsDetailsComponent } from 'app/modules/admin/apps/contacts/details/details.component';
+import { ContactsListComponent } from 'app/modules/admin/apps/contacts/list/list.component';
 
 export const contactsRoutes: Route[] = [
     {
         path     : '',
         component: ContactsComponent,
         resolve  : {
-            tags: ContactsTagsResolver
+            tags: ContactsTagsResolver,
         },
         children : [
             {
@@ -18,7 +18,7 @@ export const contactsRoutes: Route[] = [
                 component: ContactsListComponent,
                 resolve  : {
                     contacts : ContactsResolver,
-                    countries: ContactsCountriesResolver
+                    countries: ContactsCountriesResolver,
                 },
                 children : [
                     {
@@ -26,12 +26,12 @@ export const contactsRoutes: Route[] = [
                         component    : ContactsDetailsComponent,
                         resolve      : {
                             contact  : ContactsContactResolver,
-                            countries: ContactsCountriesResolver
+                            countries: ContactsCountriesResolver,
                         },
-                        canDeactivate: [CanDeactivateContactsDetails]
-                    }
-                ]
-            }
-        ]
-    }
+                        canDeactivate: [CanDeactivateContactsDetails],
+                    },
+                ],
+            },
+        ],
+    },
 ];

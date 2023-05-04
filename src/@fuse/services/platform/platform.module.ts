@@ -3,8 +3,8 @@ import { FusePlatformService } from '@fuse/services/platform/platform.service';
 
 @NgModule({
     providers: [
-        FusePlatformService
-    ]
+        FusePlatformService,
+    ],
 })
 export class FusePlatformModule
 {

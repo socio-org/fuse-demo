@@ -1,18 +1,27 @@
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogRef } from '@angular/material/dialog';
-import { debounceTime, Subject, takeUntil, tap } from 'rxjs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { Board, Card, Label } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
+import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
 import { assign } from 'lodash-es';
 import { DateTime } from 'luxon';
-import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
-import { Board, Card, Label } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
+import { debounceTime, Subject, takeUntil, tap } from 'rxjs';
 
 @Component({
     selector       : 'scrumboard-card-details',
     templateUrl    : './details.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, TextFieldModule, NgClass, NgIf, MatDatepickerModule, NgFor, MatCheckboxModule, DatePipe],
 })
 export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
 {
@@ -33,7 +42,7 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
         public matDialogRef: MatDialogRef<ScrumboardCardDetailsComponent>,
         private _changeDetectorRef: ChangeDetectorRef,
         private _formBuilder: UntypedFormBuilder,
-        private _scrumboardService: ScrumboardService
+        private _scrumboardService: ScrumboardService,
     )
     {
     }
@@ -50,7 +59,8 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
         // Get the board
         this._scrumboardService.board$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((board) => {
+            .subscribe((board) =>
+            {
 
                 // Board data
                 this.board = board;
@@ -62,7 +72,8 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
         // Get the card details
         this._scrumboardService.card$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((card) => {
+            .subscribe((card) =>
+            {
                 this.card = card;
             });
 
@@ -72,7 +83,7 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
             title      : ['', Validators.required],
             description: [''],
             labels     : [[]],
-            dueDate    : [null]
+            dueDate    : [null],
         });
 
         // Fill the form
@@ -81,21 +92,23 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
             title      : this.card.title,
             description: this.card.description,
             labels     : this.card.labels,
-            dueDate    : this.card.dueDate
+            dueDate    : this.card.dueDate,
         });
 
         // Update card when there is a value change on the card form
         this.cardForm.valueChanges
             .pipe(
-                tap((value) => {
+                tap((value) =>
+                {
 
                     // Update the card object
                     this.card = assign(this.card, value);
                 }),
                 debounceTime(300),
-                takeUntil(this._unsubscribeAll)
+                takeUntil(this._unsubscribeAll),
             )
-            .subscribe((value) => {
+            .subscribe((value) =>
+            {
 
                 // Update the card on the server
                 this._scrumboardService.updateCard(value.id, value).subscribe();
@@ -263,18 +276,21 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
     private _readAsDataURL(file: File): Promise<any>
     {
         // Return a new promise
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) =>
+        {
 
             // Create a new reader
             const reader = new FileReader();
 
             // Resolve the promise on success
-            reader.onload = (): void => {
+            reader.onload = (): void =>
+            {
                 resolve(reader.result);
             };
 
             // Reject the promise on error
-            reader.onerror = (e): void => {
+            reader.onerror = (e): void =>
+            {
                 reject(e);
             };
 

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { assign, cloneDeep } from 'lodash-es';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { notifications as notificationsData } from 'app/mock-api/common/notifications/data';
+import { assign, cloneDeep } from 'lodash-es';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class NotificationsMockApi
 {
@@ -40,7 +40,8 @@ export class NotificationsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/common/notifications')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the notification
                 const newNotification = cloneDeep(request.body.notification);
@@ -60,7 +61,8 @@ export class NotificationsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/common/notifications')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id and notification
                 const id = request.body.id;
@@ -70,7 +72,8 @@ export class NotificationsMockApi
                 let updatedNotification = null;
 
                 // Find the notification and update it
-                this._notifications.forEach((item: any, index: number, notifications: any[]) => {
+                this._notifications.forEach((item: any, index: number, notifications: any[]) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -91,7 +94,8 @@ export class NotificationsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onDelete('api/common/notifications')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id
                 const id = request.params.get('id');
@@ -117,10 +121,12 @@ export class NotificationsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/common/notifications/mark-all-as-read')
-            .reply(() => {
+            .reply(() =>
+            {
 
                 // Go through all notifications
-                this._notifications.forEach((item: any, index: number, notifications: any[]) => {
+                this._notifications.forEach((item: any, index: number, notifications: any[]) =>
+                {
 
                     // Mark it as read
                     notifications[index].read = true;
@@ -136,7 +142,8 @@ export class NotificationsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/common/notifications/toggle-read-status')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the notification
                 const notification = cloneDeep(request.body.notification);
@@ -145,7 +152,8 @@ export class NotificationsMockApi
                 let updatedNotification = null;
 
                 // Find the notification and update it
-                this._notifications.forEach((item: any, index: number, notifications: any[]) => {
+                this._notifications.forEach((item: any, index: number, notifications: any[]) =>
+                {
 
                     if ( item.id === notification.id )
                     {

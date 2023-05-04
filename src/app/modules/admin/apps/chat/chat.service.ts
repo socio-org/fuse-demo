@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Chat, Contact, Profile } from 'app/modules/admin/apps/chat/chat.types';
+import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ChatService
 {
@@ -75,9 +75,10 @@ export class ChatService
     getChats(): Observable<any>
     {
         return this._httpClient.get<Chat[]>('api/apps/chat/chats').pipe(
-            tap((response: Chat[]) => {
+            tap((response: Chat[]) =>
+            {
                 this._chats.next(response);
-            })
+            }),
         );
     }
 
@@ -89,9 +90,10 @@ export class ChatService
     getContact(id: string): Observable<any>
     {
         return this._httpClient.get<Contact>('api/apps/chat/contacts', {params: {id}}).pipe(
-            tap((response: Contact) => {
+            tap((response: Contact) =>
+            {
                 this._contact.next(response);
-            })
+            }),
         );
     }
 
@@ -101,9 +103,10 @@ export class ChatService
     getContacts(): Observable<any>
     {
         return this._httpClient.get<Contact[]>('api/apps/chat/contacts').pipe(
-            tap((response: Contact[]) => {
+            tap((response: Contact[]) =>
+            {
                 this._contacts.next(response);
-            })
+            }),
         );
     }
 
@@ -113,9 +116,10 @@ export class ChatService
     getProfile(): Observable<any>
     {
         return this._httpClient.get<Profile>('api/apps/chat/profile').pipe(
-            tap((response: Profile) => {
+            tap((response: Profile) =>
+            {
                 this._profile.next(response);
-            })
+            }),
         );
     }
 
@@ -127,7 +131,8 @@ export class ChatService
     getChatById(id: string): Observable<any>
     {
         return this._httpClient.get<Chat>('api/apps/chat/chat', {params: {id}}).pipe(
-            map((chat) => {
+            map((chat) =>
+            {
 
                 // Update the chat
                 this._chat.next(chat);
@@ -135,7 +140,8 @@ export class ChatService
                 // Return the chat
                 return chat;
             }),
-            switchMap((chat) => {
+            switchMap((chat) =>
+            {
 
                 if ( !chat )
                 {
@@ -143,7 +149,7 @@ export class ChatService
                 }
 
                 return of(chat);
-            })
+            }),
         );
     }
 
@@ -159,9 +165,10 @@ export class ChatService
             take(1),
             switchMap(chats => this._httpClient.patch<Chat>('api/apps/chat/chat', {
                 id,
-                chat
+                chat,
             }).pipe(
-                map((updatedChat) => {
+                map((updatedChat) =>
+                {
 
                     // Find the index of the updated chat
                     const index = chats.findIndex(item => item.id === id);
@@ -178,16 +185,17 @@ export class ChatService
                 switchMap(updatedChat => this.chat$.pipe(
                     take(1),
                     filter(item => item && item.id === id),
-                    tap(() => {
+                    tap(() =>
+                    {
 
                         // Update the chat if it's selected
                         this._chat.next(updatedChat);
 
                         // Return the updated chat
                         return updatedChat;
-                    })
-                ))
-            ))
+                    }),
+                )),
+            )),
         );
     }
 

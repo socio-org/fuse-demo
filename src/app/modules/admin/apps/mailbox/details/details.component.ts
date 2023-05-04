@@ -1,17 +1,28 @@
-import { Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { MatButton } from '@angular/material/button';
-import { Subject, takeUntil } from 'rxjs';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { DatePipe, DecimalPipe, NgClass, NgFor, NgIf, NgPlural, NgPluralCase } from '@angular/common';
+import { Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { FuseScrollResetDirective } from '@fuse/directives/scroll-reset';
+import { FuseFindByKeyPipe } from '@fuse/pipes/find-by-key/find-by-key.pipe';
+import { labelColorDefs } from 'app/modules/admin/apps/mailbox/mailbox.constants';
 import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { Mail, MailFolder, MailLabel } from 'app/modules/admin/apps/mailbox/mailbox.types';
-import { labelColorDefs } from 'app/modules/admin/apps/mailbox/mailbox.constants';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'mailbox-details',
     templateUrl  : './details.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [NgIf, MatButtonModule, RouterLink, MatIconModule, MatMenuModule, NgFor, MatRippleModule, MatCheckboxModule, NgClass, FuseScrollResetDirective, NgPlural, NgPluralCase, MatFormFieldModule, MatInputModule, FuseFindByKeyPipe, DecimalPipe, DatePipe],
 })
 export class MailboxDetailsComponent implements OnInit, OnDestroy
 {
@@ -35,7 +46,7 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
         private _mailboxService: MailboxService,
         private _overlay: Overlay,
         private _router: Router,
-        private _viewContainerRef: ViewContainerRef
+        private _viewContainerRef: ViewContainerRef,
     )
     {
     }
@@ -55,28 +66,32 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
         // Folders
         this._mailboxService.folders$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((folders: MailFolder[]) => {
+            .subscribe((folders: MailFolder[]) =>
+            {
                 this.folders = folders;
             });
 
         // Labels
         this._mailboxService.labels$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((labels: MailLabel[]) => {
+            .subscribe((labels: MailLabel[]) =>
+            {
                 this.labels = labels;
             });
 
         // Mail
         this._mailboxService.mail$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((mail: Mail) => {
+            .subscribe((mail: Mail) =>
+            {
                 this.mail = mail;
             });
 
         // Selected mail changed
         this._mailboxService.selectedMailChanged
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(() => {
+            .subscribe(() =>
+            {
 
                 // De-activate the reply form
                 this.replyFormActive = false;
@@ -240,7 +255,8 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
         this.replyFormActive = true;
 
         // Scroll to the bottom of the details pane
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             this._elementRef.nativeElement.scrollTop = this._elementRef.nativeElement.scrollHeight;
         });
     }
@@ -254,7 +270,8 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
         this.replyFormActive = true;
 
         // Scroll to the bottom of the details pane
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             this._elementRef.nativeElement.scrollTop = this._elementRef.nativeElement.scrollHeight;
         });
     }
@@ -268,7 +285,8 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
         this.replyFormActive = true;
 
         // Scroll to the bottom of the details pane
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             this._elementRef.nativeElement.scrollTop = this._elementRef.nativeElement.scrollHeight;
         });
     }
@@ -302,36 +320,36 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
             hasBackdrop     : true,
             scrollStrategy  : this._overlay.scrollStrategies.block(),
             positionStrategy: this._overlay.position()
-                                  .flexibleConnectedTo(this._infoDetailsPanelOrigin._elementRef.nativeElement)
-                                  .withFlexibleDimensions(true)
-                                  .withViewportMargin(16)
-                                  .withLockedPosition(true)
-                                  .withPositions([
-                                      {
-                                          originX : 'start',
-                                          originY : 'bottom',
-                                          overlayX: 'start',
-                                          overlayY: 'top'
-                                      },
-                                      {
-                                          originX : 'start',
-                                          originY : 'top',
-                                          overlayX: 'start',
-                                          overlayY: 'bottom'
-                                      },
-                                      {
-                                          originX : 'end',
-                                          originY : 'bottom',
-                                          overlayX: 'end',
-                                          overlayY: 'top'
-                                      },
-                                      {
-                                          originX : 'end',
-                                          originY : 'top',
-                                          overlayX: 'end',
-                                          overlayY: 'bottom'
-                                      }
-                                  ])
+                .flexibleConnectedTo(this._infoDetailsPanelOrigin._elementRef.nativeElement)
+                .withFlexibleDimensions(true)
+                .withViewportMargin(16)
+                .withLockedPosition(true)
+                .withPositions([
+                    {
+                        originX : 'start',
+                        originY : 'bottom',
+                        overlayX: 'start',
+                        overlayY: 'top',
+                    },
+                    {
+                        originX : 'start',
+                        originY : 'top',
+                        overlayX: 'start',
+                        overlayY: 'bottom',
+                    },
+                    {
+                        originX : 'end',
+                        originY : 'bottom',
+                        overlayX: 'end',
+                        overlayY: 'top',
+                    },
+                    {
+                        originX : 'end',
+                        originY : 'top',
+                        overlayX: 'end',
+                        overlayY: 'bottom',
+                    },
+                ]),
         });
 
         // Create a portal from the template
@@ -341,7 +359,8 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
         this._overlayRef.attach(templatePortal);
 
         // Subscribe to the backdrop click
-        this._overlayRef.backdropClick().subscribe(() => {
+        this._overlayRef.backdropClick().subscribe(() =>
+        {
 
             // If overlay exists and attached...
             if ( this._overlayRef && this._overlayRef.hasAttached() )

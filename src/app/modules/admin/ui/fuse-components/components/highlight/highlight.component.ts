@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({
     selector   : 'highlight',
-    templateUrl: './highlight.component.html'
+    templateUrl: './highlight.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseHighlightComponent],
 })
 export class HighlightComponent
 {

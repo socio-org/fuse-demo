@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { assign, cloneDeep } from 'lodash-es';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { shortcuts as shortcutsData } from 'app/mock-api/common/shortcuts/data';
+import { assign, cloneDeep } from 'lodash-es';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ShortcutsMockApi
 {
@@ -40,7 +40,8 @@ export class ShortcutsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/common/shortcuts')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the shortcut
                 const newShortcut = cloneDeep(request.body.shortcut);
@@ -60,7 +61,8 @@ export class ShortcutsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/common/shortcuts')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id and shortcut
                 const id = request.body.id;
@@ -70,7 +72,8 @@ export class ShortcutsMockApi
                 let updatedShortcut = null;
 
                 // Find the shortcut and update it
-                this._shortcuts.forEach((item: any, index: number, shortcuts: any[]) => {
+                this._shortcuts.forEach((item: any, index: number, shortcuts: any[]) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -91,7 +94,8 @@ export class ShortcutsMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onDelete('api/common/shortcuts')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id
                 const id = request.params.get('id');

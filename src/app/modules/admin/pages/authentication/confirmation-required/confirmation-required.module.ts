@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FuseAlertModule } from '@fuse/components/alert';
-import { SharedModule } from 'app/shared/shared.module';
+import { RouterModule, Routes } from '@angular/router';
+
 import { ConfirmationRequiredClassicComponent } from 'app/modules/admin/pages/authentication/confirmation-required/classic/confirmation-required.component';
-import { ConfirmationRequiredModernComponent } from 'app/modules/admin/pages/authentication/confirmation-required/modern/confirmation-required.component';
-import { ConfirmationRequiredModernReversedComponent } from 'app/modules/admin/pages/authentication/confirmation-required/modern-reversed/confirmation-required.component';
-import { ConfirmationRequiredFullscreenComponent } from 'app/modules/admin/pages/authentication/confirmation-required/fullscreen/confirmation-required.component';
 import { ConfirmationRequiredFullscreenReversedComponent } from 'app/modules/admin/pages/authentication/confirmation-required/fullscreen-reversed/confirmation-required.component';
-import { ConfirmationRequiredSplitScreenComponent } from 'app/modules/admin/pages/authentication/confirmation-required/split-screen/confirmation-required.component';
+import { ConfirmationRequiredFullscreenComponent } from 'app/modules/admin/pages/authentication/confirmation-required/fullscreen/confirmation-required.component';
+import { ConfirmationRequiredModernReversedComponent } from 'app/modules/admin/pages/authentication/confirmation-required/modern-reversed/confirmation-required.component';
+import { ConfirmationRequiredModernComponent } from 'app/modules/admin/pages/authentication/confirmation-required/modern/confirmation-required.component';
 import { ConfirmationRequiredSplitScreenReversedComponent } from 'app/modules/admin/pages/authentication/confirmation-required/split-screen-reversed/confirmation-required.component';
+import { ConfirmationRequiredSplitScreenComponent } from 'app/modules/admin/pages/authentication/confirmation-required/split-screen/confirmation-required.component';
 
 const routes: Routes = [
     {
@@ -20,55 +19,51 @@ const routes: Routes = [
         children: [
             {
                 path     : 'classic',
-                component: ConfirmationRequiredClassicComponent
+                component: ConfirmationRequiredClassicComponent,
             },
             {
                 path     : 'modern',
-                component: ConfirmationRequiredModernComponent
+                component: ConfirmationRequiredModernComponent,
             },
             {
                 path     : 'modern-reversed',
-                component: ConfirmationRequiredModernReversedComponent
+                component: ConfirmationRequiredModernReversedComponent,
             },
             {
                 path     : 'split-screen',
-                component: ConfirmationRequiredSplitScreenComponent
+                component: ConfirmationRequiredSplitScreenComponent,
             },
             {
                 path     : 'split-screen-reversed',
-                component: ConfirmationRequiredSplitScreenReversedComponent
+                component: ConfirmationRequiredSplitScreenReversedComponent,
             },
             {
                 path     : 'fullscreen',
-                component: ConfirmationRequiredFullscreenComponent
+                component: ConfirmationRequiredFullscreenComponent,
             },
             {
                 path     : 'fullscreen-reversed',
-                component: ConfirmationRequiredFullscreenReversedComponent
-            }
-        ]
-    }
+                component: ConfirmationRequiredFullscreenReversedComponent,
+            },
+        ],
+    },
 ];
 
 @NgModule({
-    declarations: [
+    imports: [
+        RouterModule.forChild(routes),
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatProgressSpinnerModule,
         ConfirmationRequiredClassicComponent,
         ConfirmationRequiredModernComponent,
         ConfirmationRequiredModernReversedComponent,
         ConfirmationRequiredFullscreenComponent,
         ConfirmationRequiredFullscreenReversedComponent,
         ConfirmationRequiredSplitScreenComponent,
-        ConfirmationRequiredSplitScreenReversedComponent
+        ConfirmationRequiredSplitScreenReversedComponent,
     ],
-    imports     : [
-        RouterModule.forChild(routes),
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatProgressSpinnerModule,
-        FuseAlertModule,
-        SharedModule
-    ]
 })
 export class ConfirmationRequiredModule
 {

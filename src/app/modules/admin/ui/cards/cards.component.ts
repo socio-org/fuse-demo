@@ -1,5 +1,18 @@
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { NgClass, NgFor, TitleCasePipe } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, QueryList, Renderer2, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleChange, MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterLink } from '@angular/router';
 import { FuseCardComponent } from '@fuse/components/card';
 
 @Component({
@@ -10,10 +23,12 @@ import { FuseCardComponent } from '@fuse/components/card';
             cards fuse-card {
                 margin: 16px;
             }
-        `
+        `,
     ],
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonToggleModule, FormsModule, NgFor, FuseCardComponent, MatButtonModule, MatIconModule, RouterLink, NgClass, MatMenuModule, MatCheckboxModule, MatProgressBarModule, MatFormFieldModule, MatInputModule, TextFieldModule, MatDividerModule, MatTooltipModule, TitleCasePipe],
 })
 export class CardsComponent implements AfterViewInit
 {
@@ -77,7 +92,8 @@ export class CardsComponent implements AfterViewInit
         let count = 0;
 
         // Go through the filters
-        this.filters.forEach((filter) => {
+        this.filters.forEach((filter) =>
+        {
 
             // For each filter, calculate the card count
             if ( filter === 'all' )
@@ -102,7 +118,8 @@ export class CardsComponent implements AfterViewInit
     private _filterCards(): void
     {
         // Go through all fuse-cards
-        this._fuseCards.forEach((fuseCard) => {
+        this._fuseCards.forEach((fuseCard) =>
+        {
 
             // If the 'all' filter is selected...
             if ( this.selectedFilter === 'all' )

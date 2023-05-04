@@ -1,18 +1,24 @@
+import { AsyncPipe, DOCUMENT, I18nPluralPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UntypedFormControl } from '@angular/forms';
-import { MatDrawer } from '@angular/material/sidenav';
-import { filter, fromEvent, Observable, Subject, switchMap, takeUntil } from 'rxjs';
+import { FormsModule, ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { Contact, Country } from 'app/modules/admin/apps/contacts/contacts.types';
 import { ContactsService } from 'app/modules/admin/apps/contacts/contacts.service';
+import { Contact, Country } from 'app/modules/admin/apps/contacts/contacts.types';
+import { filter, fromEvent, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'contacts-list',
     templateUrl    : './list.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatSidenavModule, RouterOutlet, NgIf, MatFormFieldModule, MatIconModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule, NgFor, NgClass, RouterLink, AsyncPipe, I18nPluralPipe],
 })
 export class ContactsListComponent implements OnInit, OnDestroy
 {
@@ -37,7 +43,7 @@ export class ContactsListComponent implements OnInit, OnDestroy
         private _contactsService: ContactsService,
         @Inject(DOCUMENT) private _document: any,
         private _router: Router,
-        private _fuseMediaWatcherService: FuseMediaWatcherService
+        private _fuseMediaWatcherService: FuseMediaWatcherService,
     )
     {
     }
@@ -55,7 +61,8 @@ export class ContactsListComponent implements OnInit, OnDestroy
         this.contacts$ = this._contactsService.contacts$;
         this._contactsService.contacts$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((contacts: Contact[]) => {
+            .subscribe((contacts: Contact[]) =>
+            {
 
                 // Update the counts
                 this.contactsCount = contacts.length;
@@ -67,7 +74,8 @@ export class ContactsListComponent implements OnInit, OnDestroy
         // Get the contact
         this._contactsService.contact$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((contact: Contact) => {
+            .subscribe((contact: Contact) =>
+            {
 
                 // Update the selected contact
                 this.selectedContact = contact;
@@ -79,7 +87,8 @@ export class ContactsListComponent implements OnInit, OnDestroy
         // Get the countries
         this._contactsService.countries$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((countries: Country[]) => {
+            .subscribe((countries: Country[]) =>
+            {
 
                 // Update the countries
                 this.countries = countries;
@@ -95,13 +104,14 @@ export class ContactsListComponent implements OnInit, OnDestroy
                 switchMap(query =>
 
                     // Search
-                    this._contactsService.searchContacts(query)
-                )
+                    this._contactsService.searchContacts(query),
+                ),
             )
             .subscribe();
 
         // Subscribe to MatDrawer opened change
-        this.matDrawer.openedChange.subscribe((opened) => {
+        this.matDrawer.openedChange.subscribe((opened) =>
+        {
             if ( !opened )
             {
                 // Remove the selected contact when drawer closed
@@ -115,7 +125,8 @@ export class ContactsListComponent implements OnInit, OnDestroy
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the drawerMode if the given breakpoint is active
                 if ( matchingAliases.includes('lg') )
@@ -137,10 +148,11 @@ export class ContactsListComponent implements OnInit, OnDestroy
                 takeUntil(this._unsubscribeAll),
                 filter<KeyboardEvent>(event =>
                     (event.ctrlKey === true || event.metaKey) // Ctrl or Cmd
-                    && (event.key === '/') // '/'
-                )
+                    && (event.key === '/'), // '/'
+                ),
             )
-            .subscribe(() => {
+            .subscribe(() =>
+            {
                 this.createContact();
             });
     }
@@ -177,7 +189,8 @@ export class ContactsListComponent implements OnInit, OnDestroy
     createContact(): void
     {
         // Create the contact
-        this._contactsService.createContact().subscribe((newContact) => {
+        this._contactsService.createContact().subscribe((newContact) =>
+        {
 
             // Go to the new contact
             this._router.navigate(['./', newContact.id], {relativeTo: this._activatedRoute});

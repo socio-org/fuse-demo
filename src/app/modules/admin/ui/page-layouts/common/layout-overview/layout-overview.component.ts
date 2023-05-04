@@ -1,5 +1,10 @@
+import { NgClass, NgComponentOutlet, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 export interface PageLayoutsOverviewData
 {
@@ -112,9 +117,11 @@ export interface PageLayoutsOverviewData
                 flex-direction: column;
                 flex: 1 1 auto;
             }
-        `
+        `,
     ],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatButtonToggleModule, FormsModule, NgFor, NgClass, NgIf, NgComponentOutlet, MatButtonModule, RouterLink, MatIconModule],
 })
 export class LayoutOverviewComponent implements OnInit
 {

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject, tap } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Navigation } from 'app/core/navigation/navigation.types';
+import { Observable, ReplaySubject, tap } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class NavigationService
 {
@@ -39,9 +39,10 @@ export class NavigationService
     get(): Observable<Navigation>
     {
         return this._httpClient.get<Navigation>('api/common/navigation').pipe(
-            tap((navigation) => {
+            tap((navigation) =>
+            {
                 this._navigation.next(navigation);
-            })
+            }),
         );
     }
 }

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { assign, cloneDeep } from 'lodash-es';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { brands as brandsData, categories as categoriesData, products as productsData, tags as tagsData, vendors as vendorsData } from 'app/mock-api/apps/ecommerce/inventory/data';
+import { assign, cloneDeep } from 'lodash-es';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ECommerceInventoryMockApi
 {
@@ -51,7 +51,8 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/ecommerce/inventory/products', 300)
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get available queries
                 const search = request.params.get('search');
@@ -66,7 +67,8 @@ export class ECommerceInventoryMockApi
                 // Sort the products
                 if ( sort === 'sku' || sort === 'name' || sort === 'active' )
                 {
-                    products.sort((a, b) => {
+                    products.sort((a, b) =>
+                    {
                         const fieldA = a[sort].toString().toUpperCase();
                         const fieldB = b[sort].toString().toUpperCase();
                         return order === 'asc' ? fieldA.localeCompare(fieldB) : fieldB.localeCompare(fieldA);
@@ -103,7 +105,7 @@ export class ECommerceInventoryMockApi
                 {
                     products = null;
                     pagination = {
-                        lastPage
+                        lastPage,
                     };
                 }
                 else
@@ -118,7 +120,7 @@ export class ECommerceInventoryMockApi
                         page      : page,
                         lastPage  : lastPage,
                         startIndex: begin,
-                        endIndex  : end - 1
+                        endIndex  : end - 1,
                     };
                 }
 
@@ -127,8 +129,8 @@ export class ECommerceInventoryMockApi
                     200,
                     {
                         products,
-                        pagination
-                    }
+                        pagination,
+                    },
                 ];
             });
 
@@ -137,7 +139,8 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/ecommerce/inventory/product')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id from the params
                 const id = request.params.get('id');
@@ -157,7 +160,8 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/apps/ecommerce/inventory/product')
-            .reply(() => {
+            .reply(() =>
+            {
 
                 // Generate a new product
                 const newProduct = {
@@ -179,7 +183,7 @@ export class ECommerceInventoryMockApi
                     weight     : '',
                     thumbnail  : '',
                     images     : [],
-                    active     : false
+                    active     : false,
                 };
 
                 // Unshift the new product
@@ -194,7 +198,8 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/apps/ecommerce/inventory/product')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id and product
                 const id = request.body.id;
@@ -204,7 +209,8 @@ export class ECommerceInventoryMockApi
                 let updatedProduct = null;
 
                 // Find the product and update it
-                this._products.forEach((item, index, products) => {
+                this._products.forEach((item, index, products) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -225,13 +231,15 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onDelete('api/apps/ecommerce/inventory/product')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id
                 const id = request.params.get('id');
 
                 // Find the product and delete it
-                this._products.forEach((item, index) => {
+                this._products.forEach((item, index) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -255,7 +263,8 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/apps/ecommerce/inventory/tag')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the tag
                 const newTag = cloneDeep(request.body.tag);
@@ -275,7 +284,8 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/apps/ecommerce/inventory/tag')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id and tag
                 const id = request.body.id;
@@ -285,7 +295,8 @@ export class ECommerceInventoryMockApi
                 let updatedTag = null;
 
                 // Find the tag and update it
-                this._tags.forEach((item, index, tags) => {
+                this._tags.forEach((item, index, tags) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -306,13 +317,15 @@ export class ECommerceInventoryMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onDelete('api/apps/ecommerce/inventory/tag')
-            .reply(({request}) => {
+            .reply(({request}) =>
+            {
 
                 // Get the id
                 const id = request.params.get('id');
 
                 // Find the tag and delete it
-                this._tags.forEach((item, index) => {
+                this._tags.forEach((item, index) =>
+                {
 
                     if ( item.id === id )
                     {
@@ -324,7 +337,8 @@ export class ECommerceInventoryMockApi
                 const productsWithTag = this._products.filter(product => product.tags.indexOf(id) > -1);
 
                 // Iterate through them and delete the tag
-                productsWithTag.forEach((product) => {
+                productsWithTag.forEach((product) =>
+                {
                     product.tags.splice(product.tags.indexOf(id), 1);
                 });
 

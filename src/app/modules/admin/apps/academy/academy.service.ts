@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, of, switchMap, tap, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Category, Course } from 'app/modules/admin/apps/academy/academy.types';
+import { BehaviorSubject, map, Observable, of, switchMap, tap, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class AcademyService
 {
@@ -58,9 +58,10 @@ export class AcademyService
     getCategories(): Observable<Category[]>
     {
         return this._httpClient.get<Category[]>('api/apps/academy/categories').pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._categories.next(response);
-            })
+            }),
         );
     }
 
@@ -70,9 +71,10 @@ export class AcademyService
     getCourses(): Observable<Course[]>
     {
         return this._httpClient.get<Course[]>('api/apps/academy/courses').pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._courses.next(response);
-            })
+            }),
         );
     }
 
@@ -82,7 +84,8 @@ export class AcademyService
     getCourseById(id: string): Observable<Course>
     {
         return this._httpClient.get<Course>('api/apps/academy/courses/course', {params: {id}}).pipe(
-            map((course) => {
+            map((course) =>
+            {
 
                 // Update the course
                 this._course.next(course);
@@ -90,7 +93,8 @@ export class AcademyService
                 // Return the course
                 return course;
             }),
-            switchMap((course) => {
+            switchMap((course) =>
+            {
 
                 if ( !course )
                 {
@@ -98,7 +102,7 @@ export class AcademyService
                 }
 
                 return of(course);
-            })
+            }),
         );
     }
 }

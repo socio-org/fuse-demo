@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,22 +7,17 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
-import { SharedModule } from 'app/shared/shared.module';
-import { academyRoutes } from 'app/modules/admin/apps/academy/academy.routing';
+import { RouterModule } from '@angular/router';
 import { AcademyComponent } from 'app/modules/admin/apps/academy/academy.component';
+
+import { academyRoutes } from 'app/modules/admin/apps/academy/academy.routing';
 import { AcademyDetailsComponent } from 'app/modules/admin/apps/academy/details/details.component';
 import { AcademyListComponent } from 'app/modules/admin/apps/academy/list/list.component';
-import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
-    declarations: [
-        AcademyComponent,
-        AcademyDetailsComponent,
-        AcademyListComponent
-    ],
-    imports     : [
+    imports: [
         RouterModule.forChild(academyRoutes),
         MatButtonModule,
         MatFormFieldModule,
@@ -34,10 +28,11 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatSidenavModule,
         MatSlideToggleModule,
         MatTooltipModule,
-        FuseFindByKeyPipeModule,
-        SharedModule,
-        MatTabsModule
-    ]
+        MatTabsModule,
+        AcademyComponent,
+        AcademyDetailsComponent,
+        AcademyListComponent,
+    ],
 })
 export class AcademyModule
 {

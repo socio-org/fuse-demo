@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { FuseAlertService } from '@fuse/components/alert';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FuseAlertComponent, FuseAlertService } from '@fuse/components/alert';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({
@@ -10,8 +14,10 @@ import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fu
             fuse-alert {
                 margin: 16px 0;
             }
-        `
-    ]
+        `,
+    ],
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseHighlightComponent, MatTabsModule, FuseAlertComponent],
 })
 export class AlertComponent
 {
@@ -20,7 +26,7 @@ export class AlertComponent
      */
     constructor(
         private _fuseAlertService: FuseAlertService,
-        private _fuseComponentsComponent: FuseComponentsComponent
+        private _fuseComponentsComponent: FuseComponentsComponent,
     )
     {
     }

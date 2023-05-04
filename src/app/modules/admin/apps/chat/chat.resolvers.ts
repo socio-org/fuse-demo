@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
 import { Chat, Contact, Profile } from 'app/modules/admin/apps/chat/chat.types';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ChatChatsResolver implements Resolve<any>
 {
@@ -14,7 +14,7 @@ export class ChatChatsResolver implements Resolve<any>
      */
     constructor(
         private _chatService: ChatService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -36,7 +36,7 @@ export class ChatChatsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ChatChatResolver implements Resolve<any>
 {
@@ -45,7 +45,7 @@ export class ChatChatResolver implements Resolve<any>
      */
     constructor(
         private _chatService: ChatService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -63,28 +63,29 @@ export class ChatChatResolver implements Resolve<any>
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Chat>
     {
         return this._chatService.getChatById(route.paramMap.get('id'))
-                   .pipe(
-                       // Error here means the requested chat is not available
-                       catchError((error) => {
+            .pipe(
+                // Error here means the requested chat is not available
+                catchError((error) =>
+                {
 
-                           // Log the error
-                           console.error(error);
+                    // Log the error
+                    console.error(error);
 
-                           // Get the parent url
-                           const parentUrl = state.url.split('/').slice(0, -1).join('/');
+                    // Get the parent url
+                    const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
-                           // Navigate to there
-                           this._router.navigateByUrl(parentUrl);
+                    // Navigate to there
+                    this._router.navigateByUrl(parentUrl);
 
-                           // Throw an error
-                           return throwError(error);
-                       })
-                   );
+                    // Throw an error
+                    return throwError(error);
+                }),
+            );
     }
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ChatContactsResolver implements Resolve<any>
 {
@@ -93,7 +94,7 @@ export class ChatContactsResolver implements Resolve<any>
      */
     constructor(
         private _chatService: ChatService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }
@@ -115,7 +116,7 @@ export class ChatContactsResolver implements Resolve<any>
 }
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ChatProfileResolver implements Resolve<any>
 {
@@ -124,7 +125,7 @@ export class ChatProfileResolver implements Resolve<any>
      */
     constructor(
         private _chatService: ChatService,
-        private _router: Router
+        private _router: Router,
     )
     {
     }

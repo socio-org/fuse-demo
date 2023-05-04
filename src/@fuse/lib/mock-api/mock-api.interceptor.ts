@@ -1,11 +1,11 @@
-import { Inject, Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import { delay, Observable, of, switchMap, throwError } from 'rxjs';
+import { Inject, Injectable } from '@angular/core';
 import { FUSE_MOCK_API_DEFAULT_DELAY } from '@fuse/lib/mock-api/mock-api.constants';
 import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
+import { delay, Observable, of, switchMap, throwError } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FuseMockApiInterceptor implements HttpInterceptor
 {
@@ -14,7 +14,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor
      */
     constructor(
         @Inject(FUSE_MOCK_API_DEFAULT_DELAY) private _defaultDelay: number,
-        private _fuseMockApiService: FuseMockApiService
+        private _fuseMockApiService: FuseMockApiService,
     )
     {
     }
@@ -29,9 +29,9 @@ export class FuseMockApiInterceptor implements HttpInterceptor
     {
         // Try to get the request handler
         const {
-                  handler,
-                  urlParams
-              } = this._fuseMockApiService.findHandler(request.method.toUpperCase(), request.url);
+            handler,
+            urlParams,
+        } = this._fuseMockApiService.findHandler(request.method.toUpperCase(), request.url);
 
         // Pass through if the request handler does not exist
         if ( !handler )
@@ -48,7 +48,8 @@ export class FuseMockApiInterceptor implements HttpInterceptor
         // Subscribe to the response function observable
         return handler.response.pipe(
             delay(handler.delay ?? this._defaultDelay ?? 0),
-            switchMap((response) => {
+            switchMap((response) =>
+            {
 
                 // If there is no response data,
                 // throw an error response
@@ -57,7 +58,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor
                     response = new HttpErrorResponse({
                         error     : 'NOT FOUND',
                         status    : 404,
-                        statusText: 'NOT FOUND'
+                        statusText: 'NOT FOUND',
                     });
 
                     return throwError(response);
@@ -66,7 +67,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor
                 // Parse the response data
                 const data = {
                     status: response[0],
-                    body  : response[1]
+                    body  : response[1],
                 };
 
                 // If the status code is in between 200 and 300,
@@ -76,7 +77,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor
                     response = new HttpResponse({
                         body      : data.body,
                         status    : data.status,
-                        statusText: 'OK'
+                        statusText: 'OK',
                     });
 
                     return of(response);
@@ -87,7 +88,7 @@ export class FuseMockApiInterceptor implements HttpInterceptor
                 response = new HttpErrorResponse({
                     error     : data.body.error,
                     status    : data.status,
-                    statusText: 'ERROR'
+                    statusText: 'ERROR',
                 });
 
                 return throwError(response);

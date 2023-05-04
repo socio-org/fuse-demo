@@ -1,14 +1,19 @@
+import { AsyncPipe, DatePipe, NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DateTime } from 'luxon';
-import { Activity } from 'app/modules/admin/pages/activities/activities.types';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 import { ActivitiesService } from 'app/modules/admin/pages/activities/activities.service';
+import { Activity } from 'app/modules/admin/pages/activities/activities.types';
+import { DateTime } from 'luxon';
+import { Observable } from 'rxjs';
 
 @Component({
     selector       : 'activity',
     templateUrl    : './activities.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [NgIf, NgFor, MatIconModule, RouterLink, AsyncPipe, TitleCasePipe, DatePipe],
 })
 export class ActivitiesComponent implements OnInit
 {

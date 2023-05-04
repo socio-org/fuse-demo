@@ -4,6 +4,6 @@ import { MaintenanceComponent } from 'app/modules/admin/pages/maintenance/mainte
 export const maintenanceRoutes: Route[] = [
     {
         path     : '',
-        component: MaintenanceComponent
-    }
+        component: MaintenanceComponent,
+    },
 ];

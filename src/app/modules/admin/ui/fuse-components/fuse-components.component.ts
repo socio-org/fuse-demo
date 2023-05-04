@@ -1,14 +1,18 @@
 import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FuseNavigationItem } from '@fuse/components/navigation';
-import { MatDrawer } from '@angular/material/sidenav';
-import { Subject, takeUntil } from 'rxjs';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
+import { FuseNavigationItem, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
+import { FuseScrollResetDirective } from '@fuse/directives/scroll-reset';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'fuse-components',
     templateUrl  : './fuse-components.component.html',
     styleUrls    : ['./fuse-components.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatSidenavModule, FuseVerticalNavigationComponent, FuseScrollResetDirective, RouterOutlet],
 })
 export class FuseComponentsComponent implements OnInit, OnDestroy
 {
@@ -22,7 +26,7 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
      * Constructor
      */
     constructor(
-        private _fuseMediaWatcherService: FuseMediaWatcherService
+        private _fuseMediaWatcherService: FuseMediaWatcherService,
     )
     {
         this.menuData = [
@@ -35,9 +39,9 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         id   : 'fuse-components.libraries.mock-api',
                         title: 'MockAPI',
                         type : 'basic',
-                        link : '/ui/fuse-components/libraries/mock-api'
-                    }
-                ]
+                        link : '/ui/fuse-components/libraries/mock-api',
+                    },
+                ],
             },
             {
                 id      : 'fuse-components.components',
@@ -48,51 +52,51 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         id   : 'fuse-components.components.alert',
                         title: 'Alert',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/alert'
+                        link : '/ui/fuse-components/components/alert',
                     },
                     {
                         id   : 'fuse-components.components.card',
                         title: 'Card',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/card'
+                        link : '/ui/fuse-components/components/card',
                     },
                     {
                         id   : 'fuse-components.components.drawer',
                         title: 'Drawer',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/drawer'
+                        link : '/ui/fuse-components/components/drawer',
                     },
                     {
                         id   : 'fuse-components.components.fullscreen',
                         title: 'Fullscreen',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/fullscreen'
+                        link : '/ui/fuse-components/components/fullscreen',
                     },
                     {
                         id   : 'fuse-components.components.highlight',
                         title: 'Highlight',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/highlight'
+                        link : '/ui/fuse-components/components/highlight',
                     },
                     {
                         id   : 'fuse-components.components.loading-bar',
                         title: 'Loading Bar',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/loading-bar'
+                        link : '/ui/fuse-components/components/loading-bar',
                     },
                     {
                         id   : 'fuse-components.components.masonry',
                         title: 'Masonry',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/masonry'
+                        link : '/ui/fuse-components/components/masonry',
                     },
                     {
                         id   : 'fuse-components.components.navigation',
                         title: 'Navigation',
                         type : 'basic',
-                        link : '/ui/fuse-components/components/navigation'
-                    }
-                ]
+                        link : '/ui/fuse-components/components/navigation',
+                    },
+                ],
             },
             {
                 id      : 'fuse-components.directives',
@@ -103,15 +107,15 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         id   : 'fuse-components.directives.scrollbar',
                         title: 'Scrollbar',
                         type : 'basic',
-                        link : '/ui/fuse-components/directives/scrollbar'
+                        link : '/ui/fuse-components/directives/scrollbar',
                     },
                     {
                         id   : 'fuse-components.directives.scroll-reset',
                         title: 'ScrollReset',
                         type : 'basic',
-                        link : '/ui/fuse-components/directives/scroll-reset'
-                    }
-                ]
+                        link : '/ui/fuse-components/directives/scroll-reset',
+                    },
+                ],
             },
             {
                 id      : 'fuse-components.services',
@@ -122,27 +126,27 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         id   : 'fuse-components.services.config',
                         title: 'Config',
                         type : 'basic',
-                        link : '/ui/fuse-components/services/config'
+                        link : '/ui/fuse-components/services/config',
                     },
                     {
                         id   : 'fuse-components.services.confirmation',
                         title: 'Confirmation',
                         type : 'basic',
-                        link : '/ui/fuse-components/services/confirmation'
+                        link : '/ui/fuse-components/services/confirmation',
                     },
                     {
                         id   : 'fuse-components.services.splash-screen',
                         title: 'SplashScreen',
                         type : 'basic',
-                        link : '/ui/fuse-components/services/splash-screen'
+                        link : '/ui/fuse-components/services/splash-screen',
                     },
                     {
                         id   : 'fuse-components.services.media-watcher',
                         title: 'MediaWatcher',
                         type : 'basic',
-                        link : '/ui/fuse-components/services/media-watcher'
-                    }
-                ]
+                        link : '/ui/fuse-components/services/media-watcher',
+                    },
+                ],
             },
             {
                 id      : 'fuse-components.pipes',
@@ -153,9 +157,9 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         id   : 'fuse-components.pipes.find-by-key',
                         title: 'FindByKey',
                         type : 'basic',
-                        link : '/ui/fuse-components/pipes/find-by-key'
-                    }
-                ]
+                        link : '/ui/fuse-components/pipes/find-by-key',
+                    },
+                ],
             },
             {
                 id      : 'fuse-components.validators',
@@ -166,10 +170,10 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
                         id   : 'fuse-components.validators.must-match',
                         title: 'MustMatch',
                         type : 'basic',
-                        link : '/ui/fuse-components/validators/must-match'
-                    }
-                ]
-            }
+                        link : '/ui/fuse-components/validators/must-match',
+                    },
+                ],
+            },
         ];
     }
 
@@ -185,7 +189,8 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
         // Subscribe to media query change
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({matchingAliases}) =>
+            {
 
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('md') )

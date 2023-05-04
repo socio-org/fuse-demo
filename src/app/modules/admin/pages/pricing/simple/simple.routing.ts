@@ -4,6 +4,6 @@ import { PricingSimpleComponent } from 'app/modules/admin/pages/pricing/simple/s
 export const pricingSimpleRoutes: Route[] = [
     {
         path     : '',
-        component: PricingSimpleComponent
-    }
+        component: PricingSimpleComponent,
+    },
 ];

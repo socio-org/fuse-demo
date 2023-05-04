@@ -7,7 +7,7 @@ export const cryptoRoutes: Route[] = [
         path     : '',
         component: CryptoComponent,
         resolve  : {
-            data: CryptoResolver
-        }
-    }
+            data: CryptoResolver,
+        },
+    },
 ];

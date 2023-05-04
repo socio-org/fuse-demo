@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ContactsDetailsComponent } from 'app/modules/admin/apps/contacts/details/details.component';
+import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class CanDeactivateContactsDetails implements CanDeactivate<ContactsDetailsComponent>
 {
@@ -12,7 +12,7 @@ export class CanDeactivateContactsDetails implements CanDeactivate<ContactsDetai
         component: ContactsDetailsComponent,
         currentRoute: ActivatedRouteSnapshot,
         currentState: RouterStateSnapshot,
-        nextState: RouterStateSnapshot
+        nextState: RouterStateSnapshot,
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree
     {
         // Get the next route

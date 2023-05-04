@@ -1,10 +1,19 @@
+import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
     selector       : 'settings-team',
     templateUrl    : './team.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, NgFor, NgIf, MatSelectModule, MatOptionModule, TitleCasePipe],
 })
 export class SettingsTeamComponent implements OnInit
 {
@@ -33,44 +42,44 @@ export class SettingsTeamComponent implements OnInit
                 avatar: 'assets/images/avatars/male-01.jpg',
                 name  : 'Dejesus Michael',
                 email : 'dejesusmichael@mail.org',
-                role  : 'admin'
+                role  : 'admin',
             },
             {
                 avatar: 'assets/images/avatars/male-03.jpg',
                 name  : 'Mclaughlin Steele',
                 email : 'mclaughlinsteele@mail.me',
-                role  : 'admin'
+                role  : 'admin',
             },
             {
                 avatar: 'assets/images/avatars/female-02.jpg',
                 name  : 'Laverne Dodson',
                 email : 'lavernedodson@mail.ca',
-                role  : 'write'
+                role  : 'write',
             },
             {
                 avatar: 'assets/images/avatars/female-03.jpg',
                 name  : 'Trudy Berg',
                 email : 'trudyberg@mail.us',
-                role  : 'read'
+                role  : 'read',
             },
             {
                 avatar: 'assets/images/avatars/male-07.jpg',
                 name  : 'Lamb Underwood',
                 email : 'lambunderwood@mail.me',
-                role  : 'read'
+                role  : 'read',
             },
             {
                 avatar: 'assets/images/avatars/male-08.jpg',
                 name  : 'Mcleod Wagner',
                 email : 'mcleodwagner@mail.biz',
-                role  : 'read'
+                role  : 'read',
             },
             {
                 avatar: 'assets/images/avatars/female-07.jpg',
                 name  : 'Shannon Kennedy',
                 email : 'shannonkennedy@mail.ca',
-                role  : 'read'
-            }
+                role  : 'read',
+            },
         ];
 
         // Setup the roles
@@ -78,18 +87,18 @@ export class SettingsTeamComponent implements OnInit
             {
                 label      : 'Read',
                 value      : 'read',
-                description: 'Can read and clone this repository. Can also open and comment on issues and pull requests.'
+                description: 'Can read and clone this repository. Can also open and comment on issues and pull requests.',
             },
             {
                 label      : 'Write',
                 value      : 'write',
-                description: 'Can read, clone, and push to this repository. Can also manage issues and pull requests.'
+                description: 'Can read, clone, and push to this repository. Can also manage issues and pull requests.',
             },
             {
                 label      : 'Admin',
                 value      : 'admin',
-                description: 'Can read, clone, and push to this repository. Can also manage issues, pull requests, and repository settings, including adding collaborators.'
-            }
+                description: 'Can read, clone, and push to this repository. Can also manage issues, pull requests, and repository settings, including adding collaborators.',
+            },
         ];
     }
 

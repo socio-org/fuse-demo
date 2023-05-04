@@ -1,6 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
+import { NgIf } from '@angular/common';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule } from '@angular/material/tree';
+import { RouterLink } from '@angular/router';
+import { FuseAlertComponent } from '@fuse/components/alert';
 import { GuidesComponent } from 'app/modules/admin/docs/guides/guides.component';
 
 interface DirNode
@@ -40,9 +45,11 @@ interface FlatDirNode
                 line-height: 32px;
                 margin-right: 8px;
             }
-        `
+        `,
     ],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatIconModule, MatButtonModule, FuseAlertComponent, MatTreeModule, NgIf, RouterLink],
 })
 export class DirectoryStructureComponent implements OnInit
 {
@@ -70,8 +77,8 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'navigation/'},
                             {name: 'transloco/'},
                             {name: 'user/'},
-                            {name: 'core.module.ts'}
-                        ]
+                            {name: 'core.module.ts'},
+                        ],
                     },
                     {
                         name    : 'layout/',
@@ -82,8 +89,8 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'layout.component.scss'},
                             {name: 'layout.component.ts'},
                             {name: 'layout.module.ts'},
-                            {name: 'layout.types.ts'}
-                        ]
+                            {name: 'layout.types.ts'},
+                        ],
                     },
                     {
                         name    : 'mock-api/',
@@ -93,31 +100,31 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'dashboards/'},
                             {name: 'pages/'},
                             {name: 'ui/'},
-                            {name: 'index.ts'}
-                        ]
+                            {name: 'index.ts'},
+                        ],
                     },
                     {
                         name    : 'modules/',
                         children: [
                             {name: 'admin/'},
                             {name: 'auth/'},
-                            {name: 'landing/'}
-                        ]
+                            {name: 'landing/'},
+                        ],
                     },
                     {
                         name    : 'shared/',
                         children: [
-                            {name: 'shared.module.ts'}
-                        ]
+                            {name: 'shared.module.ts'},
+                        ],
                     },
                     {name: 'app.component.html'},
                     {name: 'app.component.scss'},
                     {name: 'app.component.ts'},
                     {name: 'app.module.ts'},
                     {name: 'app.resolvers.ts'},
-                    {name: 'app.routing.ts'}
-                ]
-            }
+                    {name: 'app.routing.ts'},
+                ],
+            },
         ];
 
         // General dir
@@ -139,8 +146,8 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'validators/'},
                             {name: 'version/'},
                             {name: 'fuse.module.ts'},
-                            {name: 'index.ts'}
-                        ]
+                            {name: 'index.ts'},
+                        ],
                     },
                     this.appDir[0],
                     {
@@ -150,23 +157,23 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'i18n/'},
                             {name: 'icons/'},
                             {name: 'images/'},
-                            {name: 'styles/'}
-                        ]
+                            {name: 'styles/'},
+                        ],
                     },
                     {
                         name    : 'environments/',
                         children: [
                             {name: 'environment.prod.ts'},
-                            {name: 'environment.ts'}
-                        ]
+                            {name: 'environment.ts'},
+                        ],
                     },
                     {
                         name    : 'styles/',
                         children: [
                             {name: 'styles.scss'},
                             {name: 'tailwind.scss'},
-                            {name: 'vendors.scss'}
-                        ]
+                            {name: 'vendors.scss'},
+                        ],
                     },
                     {name: 'favicon-16x16.png'},
                     {name: 'favicon-32x32.png'},
@@ -174,9 +181,9 @@ export class DirectoryStructureComponent implements OnInit
                     {name: 'index.html'},
                     {name: 'main.ts'},
                     {name: 'polyfills.ts'},
-                    {name: 'test.ts'}
-                ]
-            }
+                    {name: 'test.ts'},
+                ],
+            },
         ];
     }
 
@@ -193,7 +200,8 @@ export class DirectoryStructureComponent implements OnInit
         this.generalTree = this.createTree(this.generalDir);
 
         // Add 'last:true' to the last child
-        this.appTree.treeControl.dataNodes.forEach((node: FlatDirNode, index, nodes) => {
+        this.appTree.treeControl.dataNodes.forEach((node: FlatDirNode, index, nodes) =>
+        {
             nodes[index].last = false;
             if ( nodes[index + 1] )
             {
@@ -205,7 +213,8 @@ export class DirectoryStructureComponent implements OnInit
             }
         });
 
-        this.generalTree.treeControl.dataNodes.forEach((node: FlatDirNode, index, nodes) => {
+        this.generalTree.treeControl.dataNodes.forEach((node: FlatDirNode, index, nodes) =>
+        {
             nodes[index].last = false;
             if ( nodes[index + 1] )
             {
@@ -250,9 +259,9 @@ export class DirectoryStructureComponent implements OnInit
                 (node: DirNode, level: number) => ({
                     expandable: !!node.children && node.children.length > 0,
                     name      : node.name,
-                    level     : level
+                    level     : level,
                 }),
-                node => node.level, node => node.expandable, node => node.children)
+                node => node.level, node => node.expandable, node => node.children),
         );
 
         // Set the data
@@ -260,7 +269,7 @@ export class DirectoryStructureComponent implements OnInit
 
         return {
             treeControl,
-            dataSource
+            dataSource,
         };
     }
 

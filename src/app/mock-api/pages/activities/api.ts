@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { cloneDeep } from 'lodash-es';
 import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { activities as activitiesData } from 'app/mock-api/pages/activities/data';
+import { cloneDeep } from 'lodash-es';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class ActivitiesMockApi
 {

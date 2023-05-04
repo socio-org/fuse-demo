@@ -4,6 +4,6 @@ import { PricingSingleComponent } from 'app/modules/admin/pages/pricing/single/s
 export const pricingSingleRoutes: Route[] = [
     {
         path     : '',
-        component: PricingSingleComponent
-    }
+        component: PricingSingleComponent,
+    },
 ];

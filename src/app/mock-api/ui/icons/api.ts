@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { cloneDeep } from 'lodash-es';
 import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { feather, heroicons, material } from 'app/mock-api/ui/icons/data';
+import { cloneDeep } from 'lodash-es';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class IconsMockApi
 {
@@ -41,8 +41,8 @@ export class IconsMockApi
                     namespace: 'feather',
                     name     : 'Feather',
                     grid     : 'icon-size-6',
-                    list     : cloneDeep(this._feather)
-                }
+                    list     : cloneDeep(this._feather),
+                },
             ]);
 
         // -----------------------------------------------------------------------------------------------------
@@ -56,8 +56,8 @@ export class IconsMockApi
                     namespace: 'heroicons_outline',
                     name     : 'Heroicons Outline',
                     grid     : 'icon-size-6',
-                    list     : cloneDeep(this._heroicons)
-                }
+                    list     : cloneDeep(this._heroicons),
+                },
             ]);
 
         // -----------------------------------------------------------------------------------------------------
@@ -71,8 +71,8 @@ export class IconsMockApi
                     namespace: 'heroicons_solid',
                     name     : 'Heroicons Solid',
                     grid     : 'icon-size-5',
-                    list     : cloneDeep(this._heroicons)
-                }
+                    list     : cloneDeep(this._heroicons),
+                },
             ]);
 
         // -----------------------------------------------------------------------------------------------------
@@ -86,8 +86,8 @@ export class IconsMockApi
                     namespace: 'mat_solid',
                     name     : 'Material Solid',
                     grid     : 'icon-size-6',
-                    list     : cloneDeep(this._material)
-                }
+                    list     : cloneDeep(this._material),
+                },
             ]);
 
         // -----------------------------------------------------------------------------------------------------
@@ -101,8 +101,8 @@ export class IconsMockApi
                     namespace: 'mat_outline',
                     name     : 'Material Outline',
                     grid     : 'icon-size-6',
-                    list     : cloneDeep(this._material)
-                }
+                    list     : cloneDeep(this._material),
+                },
             ]);
 
         // -----------------------------------------------------------------------------------------------------
@@ -116,8 +116,8 @@ export class IconsMockApi
                     namespace: '',
                     name     : 'Material Twotone',
                     grid     : 'icon-size-6',
-                    list     : cloneDeep(this._material)
-                }
+                    list     : cloneDeep(this._material),
+                },
             ]);
     }
 }

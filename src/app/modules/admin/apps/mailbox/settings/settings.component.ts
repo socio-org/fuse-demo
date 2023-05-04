@@ -1,15 +1,24 @@
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { debounceTime, take } from 'rxjs';
+import { FormsModule, ReactiveFormsModule, UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MailboxComponent } from 'app/modules/admin/apps/mailbox/mailbox.component';
+import { labelColorDefs, labelColors } from 'app/modules/admin/apps/mailbox/mailbox.constants';
 import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { MailLabel } from 'app/modules/admin/apps/mailbox/mailbox.types';
-import { labelColorDefs, labelColors } from 'app/modules/admin/apps/mailbox/mailbox.constants';
+import { debounceTime, take } from 'rxjs';
 
 @Component({
     selector     : 'mailbox-settings',
     templateUrl  : './settings.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, NgClass, NgFor, MatOptionModule, NgIf],
 })
 export class MailboxSettingsComponent implements OnInit
 {
@@ -24,7 +33,7 @@ export class MailboxSettingsComponent implements OnInit
     constructor(
         public mailboxComponent: MailboxComponent,
         private _formBuilder: UntypedFormBuilder,
-        private _mailboxService: MailboxService
+        private _mailboxService: MailboxService,
     )
     {
     }
@@ -43,27 +52,29 @@ export class MailboxSettingsComponent implements OnInit
             labels  : this._formBuilder.array([]),
             newLabel: this._formBuilder.group({
                 title: ['', Validators.required],
-                color: ['orange']
-            })
+                color: ['orange'],
+            }),
         });
 
         // Labels
         this._mailboxService.labels$
             .pipe(take(1))
-            .subscribe((labels: MailLabel[]) => {
+            .subscribe((labels: MailLabel[]) =>
+            {
 
                 // Get the labels
                 this.labels = labels;
 
                 // Iterate through the labels
-                labels.forEach((label) => {
+                labels.forEach((label) =>
+                {
 
                     // Create a label form group
                     const labelFormGroup = this._formBuilder.group({
                         id   : [label.id],
                         title: [label.title, Validators.required],
                         slug : [label.slug],
-                        color: [label.color]
+                        color: [label.color],
                     });
 
                     // Add the label form group to the labels form array
@@ -74,7 +85,8 @@ export class MailboxSettingsComponent implements OnInit
         // Update labels when there is a value change
         this.labelsForm.get('labels').valueChanges
             .pipe(debounceTime(500))
-            .subscribe(() => {
+            .subscribe(() =>
+            {
                 this.updateLabels();
             });
     }
@@ -89,14 +101,15 @@ export class MailboxSettingsComponent implements OnInit
     addLabel(): void
     {
         // Add label to the server
-        this._mailboxService.addLabel(this.labelsForm.get('newLabel').value).subscribe((addedLabel) => {
+        this._mailboxService.addLabel(this.labelsForm.get('newLabel').value).subscribe((addedLabel) =>
+        {
 
             // Push the new label to the labels form array
             (this.labelsForm.get('labels') as UntypedFormArray).push(this._formBuilder.group({
                 id   : [addedLabel.id],
                 title: [addedLabel.title, Validators.required],
                 slug : [addedLabel.slug],
-                color: [addedLabel.color]
+                color: [addedLabel.color],
             }));
 
             // Reset the new label form
@@ -129,7 +142,8 @@ export class MailboxSettingsComponent implements OnInit
     updateLabels(): void
     {
         // Iterate through the labels form array controls
-        (this.labelsForm.get('labels') as UntypedFormArray).controls.forEach((labelFormGroup) => {
+        (this.labelsForm.get('labels') as UntypedFormArray).controls.forEach((labelFormGroup) =>
+        {
 
             // If the label has been edited...
             if ( labelFormGroup.dirty )
