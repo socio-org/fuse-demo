@@ -63,7 +63,6 @@ export class FuseHighlightService
         lines.filter(line => line.length)
             .forEach((line, index) =>
             {
-
                 // Always get the indentation of the first line so we can
                 // have something to compare with
                 if ( index === 0 )

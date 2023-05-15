@@ -47,7 +47,6 @@ export class FuseHorizontalNavigationDividerItemComponent implements OnInit, OnD
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

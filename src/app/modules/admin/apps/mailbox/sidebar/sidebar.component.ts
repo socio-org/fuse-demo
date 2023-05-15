@@ -135,7 +135,6 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         // Iterate through the folders
         this.folders.forEach((folder) =>
         {
-
             // Generate menu item for the folder
             const menuItem: FuseNavigationItem = {
                 id   : folder.id,
@@ -175,7 +174,6 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         // Iterate through the filters
         this.filters.forEach((filter) =>
         {
-
             // Generate menu item for the filter
             this._filtersMenuData.push({
                 id   : filter.id,
@@ -203,7 +201,6 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         // Iterate through the labels
         this.labels.forEach((label) =>
         {
-
             // Generate menu item for the label
             this._labelsMenuData.push({
                 id     : label.id,

@@ -78,7 +78,6 @@ export class ComingSoonFullscreenReversedComponent implements OnInit
         // Emulate server delay
         setTimeout(() =>
         {
-
             // Re-enable the form
             this.comingSoonForm.enable();
 

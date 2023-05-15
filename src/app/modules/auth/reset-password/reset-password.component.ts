@@ -88,7 +88,6 @@ export class AuthResetPasswordComponent implements OnInit
             .pipe(
                 finalize(() =>
                 {
-
                     // Re-enable the form
                     this.resetPasswordForm.enable();
 
@@ -102,7 +101,6 @@ export class AuthResetPasswordComponent implements OnInit
             .subscribe(
                 (response) =>
                 {
-
                     // Set the alert
                     this.alert = {
                         type   : 'success',
@@ -111,7 +109,6 @@ export class AuthResetPasswordComponent implements OnInit
                 },
                 (response) =>
                 {
-
                     // Set the alert
                     this.alert = {
                         type   : 'error',

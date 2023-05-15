@@ -58,7 +58,6 @@ export class ShortcutsService
             switchMap(shortcuts => this._httpClient.post<Shortcut>('api/common/shortcuts', {shortcut}).pipe(
                 map((newShortcut) =>
                 {
-
                     // Update the shortcuts with the new shortcut
                     this._shortcuts.next([...shortcuts, newShortcut]);
 
@@ -85,7 +84,6 @@ export class ShortcutsService
             }).pipe(
                 map((updatedShortcut: Shortcut) =>
                 {
-
                     // Find the index of the updated shortcut
                     const index = shortcuts.findIndex(item => item.id === id);
 
@@ -114,7 +112,6 @@ export class ShortcutsService
             switchMap(shortcuts => this._httpClient.delete<boolean>('api/common/shortcuts', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted shortcut
                     const index = shortcuts.findIndex(item => item.id === id);
 

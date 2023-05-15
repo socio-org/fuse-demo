@@ -153,7 +153,6 @@ export class InventoryService
             take(1),
             map((products) =>
             {
-
                 // Find the product
                 const product = products.find(item => item.id === id) || null;
 
@@ -165,7 +164,6 @@ export class InventoryService
             }),
             switchMap((product) =>
             {
-
                 if ( !product )
                 {
                     return throwError('Could not found product with id of ' + id + '!');
@@ -186,7 +184,6 @@ export class InventoryService
             switchMap(products => this._httpClient.post<InventoryProduct>('api/apps/ecommerce/inventory/product', {}).pipe(
                 map((newProduct) =>
                 {
-
                     // Update the products with the new product
                     this._products.next([newProduct, ...products]);
 
@@ -213,7 +210,6 @@ export class InventoryService
             }).pipe(
                 map((updatedProduct) =>
                 {
-
                     // Find the index of the updated product
                     const index = products.findIndex(item => item.id === id);
 
@@ -231,7 +227,6 @@ export class InventoryService
                     filter(item => item && item.id === id),
                     tap(() =>
                     {
-
                         // Update the product if it's selected
                         this._product.next(updatedProduct);
 
@@ -255,7 +250,6 @@ export class InventoryService
             switchMap(products => this._httpClient.delete('api/apps/ecommerce/inventory/product', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted product
                     const index = products.findIndex(item => item.id === id);
 
@@ -297,7 +291,6 @@ export class InventoryService
             switchMap(tags => this._httpClient.post<InventoryTag>('api/apps/ecommerce/inventory/tag', {tag}).pipe(
                 map((newTag) =>
                 {
-
                     // Update the tags with the new tag
                     this._tags.next([...tags, newTag]);
 
@@ -324,7 +317,6 @@ export class InventoryService
             }).pipe(
                 map((updatedTag) =>
                 {
-
                     // Find the index of the updated tag
                     const index = tags.findIndex(item => item.id === id);
 
@@ -353,7 +345,6 @@ export class InventoryService
             switchMap(tags => this._httpClient.delete('api/apps/ecommerce/inventory/tag', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted tag
                     const index = tags.findIndex(item => item.id === id);
 
@@ -371,11 +362,9 @@ export class InventoryService
                     take(1),
                     map((products) =>
                     {
-
                         // Iterate through the contacts
                         products.forEach((product) =>
                         {
-
                             const tagIndex = product.tags.findIndex(tag => tag === id);
 
                             // If the contact has the tag, remove it
@@ -405,52 +394,4 @@ export class InventoryService
             }),
         );
     }
-
-    /**
-     * Update the avatar of the given contact
-     *
-     * @param id
-     * @param avatar
-     */
-    /*uploadAvatar(id: string, avatar: File): Observable<Contact>
-    {
-        return this.contacts$.pipe(
-            take(1),
-            switchMap(contacts => this._httpClient.post<Contact>('api/apps/contacts/avatar', {
-                id,
-                avatar
-            }, {
-                headers: {
-                    'Content-Type': avatar.type
-                }
-            }).pipe(
-                map((updatedContact) => {
-
-                    // Find the index of the updated contact
-                    const index = contacts.findIndex(item => item.id === id);
-
-                    // Update the contact
-                    contacts[index] = updatedContact;
-
-                    // Update the contacts
-                    this._contacts.next(contacts);
-
-                    // Return the updated contact
-                    return updatedContact;
-                }),
-                switchMap(updatedContact => this.contact$.pipe(
-                    take(1),
-                    filter(item => item && item.id === id),
-                    tap(() => {
-
-                        // Update the contact if it's selected
-                        this._contact.next(updatedContact);
-
-                        // Return the updated contact
-                        return updatedContact;
-                    })
-                ))
-            ))
-        );
-    }*/
 }

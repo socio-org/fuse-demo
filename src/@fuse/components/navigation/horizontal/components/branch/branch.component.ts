@@ -59,7 +59,6 @@ export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDe
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

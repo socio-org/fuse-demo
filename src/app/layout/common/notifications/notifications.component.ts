@@ -55,7 +55,6 @@ export class NotificationsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((notifications: Notification[]) =>
             {
-
                 // Load the notifications
                 this.notifications = notifications;
 

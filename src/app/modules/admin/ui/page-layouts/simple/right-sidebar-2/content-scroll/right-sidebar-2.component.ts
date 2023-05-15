@@ -41,7 +41,6 @@ export class SimpleRightSidebar2ContentScrollComponent implements OnInit, OnDest
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('lg') )
                 {

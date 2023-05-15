@@ -175,11 +175,9 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
         // Subscribe to the confirmation dialog closed action
         confirmation.afterClosed().subscribe((result) =>
         {
-
             // If the confirm button pressed...
             if ( result === 'confirmed' )
             {
-
                 // Delete the list
                 this._scrumboardService.deleteList(id).subscribe();
             }

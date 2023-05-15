@@ -89,7 +89,6 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
                 switchMap(note => this._notesService.updateNote(note)))
             .subscribe(() =>
             {
-
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -149,7 +148,6 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
 
         this._readAsDataURL(file).then((data) =>
         {
-
             // Update the image
             note.image = data;
 
@@ -302,7 +300,6 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
         this._notesService.deleteNote(note)
             .subscribe((isDeleted) =>
             {
-
                 // Return if the note wasn't deleted...
                 if ( !isDeleted )
                 {
@@ -339,7 +336,6 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
         // Return a new promise
         return new Promise((resolve, reject) =>
         {
-
             // Create a new reader
             const reader = new FileReader();
 

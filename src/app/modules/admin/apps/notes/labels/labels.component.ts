@@ -56,7 +56,6 @@ export class NotesLabelsComponent implements OnInit, OnDestroy
                 switchMap(label => this._notesService.updateLabel(label)))
             .subscribe(() =>
             {
-
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -103,7 +102,6 @@ export class NotesLabelsComponent implements OnInit, OnDestroy
     {
         this._notesService.deleteLabel(id).subscribe(() =>
         {
-
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

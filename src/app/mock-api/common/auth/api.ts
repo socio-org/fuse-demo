@@ -66,7 +66,6 @@ export class AuthMockApi
             .onPost('api/auth/sign-in', 1500)
             .reply(({request}) =>
             {
-
                 // Sign in successful
                 if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
                 {
@@ -94,7 +93,6 @@ export class AuthMockApi
             .onPost('api/auth/sign-in-with-token')
             .reply(({request}) =>
             {
-
                 // Get the access token
                 const accessToken = request.body.accessToken;
 
@@ -141,7 +139,6 @@ export class AuthMockApi
             .onPost('api/auth/unlock-session', 1500)
             .reply(({request}) =>
             {
-
                 // Sign in successful
                 if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
                 {

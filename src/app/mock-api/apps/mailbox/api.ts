@@ -46,7 +46,6 @@ export class MailboxMockApi
             .onPatch('api/apps/mailbox/settings')
             .reply(({request}) =>
             {
-
                 // Get the settings
                 const settings = cloneDeep(request.body.settings);
 
@@ -64,13 +63,11 @@ export class MailboxMockApi
             .onGet('api/apps/mailbox/folders')
             .reply(() =>
             {
-
                 let count = 0;
 
                 // Iterate through the folders
                 this._folders.forEach((folder) =>
                 {
-
                     // Get the mails of this folder
                     const mails = this._mails.filter(mail => mail.folder === folder.id);
 
@@ -92,7 +89,6 @@ export class MailboxMockApi
                         // Go through the mails and count the unread ones
                         mails.forEach((mail) =>
                         {
-
                             if ( mail.unread )
                             {
                                 count++;
@@ -132,7 +128,6 @@ export class MailboxMockApi
             .onPost('api/apps/mailbox/label')
             .reply(({request}) =>
             {
-
                 // Get the label
                 const label = cloneDeep(request.body.label);
 
@@ -177,7 +172,6 @@ export class MailboxMockApi
             .onPatch('api/apps/mailbox/label')
             .reply(({request}) =>
             {
-
                 // Get the id and label
                 const id = request.body.id;
                 const label = cloneDeep(request.body.label);
@@ -188,7 +182,6 @@ export class MailboxMockApi
                 // Find the label and update it
                 this._labels.forEach((item, index, labels) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the slug
@@ -216,7 +209,6 @@ export class MailboxMockApi
             .onDelete('api/apps/mailbox/label')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
@@ -244,7 +236,6 @@ export class MailboxMockApi
             .onGet('api/apps/mailbox/mails', 625)
             .reply(({request}) =>
             {
-
                 // First, decide if mails are requested by folder, filter or label
                 const byFolder = request.params.get('folder');
                 const byFilter = request.params.get('filter');
@@ -256,7 +247,6 @@ export class MailboxMockApi
                 // Filter the mails depending on the requested by type
                 mails = mails.filter((mail) =>
                 {
-
                     if ( byFolder )
                     {
                         return mail.folder === this._folders.find(folder => folder.slug === byFolder).id;
@@ -342,7 +332,6 @@ export class MailboxMockApi
             .onGet('api/apps/mailbox/mail')
             .reply(({request}) =>
             {
-
                 // Get the id from the params
                 const id = request.params.get('id');
 
@@ -365,7 +354,6 @@ export class MailboxMockApi
             .onPatch('api/apps/mailbox/mail')
             .reply(({request}) =>
             {
-
                 // Get the id and mail
                 const id = request.body.id;
                 const mail = cloneDeep(request.body.mail);
@@ -376,7 +364,6 @@ export class MailboxMockApi
                 // Find the mail and update it
                 this._mails.forEach((item, index, mails) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the mail

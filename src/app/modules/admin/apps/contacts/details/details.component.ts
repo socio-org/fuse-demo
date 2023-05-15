@@ -4,9 +4,10 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatOptionModule, MatRippleModule } from '@angular/material/core';
+import { MAT_DATE_FORMATS, MatOptionModule, MatRippleModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,7 +29,23 @@ import { debounceTime, Subject, takeUntil } from 'rxjs';
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone     : true,
-    imports        : [NgIf, MatButtonModule, MatTooltipModule, RouterLink, MatIconModule, NgFor, FormsModule, ReactiveFormsModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, NgClass, MatSelectModule, MatOptionModule, MatDatepickerModule, TextFieldModule, FuseFindByKeyPipe, DatePipe],
+    imports        : [NgIf, MatLuxonDateModule, MatButtonModule, MatTooltipModule, RouterLink, MatIconModule, NgFor, FormsModule, ReactiveFormsModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, NgClass, MatSelectModule, MatOptionModule, MatDatepickerModule, TextFieldModule, FuseFindByKeyPipe, DatePipe],
+    providers      : [
+        {
+            provide : MAT_DATE_FORMATS,
+            useValue: {
+                parse  : {
+                    dateInput: 'D',
+                },
+                display: {
+                    dateInput         : 'DDD',
+                    monthYearLabel    : 'LLL yyyy',
+                    dateA11yLabel     : 'DD',
+                    monthYearA11yLabel: 'LLLL yyyy',
+                },
+            },
+        },
+    ],
 })
 export class ContactsDetailsComponent implements OnInit, OnDestroy
 {
@@ -108,7 +125,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((contact: Contact) =>
             {
-
                 // Open the drawer in case it is closed
                 this._contactsListComponent.matDrawer.open();
 
@@ -130,7 +146,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                     // Iterate through them
                     contact.emails.forEach((email) =>
                     {
-
                         // Create an email form group
                         emailFormGroups.push(
                             this._formBuilder.group({
@@ -165,7 +180,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                     // Iterate through them
                     contact.phoneNumbers.forEach((phoneNumber) =>
                     {
-
                         // Create an email form group
                         phoneNumbersFormGroups.push(
                             this._formBuilder.group({
@@ -289,7 +303,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Update the contact on the server
         this._contactsService.updateContact(contact.id, contact).subscribe(() =>
         {
-
             // Toggle the edit mode off
             this.toggleEditMode(false);
         });
@@ -314,7 +327,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Subscribe to the confirmation dialog closed action
         confirmation.afterClosed().subscribe((result) =>
         {
-
             // If the confirm button pressed...
             if ( result === 'confirmed' )
             {
@@ -330,7 +342,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
                 this._contactsService.deleteContact(id)
                     .subscribe((isDeleted) =>
                     {
-
                         // Return if the contact wasn't deleted...
                         if ( !isDeleted )
                         {
@@ -431,7 +442,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Subscribe to the attachments observable
         this._tagsPanelOverlayRef.attachments().subscribe(() =>
         {
-
             // Add a class to the origin
             this._renderer2.addClass(this._tagsPanelOrigin.nativeElement, 'panel-opened');
 
@@ -448,7 +458,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         // Subscribe to the backdrop click
         this._tagsPanelOverlayRef.backdropClick().subscribe(() =>
         {
-
             // Remove the class from the origin
             this._renderer2.removeClass(this._tagsPanelOrigin.nativeElement, 'panel-opened');
 
@@ -554,7 +563,6 @@ export class ContactsDetailsComponent implements OnInit, OnDestroy
         this._contactsService.createTag(tag)
             .subscribe((response) =>
             {
-
                 // Add the tag to the contact
                 this.addTagToContact(response);
             });

@@ -41,7 +41,6 @@ export class SimpleLeftSidebar2NormalScrollComponent implements OnInit, OnDestro
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('lg') )
                 {

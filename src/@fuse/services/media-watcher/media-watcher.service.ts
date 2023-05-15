@@ -22,7 +22,6 @@ export class FuseMediaWatcherService
             switchMap(screens => this._breakpointObserver.observe(Object.values(screens)).pipe(
                 map((state) =>
                 {
-
                     // Prepare the observable values and set their defaults
                     const matchingAliases: string[] = [];
                     const matchingQueries: any = {};

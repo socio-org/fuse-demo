@@ -81,7 +81,6 @@ export class AuthForgotPasswordComponent implements OnInit
             .pipe(
                 finalize(() =>
                 {
-
                     // Re-enable the form
                     this.forgotPasswordForm.enable();
 
@@ -95,7 +94,6 @@ export class AuthForgotPasswordComponent implements OnInit
             .subscribe(
                 (response) =>
                 {
-
                     // Set the alert
                     this.alert = {
                         type   : 'success',
@@ -104,7 +102,6 @@ export class AuthForgotPasswordComponent implements OnInit
                 },
                 (response) =>
                 {
-
                     // Set the alert
                     this.alert = {
                         type   : 'error',

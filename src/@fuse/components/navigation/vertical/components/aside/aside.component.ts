@@ -84,7 +84,6 @@ export class FuseVerticalNavigationAsideItemComponent implements OnChanges, OnIn
             )
             .subscribe((event: NavigationEnd) =>
             {
-
                 // Mark if active
                 this._markIfActive(event.urlAfterRedirects);
             });
@@ -97,7 +96,6 @@ export class FuseVerticalNavigationAsideItemComponent implements OnChanges, OnIn
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

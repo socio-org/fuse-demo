@@ -76,7 +76,6 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
             // Give Angular time to complete the change detection cycle
             setTimeout(() =>
             {
-
                 // Focus to the input element
                 value.nativeElement.focus();
             });
@@ -126,7 +125,6 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
                 takeUntil(this._unsubscribeAll),
                 map((value) =>
                 {
-
                     // Set the resultSets to null if there is no value or
                     // the length of the value is smaller than the minLength
                     // so the autocomplete panel can be closed
@@ -147,7 +145,6 @@ export class SearchComponent implements OnChanges, OnInit, OnDestroy
                 this._httpClient.post('api/common/search', {query: value})
                     .subscribe((resultSets: any) =>
                     {
-
                         // Store the result sets
                         this.resultSets = resultSets;
 

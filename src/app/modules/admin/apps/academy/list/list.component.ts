@@ -88,7 +88,6 @@ export class AcademyListComponent implements OnInit, OnDestroy
         combineLatest([this.filters.categorySlug$, this.filters.query$, this.filters.hideCompleted$])
             .subscribe(([categorySlug, query, hideCompleted]) =>
             {
-
                 // Reset the filtered courses
                 this.filteredCourses = this.courses;
 

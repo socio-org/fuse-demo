@@ -41,7 +41,6 @@ export class SimpleLeftSidebar3ScrollComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened if
                 if ( matchingAliases.includes('lg') )
                 {

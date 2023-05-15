@@ -36,7 +36,6 @@ export class FuseScrollResetDirective implements OnInit, OnDestroy
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Reset the element's scroll position to the top
             this._elementRef.nativeElement.scrollTop = 0;
         });

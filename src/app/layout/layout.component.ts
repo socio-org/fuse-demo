@@ -69,7 +69,6 @@ export class LayoutComponent implements OnInit, OnDestroy
             takeUntil(this._unsubscribeAll),
             map(([config, mql]) =>
             {
-
                 const options = {
                     scheme: config.scheme,
                     theme : config.theme,
@@ -86,7 +85,6 @@ export class LayoutComponent implements OnInit, OnDestroy
             }),
         ).subscribe((options) =>
         {
-
             // Store the options
             this.scheme = options.scheme;
             this.theme = options.theme;
@@ -101,7 +99,6 @@ export class LayoutComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config: AppConfig) =>
             {
-
                 // Store the config
                 this.config = config;
 
@@ -115,7 +112,6 @@ export class LayoutComponent implements OnInit, OnDestroy
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Update the layout
             this._updateLayout();
         });
@@ -187,7 +183,6 @@ export class LayoutComponent implements OnInit, OnDestroy
         const paths = route.pathFromRoot;
         paths.forEach((path) =>
         {
-
             // Check if there is a 'layout' data
             if ( path.routeConfig && path.routeConfig.data && path.routeConfig.data.layout )
             {

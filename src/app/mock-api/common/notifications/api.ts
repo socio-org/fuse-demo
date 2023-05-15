@@ -42,7 +42,6 @@ export class NotificationsMockApi
             .onPost('api/common/notifications')
             .reply(({request}) =>
             {
-
                 // Get the notification
                 const newNotification = cloneDeep(request.body.notification);
 
@@ -63,7 +62,6 @@ export class NotificationsMockApi
             .onPatch('api/common/notifications')
             .reply(({request}) =>
             {
-
                 // Get the id and notification
                 const id = request.body.id;
                 const notification = cloneDeep(request.body.notification);
@@ -74,7 +72,6 @@ export class NotificationsMockApi
                 // Find the notification and update it
                 this._notifications.forEach((item: any, index: number, notifications: any[]) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the notification
@@ -96,7 +93,6 @@ export class NotificationsMockApi
             .onDelete('api/common/notifications')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
@@ -123,11 +119,9 @@ export class NotificationsMockApi
             .onGet('api/common/notifications/mark-all-as-read')
             .reply(() =>
             {
-
                 // Go through all notifications
                 this._notifications.forEach((item: any, index: number, notifications: any[]) =>
                 {
-
                     // Mark it as read
                     notifications[index].read = true;
                     notifications[index].seen = true;
@@ -144,7 +138,6 @@ export class NotificationsMockApi
             .onPost('api/common/notifications/toggle-read-status')
             .reply(({request}) =>
             {
-
                 // Get the notification
                 const notification = cloneDeep(request.body.notification);
 
@@ -154,7 +147,6 @@ export class NotificationsMockApi
                 // Find the notification and update it
                 this._notifications.forEach((item: any, index: number, notifications: any[]) =>
                 {
-
                     if ( item.id === notification.id )
                     {
                         // Update the notification

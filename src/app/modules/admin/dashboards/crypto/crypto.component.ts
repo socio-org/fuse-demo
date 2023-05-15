@@ -58,7 +58,6 @@ export class CryptoComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened if 'lg' breakpoint is active
                 if ( matchingAliases.includes('lg') )
                 {
@@ -80,7 +79,6 @@ export class CryptoComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data) =>
             {
-
                 // Store the data
                 this.data = data;
 

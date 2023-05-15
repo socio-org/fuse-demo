@@ -75,7 +75,6 @@ export class FileManagerListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((state) =>
             {
-
                 // Calculate the drawer mode
                 this.drawerMode = state.matches ? 'side' : 'over';
 

@@ -94,7 +94,6 @@ export class ScrumboardService
             switchMap(boards => this._httpClient.put<Board>('api/apps/scrumboard/board', {board}).pipe(
                 map((newBoard) =>
                 {
-
                     // Update the boards with the new board
                     this._boards.next([...boards, newBoard]);
 
@@ -121,7 +120,6 @@ export class ScrumboardService
             }).pipe(
                 map((updatedBoard) =>
                 {
-
                     // Find the index of the updated board
                     const index = boards.findIndex(item => item.id === id);
 
@@ -150,7 +148,6 @@ export class ScrumboardService
             switchMap(boards => this._httpClient.delete('api/apps/scrumboard/board', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted board
                     const index = boards.findIndex(item => item.id === id);
 
@@ -184,7 +181,6 @@ export class ScrumboardService
             map(response => new List(response)),
             tap((newList) =>
             {
-
                 // Get the board value
                 const board = this._board.value;
 
@@ -211,7 +207,6 @@ export class ScrumboardService
             map(response => new List(response)),
             tap((updatedList) =>
             {
-
                 // Get the board value
                 const board = this._board.value;
 
@@ -241,14 +236,12 @@ export class ScrumboardService
             map(response => response.map(item => new List(item))),
             tap((updatedLists) =>
             {
-
                 // Get the board value
                 const board = this._board.value;
 
                 // Go through the updated lists
                 updatedLists.forEach((updatedList) =>
                 {
-
                     // Find the index of the updated list
                     const index = board.lists.findIndex(item => item.id === updatedList.id);
 
@@ -275,7 +268,6 @@ export class ScrumboardService
         return this._httpClient.delete<boolean>('api/apps/scrumboard/board/list', {params: {id}}).pipe(
             tap((isDeleted) =>
             {
-
                 // Get the board value
                 const board = this._board.value;
 
@@ -303,7 +295,6 @@ export class ScrumboardService
             take(1),
             map((board) =>
             {
-
                 // Find the card
                 const card = board.lists.find(list => list.cards.some(item => item.id === id))
                     .cards.find(item => item.id === id);
@@ -316,7 +307,6 @@ export class ScrumboardService
             }),
             switchMap((card) =>
             {
-
                 if ( !card )
                 {
                     return throwError('Could not found the card with id of ' + id + '!');
@@ -338,7 +328,6 @@ export class ScrumboardService
             map(response => new Card(response)),
             tap((newCard) =>
             {
-
                 // Get the board value
                 const board = this._board.value;
 
@@ -376,7 +365,6 @@ export class ScrumboardService
             }).pipe(
                 map((updatedCard) =>
                 {
-
                     // Find the card and update it
                     board.lists.forEach((listItem) =>
                     {
@@ -413,14 +401,12 @@ export class ScrumboardService
             map(response => response.map(item => new Card(item))),
             tap((updatedCards) =>
             {
-
                 // Get the board value
                 const board = this._board.value;
 
                 // Go through the updated cards
                 updatedCards.forEach((updatedCard) =>
                 {
-
                     // Find the index of the updated card's list
                     const listIndex = board.lists.findIndex(list => list.id === updatedCard.listId);
 
@@ -452,7 +438,6 @@ export class ScrumboardService
             switchMap(board => this._httpClient.delete('api/apps/scrumboard/board/card', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the card and delete it
                     board.lists.forEach((listItem) =>
                     {
@@ -479,42 +464,6 @@ export class ScrumboardService
     }
 
     /**
-     * Update card positions
-     *
-     * @param cards
-     */
-    updateCardPositions(cards: Card[]): void // Observable<Card[]>
-    {
-        /*return this._httpClient.patch<Card[]>('api/apps/scrumboard/board/card/positions', {cards}).pipe(
-            map((response) => response.map((item) => new Card(item))),
-            tap((updatedCards) => {
-
-                // Get the board value
-                const board = this._board.value;
-
-                // Find the card and update it
-                board.lists.forEach((listItem) => {
-                    listItem.cards.forEach((cardItem, index, array) => {
-                        if ( cardItem.id === id )
-                        {
-                            array[index] = updatedCard;
-                        }
-                    });
-                });
-
-                // Update the lists
-                board.lists = updatedLists;
-
-                // Sort the board lists
-                board.lists.sort((a, b) => a.position - b.position);
-
-                // Update the board
-                this._board.next(board);
-            })
-        );*/
-    }
-
-    /**
      * Create label
      *
      * @param label
@@ -526,7 +475,6 @@ export class ScrumboardService
             switchMap(board => this._httpClient.post<Label>('api/apps/scrumboard/board/label', {label}).pipe(
                 map((newLabel) =>
                 {
-
                     // Update the board labels with the new label
                     board.labels = [...board.labels, newLabel];
 
@@ -556,7 +504,6 @@ export class ScrumboardService
             }).pipe(
                 map((updatedLabel) =>
                 {
-
                     // Find the index of the updated label
                     const index = board.labels.findIndex(item => item.id === id);
 
@@ -585,7 +532,6 @@ export class ScrumboardService
             switchMap(board => this._httpClient.delete('api/apps/scrumboard/board/label', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted label
                     const index = board.labels.findIndex(item => item.id === id);
 

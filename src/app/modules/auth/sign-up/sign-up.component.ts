@@ -88,13 +88,11 @@ export class AuthSignUpComponent implements OnInit
             .subscribe(
                 (response) =>
                 {
-
                     // Navigate to the confirmation required page
                     this._router.navigateByUrl('/confirmation-required');
                 },
                 (response) =>
                 {
-
                     // Re-enable the form
                     this.signUpForm.enable();
 

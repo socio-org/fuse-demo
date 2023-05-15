@@ -58,7 +58,6 @@ export class NotificationsService
             switchMap(notifications => this._httpClient.post<Notification>('api/common/notifications', {notification}).pipe(
                 map((newNotification) =>
                 {
-
                     // Update the notifications with the new notification
                     this._notifications.next([...notifications, newNotification]);
 
@@ -85,7 +84,6 @@ export class NotificationsService
             }).pipe(
                 map((updatedNotification: Notification) =>
                 {
-
                     // Find the index of the updated notification
                     const index = notifications.findIndex(item => item.id === id);
 
@@ -114,7 +112,6 @@ export class NotificationsService
             switchMap(notifications => this._httpClient.delete<boolean>('api/common/notifications', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted notification
                     const index = notifications.findIndex(item => item.id === id);
 
@@ -141,7 +138,6 @@ export class NotificationsService
             switchMap(notifications => this._httpClient.get<boolean>('api/common/notifications/mark-all-as-read').pipe(
                 map((isUpdated: boolean) =>
                 {
-
                     // Go through all notifications and set them as read
                     notifications.forEach((notification, index) =>
                     {

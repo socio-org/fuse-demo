@@ -76,7 +76,6 @@ export class AuthService
         return this._httpClient.post('api/auth/sign-in', credentials).pipe(
             switchMap((response: any) =>
             {
-
                 // Store the access token in the local storage
                 this.accessToken = response.accessToken;
 
@@ -108,7 +107,6 @@ export class AuthService
             ),
             switchMap((response: any) =>
             {
-
                 // Replace the access token with the new one if it's available on
                 // the response object.
                 //

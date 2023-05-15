@@ -65,7 +65,6 @@ export class QuickChatService
         return this._httpClient.get<Chat>('api/apps/chat/chat', {params: {id}}).pipe(
             map((chat) =>
             {
-
                 // Update the chat
                 this._chat.next(chat);
 
@@ -74,7 +73,6 @@ export class QuickChatService
             }),
             switchMap((chat) =>
             {
-
                 if ( !chat )
                 {
                     return throwError('Could not found chat with id of ' + id + '!');

@@ -50,7 +50,6 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data) =>
             {
-
                 // Store the data
                 this.data = data;
 

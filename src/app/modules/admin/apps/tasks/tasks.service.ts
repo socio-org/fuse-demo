@@ -77,7 +77,6 @@ export class TasksService
             switchMap(tags => this._httpClient.post<Tag>('api/apps/tasks/tag', {tag}).pipe(
                 map((newTag) =>
                 {
-
                     // Update the tags with the new tag
                     this._tags.next([...tags, newTag]);
 
@@ -104,7 +103,6 @@ export class TasksService
             }).pipe(
                 map((updatedTag) =>
                 {
-
                     // Find the index of the updated tag
                     const index = tags.findIndex(item => item.id === id);
 
@@ -133,7 +131,6 @@ export class TasksService
             switchMap(tags => this._httpClient.delete('api/apps/tasks/tag', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted tag
                     const index = tags.findIndex(item => item.id === id);
 
@@ -151,11 +148,9 @@ export class TasksService
                     take(1),
                     map((tasks) =>
                     {
-
                         // Iterate through the tasks
                         tasks.forEach((task) =>
                         {
-
                             const tagIndex = task.tags.findIndex(tag => tag === id);
 
                             // If the task has a tag, remove it
@@ -215,7 +210,6 @@ export class TasksService
             take(1),
             map((tasks) =>
             {
-
                 // Find the task
                 const task = tasks.find(item => item.id === id) || null;
 
@@ -227,7 +221,6 @@ export class TasksService
             }),
             switchMap((task) =>
             {
-
                 if ( !task )
                 {
                     return throwError('Could not found task with id of ' + id + '!');
@@ -250,7 +243,6 @@ export class TasksService
             switchMap(tasks => this._httpClient.post<Task>('api/apps/tasks/task', {type}).pipe(
                 map((newTask) =>
                 {
-
                     // Update the tasks with the new task
                     this._tasks.next([newTask, ...tasks]);
 
@@ -278,7 +270,6 @@ export class TasksService
                 }).pipe(
                     map((updatedTask) =>
                     {
-
                         // Find the index of the updated task
                         const index = tasks.findIndex(item => item.id === id);
 
@@ -296,7 +287,6 @@ export class TasksService
                         filter(item => item && item.id === id),
                         tap(() =>
                         {
-
                             // Update the task if it's selected
                             this._task.next(updatedTask);
 
@@ -320,7 +310,6 @@ export class TasksService
             switchMap(tasks => this._httpClient.delete('api/apps/tasks/task', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted task
                     const index = tasks.findIndex(item => item.id === id);
 

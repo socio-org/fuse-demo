@@ -72,10 +72,8 @@ export class QuickChatComponent implements OnInit, AfterViewInit, OnDestroy
         // This doesn't need to trigger Angular's change detection by itself
         this._ngZone.runOutsideAngular(() =>
         {
-
             setTimeout(() =>
             {
-
                 // Set the height to 'auto' so we can correctly read the scrollHeight
                 this.messageInput.nativeElement.style.height = 'auto';
 

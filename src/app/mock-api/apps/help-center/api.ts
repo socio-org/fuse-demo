@@ -39,7 +39,6 @@ export class HelpCenterMockApi
             .onGet('api/apps/help-center/faqs')
             .reply(({request}) =>
             {
-
                 // Get the category slug
                 const slug = request.params.get('slug');
 
@@ -58,7 +57,6 @@ export class HelpCenterMockApi
                     // Go through each category and set the results
                     categories.forEach((category) =>
                     {
-
                         results.push(
                             {
                                 ...category,
@@ -93,7 +91,6 @@ export class HelpCenterMockApi
             .onGet('api/apps/help-center/guides')
             .reply(({request}) =>
             {
-
                 // Get the slug & limit
                 const slug = request.params.get('slug');
                 const limit = request.params.get('limit');
@@ -116,7 +113,6 @@ export class HelpCenterMockApi
                     // Go through each category and set the results
                     categories.forEach((category) =>
                     {
-
                         results.push(
                             {
                                 ...category,
@@ -153,7 +149,6 @@ export class HelpCenterMockApi
             .onGet('api/apps/help-center/guide')
             .reply(({request}) =>
             {
-
                 // Get the slugs
                 const categorySlug = request.params.get('categorySlug');
                 const guideSlug = request.params.get('guideSlug');

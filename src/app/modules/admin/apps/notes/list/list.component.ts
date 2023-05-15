@@ -82,7 +82,6 @@ export class NotesListComponent implements OnInit, OnDestroy
             distinctUntilChanged(),
             map(([notes, filter, searchQuery]) =>
             {
-
                 if ( !notes || !notes.length )
                 {
                     return;
@@ -124,7 +123,6 @@ export class NotesListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened if the given breakpoint is active
                 if ( matchingAliases.includes('lg') )
                 {

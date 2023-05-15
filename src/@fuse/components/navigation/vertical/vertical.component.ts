@@ -160,7 +160,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                 )
                 .subscribe(() =>
                 {
-
                     // Loop through the scrollbars and update them
                     fuseScrollbarDirectives.forEach((fuseScrollbarDirective) =>
                     {
@@ -325,7 +324,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
             )
             .subscribe(() =>
             {
-
                 // If the mode is 'over' and the navigation is opened...
                 if ( this.mode === 'over' && this.opened )
                 {
@@ -379,7 +377,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
 
         setTimeout(() =>
         {
-
             // Return if 'navigation content' element does not exist
             if ( !this._navigationContentEl )
             {
@@ -405,7 +402,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
                 // Go through all the scrollbar directives
                 this._fuseScrollbarDirectives.forEach((fuseScrollbarDirective) =>
                 {
-
                     // Skip if not enabled
                     if ( !fuseScrollbarDirective.isEnabled() )
                     {
@@ -675,7 +671,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
         // Once the animation is done...
         this._player.onDone(() =>
         {
-
             // If the overlay still exists...
             if ( this._overlay )
             {
@@ -753,7 +748,6 @@ export class FuseVerticalNavigationComponent implements OnChanges, OnInit, After
         // Once the animation is done...
         this._player.onDone(() =>
         {
-
             // If the aside overlay still exists...
             if ( this._asideOverlay )
             {

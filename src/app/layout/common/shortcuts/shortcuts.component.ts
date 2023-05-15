@@ -71,7 +71,6 @@ export class ShortcutsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((shortcuts: Shortcut[]) =>
             {
-
                 // Load the shortcuts
                 this.shortcuts = shortcuts;
 

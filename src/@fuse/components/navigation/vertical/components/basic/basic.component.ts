@@ -69,7 +69,6 @@ export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestr
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

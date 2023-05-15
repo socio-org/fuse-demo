@@ -63,7 +63,6 @@ export class ContactsListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((contacts: Contact[]) =>
             {
-
                 // Update the counts
                 this.contactsCount = contacts.length;
 
@@ -76,7 +75,6 @@ export class ContactsListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((contact: Contact) =>
             {
-
                 // Update the selected contact
                 this.selectedContact = contact;
 
@@ -89,7 +87,6 @@ export class ContactsListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((countries: Country[]) =>
             {
-
                 // Update the countries
                 this.countries = countries;
 
@@ -127,7 +124,6 @@ export class ContactsListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode if the given breakpoint is active
                 if ( matchingAliases.includes('lg') )
                 {
@@ -191,7 +187,6 @@ export class ContactsListComponent implements OnInit, OnDestroy
         // Create the contact
         this._contactsService.createContact().subscribe((newContact) =>
         {
-
             // Go to the new contact
             this._router.navigate(['./', newContact.id], {relativeTo: this._activatedRoute});
 

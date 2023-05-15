@@ -128,7 +128,6 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy
             )
             .subscribe(() =>
             {
-
                 // Dismiss the alert
                 this.dismiss();
             });
@@ -141,7 +140,6 @@ export class FuseAlertComponent implements OnChanges, OnInit, OnDestroy
             )
             .subscribe(() =>
             {
-
                 // Show the alert
                 this.show();
             });

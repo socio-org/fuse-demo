@@ -47,7 +47,6 @@ export class LanguagesComponent implements OnInit, OnDestroy
         // Subscribe to language changes
         this._translocoService.langChanges$.subscribe((activeLang) =>
         {
-
             // Get the active lang
             this.activeLang = activeLang;
 
@@ -133,7 +132,6 @@ export class LanguagesComponent implements OnInit, OnDestroy
             this._translocoService.selectTranslate('Project').pipe(take(1))
                 .subscribe((translation) =>
                 {
-
                     // Set the title
                     projectDashboardItem.title = translation;
 
@@ -149,7 +147,6 @@ export class LanguagesComponent implements OnInit, OnDestroy
             this._translocoService.selectTranslate('Analytics').pipe(take(1))
                 .subscribe((translation) =>
                 {
-
                     // Set the title
                     analyticsDashboardItem.title = translation;
 

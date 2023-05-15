@@ -66,7 +66,6 @@ export class AdvancedSearchComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((queryParams) =>
             {
-
                 // Store the query params
                 this.queryParams = queryParams;
 

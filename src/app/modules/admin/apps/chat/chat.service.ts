@@ -133,7 +133,6 @@ export class ChatService
         return this._httpClient.get<Chat>('api/apps/chat/chat', {params: {id}}).pipe(
             map((chat) =>
             {
-
                 // Update the chat
                 this._chat.next(chat);
 
@@ -142,7 +141,6 @@ export class ChatService
             }),
             switchMap((chat) =>
             {
-
                 if ( !chat )
                 {
                     return throwError('Could not found chat with id of ' + id + '!');
@@ -169,7 +167,6 @@ export class ChatService
             }).pipe(
                 map((updatedChat) =>
                 {
-
                     // Find the index of the updated chat
                     const index = chats.findIndex(item => item.id === id);
 
@@ -187,7 +184,6 @@ export class ChatService
                     filter(item => item && item.id === id),
                     tap(() =>
                     {
-
                         // Update the chat if it's selected
                         this._chat.next(updatedChat);
 

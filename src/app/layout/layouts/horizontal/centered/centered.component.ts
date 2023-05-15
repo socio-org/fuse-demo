@@ -77,7 +77,6 @@ export class CenteredLayoutComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Check if the screen is small
                 this.isScreenSmall = !matchingAliases.includes('md');
             });

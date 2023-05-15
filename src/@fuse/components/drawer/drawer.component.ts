@@ -381,7 +381,6 @@ export class FuseDrawerComponent implements OnChanges, OnInit, OnDestroy
         // Once the animation is done...
         this._player.onDone(() =>
         {
-
             // If the overlay still exists...
             if ( this._overlay )
             {

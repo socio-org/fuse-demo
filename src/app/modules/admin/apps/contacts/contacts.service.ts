@@ -100,7 +100,6 @@ export class ContactsService
             take(1),
             map((contacts) =>
             {
-
                 // Find the contact
                 const contact = contacts.find(item => item.id === id) || null;
 
@@ -112,7 +111,6 @@ export class ContactsService
             }),
             switchMap((contact) =>
             {
-
                 if ( !contact )
                 {
                     return throwError('Could not found contact with id of ' + id + '!');
@@ -133,7 +131,6 @@ export class ContactsService
             switchMap(contacts => this._httpClient.post<Contact>('api/apps/contacts/contact', {}).pipe(
                 map((newContact) =>
                 {
-
                     // Update the contacts with the new contact
                     this._contacts.next([newContact, ...contacts]);
 
@@ -160,7 +157,6 @@ export class ContactsService
             }).pipe(
                 map((updatedContact) =>
                 {
-
                     // Find the index of the updated contact
                     const index = contacts.findIndex(item => item.id === id);
 
@@ -178,7 +174,6 @@ export class ContactsService
                     filter(item => item && item.id === id),
                     tap(() =>
                     {
-
                         // Update the contact if it's selected
                         this._contact.next(updatedContact);
 
@@ -202,7 +197,6 @@ export class ContactsService
             switchMap(contacts => this._httpClient.delete('api/apps/contacts/contact', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted contact
                     const index = contacts.findIndex(item => item.id === id);
 
@@ -257,7 +251,6 @@ export class ContactsService
             switchMap(tags => this._httpClient.post<Tag>('api/apps/contacts/tag', {tag}).pipe(
                 map((newTag) =>
                 {
-
                     // Update the tags with the new tag
                     this._tags.next([...tags, newTag]);
 
@@ -284,7 +277,6 @@ export class ContactsService
             }).pipe(
                 map((updatedTag) =>
                 {
-
                     // Find the index of the updated tag
                     const index = tags.findIndex(item => item.id === id);
 
@@ -313,7 +305,6 @@ export class ContactsService
             switchMap(tags => this._httpClient.delete('api/apps/contacts/tag', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted tag
                     const index = tags.findIndex(item => item.id === id);
 
@@ -331,11 +322,9 @@ export class ContactsService
                     take(1),
                     map((contacts) =>
                     {
-
                         // Iterate through the contacts
                         contacts.forEach((contact) =>
                         {
-
                             const tagIndex = contact.tags.findIndex(tag => tag === id);
 
                             // If the contact has the tag, remove it
@@ -374,7 +363,6 @@ export class ContactsService
             }).pipe(
                 map((updatedContact) =>
                 {
-
                     // Find the index of the updated contact
                     const index = contacts.findIndex(item => item.id === id);
 
@@ -392,7 +380,6 @@ export class ContactsService
                     filter(item => item && item.id === id),
                     tap(() =>
                     {
-
                         // Update the contact if it's selected
                         this._contact.next(updatedContact);
 

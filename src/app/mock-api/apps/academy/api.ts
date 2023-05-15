@@ -37,7 +37,6 @@ export class AcademyMockApi
             .onGet('api/apps/academy/categories')
             .reply(() =>
             {
-
                 // Clone the categories
                 const categories = cloneDeep(this._categories);
 
@@ -54,7 +53,6 @@ export class AcademyMockApi
             .onGet('api/apps/academy/courses')
             .reply(() =>
             {
-
                 // Clone the courses
                 const courses = cloneDeep(this._courses);
 
@@ -68,7 +66,6 @@ export class AcademyMockApi
             .onGet('api/apps/academy/courses/course')
             .reply(({request}) =>
             {
-
                 // Get the id from the params
                 const id = request.params.get('id');
 

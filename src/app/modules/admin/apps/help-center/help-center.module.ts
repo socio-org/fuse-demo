@@ -11,7 +11,7 @@ import { HelpCenterGuidesGuideComponent } from 'app/modules/admin/apps/help-cent
 import { HelpCenterGuidesComponent } from 'app/modules/admin/apps/help-center/guides/guides.component';
 
 import { HelpCenterComponent } from 'app/modules/admin/apps/help-center/help-center.component';
-import { helpCenterRoutes } from 'app/modules/admin/apps/help-center/help-center.routing';
+import { helpCenterRoutes } from 'app/modules/admin/apps/help-center/help-center.routes';
 import { HelpCenterSupportComponent } from 'app/modules/admin/apps/help-center/support/support.component';
 
 @NgModule({

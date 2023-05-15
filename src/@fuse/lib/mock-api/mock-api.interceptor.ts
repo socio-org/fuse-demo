@@ -50,7 +50,6 @@ export class FuseMockApiInterceptor implements HttpInterceptor
             delay(handler.delay ?? this._defaultDelay ?? 0),
             switchMap((response) =>
             {
-
                 // If there is no response data,
                 // throw an error response
                 if ( !response )

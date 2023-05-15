@@ -88,7 +88,6 @@ export class TasksListComponent implements OnInit, OnDestroy
                 // Update the count on the navigation
                 setTimeout(() =>
                 {
-
                     // Get the component -> navigation data -> item
                     const mainNavigationComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>('mainNavigation');
 
@@ -123,7 +122,6 @@ export class TasksListComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((state) =>
             {
-
                 // Calculate the drawer mode
                 this.drawerMode = state.matches ? 'side' : 'over';
 
@@ -142,7 +140,6 @@ export class TasksListComponent implements OnInit, OnDestroy
             )
             .subscribe((event: KeyboardEvent) =>
             {
-
                 // If the '/' pressed
                 if ( event.key === '/' )
                 {
@@ -193,7 +190,6 @@ export class TasksListComponent implements OnInit, OnDestroy
         // Create the task
         this._tasksService.createTask(type).subscribe((newTask) =>
         {
-
             // Go to the new task
             this._router.navigate(['./', newTask.id], {relativeTo: this._activatedRoute});
 

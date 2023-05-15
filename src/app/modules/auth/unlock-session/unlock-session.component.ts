@@ -101,7 +101,6 @@ export class AuthUnlockSessionComponent implements OnInit
         }).subscribe(
             () =>
             {
-
                 // Set the redirect url.
                 // The '/signed-in-redirect' is a dummy url to catch the request and redirect the user
                 // to the correct page after a successful sign in. This way, that url can be set via
@@ -114,7 +113,6 @@ export class AuthUnlockSessionComponent implements OnInit
             },
             (response) =>
             {
-
                 // Re-enable the form
                 this.unlockSessionForm.enable();
 

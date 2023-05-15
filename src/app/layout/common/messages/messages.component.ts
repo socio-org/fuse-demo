@@ -55,7 +55,6 @@ export class MessagesComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((messages: Message[]) =>
             {
-
                 // Load the messages
                 this.messages = messages;
 

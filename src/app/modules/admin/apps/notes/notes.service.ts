@@ -76,7 +76,6 @@ export class NotesService
         return this._httpClient.post<Label[]>('api/apps/notes/labels', {title}).pipe(
             tap((labels) =>
             {
-
                 // Update the labels
                 this._labels.next(labels);
             }),
@@ -93,7 +92,6 @@ export class NotesService
         return this._httpClient.patch<Label[]>('api/apps/notes/labels', {label}).pipe(
             tap((labels) =>
             {
-
                 // Update the notes
                 this.getNotes().subscribe();
 
@@ -113,7 +111,6 @@ export class NotesService
         return this._httpClient.delete<Label[]>('api/apps/notes/labels', {params: {id}}).pipe(
             tap((labels) =>
             {
-
                 // Update the notes
                 this.getNotes().subscribe();
 
@@ -145,7 +142,6 @@ export class NotesService
             take(1),
             map((notes) =>
             {
-
                 // Find within the folders and files
                 const note = notes.find(value => value.id === id) || null;
 
@@ -157,7 +153,6 @@ export class NotesService
             }),
             switchMap((note) =>
             {
-
                 if ( !note )
                 {
                     return throwError('Could not found the note with id of ' + id + '!');
@@ -218,7 +213,6 @@ export class NotesService
         return this._httpClient.patch<Note>('api/apps/notes', {updatedNote}).pipe(
             tap((response) =>
             {
-
                 // Update the notes
                 this.getNotes().subscribe();
             }),
@@ -235,7 +229,6 @@ export class NotesService
         return this._httpClient.delete<boolean>('api/apps/notes', {params: {id: note.id}}).pipe(
             map((isDeleted: boolean) =>
             {
-
                 // Update the notes
                 this.getNotes().subscribe();
 

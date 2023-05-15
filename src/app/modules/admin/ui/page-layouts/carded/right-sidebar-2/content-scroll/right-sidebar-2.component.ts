@@ -42,7 +42,6 @@ export class CardedRightSidebar2ContentScrollComponent implements OnInit, OnDest
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened if
                 if ( matchingAliases.includes('lg') )
                 {

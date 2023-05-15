@@ -42,7 +42,6 @@ export class ShortcutsMockApi
             .onPost('api/common/shortcuts')
             .reply(({request}) =>
             {
-
                 // Get the shortcut
                 const newShortcut = cloneDeep(request.body.shortcut);
 
@@ -63,7 +62,6 @@ export class ShortcutsMockApi
             .onPatch('api/common/shortcuts')
             .reply(({request}) =>
             {
-
                 // Get the id and shortcut
                 const id = request.body.id;
                 const shortcut = cloneDeep(request.body.shortcut);
@@ -74,7 +72,6 @@ export class ShortcutsMockApi
                 // Find the shortcut and update it
                 this._shortcuts.forEach((item: any, index: number, shortcuts: any[]) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the shortcut
@@ -96,7 +93,6 @@ export class ShortcutsMockApi
             .onDelete('api/common/shortcuts')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 

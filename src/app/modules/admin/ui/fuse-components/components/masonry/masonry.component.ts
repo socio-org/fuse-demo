@@ -44,7 +44,6 @@ export class MasonryComponent implements OnInit
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the masonry columns
                 //
                 // This if block structured in a way so that only the

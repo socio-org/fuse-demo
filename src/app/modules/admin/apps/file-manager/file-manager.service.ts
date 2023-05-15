@@ -65,7 +65,6 @@ export class FileManagerService
             take(1),
             map((items) =>
             {
-
                 // Find within the folders and files
                 const item = [...items.folders, ...items.files].find(value => value.id === id) || null;
 
@@ -77,7 +76,6 @@ export class FileManagerService
             }),
             switchMap((item) =>
             {
-
                 if ( !item )
                 {
                     return throwError('Could not found the item with id of ' + id + '!');

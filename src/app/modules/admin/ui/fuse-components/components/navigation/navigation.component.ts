@@ -23,7 +23,6 @@ export class NavigationComponent
         private _fuseComponentsComponent: FuseComponentsComponent,
     )
     {
-
     }
 
     // -----------------------------------------------------------------------------------------------------

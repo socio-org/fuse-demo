@@ -52,7 +52,6 @@ export class IconsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((icons) =>
             {
-
                 // Set the icon size in case the icon set
                 // has a special base grid size
                 this.iconSize = icons.grid;
@@ -66,7 +65,6 @@ export class IconsComponent implements OnInit, OnDestroy
             .pipe(
                 map(([icons, filterValue]) =>
                 {
-
                     // Filter the icons
                     const filteredIcons = icons.list.filter(icon => icon.toLowerCase().includes(filterValue.toLowerCase()));
 

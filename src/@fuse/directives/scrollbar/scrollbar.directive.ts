@@ -127,7 +127,6 @@ export class FuseScrollbarDirective implements OnChanges, OnInit, OnDestroy
             )
             .subscribe(() =>
             {
-
                 // Update the PerfectScrollbar
                 this.update();
             });

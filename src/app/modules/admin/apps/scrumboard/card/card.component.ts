@@ -37,7 +37,6 @@ export class ScrumboardCardComponent implements OnInit
             .afterClosed()
             .subscribe(() =>
             {
-
                 // Go up twice because card routes are set up like this; "card/CARD_ID"
                 this._router.navigate(['./../..'], {relativeTo: this._activatedRoute});
             });

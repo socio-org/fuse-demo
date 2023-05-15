@@ -11,7 +11,6 @@ export const NoAuthGuard: CanActivateFn | CanActivateChildFn = (route, state) =>
     return inject(AuthService).check().pipe(
         switchMap((authenticated) =>
         {
-
             // If the user is authenticated...
             if ( authenticated )
             {

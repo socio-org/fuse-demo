@@ -53,7 +53,6 @@ export class ECommerceInventoryMockApi
             .onGet('api/apps/ecommerce/inventory/products', 300)
             .reply(({request}) =>
             {
-
                 // Get available queries
                 const search = request.params.get('search');
                 const sort = request.params.get('sort') || 'name';
@@ -141,7 +140,6 @@ export class ECommerceInventoryMockApi
             .onGet('api/apps/ecommerce/inventory/product')
             .reply(({request}) =>
             {
-
                 // Get the id from the params
                 const id = request.params.get('id');
 
@@ -162,7 +160,6 @@ export class ECommerceInventoryMockApi
             .onPost('api/apps/ecommerce/inventory/product')
             .reply(() =>
             {
-
                 // Generate a new product
                 const newProduct = {
                     id         : FuseMockApiUtils.guid(),
@@ -200,7 +197,6 @@ export class ECommerceInventoryMockApi
             .onPatch('api/apps/ecommerce/inventory/product')
             .reply(({request}) =>
             {
-
                 // Get the id and product
                 const id = request.body.id;
                 const product = cloneDeep(request.body.product);
@@ -211,7 +207,6 @@ export class ECommerceInventoryMockApi
                 // Find the product and update it
                 this._products.forEach((item, index, products) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the product
@@ -233,14 +228,12 @@ export class ECommerceInventoryMockApi
             .onDelete('api/apps/ecommerce/inventory/product')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
                 // Find the product and delete it
                 this._products.forEach((item, index) =>
                 {
-
                     if ( item.id === id )
                     {
                         this._products.splice(index, 1);
@@ -265,7 +258,6 @@ export class ECommerceInventoryMockApi
             .onPost('api/apps/ecommerce/inventory/tag')
             .reply(({request}) =>
             {
-
                 // Get the tag
                 const newTag = cloneDeep(request.body.tag);
 
@@ -286,7 +278,6 @@ export class ECommerceInventoryMockApi
             .onPatch('api/apps/ecommerce/inventory/tag')
             .reply(({request}) =>
             {
-
                 // Get the id and tag
                 const id = request.body.id;
                 const tag = cloneDeep(request.body.tag);
@@ -297,7 +288,6 @@ export class ECommerceInventoryMockApi
                 // Find the tag and update it
                 this._tags.forEach((item, index, tags) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the tag
@@ -319,14 +309,12 @@ export class ECommerceInventoryMockApi
             .onDelete('api/apps/ecommerce/inventory/tag')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
                 // Find the tag and delete it
                 this._tags.forEach((item, index) =>
                 {
-
                     if ( item.id === id )
                     {
                         this._tags.splice(index, 1);

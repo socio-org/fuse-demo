@@ -86,7 +86,6 @@ export class AcademyService
         return this._httpClient.get<Course>('api/apps/academy/courses/course', {params: {id}}).pipe(
             map((course) =>
             {
-
                 // Update the course
                 this._course.next(course);
 
@@ -95,7 +94,6 @@ export class AcademyService
             }),
             switchMap((course) =>
             {
-
                 if ( !course )
                 {
                     return throwError('Could not found course with id of ' + id + '!');

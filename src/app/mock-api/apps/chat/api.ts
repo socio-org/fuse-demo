@@ -52,7 +52,6 @@ export class ChatMockApi
             .onGet('api/apps/chat/chats')
             .reply(() =>
             {
-
                 // Clone the chats
                 const chats = cloneDeep(this._chats);
 
@@ -67,7 +66,6 @@ export class ChatMockApi
             .onGet('api/apps/chat/chat')
             .reply(({request}) =>
             {
-
                 // Get the chat id
                 const id = request.params.get('id');
 
@@ -88,7 +86,6 @@ export class ChatMockApi
             .onPatch('api/apps/chat/chat')
             .reply(({request}) =>
             {
-
                 // Get the id and chat
                 const id = request.body.id;
                 const chat = cloneDeep(request.body.chat);
@@ -99,7 +96,6 @@ export class ChatMockApi
                 // Find the chat and update it
                 this._chats.forEach((item, index, chats) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the chat
@@ -121,7 +117,6 @@ export class ChatMockApi
             .onGet('api/apps/chat/contacts')
             .reply(() =>
             {
-
                 // Clone the contacts
                 let contacts = cloneDeep(this._contacts);
 
@@ -142,7 +137,6 @@ export class ChatMockApi
             .onGet('api/apps/chat/contact')
             .reply(({request}) =>
             {
-
                 // Get the contact id
                 const id = request.params.get('id');
 
@@ -163,7 +157,6 @@ export class ChatMockApi
             .onGet('api/apps/chat/profile')
             .reply(() =>
             {
-
                 // Clone the profile
                 const profile = cloneDeep(this._profile);
 

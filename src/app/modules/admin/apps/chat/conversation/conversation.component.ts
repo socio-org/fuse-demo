@@ -58,10 +58,8 @@ export class ConversationComponent implements OnInit, OnDestroy
         // This doesn't need to trigger Angular's change detection by itself
         this._ngZone.runOutsideAngular(() =>
         {
-
             setTimeout(() =>
             {
-
                 // Set the height to 'auto' so we can correctly read the scrollHeight
                 this.messageInput.nativeElement.style.height = 'auto';
 
@@ -102,7 +100,6 @@ export class ConversationComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode if the given breakpoint is active
                 if ( matchingAliases.includes('lg') )
                 {

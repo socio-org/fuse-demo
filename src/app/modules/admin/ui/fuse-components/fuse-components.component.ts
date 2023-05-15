@@ -191,7 +191,6 @@ export class FuseComponentsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('md') )
                 {

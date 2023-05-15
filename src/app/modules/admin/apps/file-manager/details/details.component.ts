@@ -50,7 +50,6 @@ export class FileManagerDetailsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((item: Item) =>
             {
-
                 // Open the drawer in case it is closed
                 this._fileManagerListComponent.matDrawer.open();
 

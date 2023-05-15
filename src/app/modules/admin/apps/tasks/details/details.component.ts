@@ -4,9 +4,10 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MAT_LUXON_DATE_FORMATS, MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatRippleModule } from '@angular/material/core';
+import { MAT_DATE_FORMATS, MatRippleModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,8 +30,14 @@ import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
     templateUrl    : './details.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
+    providers      : [
+        {
+            provide : MAT_DATE_FORMATS,
+            useValue: MAT_LUXON_DATE_FORMATS,
+        },
+    ],
     standalone     : true,
-    imports        : [FormsModule, ReactiveFormsModule, MatButtonModule, NgIf, MatIconModule, MatMenuModule, RouterLink, MatDividerModule, MatFormFieldModule, MatInputModule, TextFieldModule, NgFor, MatRippleModule, MatCheckboxModule, NgClass, MatDatepickerModule, FuseFindByKeyPipe, DatePipe],
+    imports        : [FormsModule, ReactiveFormsModule, MatLuxonDateModule, MatButtonModule, NgIf, MatIconModule, MatMenuModule, RouterLink, MatDividerModule, MatFormFieldModule, MatInputModule, TextFieldModule, NgFor, MatRippleModule, MatCheckboxModule, NgClass, MatDatepickerModule, FuseFindByKeyPipe, DatePipe],
 })
 export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 {
@@ -118,7 +125,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((task: Task) =>
             {
-
                 // Open the drawer in case it is closed
                 this._tasksListComponent.matDrawer.open();
 
@@ -137,7 +143,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(
                 tap((value) =>
                 {
-
                     // Update the task object
                     this.task = assign(this.task, value);
                 }),
@@ -146,7 +151,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             )
             .subscribe((value) =>
             {
-
                 // Update the task on the server
                 this._tasksService.updateTask(value.id, value).subscribe();
 
@@ -162,7 +166,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             )
             .subscribe(() =>
             {
-
                 // Focus on the title field
                 this._titleField.nativeElement.focus();
             });
@@ -181,7 +184,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             )
             .subscribe(() =>
             {
-
                 // Focus on the title element
                 this._titleField.nativeElement.focus();
             });
@@ -255,7 +257,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         // Subscribe to the attachments observable
         this._tagsPanelOverlayRef.attachments().subscribe(() =>
         {
-
             // Focus to the search input once the overlay has been attached
             this._tagsPanelOverlayRef.overlayElement.querySelector('input').focus();
         });
@@ -269,7 +270,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         // Subscribe to the backdrop click
         this._tagsPanelOverlayRef.backdropClick().subscribe(() =>
         {
-
             // If overlay exists and attached...
             if ( this._tagsPanelOverlayRef && this._tagsPanelOverlayRef.hasAttached() )
             {
@@ -372,7 +372,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         this._tasksService.createTag(tag)
             .subscribe((response) =>
             {
-
                 // Add the tag to the task
                 this.addTagToTask(response);
             });
@@ -511,11 +510,9 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         // Subscribe to the confirmation dialog closed action
         confirmation.afterClosed().subscribe((result) =>
         {
-
             // If the confirm button pressed...
             if ( result === 'confirmed' )
             {
-
                 // Get the current task's id
                 const id = this.task.id;
 
@@ -528,7 +525,6 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
                 this._tasksService.deleteTask(id)
                     .subscribe((isDeleted) =>
                     {
-
                         // Return if the task wasn't deleted...
                         if ( !isDeleted )
                         {

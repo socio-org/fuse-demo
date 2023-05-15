@@ -61,14 +61,12 @@ export class MailboxSettingsComponent implements OnInit
             .pipe(take(1))
             .subscribe((labels: MailLabel[]) =>
             {
-
                 // Get the labels
                 this.labels = labels;
 
                 // Iterate through the labels
                 labels.forEach((label) =>
                 {
-
                     // Create a label form group
                     const labelFormGroup = this._formBuilder.group({
                         id   : [label.id],
@@ -103,7 +101,6 @@ export class MailboxSettingsComponent implements OnInit
         // Add label to the server
         this._mailboxService.addLabel(this.labelsForm.get('newLabel').value).subscribe((addedLabel) =>
         {
-
             // Push the new label to the labels form array
             (this.labelsForm.get('labels') as UntypedFormArray).push(this._formBuilder.group({
                 id   : [addedLabel.id],
@@ -144,7 +141,6 @@ export class MailboxSettingsComponent implements OnInit
         // Iterate through the labels form array controls
         (this.labelsForm.get('labels') as UntypedFormArray).controls.forEach((labelFormGroup) =>
         {
-
             // If the label has been edited...
             if ( labelFormGroup.dirty )
             {

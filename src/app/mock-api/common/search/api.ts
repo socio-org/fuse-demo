@@ -46,7 +46,6 @@ export class SearchMockApi
             .onPost('api/common/search')
             .reply(({request}) =>
             {
-
                 // Get the search query
                 const query = cloneDeep(request.body.query.toLowerCase());
 
@@ -78,7 +77,6 @@ export class SearchMockApi
                     // Normalize the results
                     contactsResults.forEach((result) =>
                     {
-
                         // Add a link
                         result.link = '/apps/contacts/' + result.id;
 
@@ -100,7 +98,6 @@ export class SearchMockApi
                     // Normalize the results
                     pagesResults.forEach((result: any) =>
                     {
-
                         // Add the page title as the value
                         result.value = result.title;
                     });
@@ -119,7 +116,6 @@ export class SearchMockApi
                     // Normalize the results
                     tasksResults.forEach((result) =>
                     {
-
                         // Add a link
                         result.link = '/apps/tasks/' + result.id;
 

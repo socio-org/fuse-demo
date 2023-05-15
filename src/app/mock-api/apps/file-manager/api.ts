@@ -35,7 +35,6 @@ export class FileManagerMockApi
             .onGet('api/apps/file-manager')
             .reply(({request}) =>
             {
-
                 // Clone the items
                 let items = cloneDeep(this._items);
 

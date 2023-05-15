@@ -47,7 +47,6 @@ export class TasksMockApi
             .onPost('api/apps/tasks/tag')
             .reply(({request}) =>
             {
-
                 // Get the tag
                 const newTag = cloneDeep(request.body.tag);
 
@@ -70,7 +69,6 @@ export class TasksMockApi
             .onPatch('api/apps/tasks/tag')
             .reply(({request}) =>
             {
-
                 // Get the id and tag
                 const id = request.body.id;
                 const tag = cloneDeep(request.body.tag);
@@ -81,7 +79,6 @@ export class TasksMockApi
                 // Find the tag and update it
                 this._tags.forEach((item, index, tags) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the tag
@@ -105,7 +102,6 @@ export class TasksMockApi
             .onDelete('api/apps/tasks/tag')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
@@ -135,7 +131,6 @@ export class TasksMockApi
             .onGet('api/apps/tasks/all')
             .reply(() =>
             {
-
                 // Clone the tasks
                 const tasks = cloneDeep(this._tasks);
 
@@ -155,7 +150,6 @@ export class TasksMockApi
             .onGet('api/apps/tasks/search')
             .reply(({request}) =>
             {
-
                 // Get the search query
                 const query = request.params.get('query');
 
@@ -201,14 +195,12 @@ export class TasksMockApi
             .onPatch('api/apps/tasks/order')
             .reply(({request}) =>
             {
-
                 // Get the tasks
                 const tasks = request.body.tasks;
 
                 // Go through the tasks
                 this._tasks.forEach((task) =>
                 {
-
                     // Find this task's index within the tasks array that comes with the request
                     // and assign that index as the new order number for the task
                     task.order = tasks.findIndex((item: any) => item.id === task.id);
@@ -230,7 +222,6 @@ export class TasksMockApi
             .onGet('api/apps/tasks/task')
             .reply(({request}) =>
             {
-
                 // Get the id from the params
                 const id = request.params.get('id');
 
@@ -253,7 +244,6 @@ export class TasksMockApi
             .onPost('api/apps/tasks/task')
             .reply(({request}) =>
             {
-
                 // Generate a new task
                 const newTask = {
                     id       : FuseMockApiUtils.guid(),
@@ -289,7 +279,6 @@ export class TasksMockApi
             .onPatch('api/apps/tasks/task')
             .reply(({request}) =>
             {
-
                 // Get the id and task
                 const id = request.body.id;
                 const task = cloneDeep(request.body.task);
@@ -300,7 +289,6 @@ export class TasksMockApi
                 // Find the task and update it
                 this._tasks.forEach((item, index, tasks) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the task
@@ -324,7 +312,6 @@ export class TasksMockApi
             .onDelete('api/apps/tasks/task')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 

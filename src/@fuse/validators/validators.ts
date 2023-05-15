@@ -22,7 +22,6 @@ export class FuseValidators
     {
         return (formGroup: AbstractControl): ValidationErrors | null =>
         {
-
             // Get the control and matching control
             const control = formGroup.get(controlPath);
             const matchingControl = formGroup.get(matchingControlPath);

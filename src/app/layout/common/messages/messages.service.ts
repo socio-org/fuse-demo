@@ -58,7 +58,6 @@ export class MessagesService
             switchMap(messages => this._httpClient.post<Message>('api/common/messages', {message}).pipe(
                 map((newMessage) =>
                 {
-
                     // Update the messages with the new message
                     this._messages.next([...messages, newMessage]);
 
@@ -85,7 +84,6 @@ export class MessagesService
             }).pipe(
                 map((updatedMessage: Message) =>
                 {
-
                     // Find the index of the updated message
                     const index = messages.findIndex(item => item.id === id);
 
@@ -114,7 +112,6 @@ export class MessagesService
             switchMap(messages => this._httpClient.delete<boolean>('api/common/messages', {params: {id}}).pipe(
                 map((isDeleted: boolean) =>
                 {
-
                     // Find the index of the deleted message
                     const index = messages.findIndex(item => item.id === id);
 
@@ -141,7 +138,6 @@ export class MessagesService
             switchMap(messages => this._httpClient.get<boolean>('api/common/messages/mark-all-as-read').pipe(
                 map((isUpdated: boolean) =>
                 {
-
                     // Go through all messages and set them as read
                     messages.forEach((message, index) =>
                     {

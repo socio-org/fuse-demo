@@ -97,7 +97,6 @@ export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, O
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((collapsedItem) =>
             {
-
                 // Check if the collapsed item is null
                 if ( collapsedItem === null )
                 {
@@ -118,7 +117,6 @@ export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, O
                 .pipe(takeUntil(this._unsubscribeAll))
                 .subscribe((expandedItem) =>
                 {
-
                     // Check if the expanded item is null
                     if ( expandedItem === null )
                     {
@@ -156,7 +154,6 @@ export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, O
             )
             .subscribe((event: NavigationEnd) =>
             {
-
                 // If the item has a children that has a matching url with the current url, expand...
                 if ( this._hasActiveChild(this.item, event.urlAfterRedirects) )
                 {
@@ -178,7 +175,6 @@ export class FuseVerticalNavigationCollapsableItemComponent implements OnInit, O
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

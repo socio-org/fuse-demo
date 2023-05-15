@@ -94,7 +94,6 @@ export class CardsComponent implements AfterViewInit
         // Go through the filters
         this.filters.forEach((filter) =>
         {
-
             // For each filter, calculate the card count
             if ( filter === 'all' )
             {
@@ -120,7 +119,6 @@ export class CardsComponent implements AfterViewInit
         // Go through all fuse-cards
         this._fuseCards.forEach((fuseCard) =>
         {
-
             // If the 'all' filter is selected...
             if ( this.selectedFilter === 'all' )
             {

@@ -61,7 +61,6 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((board) =>
             {
-
                 // Board data
                 this.board = board;
 
@@ -100,7 +99,6 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
             .pipe(
                 tap((value) =>
                 {
-
                     // Update the card object
                     this.card = assign(this.card, value);
                 }),
@@ -109,7 +107,6 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
             )
             .subscribe((value) =>
             {
-
                 // Update the card on the server
                 this._scrumboardService.updateCard(value.id, value).subscribe();
 
@@ -278,7 +275,6 @@ export class ScrumboardCardDetailsComponent implements OnInit, OnDestroy
         // Return a new promise
         return new Promise((resolve, reject) =>
         {
-
             // Create a new reader
             const reader = new FileReader();
 

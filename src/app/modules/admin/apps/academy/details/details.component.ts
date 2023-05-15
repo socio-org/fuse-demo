@@ -58,7 +58,6 @@ export class AcademyDetailsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((categories: Category[]) =>
             {
-
                 // Get the categories
                 this.categories = categories;
 
@@ -71,7 +70,6 @@ export class AcademyDetailsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((course: Course) =>
             {
-
                 // Get the course
                 this.course = course;
 
@@ -87,7 +85,6 @@ export class AcademyDetailsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(({matchingAliases}) =>
             {
-
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('lg') )
                 {
@@ -201,7 +198,6 @@ export class AcademyDetailsComponent implements OnInit, OnDestroy
         // Wrap everything into setTimeout so we can make sure that the 'current-step' class points to correct element
         setTimeout(() =>
         {
-
             // Get the current step element and scroll it into view
             const currentStepElement = this._document.getElementsByClassName('current-step')[0];
             if ( currentStepElement )

@@ -118,7 +118,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((brands: InventoryBrand[]) =>
             {
-
                 // Update the brands
                 this.brands = brands;
 
@@ -131,7 +130,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((categories: InventoryCategory[]) =>
             {
-
                 // Update the categories
                 this.categories = categories;
 
@@ -144,7 +142,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((pagination: InventoryPagination) =>
             {
-
                 // Update the pagination
                 this.pagination = pagination;
 
@@ -160,7 +157,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((tags: InventoryTag[]) =>
             {
-
                 // Update the tags
                 this.tags = tags;
                 this.filteredTags = tags;
@@ -174,7 +170,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((vendors: InventoryVendor[]) =>
             {
-
                 // Update the vendors
                 this.vendors = vendors;
 
@@ -279,7 +274,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         this._inventoryService.getProductById(productId)
             .subscribe((product) =>
             {
-
                 // Set the selected product
                 this.selectedProduct = product;
 
@@ -404,7 +398,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         this._inventoryService.createTag(tag)
             .subscribe((response) =>
             {
-
                 // Add the tag to the product
                 this.addTagToProduct(response);
             });
@@ -514,7 +507,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         // Create the product
         this._inventoryService.createProduct().subscribe((newProduct) =>
         {
-
             // Go to new product
             this.selectedProduct = newProduct;
 
@@ -540,7 +532,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         // Update the product on the server
         this._inventoryService.updateProduct(product.id, product).subscribe(() =>
         {
-
             // Show a success message
             this.showFlashMessage('success');
         });
@@ -565,18 +556,15 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         // Subscribe to the confirmation dialog closed action
         confirmation.afterClosed().subscribe((result) =>
         {
-
             // If the confirm button pressed...
             if ( result === 'confirmed' )
             {
-
                 // Get the product object
                 const product = this.selectedProductForm.getRawValue();
 
                 // Delete the product on the server
                 this._inventoryService.deleteProduct(product.id).subscribe(() =>
                 {
-
                     // Close the details
                     this.closeDetails();
                 });
@@ -598,7 +586,6 @@ export class InventoryListComponent implements OnInit, AfterViewInit, OnDestroy
         // Hide it after 3 seconds
         setTimeout(() =>
         {
-
             this.flashMessage = null;
 
             // Mark for check

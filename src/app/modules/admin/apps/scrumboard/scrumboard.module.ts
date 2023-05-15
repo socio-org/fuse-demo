@@ -20,7 +20,7 @@ import { ScrumboardCardComponent } from 'app/modules/admin/apps/scrumboard/card/
 import { ScrumboardCardDetailsComponent } from 'app/modules/admin/apps/scrumboard/card/details/details.component';
 
 import { ScrumboardComponent } from 'app/modules/admin/apps/scrumboard/scrumboard.component';
-import { scrumboardRoutes } from 'app/modules/admin/apps/scrumboard/scrumboard.routing';
+import { scrumboardRoutes } from 'app/modules/admin/apps/scrumboard/scrumboard.routes';
 
 @NgModule({
     imports  : [

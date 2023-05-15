@@ -40,7 +40,6 @@ export class ScrumboardMockApi
             .onGet('api/apps/scrumboard/boards')
             .reply(({request}) =>
             {
-
                 // Clone the boards
                 let boards = cloneDeep(this._boards);
 
@@ -63,7 +62,6 @@ export class ScrumboardMockApi
             .onGet('api/apps/scrumboard/board')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
@@ -104,7 +102,6 @@ export class ScrumboardMockApi
             .onPost('api/apps/scrumboard/board/list')
             .reply(({request}) =>
             {
-
                 // Get the list
                 const newList = cloneDeep(request.body.list);
 
@@ -127,7 +124,6 @@ export class ScrumboardMockApi
             .onPatch('api/apps/scrumboard/board/list')
             .reply(({request}) =>
             {
-
                 // Get the list
                 const list = cloneDeep(request.body.list);
 
@@ -137,7 +133,6 @@ export class ScrumboardMockApi
                 // Find the list and update it
                 this._lists.forEach((item, index, lists) =>
                 {
-
                     if ( item.id === list.id )
                     {
                         // Update the list
@@ -161,7 +156,6 @@ export class ScrumboardMockApi
             .onPatch('api/apps/scrumboard/board/lists')
             .reply(({request}) =>
             {
-
                 // Get the lists
                 const lists = cloneDeep(request.body.lists);
 
@@ -171,7 +165,6 @@ export class ScrumboardMockApi
                 // Go through the lists
                 lists.forEach((item) =>
                 {
-
                     // Find the list
                     const index = this._lists.findIndex(list => item.id === list.id);
 
@@ -195,7 +188,6 @@ export class ScrumboardMockApi
             .onDelete('api/apps/scrumboard/board/list')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
@@ -219,7 +211,6 @@ export class ScrumboardMockApi
             .onPut('api/apps/scrumboard/board/card')
             .reply(({request}) =>
             {
-
                 // Get the card
                 const newCard = cloneDeep(request.body.card);
 
@@ -242,7 +233,6 @@ export class ScrumboardMockApi
             .onPatch('api/apps/scrumboard/board/card')
             .reply(({request}) =>
             {
-
                 // Get the id and card
                 const id = request.body.id;
                 const card = cloneDeep(request.body.card);
@@ -256,7 +246,6 @@ export class ScrumboardMockApi
                 // Find the card and update it
                 this._cards.forEach((item, index, cards) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the card
@@ -283,7 +272,6 @@ export class ScrumboardMockApi
             .onPatch('api/apps/scrumboard/board/cards')
             .reply(({request}) =>
             {
-
                 // Get the cards
                 const cards = cloneDeep(request.body.cards);
 
@@ -293,7 +281,6 @@ export class ScrumboardMockApi
                 // Go through the cards
                 cards.forEach((item) =>
                 {
-
                     // Find the card
                     const index = this._cards.findIndex(card => item.id === card.id);
 
@@ -323,7 +310,6 @@ export class ScrumboardMockApi
             .onDelete('api/apps/scrumboard/board/card')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
@@ -344,14 +330,12 @@ export class ScrumboardMockApi
             .onPatch('api/apps/scrumboard/board/card/positions')
             .reply(({request}) =>
             {
-
                 // Get the cards
                 const cards = request.body.cards;
 
                 // Go through the cards
                 this._cards.forEach((card) =>
                 {
-
                     // Find this card's index within the cards array that comes with the request
                     // and assign that index as the new position number for the card
                     card.position = cards.findIndex(item => item.id === card.id && item.listId === card.listId && item.boardId === card.boardId);
@@ -373,7 +357,6 @@ export class ScrumboardMockApi
             .onGet('api/apps/scrumboard/board/labels')
             .reply(({request}) =>
             {
-
                 // Get the board id
                 const boardId = request.params.get('boardId');
 
@@ -393,7 +376,6 @@ export class ScrumboardMockApi
             .onPut('api/apps/scrumboard/board/label')
             .reply(({request}) =>
             {
-
                 // Get the label
                 const newLabel = cloneDeep(request.body.label);
 
@@ -416,7 +398,6 @@ export class ScrumboardMockApi
             .onPatch('api/apps/scrumboard/board/label')
             .reply(({request}) =>
             {
-
                 // Get the id and label
                 const id = request.body.id;
                 const label = cloneDeep(request.body.label);
@@ -427,7 +408,6 @@ export class ScrumboardMockApi
                 // Find the label and update it
                 this._labels.forEach((item, index, labels) =>
                 {
-
                     if ( item.id === id )
                     {
                         // Update the label
@@ -451,7 +431,6 @@ export class ScrumboardMockApi
             .onDelete('api/apps/scrumboard/board/label')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 

@@ -47,7 +47,6 @@ export class NotesMockApi
             .onPost('api/apps/notes/labels')
             .reply(({request}) =>
             {
-
                 // Create a new label
                 const label = {
                     id   : FuseMockApiUtils.guid(),
@@ -70,7 +69,6 @@ export class NotesMockApi
             .onPatch('api/apps/notes/labels')
             .reply(({request}) =>
             {
-
                 // Get label
                 const updatedLabel = request.body.label;
 
@@ -101,7 +99,6 @@ export class NotesMockApi
             .onDelete('api/apps/notes/labels')
             .reply(({request}) =>
             {
-
                 // Get label id
                 const id = request.params.get('id');
 
@@ -127,7 +124,6 @@ export class NotesMockApi
             .onPost('api/apps/notes/tasks')
             .reply(({request}) =>
             {
-
                 // Get note and task
                 let updatedNote = request.body.note;
                 const task = request.body.task;
@@ -173,7 +169,6 @@ export class NotesMockApi
             .onGet('api/apps/notes/all')
             .reply(() =>
             {
-
                 // Clone the labels and notes
                 const labels = cloneDeep(this._labels);
                 let notes = cloneDeep(this._notes);
@@ -199,7 +194,6 @@ export class NotesMockApi
             .onPost('api/apps/notes')
             .reply(({request}) =>
             {
-
                 // Get note
                 const note = request.body.note;
 
@@ -222,7 +216,6 @@ export class NotesMockApi
             .onPatch('api/apps/notes')
             .reply(({request}) =>
             {
-
                 // Get note
                 const updatedNote = request.body.updatedNote;
 
@@ -252,14 +245,12 @@ export class NotesMockApi
             .onDelete('api/apps/notes')
             .reply(({request}) =>
             {
-
                 // Get the id
                 const id = request.params.get('id');
 
                 // Find the note and delete it
                 this._notes.forEach((item, index) =>
                 {
-
                     if ( item.id === id )
                     {
                         this._notes.splice(index, 1);

@@ -162,7 +162,6 @@ export class MailboxService
             }),
             switchMap((response) =>
             {
-
                 if ( response.mails === null )
                 {
                     return throwError({
@@ -202,7 +201,6 @@ export class MailboxService
             }),
             switchMap((response) =>
             {
-
                 if ( response.mails === null )
                 {
                     return throwError({
@@ -242,7 +240,6 @@ export class MailboxService
             }),
             switchMap((response) =>
             {
-
                 if ( response.mails === null )
                 {
                     return throwError({
@@ -265,7 +262,6 @@ export class MailboxService
             take(1),
             map((mails) =>
             {
-
                 // Find the mail
                 const mail = mails.find(item => item.id === id) || null;
 
@@ -277,7 +273,6 @@ export class MailboxService
             }),
             switchMap((mail) =>
             {
-
                 if ( !mail )
                 {
                     return throwError('Could not found mail with id of ' + id + '!');
@@ -302,7 +297,6 @@ export class MailboxService
         }).pipe(
             tap(() =>
             {
-
                 // Re-fetch the folders on mail update
                 // to get the updated counts on the sidebar
                 this.getFolders().subscribe();
@@ -336,7 +330,6 @@ export class MailboxService
             switchMap(labels => this._httpClient.post<MailLabel>('api/apps/mailbox/label', {label}).pipe(
                 map((newLabel) =>
                 {
-
                     // Update the labels with the new label
                     this._labels.next([...labels, newLabel]);
 
@@ -363,7 +356,6 @@ export class MailboxService
             }).pipe(
                 map((updatedLabel: any) =>
                 {
-
                     // Find the index of the updated label within the labels
                     const index = labels.findIndex(item => item.id === id);
 
@@ -392,7 +384,6 @@ export class MailboxService
             switchMap(labels => this._httpClient.delete('api/apps/mailbox/label', {params: {id}}).pipe(
                 map((isDeleted: any) =>
                 {
-
                     // Find the index of the deleted label within the labels
                     const index = labels.findIndex(item => item.id === id);
 

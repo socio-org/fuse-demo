@@ -54,7 +54,6 @@ export class FuseMockApiService
         // Iterate through the handlers
         handlers.forEach((handler, handlerUrl) =>
         {
-
             // Skip if there is already a matching handler
             if ( matchingHandler.handler )
             {

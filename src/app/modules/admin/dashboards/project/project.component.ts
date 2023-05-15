@@ -57,7 +57,6 @@ export class ProjectComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data) =>
             {
-
                 // Store the data
                 this.data = data;
 

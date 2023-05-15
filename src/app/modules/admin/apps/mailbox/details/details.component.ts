@@ -92,7 +92,6 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(() =>
             {
-
                 // De-activate the reply form
                 this.replyFormActive = false;
             });
@@ -361,7 +360,6 @@ export class MailboxDetailsComponent implements OnInit, OnDestroy
         // Subscribe to the backdrop click
         this._overlayRef.backdropClick().subscribe(() =>
         {
-
             // If overlay exists and attached...
             if ( this._overlayRef && this._overlayRef.hasAttached() )
             {

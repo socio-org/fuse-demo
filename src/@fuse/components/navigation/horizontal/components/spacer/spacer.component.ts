@@ -47,7 +47,6 @@ export class FuseHorizontalNavigationSpacerItemComponent implements OnInit, OnDe
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {
-
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

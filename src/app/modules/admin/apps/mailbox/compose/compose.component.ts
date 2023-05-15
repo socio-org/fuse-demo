@@ -97,7 +97,6 @@ export class MailboxComposeComponent implements OnInit
      */
     discard(): void
     {
-
     }
 
     /**
@@ -105,7 +104,6 @@ export class MailboxComposeComponent implements OnInit
      */
     saveAsDraft(): void
     {
-
     }
 
     /**
@@ -113,6 +111,5 @@ export class MailboxComposeComponent implements OnInit
      */
     send(): void
     {
-
     }
 }
