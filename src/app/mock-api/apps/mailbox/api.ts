@@ -3,9 +3,7 @@ import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { filters as filtersData, folders as foldersData, labels as labelsData, mails as mailsData, settings as settingsData } from 'app/mock-api/apps/mailbox/data';
 import { assign, cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class MailboxMockApi
 {
     private _filters: any[] = filtersData;

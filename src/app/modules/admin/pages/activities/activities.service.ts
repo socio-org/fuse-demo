@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Activity } from 'app/modules/admin/pages/activities/activities.types';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ActivitiesService
 {
     // Private

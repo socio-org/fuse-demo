@@ -4,9 +4,7 @@ import { Label, Note } from 'app/modules/admin/apps/notes/notes.types';
 import { cloneDeep } from 'lodash-es';
 import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class NotesService
 {
     // Private

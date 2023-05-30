@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, take } from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class FuseSplashScreenService
 {
     /**

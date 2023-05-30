@@ -1,12 +1,10 @@
 import { DOCUMENT, NgIf } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { FuseConfigService } from '@fuse/services/config';
+import { FuseConfig, FuseConfigService } from '@fuse/services/config';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { FusePlatformService } from '@fuse/services/platform';
 import { FUSE_VERSION } from '@fuse/version';
-import { AppConfig } from 'app/core/config/app.config';
-import { Layout } from 'app/layout/layout.types';
 import { combineLatest, filter, map, Subject, takeUntil } from 'rxjs';
 import { SettingsComponent } from './common/settings/settings.component';
 import { EmptyLayoutComponent } from './layouts/empty/empty.component';
@@ -31,8 +29,8 @@ import { ThinLayoutComponent } from './layouts/vertical/thin/thin.component';
 })
 export class LayoutComponent implements OnInit, OnDestroy
 {
-    config: AppConfig;
-    layout: Layout;
+    config: FuseConfig;
+    layout: string;
     scheme: 'dark' | 'light';
     theme: string;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
@@ -97,7 +95,7 @@ export class LayoutComponent implements OnInit, OnDestroy
         // Subscribe to config changes
         this._fuseConfigService.config$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((config: AppConfig) =>
+            .subscribe((config: FuseConfig) =>
             {
                 // Store the config
                 this.config = config;
@@ -154,7 +152,7 @@ export class LayoutComponent implements OnInit, OnDestroy
 
         // 2. Get the query parameter from the current route and
         // set the layout and save the layout to the config
-        const layoutFromQueryParam = (route.snapshot.queryParamMap.get('layout') as Layout);
+        const layoutFromQueryParam = route.snapshot.queryParamMap.get('layout');
         if ( layoutFromQueryParam )
         {
             this.layout = layoutFromQueryParam;

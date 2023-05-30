@@ -3,9 +3,7 @@ import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { feather, heroicons, material } from 'app/mock-api/ui/icons/data';
 import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class IconsMockApi
 {
     private readonly _feather: any = feather;

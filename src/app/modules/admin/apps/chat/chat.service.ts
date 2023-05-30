@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Chat, Contact, Profile } from 'app/modules/admin/apps/chat/chat.types';
 import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ChatService
 {
     private _chat: BehaviorSubject<Chat> = new BehaviorSubject(null);

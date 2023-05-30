@@ -3,9 +3,7 @@ import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { boards as boardsData, cards as cardsData, labels as labelsData, lists as listsData, members as membersData } from 'app/mock-api/apps/scrumboard/data';
 import { assign, cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ScrumboardMockApi
 {
     // Private

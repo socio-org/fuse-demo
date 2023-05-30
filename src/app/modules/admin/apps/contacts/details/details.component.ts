@@ -4,10 +4,9 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MAT_DATE_FORMATS, MatOptionModule, MatRippleModule } from '@angular/material/core';
+import { MatOptionModule, MatRippleModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,23 +28,7 @@ import { debounceTime, Subject, takeUntil } from 'rxjs';
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone     : true,
-    imports        : [NgIf, MatLuxonDateModule, MatButtonModule, MatTooltipModule, RouterLink, MatIconModule, NgFor, FormsModule, ReactiveFormsModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, NgClass, MatSelectModule, MatOptionModule, MatDatepickerModule, TextFieldModule, FuseFindByKeyPipe, DatePipe],
-    providers      : [
-        {
-            provide : MAT_DATE_FORMATS,
-            useValue: {
-                parse  : {
-                    dateInput: 'D',
-                },
-                display: {
-                    dateInput         : 'DDD',
-                    monthYearLabel    : 'LLL yyyy',
-                    dateA11yLabel     : 'DD',
-                    monthYearA11yLabel: 'LLLL yyyy',
-                },
-            },
-        },
-    ],
+    imports        : [NgIf, MatButtonModule, MatTooltipModule, RouterLink, MatIconModule, NgFor, FormsModule, ReactiveFormsModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, NgClass, MatSelectModule, MatOptionModule, MatDatepickerModule, TextFieldModule, FuseFindByKeyPipe, DatePipe],
 })
 export class ContactsDetailsComponent implements OnInit, OnDestroy
 {

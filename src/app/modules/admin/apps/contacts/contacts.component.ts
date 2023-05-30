@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { RouterOutlet } from '@angular/router';
 
 @Component({

@@ -3,9 +3,7 @@ import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { messages as messagesData } from 'app/mock-api/common/messages/data';
 import { assign, cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class MessagesMockApi
 {
     private _messages: any = messagesData;

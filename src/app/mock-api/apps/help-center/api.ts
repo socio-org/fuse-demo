@@ -3,9 +3,7 @@ import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { faqCategories as faqCategoriesData, faqs as faqsData, guideCategories as guideCategoriesData, guideContent as guideContentData, guides as guidesData } from 'app/mock-api/apps/help-center/data';
 import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class HelpCenterMockApi
 {
     private _faqCategories: any[] = faqCategoriesData;

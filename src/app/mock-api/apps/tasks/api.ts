@@ -4,9 +4,7 @@ import { FuseMockApiUtils } from '@fuse/lib/mock-api/mock-api.utils';
 import { tags as tagsData, tasks as tasksData } from 'app/mock-api/apps/tasks/data';
 import { assign, cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class TasksMockApi
 {
     private _tags: any[] = tagsData;

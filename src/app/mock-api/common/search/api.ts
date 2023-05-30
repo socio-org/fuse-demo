@@ -6,9 +6,7 @@ import { tasks } from 'app/mock-api/apps/tasks/data';
 import { defaultNavigation } from 'app/mock-api/common/navigation/data';
 import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class SearchMockApi
 {
     private readonly _defaultNavigation: FuseNavigationItem[] = defaultNavigation;

@@ -3,9 +3,7 @@ import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
 import { items as itemsData } from 'app/mock-api/apps/file-manager/data';
 import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class FileManagerMockApi
 {
     private _items: any[] = itemsData;

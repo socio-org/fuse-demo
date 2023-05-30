@@ -1,8 +1,9 @@
+import { Overlay } from '@angular/cdk/overlay';
 import { NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, EventEmitter, HostBinding, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostBinding, inject, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MAT_AUTOCOMPLETE_SCROLL_STRATEGY, MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,6 +21,16 @@ import { debounceTime, filter, map, Subject, takeUntil } from 'rxjs';
     animations   : fuseAnimations,
     standalone   : true,
     imports      : [NgIf, MatButtonModule, MatIconModule, FormsModule, MatAutocompleteModule, ReactiveFormsModule, MatOptionModule, NgFor, RouterLink, NgTemplateOutlet, MatFormFieldModule, MatInputModule, NgClass],
+    providers    : [
+        {
+            provide   : MAT_AUTOCOMPLETE_SCROLL_STRATEGY,
+            useFactory: () =>
+            {
+                const overlay = inject(Overlay);
+                return () => overlay.scrollStrategies.block();
+            },
+        },
+    ],
 })
 export class SearchComponent implements OnChanges, OnInit, OnDestroy
 {

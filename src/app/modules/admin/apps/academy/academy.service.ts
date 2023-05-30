@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Category, Course } from 'app/modules/admin/apps/academy/academy.types';
 import { BehaviorSubject, map, Observable, of, switchMap, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class AcademyService
 {
     // Private

@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Notification } from 'app/layout/common/notifications/notifications.types';
 import { map, Observable, ReplaySubject, switchMap, take, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class NotificationsService
 {
     private _notifications: ReplaySubject<Notification[]> = new ReplaySubject<Notification[]>(1);

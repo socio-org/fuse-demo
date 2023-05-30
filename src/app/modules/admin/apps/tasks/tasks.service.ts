@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
 import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class TasksService
 {
     // Private

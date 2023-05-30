@@ -4,7 +4,7 @@ import { FuseConfigService } from '@fuse/services/config';
 import { fromPairs } from 'lodash-es';
 import { map, Observable, ReplaySubject, switchMap } from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class FuseMediaWatcherService
 {
     private _onMediaChange: ReplaySubject<{ matchingAliases: string[]; matchingQueries: any }> = new ReplaySubject<{ matchingAliases: string[]; matchingQueries: any }>(1);

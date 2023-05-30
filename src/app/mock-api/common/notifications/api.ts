@@ -3,9 +3,7 @@ import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { notifications as notificationsData } from 'app/mock-api/common/notifications/data';
 import { assign, cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class NotificationsMockApi
 {
     private _notifications: any = notificationsData;

@@ -3,9 +3,7 @@ import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { shortcuts as shortcutsData } from 'app/mock-api/common/shortcuts/data';
 import { assign, cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ShortcutsMockApi
 {
     private _shortcuts: any = shortcutsData;

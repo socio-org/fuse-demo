@@ -13,6 +13,29 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v18.0.0
+        {
+            version    : 'v18.0.0',
+            releaseDate: 'May 30, 2023',
+            changes    : [
+                {
+                    type: 'Breaking',
+                    list: [
+                        '(Standalone) Updated Fuse to standalone components',
+                        '(Config) Replaced NgModule configurations with Providers',
+                        '(Functional) Moved to functional interceptors, guards, resolvers, etc.',
+                    ],
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(Dependencies) Updated Angular & Angular Material to v16',
+                        '(Dependencies) Updated various other packages',
+                    ],
+                },
+            ],
+        },
+
         // v17.2.0
         {
             version    : 'v17.2.0',

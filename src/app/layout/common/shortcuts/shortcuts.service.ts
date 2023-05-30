@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Shortcut } from 'app/layout/common/shortcuts/shortcuts.types';
 import { map, Observable, ReplaySubject, switchMap, take, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ShortcutsService
 {
     private _shortcuts: ReplaySubject<Shortcut[]> = new ReplaySubject<Shortcut[]>(1);

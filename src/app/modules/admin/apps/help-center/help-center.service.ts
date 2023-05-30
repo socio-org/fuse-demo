@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { FaqCategory, Guide, GuideCategory } from 'app/modules/admin/apps/help-center/help-center.type';
 import { Observable, ReplaySubject, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class HelpCenterService
 {
     private _faqs: ReplaySubject<FaqCategory[]> = new ReplaySubject<FaqCategory[]>(1);

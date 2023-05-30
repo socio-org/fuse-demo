@@ -6,9 +6,7 @@ import Utf8 from 'crypto-js/enc-utf8';
 import HmacSHA256 from 'crypto-js/hmac-sha256';
 import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class AuthMockApi
 {
     private readonly _secret: any;

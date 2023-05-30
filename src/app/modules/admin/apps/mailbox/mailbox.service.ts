@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Mail, MailCategory, MailFilter, MailFolder, MailLabel } from 'app/modules/admin/apps/mailbox/mailbox.types';
 import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class MailboxService
 {
     selectedMailChanged: BehaviorSubject<any> = new BehaviorSubject(null);

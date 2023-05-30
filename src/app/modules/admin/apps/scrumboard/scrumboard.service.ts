@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Board, Card, Label, List } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
 import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ScrumboardService
 {
     // Private

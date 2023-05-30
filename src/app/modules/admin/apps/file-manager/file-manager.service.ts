@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Item, Items } from 'app/modules/admin/apps/file-manager/file-manager.types';
 import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class FileManagerService
 {
     // Private

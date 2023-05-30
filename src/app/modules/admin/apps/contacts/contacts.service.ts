@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Contact, Country, Tag } from 'app/modules/admin/apps/contacts/contacts.types';
 import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ContactsService
 {
     // Private

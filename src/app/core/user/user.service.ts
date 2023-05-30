@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from 'app/core/user/user.types';
 import { map, Observable, ReplaySubject, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class UserService
 {
     private _user: ReplaySubject<User> = new ReplaySubject<User>(1);

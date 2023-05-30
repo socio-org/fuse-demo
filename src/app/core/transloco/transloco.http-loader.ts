@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Translation, TranslocoLoader } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class TranslocoHttpLoader implements TranslocoLoader
 {
     /**

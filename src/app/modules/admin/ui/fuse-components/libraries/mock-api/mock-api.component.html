@@ -388,7 +388,7 @@
         </textarea>
         <!-- @formatter:on -->
 
-        <h3>5. Create a barrel file and import FuseMockApiModule</h3>
+        <h3>5. Create a barrel file</h3>
         <p>
             Navigate back to the root of your mock data directory, by default it's the <code>src/app/mock-api/</code> directory, and create an <strong>index.ts</strong> file.
         </p>
@@ -420,25 +420,20 @@
         </textarea>
         <!-- @formatter:on -->
         <p>
-            After that, head to the <code>app.module.ts</code> file, import the <code>FuseMockApiModule</code> and supply the array of services you have exported:
+            After that, head to the <code>app.config.ts</code> file, provide the array of services you have exported:
         </p>
         <!-- @formatter:off -->
         <textarea fuse-highlight
                   lang="typescript">
             ...
-            import { FuseMockApiModule } from '@fuse/lib/mock-api';
+            import { provideFuse } from '@fuse';
             import { mockApiServices } from 'app/mock-api';
 
-            @NgModule({
-                declarations: [
-                    AppComponent
-                ],
-                imports     : [
-                    ...
-                    FuseMockApiModule.forRoot(mockApiServices),
-                    ...
-                ]
-            })
+            ...
+            provideFuse({
+                mockApi: {
+                    services: mockApiServices,
+                },
             ...
         </textarea>
         <!-- @formatter:on -->
@@ -452,19 +447,15 @@
         <textarea fuse-highlight
                   lang="typescript">
             ...
-            import { FuseMockApiModule } from '@fuse/lib/mock-api';
+            import { provideFuse } from '@fuse';
             import { mockApiServices } from 'app/mock-api';
 
-            @NgModule({
-                declarations: [
-                    AppComponent
-                ],
-                imports     : [
-                    ...
-                    FuseMockApiModule.forRoot(mockApiServices, {delay: 2500}),
-                    ...
-                ]
-            })
+            ...
+            provideFuse({
+                mockApi: {
+                    delay   : 250,
+                    services: mockApiServices,
+                },
             ...
         </textarea>
         <!-- @formatter:on -->

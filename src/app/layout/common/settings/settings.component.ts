@@ -5,9 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router } from '@angular/router';
 import { FuseDrawerComponent } from '@fuse/components/drawer';
-import { FuseConfigService } from '@fuse/services/config';
-import { AppConfig, Scheme, Theme, Themes } from 'app/core/config/app.config';
-import { Layout } from 'app/layout/layout.types';
+import { FuseConfig, FuseConfigService, Scheme, Theme, Themes } from '@fuse/services/config';
+
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -36,8 +35,8 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class SettingsComponent implements OnInit, OnDestroy
 {
-    config: AppConfig;
-    layout: Layout;
+    config: FuseConfig;
+    layout: string;
     scheme: 'dark' | 'light';
     theme: string;
     themes: Themes;
@@ -65,7 +64,7 @@ export class SettingsComponent implements OnInit, OnDestroy
         // Subscribe to config changes
         this._fuseConfigService.config$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((config: AppConfig) =>
+            .subscribe((config: FuseConfig) =>
             {
                 // Store the config
                 this.config = config;

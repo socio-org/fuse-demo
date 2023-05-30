@@ -3,9 +3,7 @@ import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { user as userData } from 'app/mock-api/common/user/data';
 import { assign, cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class UserMockApi
 {
     private _user: any = userData;

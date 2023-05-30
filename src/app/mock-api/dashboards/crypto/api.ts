@@ -3,9 +3,7 @@ import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { crypto as cryptoData } from 'app/mock-api/dashboards/crypto/data';
 import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class CryptoMockApi
 {
     private _crypto: any = cryptoData;

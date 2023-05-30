@@ -3,9 +3,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { IconsService } from 'app/modules/admin/ui/icons/icons.service';
 import { Observable } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class IconsResolver
 {
     /**

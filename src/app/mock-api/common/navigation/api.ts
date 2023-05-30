@@ -4,9 +4,7 @@ import { FuseMockApiService } from '@fuse/lib/mock-api';
 import { compactNavigation, defaultNavigation, futuristicNavigation, horizontalNavigation } from 'app/mock-api/common/navigation/data';
 import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class NavigationMockApi
 {
     private readonly _compactNavigation: FuseNavigationItem[] = compactNavigation;

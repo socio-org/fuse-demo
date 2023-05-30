@@ -3,9 +3,7 @@ import { FuseMockApiHandler } from '@fuse/lib/mock-api/mock-api.request-handler'
 import { FuseMockApiMethods } from '@fuse/lib/mock-api/mock-api.types';
 import { compact, fromPairs } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class FuseMockApiService
 {
     private _handlers: { [key: string]: Map<string, FuseMockApiHandler> } = {

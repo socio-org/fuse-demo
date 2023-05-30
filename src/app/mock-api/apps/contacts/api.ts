@@ -4,9 +4,7 @@ import { contacts as contactsData, countries as countriesData, tags as tagsData 
 import { assign, cloneDeep } from 'lodash-es';
 import { from, map } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class ContactsMockApi
 {
     private _contacts: any[] = contactsData;

@@ -4,10 +4,9 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
-import { MAT_LUXON_DATE_FORMATS, MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MAT_DATE_FORMATS, MatRippleModule } from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,14 +29,8 @@ import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
     templateUrl    : './details.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers      : [
-        {
-            provide : MAT_DATE_FORMATS,
-            useValue: MAT_LUXON_DATE_FORMATS,
-        },
-    ],
     standalone     : true,
-    imports        : [FormsModule, ReactiveFormsModule, MatLuxonDateModule, MatButtonModule, NgIf, MatIconModule, MatMenuModule, RouterLink, MatDividerModule, MatFormFieldModule, MatInputModule, TextFieldModule, NgFor, MatRippleModule, MatCheckboxModule, NgClass, MatDatepickerModule, FuseFindByKeyPipe, DatePipe],
+    imports        : [FormsModule, ReactiveFormsModule, MatButtonModule, NgIf, MatIconModule, MatMenuModule, RouterLink, MatDividerModule, MatFormFieldModule, MatInputModule, TextFieldModule, NgFor, MatRippleModule, MatCheckboxModule, NgClass, MatDatepickerModule, FuseFindByKeyPipe, DatePipe],
 })
 export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 {

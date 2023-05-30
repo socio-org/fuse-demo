@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Navigation } from 'app/core/navigation/navigation.types';
 import { Observable, ReplaySubject, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class NavigationService
 {
     private _navigation: ReplaySubject<Navigation> = new ReplaySubject<Navigation>(1);
