@@ -64,7 +64,6 @@ export class AuthMockApi
             .onPost('api/auth/sign-in', 1500)
             .reply(({request}) =>
             {
-                console.log('request', request);
                 // Sign in successful
                 if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
                 {
