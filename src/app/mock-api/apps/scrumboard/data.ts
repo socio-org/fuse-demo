@@ -9,7 +9,7 @@ export const boards = [
         id          : '2c82225f-2a6c-45d3-b18a-1132712a4234',
         title       : 'Admin Dashboard',
         description : 'Roadmap for the new project',
-        icon        : 'heroicons_outline:template',
+        icon        : 'heroicons_outline:rectangle-group',
         lastActivity: now.startOf('day').minus({day: 1}).toISO(),
         members     : [
             '9c510cf3-460d-4a8c-b3be-bcc3db578c08',

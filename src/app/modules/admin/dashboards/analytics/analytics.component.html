@@ -14,7 +14,7 @@
                     mat-stroked-button>
                     <mat-icon
                         class="icon-size-5"
-                        [svgIcon]="'heroicons_solid:cog'"></mat-icon>
+                        [svgIcon]="'heroicons_solid:cog-8-tooth'"></mat-icon>
                     <span class="ml-2">Settings</span>
                 </button>
                 <button
@@ -23,7 +23,7 @@
                     [color]="'primary'">
                     <mat-icon
                         class="icon-size-5"
-                        [svgIcon]="'heroicons_solid:save'"></mat-icon>
+                        [svgIcon]="'heroicons_solid:arrow-up-tray'"></mat-icon>
                     <span class="ml-2">Export</span>
                 </button>
 
@@ -32,7 +32,7 @@
                     <button
                         [matMenuTriggerFor]="actionsMenu"
                         mat-icon-button>
-                        <mat-icon [svgIcon]="'heroicons_outline:dots-vertical'"></mat-icon>
+                        <mat-icon [svgIcon]="'heroicons_outline:ellipsis-vertical'"></mat-icon>
                     </button>
                     <mat-menu #actionsMenu="matMenu">
                         <button mat-menu-item>Export</button>
@@ -68,7 +68,7 @@
                             <button
                                 mat-icon-button
                                 [matMenuTriggerFor]="visitorsMenu">
-                                <mat-icon [svgIcon]="'heroicons_outline:dots-vertical'"></mat-icon>
+                                <mat-icon [svgIcon]="'heroicons_outline:ellipsis-vertical'"></mat-icon>
                             </button>
                             <mat-menu #visitorsMenu="matMenu">
                                 <button mat-menu-item>This Year</button>
@@ -115,7 +115,7 @@
                     <div class="flex lg:flex-col lg:ml-3">
                         <mat-icon
                             class="icon-size-5 text-red-500"
-                            [svgIcon]="'heroicons_solid:trending-down'"></mat-icon>
+                            [svgIcon]="'heroicons_mini:arrow-trending-down'"></mat-icon>
                         <div class="flex items-center ml-1 lg:ml-0 lg:mt-0.5 text-md leading-none whitespace-nowrap text-secondary">
                             <span class="font-medium text-red-500">2%</span>
                             <span class="ml-1">below target</span>
@@ -157,7 +157,7 @@
                     <div class="flex lg:flex-col lg:ml-3">
                         <mat-icon
                             class="icon-size-5 text-red-500"
-                            [svgIcon]="'heroicons_solid:trending-down'"></mat-icon>
+                            [svgIcon]="'heroicons_mini:arrow-trending-down'"></mat-icon>
                         <div class="flex items-center ml-1 lg:ml-0 lg:mt-0.5 text-md leading-none whitespace-nowrap text-secondary">
                             <span class="font-medium text-red-500">4%</span>
                             <span class="ml-1">below target</span>
@@ -199,7 +199,7 @@
                     <div class="flex lg:flex-col lg:ml-3">
                         <mat-icon
                             class="icon-size-5 text-red-500"
-                            [svgIcon]="'heroicons_solid:trending-down'"></mat-icon>
+                            [svgIcon]="'heroicons_mini:arrow-trending-down'"></mat-icon>
                         <div class="flex items-center ml-1 lg:ml-0 lg:mt-0.5 text-md leading-none whitespace-nowrap text-secondary">
                             <span class="font-medium text-red-500">4%</span>
                             <span class="ml-1">below target</span>
@@ -245,7 +245,7 @@
                             <div class="font-medium text-secondary leading-5">Overall Score</div>
                             <mat-icon
                                 class="ml-1.5 icon-size-4 text-hint"
-                                [svgIcon]="'heroicons_solid:information-circle'"
+                                [svgIcon]="'heroicons_mini:information-circle'"
                                 [matTooltip]="'Score is calculated by using the historical ratio between Page Views and Visitors. Best score is 1000, worst score is 0.'"></mat-icon>
                         </div>
                         <div class="flex items-start mt-2">
@@ -253,7 +253,7 @@
                             <div class="flex items-center ml-2">
                                 <mat-icon
                                     class="icon-size-5 text-green-500"
-                                    [svgIcon]="'heroicons_solid:arrow-circle-up'"></mat-icon>
+                                    [svgIcon]="'heroicons_solid:arrow-up-circle'"></mat-icon>
                                 <div class="ml-1 text-md font-medium text-green-500">42.9%</div>
                             </div>
                         </div>
@@ -263,7 +263,7 @@
                             <div class="font-medium text-secondary leading-5">Average Ratio</div>
                             <mat-icon
                                 class="ml-1.5 icon-size-4 text-hint"
-                                [svgIcon]="'heroicons_solid:information-circle'"
+                                [svgIcon]="'heroicons_mini:information-circle'"
                                 [matTooltip]="'Average Ratio is the average ratio between Page Views and Visitors'"></mat-icon>
                         </div>
                         <div class="flex items-start mt-2">
@@ -271,7 +271,7 @@
                             <div class="flex items-center ml-2">
                                 <mat-icon
                                     class="icon-size-5 text-red-500"
-                                    [svgIcon]="'heroicons_solid:arrow-circle-down'"></mat-icon>
+                                    [svgIcon]="'heroicons_solid:arrow-down-circle'"></mat-icon>
                                 <div class="ml-1 text-md font-medium text-red-500">13.1%</div>
                             </div>
                         </div>
@@ -281,7 +281,7 @@
                             <div class="font-medium text-secondary leading-5">Predicted Ratio</div>
                             <mat-icon
                                 class="ml-1.5 icon-size-4 text-hint"
-                                [svgIcon]="'heroicons_solid:information-circle'"
+                                [svgIcon]="'heroicons_mini:information-circle'"
                                 [matTooltip]="'Predicted Ratio is calculated by using historical ratio, current trends and your goal targets.'"></mat-icon>
                         </div>
                         <div class="flex items-start mt-2">
@@ -289,7 +289,7 @@
                             <div class="flex items-center ml-2">
                                 <mat-icon
                                     class="icon-size-5 text-green-500"
-                                    [svgIcon]="'heroicons_solid:arrow-circle-up'"></mat-icon>
+                                    [svgIcon]="'heroicons_solid:arrow-up-circle'"></mat-icon>
                                 <div class="ml-1 text-md font-medium text-green-500">22.2%</div>
                             </div>
                         </div>

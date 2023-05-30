@@ -68,6 +68,21 @@ export class IconsMockApi
                 {
                     namespace: 'heroicons_solid',
                     name     : 'Heroicons Solid',
+                    grid     : 'icon-size-6',
+                    list     : cloneDeep(this._heroicons),
+                },
+            ]);
+
+        // -----------------------------------------------------------------------------------------------------
+        // @ Heroicons mini icons - GET
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+            .onGet('api/ui/icons/heroicons-mini')
+            .reply(() => [
+                200,
+                {
+                    namespace: 'heroicons_mini',
+                    name     : 'Heroicons Mini',
                     grid     : 'icon-size-5',
                     list     : cloneDeep(this._heroicons),
                 },

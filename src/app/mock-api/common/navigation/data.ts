@@ -13,7 +13,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'dashboards.project',
                 title: 'Project',
                 type : 'basic',
-                icon : 'heroicons_outline:clipboard-check',
+                icon : 'heroicons_outline:clipboard-document-check',
                 link : '/dashboards/project',
             },
             {
@@ -27,7 +27,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'dashboards.finance',
                 title: 'Finance',
                 type : 'basic',
-                icon : 'heroicons_outline:cash',
+                icon : 'heroicons_outline:banknotes',
                 link : '/dashboards/finance',
             },
             {
@@ -57,7 +57,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'apps.chat',
                 title: 'Chat',
                 type : 'basic',
-                icon : 'heroicons_outline:chat-alt',
+                icon : 'heroicons_outline:chat-bubble-bottom-center-text',
                 link : '/apps/chat',
             },
             {
@@ -92,7 +92,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id      : 'apps.help-center',
                 title   : 'Help Center',
                 type    : 'collapsable',
-                icon    : 'heroicons_outline:support',
+                icon    : 'heroicons_outline:information-circle',
                 link    : '/apps/help-center',
                 children: [
                     {
@@ -126,7 +126,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'apps.mailbox',
                 title: 'Mailbox',
                 type : 'basic',
-                icon : 'heroicons_outline:mail',
+                icon : 'heroicons_outline:envelope',
                 link : '/apps/mailbox',
                 badge: {
                     title  : '27',
@@ -137,14 +137,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'apps.notes',
                 title: 'Notes',
                 type : 'basic',
-                icon : 'heroicons_outline:pencil-alt',
+                icon : 'heroicons_outline:pencil-square',
                 link : '/apps/notes',
             },
             {
                 id   : 'apps.scrumboard',
                 title: 'Scrumboard',
                 type : 'basic',
-                icon : 'heroicons_outline:view-boards',
+                icon : 'heroicons_outline:view-columns',
                 link : '/apps/scrumboard',
             },
             {
@@ -167,7 +167,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'pages.activities',
                 title: 'Activities',
                 type : 'basic',
-                icon : 'heroicons_outline:menu-alt-2',
+                icon : 'heroicons_outline:bars-3-bottom-left',
                 link : '/pages/activities',
             },
             {
@@ -629,14 +629,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'pages.maintenance',
                 title: 'Maintenance',
                 type : 'basic',
-                icon : 'heroicons_outline:exclamation',
+                icon : 'heroicons_outline:exclamation-triangle',
                 link : '/pages/maintenance',
             },
             {
                 id      : 'pages.pricing',
                 title   : 'Pricing',
                 type    : 'collapsable',
-                icon    : 'heroicons_outline:cash',
+                icon    : 'heroicons_outline:banknotes',
                 children: [
                     {
                         id   : 'pages.pricing.modern',
@@ -675,7 +675,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'pages.settings',
                 title: 'Settings',
                 type : 'basic',
-                icon : 'heroicons_outline:cog',
+                icon : 'heroicons_outline:cog-8-tooth',
                 link : '/pages/settings',
             },
         ],
@@ -685,27 +685,27 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title   : 'User Interface',
         subtitle: 'Building blocks of the UI & UX',
         type    : 'group',
-        icon    : 'heroicons_outline:collection',
+        icon    : 'heroicons_outline:rectangle-stack',
         children: [
             {
                 id   : 'user-interface.material-components',
                 title: 'Material Components',
                 type : 'basic',
-                icon : 'heroicons_outline:chip',
+                icon : 'heroicons_outline:square-3-stack-3d',
                 link : '/ui/material-components',
             },
             {
                 id   : 'user-interface.fuse-components',
                 title: 'Fuse Components',
                 type : 'basic',
-                icon : 'heroicons_outline:chip',
+                icon : 'heroicons_outline:square-3-stack-3d',
                 link : '/ui/fuse-components',
             },
             {
                 id   : 'user-interface.other-components',
                 title: 'Other Components',
                 type : 'basic',
-                icon : 'heroicons_outline:chip',
+                icon : 'heroicons_outline:square-3-stack-3d',
                 link : '/ui/other-components',
             },
             {
@@ -719,7 +719,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'user-interface.advanced-search',
                 title: 'Advanced Search',
                 type : 'basic',
-                icon : 'heroicons_outline:search-circle',
+                icon : 'heroicons_outline:magnifying-glass-circle',
                 link : '/ui/advanced-search',
             },
             {
@@ -733,14 +733,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'user-interface.cards',
                 title: 'Cards',
                 type : 'basic',
-                icon : 'heroicons_outline:duplicate',
+                icon : 'heroicons_outline:square-2-stack',
                 link : '/ui/cards',
             },
             {
                 id   : 'user-interface.colors',
                 title: 'Colors',
                 type : 'basic',
-                icon : 'heroicons_outline:color-swatch',
+                icon : 'heroicons_outline:swatch',
                 link : '/ui/colors',
             },
             {
@@ -754,14 +754,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'user-interface.datatable',
                 title: 'Datatable',
                 type : 'basic',
-                icon : 'heroicons_outline:view-list',
+                icon : 'heroicons_outline:table-cells',
                 link : '/ui/datatable',
             },
             {
                 id      : 'user-interface.forms',
                 title   : 'Forms',
                 type    : 'collapsable',
-                icon    : 'heroicons_outline:pencil-alt',
+                icon    : 'heroicons_outline:pencil-square',
                 children: [
                     {
                         id   : 'user-interface.forms.fields',
@@ -787,7 +787,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id      : 'user-interface.icons',
                 title   : 'Icons',
                 type    : 'collapsable',
-                icon    : 'heroicons_outline:lightning-bolt',
+                icon    : 'heroicons_outline:bolt',
                 children: [
                     {
                         id   : 'user-interface.icons.heroicons-outline',
@@ -800,6 +800,12 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         title: 'Heroicons Solid',
                         type : 'basic',
                         link : '/ui/icons/heroicons-solid',
+                    },
+                    {
+                        id   : 'user-interface.icons.heroicons-mini',
+                        title: 'Heroicons Mini',
+                        type : 'basic',
+                        link : '/ui/icons/heroicons-mini',
                     },
                     {
                         id   : 'user-interface.icons.material-twotone',
@@ -831,7 +837,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id      : 'user-interface.page-layouts',
                 title   : 'Page Layouts',
                 type    : 'collapsable',
-                icon    : 'heroicons_outline:template',
+                icon    : 'heroicons_outline:rectangle-group',
                 children: [
                     {
                         id   : 'user-interface.page-layouts.overview',
@@ -958,13 +964,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title   : 'Documentation',
         subtitle: 'Everything you need to know about Fuse',
         type    : 'group',
-        icon    : 'heroicons_outline:support',
+        icon    : 'heroicons_outline:information-circle',
         children: [
             {
                 id   : 'documentation.changelog',
                 title: 'Changelog',
                 type : 'basic',
-                icon : 'heroicons_outline:speakerphone',
+                icon : 'heroicons_outline:megaphone',
                 link : '/docs/changelog',
                 badge: {
                     title  : '18.0.0',
@@ -982,21 +988,21 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 id   : 'user-interface.material-components',
                 title: 'Material Components',
                 type : 'basic',
-                icon : 'heroicons_outline:chip',
+                icon : 'heroicons_outline:square-3-stack-3d',
                 link : '/ui/material-components',
             },
             {
                 id   : 'user-interface.fuse-components',
                 title: 'Fuse Components',
                 type : 'basic',
-                icon : 'heroicons_outline:chip',
+                icon : 'heroicons_outline:square-3-stack-3d',
                 link : '/ui/fuse-components',
             },
             {
                 id   : 'user-interface.other-components',
                 title: 'Other Components',
                 type : 'basic',
-                icon : 'heroicons_outline:chip',
+                icon : 'heroicons_outline:square-3-stack-3d',
                 link : '/ui/other-components',
             },
         ],
@@ -1010,7 +1016,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title   : 'Navigation features',
         subtitle: 'Collapsable levels & badge styles',
         type    : 'group',
-        icon    : 'heroicons_outline:menu',
+        icon    : 'heroicons_outline:bars-3',
         children: [
             {
                 id      : 'navigation-features.level.0',
@@ -1189,7 +1195,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         title   : 'UI',
         tooltip : 'UI',
         type    : 'aside',
-        icon    : 'heroicons_outline:collection',
+        icon    : 'heroicons_outline:rectangle-stack',
         children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
@@ -1197,7 +1203,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         title   : 'Navigation',
         tooltip : 'Navigation',
         type    : 'aside',
-        icon    : 'heroicons_outline:menu',
+        icon    : 'heroicons_outline:bars-3',
         children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
 ];
@@ -1230,14 +1236,14 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         id      : 'user-interface',
         title   : 'User Interface',
         type    : 'aside',
-        icon    : 'heroicons_outline:collection',
+        icon    : 'heroicons_outline:rectangle-stack',
         children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'navigation-features',
         title   : 'Navigation Features',
         type    : 'aside',
-        icon    : 'heroicons_outline:menu',
+        icon    : 'heroicons_outline:bars-3',
         children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
 ];
@@ -1267,14 +1273,14 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         id      : 'user-interface',
         title   : 'UI',
         type    : 'group',
-        icon    : 'heroicons_outline:collection',
+        icon    : 'heroicons_outline:rectangle-stack',
         children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
     {
         id      : 'navigation-features',
         title   : 'Misc',
         type    : 'group',
-        icon    : 'heroicons_outline:menu',
+        icon    : 'heroicons_outline:bars-3',
         children: [], // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
     },
 ];

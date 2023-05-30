@@ -28,7 +28,7 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
                 <div class="flex items-center">
                     <mat-icon
                         class="mr-2 icon-size-5"
-                        [svgIcon]="'heroicons_solid:database'"></mat-icon>
+                        [svgIcon]="'heroicons_solid:circle-stack'"></mat-icon>
                     <div class="text-lg font-semibold">Storage</div>
                 </div>
                 <div class="flex flex-col flex-auto mt-4">
@@ -102,13 +102,13 @@ export class DemoSidebarComponent
                     {
                         title: 'Create user',
                         type : 'basic',
-                        icon : 'heroicons_outline:user-add',
+                        icon : 'heroicons_outline:user-plus',
                     },
                     {
                         title   : 'Assign user or team',
                         subtitle: 'Assign to a task or a project',
                         type    : 'basic',
-                        icon    : 'heroicons_outline:badge-check',
+                        icon    : 'heroicons_outline:check-badge',
                     },
                 ],
             },
@@ -119,7 +119,7 @@ export class DemoSidebarComponent
                     {
                         title: 'All tasks',
                         type : 'basic',
-                        icon : 'heroicons_outline:clipboard-list',
+                        icon : 'heroicons_outline:clipboard-document-list',
                         badge: {
                             title  : '49',
                             classes: 'px-2 bg-primary text-on-primary rounded-full',
@@ -128,12 +128,12 @@ export class DemoSidebarComponent
                     {
                         title: 'Ongoing tasks',
                         type : 'basic',
-                        icon : 'heroicons_outline:clipboard-copy',
+                        icon : 'heroicons_outline:clipboard-document-check',
                     },
                     {
                         title: 'Completed tasks',
                         type : 'basic',
-                        icon : 'heroicons_outline:clipboard-check',
+                        icon : 'heroicons_outline:clipboard-document-check',
                     },
                     {
                         title: 'Abandoned tasks',
@@ -159,7 +159,7 @@ export class DemoSidebarComponent
                     {
                         title   : 'General',
                         type    : 'collapsable',
-                        icon    : 'heroicons_outline:cog',
+                        icon    : 'heroicons_outline:cog-8-tooth',
                         children: [
                             {
                                 title: 'Tasks',

@@ -27,7 +27,7 @@ export const folders = [
         id   : '0197c436-2ef3-424d-b546-8b7f49186e15',
         title: 'Spam',
         slug : 'spam',
-        icon : 'heroicons_outline:exclamation',
+        icon : 'heroicons_outline:exclamation-triangle',
     },
     {
         id   : '2fa74637-d362-4fd2-9a88-f7195a88bdde',

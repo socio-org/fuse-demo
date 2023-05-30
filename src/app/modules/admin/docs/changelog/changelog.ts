@@ -31,6 +31,7 @@ export class ChangelogComponent
                     list: [
                         '(Dependencies) Updated Angular & Angular Material to v16',
                         '(Dependencies) Updated various other packages',
+                        '(Icons) Updated Heroicons'
                     ],
                 },
             ],

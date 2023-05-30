@@ -31,7 +31,7 @@
                         [color]="'accent'">
                         <mat-icon
                             class="icon-size-5"
-                            [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                            [svgIcon]="'heroicons_solid:envelope'"></mat-icon>
                         <span class="ml-2">Messages</span>
                     </button>
                     <button
@@ -39,7 +39,7 @@
                         [color]="'primary'">
                         <mat-icon
                             class="icon-size-5"
-                            [svgIcon]="'heroicons_solid:cog'"></mat-icon>
+                            [svgIcon]="'heroicons_solid:cog-8-tooth'"></mat-icon>
                         <span class="ml-2">Settings</span>
                     </button>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="flex items-center justify-center pl-2">
                         <mat-icon
                             class="icon-size-5"
-                            [svgIcon]="'heroicons_solid:chevron-down'"></mat-icon>
+                            [svgIcon]="'heroicons_mini:chevron-down'"></mat-icon>
                     </div>
                 </div>
                 <mat-menu
@@ -106,7 +106,7 @@
                                             [matMenuTriggerFor]="summaryMenu">
                                             <mat-icon
                                                 class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                                [svgIcon]="'heroicons_mini:ellipsis-vertical'"></mat-icon>
                                         </button>
                                         <mat-menu #summaryMenu="matMenu">
                                             <button mat-menu-item>Yesterday</button>
@@ -134,7 +134,7 @@
                                             [matMenuTriggerFor]="overdueMenu">
                                             <mat-icon
                                                 class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                                [svgIcon]="'heroicons_mini:ellipsis-vertical'"></mat-icon>
                                         </button>
                                         <mat-menu #overdueMenu="matMenu">
                                             <button mat-menu-item>Yesterday</button>
@@ -162,7 +162,7 @@
                                             [matMenuTriggerFor]="issuesMenu">
                                             <mat-icon
                                                 class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                                [svgIcon]="'heroicons_mini:ellipsis-vertical'"></mat-icon>
                                         </button>
                                         <mat-menu #issuesMenu="matMenu">
                                             <button mat-menu-item>Yesterday</button>
@@ -190,7 +190,7 @@
                                             [matMenuTriggerFor]="featuresMenu">
                                             <mat-icon
                                                 class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                                [svgIcon]="'heroicons_mini:ellipsis-vertical'"></mat-icon>
                                         </button>
                                         <mat-menu #featuresMenu="matMenu">
                                             <button mat-menu-item>Yesterday</button>
@@ -366,14 +366,14 @@
                                                         <div class="flex items-center">
                                                             <mat-icon
                                                                 class="icon-size-5 text-hint"
-                                                                [svgIcon]="'heroicons_solid:location-marker'"></mat-icon>
+                                                                [svgIcon]="'heroicons_solid:map-pin'"></mat-icon>
                                                             <div class="ml-1.5 text-md text-secondary">{{scheduleItem.location}}</div>
                                                         </div>
                                                     </ng-container>
                                                 </div>
                                             </div>
                                             <button mat-icon-button>
-                                                <mat-icon [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                                <mat-icon [svgIcon]="'heroicons_mini:chevron-right'"></mat-icon>
                                             </button>
                                         </div>
                                     </ng-container>
@@ -417,7 +417,7 @@
                                                 [matMenuTriggerFor]="weeklyExpensesMenu">
                                                 <mat-icon
                                                     class="icon-size-5"
-                                                    [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                                    [svgIcon]="'heroicons_mini:ellipsis-vertical'"></mat-icon>
                                             </button>
                                             <mat-menu #weeklyExpensesMenu="matMenu">
                                                 <button mat-menu-item>This week</button>
@@ -434,7 +434,7 @@
                                             <div class="flex items-center">
                                                 <mat-icon
                                                     class="mr-1 icon-size-5 text-green-500"
-                                                    [svgIcon]="'heroicons_solid:trending-down'"></mat-icon>
+                                                    [svgIcon]="'heroicons_solid:arrow-trending-down'"></mat-icon>
                                                 <div class="font-medium text-sm text-secondary leading-none whitespace-nowrap">
                                                     <span class="text-green-500">2%</span>
                                                     below projected
@@ -464,7 +464,7 @@
                                                 [matMenuTriggerFor]="monthlyExpensesMenu">
                                                 <mat-icon
                                                     class="icon-size-5"
-                                                    [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                                    [svgIcon]="'heroicons_mini:ellipsis-vertical'"></mat-icon>
                                             </button>
                                             <mat-menu #monthlyExpensesMenu="matMenu">
                                                 <button mat-menu-item>This week</button>
@@ -481,7 +481,7 @@
                                             <div class="flex items-center">
                                                 <mat-icon
                                                     class="mr-1 icon-size-5 text-red-500"
-                                                    [svgIcon]="'heroicons_solid:trending-up'"></mat-icon>
+                                                    [svgIcon]="'heroicons_solid:arrow-trending-up'"></mat-icon>
                                                 <div class="font-medium text-sm text-secondary leading-none whitespace-nowrap">
                                                     <span class="text-red-500">4%</span>
                                                     above projected
@@ -511,7 +511,7 @@
                                                 [matMenuTriggerFor]="yearlyExpensesMenu">
                                                 <mat-icon
                                                     class="icon-size-5"
-                                                    [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                                    [svgIcon]="'heroicons_mini:ellipsis-vertical'"></mat-icon>
                                             </button>
                                             <mat-menu #yearlyExpensesMenu="matMenu">
                                                 <button mat-menu-item>This week</button>
@@ -528,7 +528,7 @@
                                             <div class="flex items-center">
                                                 <mat-icon
                                                     class="mr-1 icon-size-5 text-red-500"
-                                                    [svgIcon]="'heroicons_solid:trending-up'"></mat-icon>
+                                                    [svgIcon]="'heroicons_solid:arrow-trending-up'"></mat-icon>
                                                 <div class="font-medium text-sm text-secondary leading-none whitespace-nowrap">
                                                     <span class="text-red-500">3%</span>
                                                     above projected
@@ -719,7 +719,7 @@
                                             [href]="'mailto:' + member.email">
                                             <mat-icon
                                                 class="icon-size-5 text-hint"
-                                                [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                                                [svgIcon]="'heroicons_solid:envelope'"></mat-icon>
                                             <span class="ml-2">Email</span>
                                         </a>
                                         <a

@@ -61,14 +61,14 @@
                                 class="ml-1 -mr-4"
                                 mat-icon-button
                                 [matMenuTriggerFor]="chatsHeaderMenu">
-                                <mat-icon [svgIcon]="'heroicons_outline:dots-vertical'"></mat-icon>
+                                <mat-icon [svgIcon]="'heroicons_outline:ellipsis-vertical'"></mat-icon>
                                 <mat-menu #chatsHeaderMenu>
                                     <button mat-menu-item>
                                         <mat-icon [svgIcon]="'heroicons_outline:user-group'"></mat-icon>
                                         New group
                                     </button>
                                     <button mat-menu-item>
-                                        <mat-icon [svgIcon]="'heroicons_outline:chat-alt-2'"></mat-icon>
+                                        <mat-icon [svgIcon]="'heroicons_outline:chat-bubble-left-right'"></mat-icon>
                                         Create a room
                                     </button>
                                     <button
@@ -78,7 +78,7 @@
                                         Profile
                                     </button>
                                     <button mat-menu-item>
-                                        <mat-icon [svgIcon]="'heroicons_outline:archive'"></mat-icon>
+                                        <mat-icon [svgIcon]="'heroicons_outline:archive-box'"></mat-icon>
                                         Archived
                                     </button>
                                     <button mat-menu-item>
@@ -86,7 +86,7 @@
                                         Starred
                                     </button>
                                     <button mat-menu-item>
-                                        <mat-icon [svgIcon]="'heroicons_outline:cog'"></mat-icon>
+                                        <mat-icon [svgIcon]="'heroicons_outline:cog-8-tooth'"></mat-icon>
                                         Settings
                                     </button>
                                 </mat-menu>
@@ -100,7 +100,7 @@
                                 <mat-icon
                                     matPrefix
                                     class="icon-size-5"
-                                    [svgIcon]="'heroicons_solid:search'"></mat-icon>
+                                    [svgIcon]="'heroicons_solid:magnifying-glass'"></mat-icon>
                                 <input
                                     matInput
                                     [autocomplete]="'off'"
@@ -152,7 +152,7 @@
                                         <ng-container *ngIf="chat.muted">
                                             <mat-icon
                                                 class="icon-size-5 text-hint"
-                                                [svgIcon]="'heroicons_solid:volume-off'"></mat-icon>
+                                                [svgIcon]="'heroicons_solid:speaker-x-mark'"></mat-icon>
                                         </ng-container>
                                     </div>
                                 </a>
@@ -169,7 +169,7 @@
                 <div class="flex flex-auto flex-col items-center justify-center h-full">
                     <mat-icon
                         class="icon-size-24"
-                        [svgIcon]="'heroicons_outline:chat'"></mat-icon>
+                        [svgIcon]="'heroicons_outline:chat-bubble-oval-left-ellipsis'"></mat-icon>
                     <div class="mt-4 text-2xl font-semibold tracking-tight text-secondary">No chats</div>
                 </div>
             </ng-template>

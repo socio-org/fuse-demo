@@ -13,7 +13,7 @@ export class FuseConfirmationService
         message    : 'Are you sure you want to confirm this action?',
         icon       : {
             show : true,
-            name : 'heroicons_outline:exclamation',
+            name : 'heroicons_outline:exclamation-triangle',
             color: 'warn',
         },
         actions    : {

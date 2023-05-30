@@ -7,7 +7,7 @@ const now = DateTime.now();
 export const notifications = [
     {
         id         : '493190c9-5b61-4912-afe5-78c21f1044d7',
-        icon       : 'heroicons_solid:star',
+        icon       : 'heroicons_mini:star',
         title      : 'Daily challenges',
         description: 'Your submission has been accepted',
         time       : now.minus({minute: 25}).toISO(), // 25 minutes ago
@@ -24,7 +24,7 @@ export const notifications = [
     },
     {
         id         : 'b91ccb58-b06c-413b-b389-87010e03a120',
-        icon       : 'heroicons_solid:mail',
+        icon       : 'heroicons_mini:envelope',
         title      : 'Mailbox',
         description: 'You have 15 unread mails across 3 mailboxes',
         time       : now.minus({hour: 3}).toISO(), // 3 hours ago
@@ -34,7 +34,7 @@ export const notifications = [
     },
     {
         id         : '541416c9-84a7-408a-8d74-27a43c38d797',
-        icon       : 'heroicons_solid:refresh',
+        icon       : 'heroicons_mini:arrow-path',
         title      : 'Cron jobs',
         description: 'Your <em>Docker container</em> is ready to publish',
         time       : now.minus({hour: 5}).toISO(), // 5 hours ago
@@ -62,7 +62,7 @@ export const notifications = [
     },
     {
         id         : 'b85c2338-cc98-4140-bbf8-c226ce4e395e',
-        icon       : 'heroicons_solid:mail',
+        icon       : 'heroicons_mini:envelope',
         title      : 'Mailbox',
         description: 'You have 3 new mails',
         time       : now.minus({day: 1}).toISO(), // 1 day ago
@@ -72,7 +72,7 @@ export const notifications = [
     },
     {
         id         : '8f8e1bf9-4661-4939-9e43-390957b60f42',
-        icon       : 'heroicons_solid:star',
+        icon       : 'heroicons_mini:star',
         title      : 'Daily challenges',
         description: 'Your submission has been accepted and you are ready to sign-up for the final assigment which will be ready in 2 days',
         time       : now.minus({day: 3}).toISO(), // 3 days ago
@@ -82,7 +82,7 @@ export const notifications = [
     },
     {
         id         : '30af917b-7a6a-45d1-822f-9e7ad7f8bf69',
-        icon       : 'heroicons_solid:refresh',
+        icon       : 'heroicons_mini:arrow-path',
         title      : 'Cron jobs',
         description: 'Your Vagrant container is ready to download',
         time       : now.minus({day: 4}).toISO(), // 4 days ago

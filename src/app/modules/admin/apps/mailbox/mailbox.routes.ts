@@ -241,7 +241,7 @@ export default [
         pathMatch : 'full',
     },
     {
-        path      : 'filter/:filter',
+        path      : 'filter/:funnel',
         redirectTo: 'filter/:filter/1',
         pathMatch : 'full',
     },

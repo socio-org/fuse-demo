@@ -48,7 +48,7 @@ export class ConfirmationDialogComponent implements OnInit
             message    : 'Are you sure you want to remove this contact permanently? <span class="font-medium">This action cannot be undone!</span>',
             icon       : this._formBuilder.group({
                 show : true,
-                name : 'heroicons_outline:exclamation',
+                name : 'heroicons_outline:exclamation-triangle',
                 color: 'warn',
             }),
             actions    : this._formBuilder.group({

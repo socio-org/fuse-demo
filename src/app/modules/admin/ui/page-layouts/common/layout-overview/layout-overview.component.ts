@@ -101,9 +101,9 @@ export interface PageLayoutsOverviewData
                                     [color]="'primary'"
                                     [routerLink]="selectedOption.link">
                                     <mat-icon
-                                        class="mr-2 icon-size-5"
-                                        [svgIcon]="'heroicons_solid:external-link'"></mat-icon>
-                                    <span>View</span>
+                                        class="icon-size-4"
+                                        [svgIcon]="'heroicons_mini:arrow-top-right-on-square'"></mat-icon>
+                                    <span class="ml-2">View</span>
                                 </a>
                             </div>
                         </div>
