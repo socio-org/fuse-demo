@@ -1,14 +1,26 @@
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { DatePipe, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, NgZone, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterLink } from '@angular/router';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
-import { Chat } from 'app/modules/admin/apps/chat/chat.types';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
+import { Chat } from 'app/modules/admin/apps/chat/chat.types';
+import { ContactInfoComponent } from 'app/modules/admin/apps/chat/contact-info/contact-info.component';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'chat-conversation',
     templateUrl    : './conversation.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [NgIf, MatSidenavModule, ContactInfoComponent, MatButtonModule, RouterLink, MatIconModule, MatMenuModule, NgFor, NgClass, NgTemplateOutlet, MatFormFieldModule, MatInputModule, TextFieldModule, DatePipe],
 })
 export class ConversationComponent implements OnInit, OnDestroy
 {
@@ -25,7 +37,7 @@ export class ConversationComponent implements OnInit, OnDestroy
         private _changeDetectorRef: ChangeDetectorRef,
         private _chatService: ChatService,
         private _fuseMediaWatcherService: FuseMediaWatcherService,
-        private _ngZone: NgZone
+        private _ngZone: NgZone,
     )
     {
     }
@@ -44,10 +56,10 @@ export class ConversationComponent implements OnInit, OnDestroy
     private _resizeMessageInput(): void
     {
         // This doesn't need to trigger Angular's change detection by itself
-        this._ngZone.runOutsideAngular(() => {
-
-            setTimeout(() => {
-
+        this._ngZone.runOutsideAngular(() =>
+        {
+            setTimeout(() =>
+            {
                 // Set the height to 'auto' so we can correctly read the scrollHeight
                 this.messageInput.nativeElement.style.height = 'auto';
 
@@ -75,7 +87,8 @@ export class ConversationComponent implements OnInit, OnDestroy
         // Chat
         this._chatService.chat$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((chat: Chat) => {
+            .subscribe((chat: Chat) =>
+            {
                 this.chat = chat;
 
                 // Mark for check
@@ -85,8 +98,8 @@ export class ConversationComponent implements OnInit, OnDestroy
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
-
+            .subscribe(({matchingAliases}) =>
+            {
                 // Set the drawerMode if the given breakpoint is active
                 if ( matchingAliases.includes('lg') )
                 {

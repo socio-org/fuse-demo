@@ -15,7 +15,7 @@
                 [routerLink]="['..']">
                 <mat-icon
                     class="icon-size-5"
-                    [svgIcon]="'heroicons_solid:view-boards'"></mat-icon>
+                    [svgIcon]="'heroicons_solid:view-columns'"></mat-icon>
                 <span class="ml-2">Boards</span>
             </a>
             <button
@@ -23,7 +23,7 @@
                 mat-stroked-button>
                 <mat-icon
                     class="icon-size-5"
-                    [svgIcon]="'heroicons_solid:cog'"></mat-icon>
+                    [svgIcon]="'heroicons_solid:cog-8-tooth'"></mat-icon>
                 <span class="ml-2">Settings</span>
             </button>
         </div>
@@ -76,7 +76,7 @@
                                     [matMenuTriggerFor]="listMenu">
                                     <mat-icon
                                         class="icon-size-5"
-                                        [svgIcon]="'heroicons_solid:dots-vertical'"></mat-icon>
+                                        [svgIcon]="'heroicons_solid:ellipsis-vertical'"></mat-icon>
                                 </button>
                                 <mat-menu #listMenu="matMenu">
                                     <button
@@ -84,7 +84,7 @@
                                         (click)="renameList(listTitleInput)">
                                         <mat-icon
                                             class="icon-size-5"
-                                            [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>
+                                            [svgIcon]="'heroicons_solid:pencil-square'"></mat-icon>
                                         Rename list
                                     </button>
                                     <button

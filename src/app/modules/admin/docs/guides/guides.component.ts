@@ -1,15 +1,19 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { Subject, takeUntil } from 'rxjs';
-import { FuseNavigationItem } from '@fuse/components/navigation';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
+import { FuseNavigationItem, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
+import { FuseScrollResetDirective } from '@fuse/directives/scroll-reset';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'guides',
     templateUrl    : './guides.component.html',
     styleUrls      : ['./guides.component.scss'],
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatSidenavModule, FuseVerticalNavigationComponent, FuseScrollResetDirective, RouterOutlet],
 })
 export class GuidesComponent implements OnInit, OnDestroy
 {
@@ -24,7 +28,7 @@ export class GuidesComponent implements OnInit, OnDestroy
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseMediaWatcherService: FuseMediaWatcherService
+        private _fuseMediaWatcherService: FuseMediaWatcherService,
     )
     {
         this.menuData = [
@@ -37,27 +41,27 @@ export class GuidesComponent implements OnInit, OnDestroy
                         id   : 'getting-started.introduction',
                         title: 'Introduction',
                         type : 'basic',
-                        link : '/docs/guides/getting-started/introduction'
+                        link : '/docs/guides/getting-started/introduction',
                     },
                     {
                         id   : 'getting-started.prerequisites',
                         title: 'Prerequisites',
                         type : 'basic',
-                        link : '/docs/guides/getting-started/prerequisites'
+                        link : '/docs/guides/getting-started/prerequisites',
                     },
                     {
                         id   : 'getting-started.installation',
                         title: 'Installation',
                         type : 'basic',
-                        link : '/docs/guides/getting-started/installation'
+                        link : '/docs/guides/getting-started/installation',
                     },
                     {
                         id   : 'getting-started.serving',
                         title: 'Serving',
                         type : 'basic',
-                        link : '/docs/guides/getting-started/serving'
-                    }
-                ]
+                        link : '/docs/guides/getting-started/serving',
+                    },
+                ],
             },
             {
                 id      : 'development',
@@ -68,33 +72,33 @@ export class GuidesComponent implements OnInit, OnDestroy
                         id   : 'development.directory-structure',
                         title: 'Directory structure',
                         type : 'basic',
-                        link : '/docs/guides/development/directory-structure'
+                        link : '/docs/guides/development/directory-structure',
                     },
                     {
                         id   : 'development.component-structure',
                         title: 'Component structure',
                         type : 'basic',
-                        link : '/docs/guides/development/component-structure'
+                        link : '/docs/guides/development/component-structure',
                     },
                     {
                         id   : 'development.starter-kit',
                         title: 'Starter kit',
                         type : 'basic',
-                        link : '/docs/guides/development/starter-kit'
+                        link : '/docs/guides/development/starter-kit',
                     },
                     {
                         id   : 'development.deployment',
                         title: 'Deployment',
                         type : 'basic',
-                        link : '/docs/guides/development/deployment'
+                        link : '/docs/guides/development/deployment',
                     },
                     {
                         id   : 'development.updating',
                         title: 'Updating',
                         type : 'basic',
-                        link : '/docs/guides/development/updating'
-                    }
-                ]
+                        link : '/docs/guides/development/updating',
+                    },
+                ],
             },
             {
                 id      : 'customization',
@@ -105,45 +109,45 @@ export class GuidesComponent implements OnInit, OnDestroy
                         id   : 'customization.theme-layouts',
                         title: 'Theme layouts',
                         type : 'basic',
-                        link : '/docs/guides/customization/theme-layouts'
+                        link : '/docs/guides/customization/theme-layouts',
                     },
                     {
                         id   : 'customization.page-layouts',
                         title: 'Page layouts',
                         type : 'basic',
-                        link : '/docs/guides/customization/page-layouts'
+                        link : '/docs/guides/customization/page-layouts',
                     },
                     {
                         id   : 'customization.tailwindcss',
                         title: 'TailwindCSS',
                         type : 'basic',
-                        link : '/docs/guides/customization/tailwindcss'
+                        link : '/docs/guides/customization/tailwindcss',
                     },
                     {
                         id   : 'customization.theming',
                         title: 'Theming',
                         type : 'basic',
-                        link : '/docs/guides/customization/theming'
+                        link : '/docs/guides/customization/theming',
                     },
                     {
                         id   : 'customization.component-theming',
                         title: 'Component theming',
                         type : 'basic',
-                        link : '/docs/guides/customization/component-theming'
+                        link : '/docs/guides/customization/component-theming',
                     },
                     {
                         id   : 'customization.splash-screen',
                         title: 'Splash screen',
                         type : 'basic',
-                        link : '/docs/guides/customization/splash-screen'
+                        link : '/docs/guides/customization/splash-screen',
                     },
                     {
                         id   : 'customization.multi-language',
                         title: 'Multi language',
                         type : 'basic',
-                        link : '/docs/guides/customization/multi-language'
-                    }
-                ]
+                        link : '/docs/guides/customization/multi-language',
+                    },
+                ],
             },
             {
                 id      : 'authentication',
@@ -154,10 +158,10 @@ export class GuidesComponent implements OnInit, OnDestroy
                         id   : 'authentication.jwt',
                         title: 'JWT',
                         type : 'basic',
-                        link : '/docs/guides/authentication/jwt'
-                    }
-                ]
-            }
+                        link : '/docs/guides/authentication/jwt',
+                    },
+                ],
+            },
         ];
     }
 
@@ -173,8 +177,8 @@ export class GuidesComponent implements OnInit, OnDestroy
         // Subscribe to media query change
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
-
+            .subscribe(({matchingAliases}) =>
+            {
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('md') )
                 {

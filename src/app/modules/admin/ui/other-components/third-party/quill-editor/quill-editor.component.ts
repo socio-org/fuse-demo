@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/other-components.component';
 
 @Component({
     selector   : 'quill-editor',
-    templateUrl: './quill-editor.component.html'
+    templateUrl: './quill-editor.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule],
 })
 export class QuillEditorComponent
 {

@@ -19,7 +19,7 @@
                     [routerLink]="['../']">
                     <mat-icon
                         class="text-white"
-                        [svgIcon]="'heroicons_outline:x'"></mat-icon>
+                        [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
                 </a>
             </div>
         </div>
@@ -49,7 +49,7 @@
                             (click)="toggleEditMode(true)">
                             <mat-icon
                                 class="icon-size-5"
-                                [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>
+                                [svgIcon]="'heroicons_solid:pencil-square'"></mat-icon>
                             <span class="ml-2">Edit</span>
                         </button>
                     </div>
@@ -82,7 +82,7 @@
                     <!-- Company -->
                     <ng-container *ngIf="contact.company">
                         <div class="flex sm:items-center">
-                            <mat-icon [svgIcon]="'heroicons_outline:office-building'"></mat-icon>
+                            <mat-icon [svgIcon]="'heroicons_outline:building-office-2'"></mat-icon>
                             <div class="ml-6 leading-6">{{contact.company}}</div>
                         </div>
                     </ng-container>
@@ -90,7 +90,7 @@
                     <!-- Emails -->
                     <ng-container *ngIf="contact.emails.length">
                         <div class="flex">
-                            <mat-icon [svgIcon]="'heroicons_outline:mail'"></mat-icon>
+                            <mat-icon [svgIcon]="'heroicons_outline:envelope'"></mat-icon>
                             <div class="min-w-0 ml-6 space-y-1">
                                 <ng-container *ngFor="let email of contact.emails; trackBy: trackByFn">
                                     <div class="flex items-center leading-6">
@@ -142,7 +142,7 @@
                     <!-- Address -->
                     <ng-container *ngIf="contact.address">
                         <div class="flex sm:items-center">
-                            <mat-icon [svgIcon]="'heroicons_outline:location-marker'"></mat-icon>
+                            <mat-icon [svgIcon]="'heroicons_outline:map-pin'"></mat-icon>
                             <div class="ml-6 leading-6">{{contact.address}}</div>
                         </div>
                     </ng-container>
@@ -158,7 +158,7 @@
                     <!-- Notes -->
                     <ng-container *ngIf="contact.notes">
                         <div class="flex">
-                            <mat-icon [svgIcon]="'heroicons_outline:menu-alt-2'"></mat-icon>
+                            <mat-icon [svgIcon]="'heroicons_outline:bars-3-bottom-left'"></mat-icon>
                             <div
                                 class="max-w-none ml-6 prose prose-sm"
                                 [innerHTML]="contact.notes"></div>
@@ -189,7 +189,7 @@
                     [routerLink]="['../']">
                     <mat-icon
                         class="text-white"
-                        [svgIcon]="'heroicons_outline:x'"></mat-icon>
+                        [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
                 </a>
             </div>
         </div>
@@ -283,7 +283,7 @@
                             <ng-container *ngIf="contact.tags.length">
                                 <mat-icon
                                     class="icon-size-5"
-                                    [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>
+                                    [svgIcon]="'heroicons_solid:pencil-square'"></mat-icon>
                                 <span class="ml-1.5 text-md font-medium whitespace-nowrap">Edit</span>
                             </ng-container>
 
@@ -302,7 +302,7 @@
                                         <div class="flex items-center">
                                             <mat-icon
                                                 class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:search'"></mat-icon>
+                                                [svgIcon]="'heroicons_solid:magnifying-glass'"></mat-icon>
                                             <div class="ml-2">
                                                 <input
                                                     class="w-full min-w-0 py-1 border-0"
@@ -321,7 +321,7 @@
                                             <mat-icon
                                                 *ngIf="!tagsEditMode"
                                                 class="icon-size-5"
-                                                [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>
+                                                [svgIcon]="'heroicons_solid:pencil-square'"></mat-icon>
                                             <mat-icon
                                                 *ngIf="tagsEditMode"
                                                 class="icon-size-5"
@@ -415,7 +415,7 @@
                             <mat-icon
                                 matPrefix
                                 class="hidden sm:flex icon-size-5"
-                                [svgIcon]="'heroicons_solid:office-building'"></mat-icon>
+                                [svgIcon]="'heroicons_solid:building-office-2'"></mat-icon>
                             <input
                                 matInput
                                 [formControlName]="'company'"
@@ -435,7 +435,7 @@
                                         <mat-icon
                                             matPrefix
                                             class="hidden sm:flex icon-size-5"
-                                            [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                                            [svgIcon]="'heroicons_solid:envelope'"></mat-icon>
                                         <input
                                             matInput
                                             [formControl]="email.get('email')"
@@ -577,7 +577,7 @@
                             <mat-icon
                                 matPrefix
                                 class="hidden sm:flex icon-size-5"
-                                [svgIcon]="'heroicons_solid:location-marker'"></mat-icon>
+                                [svgIcon]="'heroicons_solid:map-pin'"></mat-icon>
                             <input
                                 matInput
                                 [formControlName]="'address'"
@@ -617,7 +617,7 @@
                             <mat-icon
                                 matPrefix
                                 class="hidden sm:flex icon-size-5"
-                                [svgIcon]="'heroicons_solid:menu-alt-2'"></mat-icon>
+                                [svgIcon]="'heroicons_solid:bars-3-bottom-left'"></mat-icon>
                             <textarea
                                 matInput
                                 [formControlName]="'notes'"

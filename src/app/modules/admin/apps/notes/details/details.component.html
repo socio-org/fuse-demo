@@ -53,7 +53,7 @@
                                 (input)="updateTaskOnNote(note, task)">
                             <mat-icon
                                 class="hidden group-hover:flex ml-auto icon-size-5 cursor-pointer"
-                                [svgIcon]="'heroicons_solid:x'"
+                                [svgIcon]="'heroicons_solid:x-mark'"
                                 (click)="removeTaskFromNote(note, task)"></mat-icon>
                         </div>
                     </ng-container>
@@ -116,14 +116,14 @@
                                 class="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer hover:bg-gray-400 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-5"
                                 for="image-file-input"
                                 matRipple>
-                                <mat-icon [svgIcon]="'heroicons_outline:photograph'"></mat-icon>
+                                <mat-icon [svgIcon]="'heroicons_outline:photo'"></mat-icon>
                             </label>
                         </div>
                         <!-- Checklist -->
                         <button
                             mat-icon-button
                             (click)="addTasksToNote(note)">
-                            <mat-icon [svgIcon]="'heroicons_outline:clipboard-list'"></mat-icon>
+                            <mat-icon [svgIcon]="'heroicons_outline:clipboard-document-list'"></mat-icon>
                         </button>
                         <!-- Labels -->
                         <button
@@ -153,7 +153,7 @@
                         <button
                             mat-icon-button
                             (click)="toggleArchiveOnNote(note)">
-                            <mat-icon [svgIcon]="'heroicons_outline:archive'"></mat-icon>
+                            <mat-icon [svgIcon]="'heroicons_outline:archive-box'"></mat-icon>
                         </button>
                         <!-- Delete -->
                         <button

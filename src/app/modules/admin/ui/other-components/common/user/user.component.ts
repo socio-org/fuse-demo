@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/other-components.component';
 
 @Component({
     selector   : 'user',
-    templateUrl: './user.component.html'
+    templateUrl: './user.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseHighlightComponent],
 })
 export class UserComponent
 {

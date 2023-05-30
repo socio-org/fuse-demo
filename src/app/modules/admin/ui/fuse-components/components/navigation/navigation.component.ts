@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FuseAlertComponent } from '@fuse/components/alert';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { FuseNavigationItem, FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({
     selector   : 'navigation',
-    templateUrl: './navigation.component.html'
+    templateUrl: './navigation.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseAlertComponent, FuseHighlightComponent, MatTabsModule],
 })
 export class NavigationComponent
 {
@@ -13,10 +20,9 @@ export class NavigationComponent
      */
     constructor(
         private _fuseNavigationService: FuseNavigationService,
-        private _fuseComponentsComponent: FuseComponentsComponent
+        private _fuseComponentsComponent: FuseComponentsComponent,
     )
     {
-
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -126,31 +132,31 @@ export class NavigationComponent
                         title: 'ApexCharts',
                         type : 'basic',
                         icon : 'insert_chart',
-                        link : '/supported-components/apex-charts'
+                        link : '/supported-components/apex-charts',
                     },
                     {
                         id   : 'supported-components.google-maps',
                         title: 'Google Maps',
                         type : 'basic',
                         icon : 'map',
-                        link : '/supported-components/google-maps'
+                        link : '/supported-components/google-maps',
                     },
                     {
                         id   : 'supported-components.quill-editor',
                         title: 'Quill editor',
                         type : 'basic',
                         icon : 'font_download',
-                        link : '/supported-components/quill-editor'
+                        link : '/supported-components/quill-editor',
                     },
                     {
                         id   : 'supported-components.youtube-player',
                         title: 'Youtube player',
                         type : 'basic',
                         icon : 'play_circle_filled',
-                        link : '/supported-components/youtube-player'
-                    }
-                ]
-            }
+                        link : '/supported-components/youtube-player',
+                    },
+                ],
+            },
         ];
 
         // Replace the navigation data

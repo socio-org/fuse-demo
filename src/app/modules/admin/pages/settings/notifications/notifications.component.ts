@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
     selector       : 'settings-notifications',
     templateUrl    : './notifications.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [FormsModule, ReactiveFormsModule, MatSlideToggleModule, MatButtonModule],
 })
 export class SettingsNotificationsComponent implements OnInit
 {
@@ -15,7 +19,7 @@ export class SettingsNotificationsComponent implements OnInit
      * Constructor
      */
     constructor(
-        private _formBuilder: UntypedFormBuilder
+        private _formBuilder: UntypedFormBuilder,
     )
     {
     }
@@ -37,7 +41,7 @@ export class SettingsNotificationsComponent implements OnInit
             comments     : [false],
             mention      : [true],
             follow       : [true],
-            inquiry      : [true]
+            inquiry      : [true],
         });
     }
 }

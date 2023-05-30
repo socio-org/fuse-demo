@@ -1,11 +1,16 @@
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector       : 'scrumboard-board-add-list',
     templateUrl    : './add-list.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonModule, NgClass, MatIconModule, FormsModule, ReactiveFormsModule],
 })
 export class ScrumboardBoardAddListComponent implements OnInit
 {
@@ -21,7 +26,7 @@ export class ScrumboardBoardAddListComponent implements OnInit
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _formBuilder: UntypedFormBuilder
+        private _formBuilder: UntypedFormBuilder,
     )
     {
     }
@@ -37,7 +42,7 @@ export class ScrumboardBoardAddListComponent implements OnInit
     {
         // Initialize the new list form
         this.form = this._formBuilder.group({
-            title: ['']
+            title: [''],
         });
     }
 

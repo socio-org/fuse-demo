@@ -1,18 +1,28 @@
+import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkScrollable } from '@angular/cdk/scrolling';
+import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Subject, takeUntil } from 'rxjs';
-import { DateTime } from 'luxon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
-import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
 import { Board, Card, List } from 'app/modules/admin/apps/scrumboard/scrumboard.models';
+import { ScrumboardService } from 'app/modules/admin/apps/scrumboard/scrumboard.service';
+import { DateTime } from 'luxon';
+import { Subject, takeUntil } from 'rxjs';
+import { ScrumboardBoardAddCardComponent } from './add-card/add-card.component';
+import { ScrumboardBoardAddListComponent } from './add-list/add-list.component';
 
 @Component({
     selector       : 'scrumboard-board',
     templateUrl    : './board.component.html',
     styleUrls      : ['./board.component.scss'],
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonModule, RouterLink, MatIconModule, CdkScrollable, CdkDropList, CdkDropListGroup, NgFor, CdkDrag, CdkDragHandle, MatMenuModule, NgIf, NgClass, ScrumboardBoardAddCardComponent, ScrumboardBoardAddListComponent, RouterOutlet, DatePipe],
 })
 export class ScrumboardBoardComponent implements OnInit, OnDestroy
 {
@@ -32,7 +42,7 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
         private _changeDetectorRef: ChangeDetectorRef,
         private _formBuilder: UntypedFormBuilder,
         private _fuseConfirmationService: FuseConfirmationService,
-        private _scrumboardService: ScrumboardService
+        private _scrumboardService: ScrumboardService,
     )
     {
     }
@@ -48,13 +58,14 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
     {
         // Initialize the list title form
         this.listTitleForm = this._formBuilder.group({
-            title: ['']
+            title: [''],
         });
 
         // Get the board
         this._scrumboardService.board$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((board: Board) => {
+            .subscribe((board: Board) =>
+            {
                 this.board = {...board};
 
                 // Mark for check
@@ -84,7 +95,8 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
     renameList(listTitleInput: HTMLElement): void
     {
         // Use timeout so it can wait for menu to close
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             listTitleInput.focus();
         });
     }
@@ -106,7 +118,7 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
         const list = new List({
             boardId : this.board.id,
             position: this.board.lists.length ? this.board.lists[this.board.lists.length - 1].position + this._positionStep : this._positionStep,
-            title   : title
+            title   : title,
         });
 
         // Save the list
@@ -155,18 +167,17 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
             message: 'Are you sure you want to delete this list and its cards? This action cannot be undone!',
             actions: {
                 confirm: {
-                    label: 'Delete'
-                }
-            }
+                    label: 'Delete',
+                },
+            },
         });
 
         // Subscribe to the confirmation dialog closed action
-        confirmation.afterClosed().subscribe((result) => {
-
+        confirmation.afterClosed().subscribe((result) =>
+        {
             // If the confirm button pressed...
             if ( result === 'confirmed' )
             {
-
                 // Delete the list
                 this._scrumboardService.deleteList(id).subscribe();
             }
@@ -183,7 +194,7 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
             boardId : this.board.id,
             listId  : list.id,
             position: list.cards.length ? list.cards[list.cards.length - 1].position + this._positionStep : this._positionStep,
-            title   : title
+            title   : title,
         });
 
         // Save the card
@@ -304,7 +315,8 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
         if ( !Number.isInteger(currentItem.position) || currentItem.position >= this._maxPosition )
         {
             // Re-calculate all orders
-            items = items.map((value, index) => {
+            items = items.map((value, index) =>
+            {
                 value.position = (index + 1) * this._positionStep;
                 return value;
             });

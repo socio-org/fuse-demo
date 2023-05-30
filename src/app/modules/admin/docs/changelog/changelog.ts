@@ -1,14 +1,41 @@
 /* eslint-disable max-len */
+import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
     selector       : 'changelog',
     templateUrl    : './changelog.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [NgFor],
 })
 export class ChangelogComponent
 {
     changelog: any[] = [
+
+        // v18.0.0
+        {
+            version    : 'v18.0.0',
+            releaseDate: 'May 30, 2023',
+            changes    : [
+                {
+                    type: 'Breaking',
+                    list: [
+                        '(Standalone) Updated Fuse to standalone components',
+                        '(Config) Replaced NgModule configurations with Providers',
+                        '(Functional) Moved to functional interceptors, guards, resolvers, etc.',
+                    ],
+                },
+                {
+                    type: 'Changed',
+                    list: [
+                        '(Dependencies) Updated Angular & Angular Material to v16',
+                        '(Dependencies) Updated various other packages',
+                        '(Icons) Updated Heroicons'
+                    ],
+                },
+            ],
+        },
 
         // v17.2.0
         {
@@ -19,16 +46,16 @@ export class ChangelogComponent
                     type: 'Changed',
                     list: [
                         '(Dependencies) Updated Angular & Angular Material to v15.1.1',
-                        '(Dependencies) Updated various other packages'
-                    ]
+                        '(Dependencies) Updated various other packages',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
                         '(Angular Material) Fixed: Tooltip background color is not correct',
-                    ]
-                }
-            ]
+                    ],
+                },
+            ],
         },
 
         // v17.1.0
@@ -41,17 +68,17 @@ export class ChangelogComponent
                     list: [
                         '(Dependencies) Updated Angular & Angular Material to v15.0.0',
                         '(Dependencies) Updated various other packages',
-                        '(Core) Use the new "CanMatch" guard for routes rather than "CanLoad" & "CanActivate" combination'
-                    ]
+                        '(Core) Use the new "CanMatch" guard for routes rather than "CanLoad" & "CanActivate" combination',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
                         '(Angular Material) Fixed: Autocompleted input background color does not look right',
                         '(Angular Material) Fixed: Tailwind breaks the disabled mat-checkbox styling',
-                    ]
-                }
-            ]
+                    ],
+                },
+            ],
         },
 
         // v17.0.1
@@ -63,9 +90,9 @@ export class ChangelogComponent
                     type: 'Fixed',
                     list: [
                         '(@fuse/confirmation-dialog) Fixed: Extra padding on the confirmation dialogs',
-                    ]
-                }
-            ]
+                    ],
+                },
+            ],
         },
 
         // v17.0.0
@@ -80,7 +107,7 @@ export class ChangelogComponent
                         '(Linting) Removed linter setup and eslint packages since most of the linting happens on Editors and IDEs. This is also partly because of slow development speed of angular-eslint packages.',
                         '(.fuse-mat-textarea) Removed in favor of CSS :has selector, now textareas within "mat-form-field" components are detected automatically',
                         '(.fuse-mat-no-subscript) Removed in favor of \'subscriptSizing="dynamic"\' property of "mat-form-field"',
-                    ]
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -90,10 +117,10 @@ export class ChangelogComponent
                         '(Dependencies) Removed ngx-markdown from the package.json, it still can be used within Fuse, it\'s a part of the effort to make releasing Fuse updates easier',
                         '(General) Matched the files and folders with a newly created Angular v15 project to make things easier for the newcomers',
                         '(Angular Material) Re-wrote the override styles to make sure everything look the same as before (compatibility for MDC components)',
-                        '(Theming) Re-wrote the theming system to make sure to keep everything working as before without any breaking changes'
-                    ]
-                }
-            ]
+                        '(Theming) Re-wrote the theming system to make sure to keep everything working as before without any breaking changes',
+                    ],
+                },
+            ],
         },
 
         // v16.0.0
@@ -104,8 +131,8 @@ export class ChangelogComponent
                 {
                     type: 'Breaking',
                     list: [
-                        '(dependencies) Replaced moment.js with luxon, big thanks to @steveschmitt (https://github.com/steveschmitt) for the PR'
-                    ]
+                        '(dependencies) Replaced moment.js with luxon, big thanks to @steveschmitt (https://github.com/steveschmitt) for the PR',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -113,18 +140,18 @@ export class ChangelogComponent
                         '(dependencies) Updated Angular & Angular Material to v14.2.x',
                         '(dependencies) Updated various other packages',
                         '(app.resolvers) Removed the extra user getter call since the user data already comes with the sign-in process to prevent confusion for the newcomers',
-                        '(ui/forms/fields) Added examples for number input'
-                    ]
+                        '(ui/forms/fields) Added examples for number input',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
                         '(FuseVerticalNavigation) Fixed: Sticky positioning breaks inside a fixed positioned parent (Firefox)',
                         '(layout/common/quick-chat) Fixed: Sticky positioning breaks inside a fixed positioned parent (Firefox)',
-                        '(apps/mailbox) Fixed: Back button on details view is not working'
-                    ]
-                }
-            ]
+                        '(apps/mailbox) Fixed: Back button on details view is not working',
+                    ],
+                },
+            ],
         },
         // v15.2.0
         {
@@ -135,8 +162,8 @@ export class ChangelogComponent
                     type: 'Changed',
                     list: [
                         '(dependencies) Updated Angular & Angular Material to v14.1.3',
-                        '(dependencies) Updated various other packages'
-                    ]
+                        '(dependencies) Updated various other packages',
+                    ],
                 },
                 {
                     type: 'Fixed',
@@ -150,10 +177,10 @@ export class ChangelogComponent
                         '(dashboards/project) Removed unnecessary classes from the buttons',
                         '(apps/mailbox) Better label toggle behavior',
                         '(apps/tasks) Better tag toggle behavior',
-                        '(docs) Fixed: Typos'
-                    ]
-                }
-            ]
+                        '(docs) Fixed: Typos',
+                    ],
+                },
+            ],
         },
         // v15.1.0
         {
@@ -164,16 +191,16 @@ export class ChangelogComponent
                     type: 'Changed',
                     list: [
                         '(dependencies) Updated Angular & Angular Material to v14.1.0',
-                        '(dependencies) Updated various other packages'
-                    ]
+                        '(dependencies) Updated various other packages',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
-                        '(@fuse/overrides/angular-material) mat-hint position is not working correctly on fields'
-                    ]
-                }
-            ]
+                        '(@fuse/overrides/angular-material) mat-hint position is not working correctly on fields',
+                    ],
+                },
+            ],
         },
         // v15.0.0
         {
@@ -187,8 +214,8 @@ export class ChangelogComponent
                         '(@fuse/overrides/quill) Added tooltip styles for better compatibility',
                         '(@fuse/services/platform) Added platform checker service',
                         '(global) Added custom scrollbar styling for platforms other than macOS and iOS',
-                        '(layout/common/search) Implemented the new MatAutocomplete "autoSelectActiveOption" functionality'
-                    ]
+                        '(layout/common/search) Implemented the new MatAutocomplete "autoSelectActiveOption" functionality',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -203,8 +230,8 @@ export class ChangelogComponent
                         '(@fuse/overrides/quill) Better scrolling for Quill editor',
                         '(auth) Made the renewing token on "sign-in-with-token" process an optional step to simplify the login process',
                         '(auth) Changed the url on "signInUsingToken" method to reflect the mock-api changes',
-                        '(mock-api) Replaced the "refresh-access-token" url with "sign-in-with-token"'
-                    ]
+                        '(mock-api) Replaced the "refresh-access-token" url with "sign-in-with-token"',
+                    ],
                 },
                 {
                     type: 'Fixed',
@@ -219,10 +246,10 @@ export class ChangelogComponent
                         '(apps/mailbox) Empty route related issues',
                         '(apps/mailbox) Quill editor tooltips are not positioning correctly',
                         '(mock-api/file-manager) http params are not working properly because of the new string conversion',
-                        '(ui/page-layouts) Toggle button selected background is not visible'
-                    ]
-                }
-            ]
+                        '(ui/page-layouts) Toggle button selected background is not visible',
+                    ],
+                },
+            ],
         },
         // v14.2.0
         {
@@ -236,16 +263,16 @@ export class ChangelogComponent
                         '(AngularCLI) Re-enabled the cache since Tailwind related issues are fixed',
                         '(@fuse/navigation) Expose the width variables as css custom properties, so they can be overridden from the outside',
                         '(@fuse/drawer) Expose the width variable as a css custom property, so it can be overridden from the outside',
-                        '(@fuse/masonry) Removed the unnecessary scss file'
-                    ]
+                        '(@fuse/masonry) Removed the unnecessary scss file',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
-                        '(layouts/dense) Fixed: Navigation appearance doesn\'t set correctly on small devices'
-                    ]
-                }
-            ]
+                        '(layouts/dense) Fixed: Navigation appearance doesn\'t set correctly on small devices',
+                    ],
+                },
+            ],
         },
         // v14.1.1
         {
@@ -256,17 +283,17 @@ export class ChangelogComponent
                     type: 'Changed',
                     list: [
                         '(dependencies) Updated various packages',
-                        '(TailwindCSS) Moved to the new syntax on Tailwind config'
-                    ]
+                        '(TailwindCSS) Moved to the new syntax on Tailwind config',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
                         '(TailwindCSS) Accent and Warn colors are not being generated for themes other than the Default',
-                        '(Contacts) Typo on resolve object'
-                    ]
-                }
-            ]
+                        '(Contacts) Typo on resolve object',
+                    ],
+                },
+            ],
         },
         // v14.1.0
         {
@@ -279,10 +306,10 @@ export class ChangelogComponent
                         '(dependencies) Updated Angular & Angular Material to v13.1',
                         '(dependencies) Updated Tailwind to v3',
                         '(dependencies) Updated various other packages',
-                        '(AngularCLI) Disabled file based cache as it causes issues with Tailwind v3'
-                    ]
-                }
-            ]
+                        '(AngularCLI) Disabled file based cache as it causes issues with Tailwind v3',
+                    ],
+                },
+            ],
         },
         // v14.0.0
         {
@@ -292,8 +319,8 @@ export class ChangelogComponent
                 {
                     type: 'Added',
                     list: [
-                        '(FuseLoadingBar) Added the FuseLoadingBar component, its helper service and its interceptor'
-                    ]
+                        '(FuseLoadingBar) Added the FuseLoadingBar component, its helper service and its interceptor',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -302,17 +329,17 @@ export class ChangelogComponent
                         '(dependencies) Updated various other packages',
                         '(dependencies) BREAKING: Updated RxJS to 7.4.0 and optimized import paths',
                         '(apps/calendar) BREAKING: Removed the Calendar app due to FullCalendar\'s Angular component not being properly developed',
-                        '(FuseDateRange) BREAKING: Removed the FuseDateRange component, alternative: https://github.com/fetrarij/ngx-daterangepicker-material'
-                    ]
+                        '(FuseDateRange) BREAKING: Removed the FuseDateRange component, alternative: https://github.com/fetrarij/ngx-daterangepicker-material',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
                         '(@fuse/overrides/angular-material) Fixed: Normal border color of the text field overrides the invalid and focus border colors on dark themes',
-                        '(@fuse/navigation) Don\'t need to use interpolation on scss variables anymore since Tailwind doesn\'t cause any problems with them anymore'
-                    ]
-                }
-            ]
+                        '(@fuse/navigation) Don\'t need to use interpolation on scss variables anymore since Tailwind doesn\'t cause any problems with them anymore',
+                    ],
+                },
+            ],
         },
         // v13.6.2
         {
@@ -322,10 +349,10 @@ export class ChangelogComponent
                 {
                     type: 'Fixed',
                     list: [
-                        '(QuickChat) Fixed: Wrong css rule causing a lot of problems'
-                    ]
-                }
-            ]
+                        '(QuickChat) Fixed: Wrong css rule causing a lot of problems',
+                    ],
+                },
+            ],
         },
         // v13.6.1
         {
@@ -335,10 +362,10 @@ export class ChangelogComponent
                 {
                     type: 'Fixed',
                     list: [
-                        '(QuickChat) Fixed: Overflowing issue'
-                    ]
-                }
-            ]
+                        '(QuickChat) Fixed: Overflowing issue',
+                    ],
+                },
+            ],
         },
         // v13.6.0
         {
@@ -348,24 +375,24 @@ export class ChangelogComponent
                 {
                     type: 'Added',
                     list: [
-                        '(QuickChat) Added the QuickChat bar'
-                    ]
+                        '(QuickChat) Added the QuickChat bar',
+                    ],
                 },
                 {
                     type: 'Changed',
                     list: [
                         '(dependencies) Updated Angular & Angular Material to v12.2.3',
                         '(dependencies) Updated various other packages',
-                        '(layout) Separated the Settings drawer from the layout component'
-                    ]
+                        '(layout) Separated the Settings drawer from the layout component',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
-                        '(@fuse/drawer) Final opacity of the overlay is not permanent due to player being destroyed right after the animation'
-                    ]
-                }
-            ]
+                        '(@fuse/drawer) Final opacity of the overlay is not permanent due to player being destroyed right after the animation',
+                    ],
+                },
+            ],
         },
         // v13.5.0
         {
@@ -383,8 +410,8 @@ export class ChangelogComponent
                         '(@fuse) Disabled Angular Material "theme" sanity check since we use "all-component-themes" without a color map',
                         '(apps/mailbox) Style improvements',
                         'Removed empty "styles" from component decorators',
-                        'Decreased budget sizes since new Fuse is a lot smaller compared to the one with the old design'
-                    ]
+                        'Decreased budget sizes since new Fuse is a lot smaller compared to the one with the old design',
+                    ],
                 },
                 {
                     type: 'Fixed',
@@ -392,10 +419,10 @@ export class ChangelogComponent
                         '(@fuse/overrides) Quill editor is not styled correctly by default',
                         '(@fuse/confirmation) Dialog size cannot be updated using dialogRef\'s "updateSize" method',
                         '(apps/mailbox) Compose dialog doesn\'t work correctly on small height resolutions',
-                        '(ui/page-layouts) Demo layout navigation appearance is not correct'
-                    ]
-                }
-            ]
+                        '(ui/page-layouts) Demo layout navigation appearance is not correct',
+                    ],
+                },
+            ],
         },
         // v13.4.0
         {
@@ -406,8 +433,8 @@ export class ChangelogComponent
                     type: 'Added',
                     list: [
                         '(dashboards/finance) Added finance dashboard',
-                        '(dashboards/crypto) Added crypto dashboard'
-                    ]
+                        '(dashboards/crypto) Added crypto dashboard',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -418,10 +445,10 @@ export class ChangelogComponent
                         '(dashboards/project) Light header on light themes and small adjustments in various places',
                         '(apps/contacts) Small adjustments for better consistency',
                         '(apps/ecommerce/inventory) Small adjustments for better consistency',
-                        '(docs) Updated the multi language guide'
-                    ]
-                }
-            ]
+                        '(docs) Updated the multi language guide',
+                    ],
+                },
+            ],
         },
         // v13.3.1
         {
@@ -431,10 +458,10 @@ export class ChangelogComponent
                 {
                     type: 'Fixed',
                     list: [
-                        '(fuse/confirmation) Confirmation dialog colors are not optimized for the Dark mode'
-                    ]
-                }
-            ]
+                        '(fuse/confirmation) Confirmation dialog colors are not optimized for the Dark mode',
+                    ],
+                },
+            ],
         },
         // v13.3.0
         {
@@ -444,8 +471,8 @@ export class ChangelogComponent
                 {
                     type: 'Added',
                     list: [
-                        '(fuse/confirmation) A service to quickly configure and show confirmation dialogs'
-                    ]
+                        '(fuse/confirmation) A service to quickly configure and show confirmation dialogs',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -458,17 +485,17 @@ export class ChangelogComponent
                         '(apps/scrumboard) Added confirmation to the "Delete list" action using FuseConfirmationService',
                         '(apps/tasks) Added confirmation to the "Delete task" action using FuseConfirmationService',
                         '(ui/confirmation-dialog) Created a separate page for FuseConfirmationService and put the example configurator in there for better visibility',
-                        '(docs) Moved Fuse Components and Other Components into UI for better visibility and better categorization'
-                    ]
+                        '(docs) Moved Fuse Components and Other Components into UI for better visibility and better categorization',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
                         '(transloco) Undefined fallback language causes issues in some cases',
-                        '(tailwindcss) Ordered lists with "s" modifier causes builder to throw errors'
-                    ]
-                }
-            ]
+                        '(tailwindcss) Ordered lists with "s" modifier causes builder to throw errors',
+                    ],
+                },
+            ],
         },
         // v13.2.0
         {
@@ -478,8 +505,8 @@ export class ChangelogComponent
                 {
                     type: 'Added',
                     list: [
-                        '(fuse/navigation) "tooltip" property to show tooltips on navigation items using MatTooltip'
-                    ]
+                        '(fuse/navigation) "tooltip" property to show tooltips on navigation items using MatTooltip',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -496,8 +523,8 @@ export class ChangelogComponent
                         '(apps/tasks) Explicitly define the overlay position strategy properties',
                         '(tailwindcss) Breaking: Removed 5, 6 & 12 fractional spacing values since they are not used in Demo by default and they are mostly not needed because of Flex and Grid. If you happen to use them, you can manually add them back.',
                         '(docs) Updated docs',
-                        '(package.json) Added "description" and "author" fields'
-                    ]
+                        '(package.json) Added "description" and "author" fields',
+                    ],
                 },
                 {
                     type: 'Fixed',
@@ -509,10 +536,10 @@ export class ChangelogComponent
                         '(apps/ecommerce/inventory) Tags selector border colors are not correct on dark mode',
                         '(apps/help-center) Small dark mode issues',
                         '(transloco) Language files cannot be loaded if using a base href other than "/"',
-                        '(tailwindcss) Dark mode classes are not being purged correctly due to the wrong safelist entry'
-                    ]
-                }
-            ]
+                        '(tailwindcss) Dark mode classes are not being purged correctly due to the wrong safelist entry',
+                    ],
+                },
+            ],
         },
         // v13.1.0
         {
@@ -526,8 +553,8 @@ export class ChangelogComponent
                         '(fuse/navigation) "target" property for setting the target attribute on external links',
                         '(ui/angular-material) List of available components with links to official docs',
                         '(ui/advanced-search) An example form that uses query parameters for Advanced Search like forms',
-                        '(ui/page-layouts) Tabbed version of "Simple Fullwidth" page layout'
-                    ]
+                        '(ui/page-layouts) Tabbed version of "Simple Fullwidth" page layout',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -539,18 +566,18 @@ export class ChangelogComponent
                         '(layouts/common/search) Improved the autocomplete design',
                         '(apps/ecommerce/inventory) Replaced the mat-table with a custom grid for better performance & improved the mobile experience',
                         '(docs) Updated the docs to reflect the latest changes',
-                        '(dependencies) Updated Angular, Angular Material & various other packages'
-                    ]
+                        '(dependencies) Updated Angular, Angular Material & various other packages',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
                         '(fuse/navigation) First children of collapsable items don\'t have proper spacing at the top',
                         '(data/navigation) Wrong icon for "Invoice" navigation item',
-                        '(data/navigation) Dashboards are missing from "Futuristic" navigation type'
-                    ]
-                }
-            ]
+                        '(data/navigation) Dashboards are missing from "Futuristic" navigation type',
+                    ],
+                },
+            ],
         },
         // v13.0.3
         {
@@ -560,8 +587,8 @@ export class ChangelogComponent
                 {
                     type: 'Added',
                     list: [
-                        '(apps/scrumboard) New, initial version of the Scrumboard app'
-                    ]
+                        '(apps/scrumboard) New, initial version of the Scrumboard app',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -571,16 +598,16 @@ export class ChangelogComponent
                         '(apps/ecommerce) Small tweaks and improvements',
                         '(apps/mailbox) Small tweaks and improvements',
                         '(angular.json) Removed "e2e" entry, fixed the styles file path for "test"',
-                        '(dependencies) Updated Angular, Angular Material & various other packages'
-                    ]
+                        '(dependencies) Updated Angular, Angular Material & various other packages',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
-                        '(Angular Material) Density setting is not being applied correctly on Dark themes'
-                    ]
-                }
-            ]
+                        '(Angular Material) Density setting is not being applied correctly on Dark themes',
+                    ],
+                },
+            ],
         },
         // v13.0.2
         {
@@ -592,10 +619,10 @@ export class ChangelogComponent
                     list: [
                         '(mockApi) Removed typings from data files',
                         '(apps/ecommerce/inventory) Performance improvements, decreased the mockApi delay',
-                        '(pages/settings) Fixed: Settings container component width is not filling the container'
-                    ]
-                }
-            ]
+                        '(pages/settings) Fixed: Settings container component width is not filling the container',
+                    ],
+                },
+            ],
         },
         // v13.0.1
         {
@@ -607,8 +634,8 @@ export class ChangelogComponent
                     list: [
                         '(i18n) Added multi language support using @ngneat/transloco',
                         '(pages) Added Activities page (timeline)',
-                        '(FuseNavigation) Added support for new "isActiveMatchOptions" for Basic navigation items; https://github.com/angular/angular/pull/40303'
-                    ]
+                        '(FuseNavigation) Added support for new "isActiveMatchOptions" for Basic navigation items; https://github.com/angular/angular/pull/40303',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -624,10 +651,10 @@ export class ChangelogComponent
                         '(FuseNavigation) Use the generic return type for "getComponent"',
                         '(fuse) Fixed barrel exports',
                         '(layout/common) Added trackBy functions to ngFor loops in common components',
-                        '(docs) Updated docs'
-                    ]
-                }
-            ]
+                        '(docs) Updated docs',
+                    ],
+                },
+            ],
         },
         // v13.0.0
         {
@@ -638,8 +665,8 @@ export class ChangelogComponent
                     type: 'Added',
                     list: [
                         '(pages/settings) New Settings page',
-                        '(support) "_redirects" file for Netlify support'
-                    ]
+                        '(support) "_redirects" file for Netlify support',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -652,10 +679,10 @@ export class ChangelogComponent
                         '(apps/ecommerce) Tweaked the hover color on inventory list for better consistency',
                         '(apps/chat) Tweaked the hover color on lists for better consistency',
                         '(apps/contacts) Tweaked the hover color on contact list for better consistency',
-                        '(apps/tasks) Visual improvements'
-                    ]
-                }
-            ]
+                        '(apps/tasks) Visual improvements',
+                    ],
+                },
+            ],
         },
         // v12.3.0
         {
@@ -666,18 +693,18 @@ export class ChangelogComponent
                     type: 'Added',
                     list: [
                         '(apps/notes) New Notes app',
-                        '(fuse/masonry) Added a component for creating fast Masonry-like layouts'
-                    ]
+                        '(fuse/masonry) Added a component for creating fast Masonry-like layouts',
+                    ],
                 },
                 {
                     type: 'Changed',
                     list: [
                         '(apps/tasks) Tweaked the hover color on tasks list for better consistency',
                         '(apps/mailbox) Adjusted the app title font size for better consistency',
-                        '(apps/mailbox) Used shadow on threads for better consistency'
-                    ]
-                }
-            ]
+                        '(apps/mailbox) Used shadow on threads for better consistency',
+                    ],
+                },
+            ],
         },
         // v12.2.0
         {
@@ -688,8 +715,8 @@ export class ChangelogComponent
                     type: 'Added',
                     list: [
                         '(apps/chat) New and improvement version of Chat app',
-                        '(fuse/fullscreen) Added fullscreen toggle component'
-                    ]
+                        '(fuse/fullscreen) Added fullscreen toggle component',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -698,10 +725,10 @@ export class ChangelogComponent
                         '(apps/academy) Better error handling on courses that are not exist',
                         '(apps/academy) Added missing trackBy functions to ngFor loops',
                         '(apps/mailbox) Removed unused methods',
-                        '(pages/pricing) Improved the spacing of the CTA section on all pricing pages'
-                    ]
-                }
-            ]
+                        '(pages/pricing) Improved the spacing of the CTA section on all pricing pages',
+                    ],
+                },
+            ],
         },
         // v12.1.0
         {
@@ -712,8 +739,8 @@ export class ChangelogComponent
                     type: 'Added',
                     list: [
                         '(apps/academy) New and improvement version of Academy app',
-                        '(icons) Material Solid icons'
-                    ]
+                        '(icons) Material Solid icons',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -722,16 +749,16 @@ export class ChangelogComponent
                         '(icons) Updated Heroicons',
                         '(icons) Updated Material Icons',
                         '(apps/file-manager) Better grid for File Manager app',
-                        '(layouts/classy) Removed footer for better \'classy\' look'
-                    ]
+                        '(layouts/classy) Removed footer for better \'classy\' look',
+                    ],
                 },
                 {
                     type: 'Fixed',
                     list: [
-                        '(apps/contacts) Clicking on the checkbox on Tag select panel acts weird'
-                    ]
-                }
-            ]
+                        '(apps/contacts) Clicking on the checkbox on Tag select panel acts weird',
+                    ],
+                },
+            ],
         },
         // v12.0.0
         {
@@ -742,8 +769,8 @@ export class ChangelogComponent
                     type: 'Added',
                     list: [
                         'This is the new major version of the Fuse and it\'s completely different from previous versions with no upgrade path',
-                        'This version requires a clean installation'
-                    ]
+                        'This version requires a clean installation',
+                    ],
                 },
                 {
                     type: 'Changed',
@@ -751,11 +778,11 @@ export class ChangelogComponent
                         'Improved the look and feel',
                         'Re-wrote the entire template from scratch using Tailwind',
                         'Removed 99% of the SCSS styles in favor of Tailwind',
-                        'Integrated Angular Material theming with Tailwind'
-                    ]
-                }
-            ]
-        }
+                        'Integrated Angular Material theming with Tailwind',
+                    ],
+                },
+            ],
+        },
     ];
 
     /**

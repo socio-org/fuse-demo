@@ -1,14 +1,24 @@
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { debounceTime, map, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRippleModule } from '@angular/material/core';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { NotesService } from 'app/modules/admin/apps/notes/notes.service';
 import { Label, Note, Task } from 'app/modules/admin/apps/notes/notes.types';
+import { debounceTime, map, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'notes-details',
     templateUrl    : './details.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [NgIf, MatButtonModule, MatIconModule, FormsModule, TextFieldModule, NgFor, MatCheckboxModule, NgClass, MatRippleModule, MatMenuModule, MatDialogModule, AsyncPipe],
 })
 export class NotesDetailsComponent implements OnInit, OnDestroy
 {
@@ -25,7 +35,7 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
         private _changeDetectorRef: ChangeDetectorRef,
         @Inject(MAT_DIALOG_DATA) private _data: { note: Note },
         private _notesService: NotesService,
-        private _matDialogRef: MatDialogRef<NotesDetailsComponent>
+        private _matDialogRef: MatDialogRef<NotesDetailsComponent>,
     )
     {
     }
@@ -62,7 +72,7 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
                 labels   : [],
                 archived : false,
                 createdAt: null,
-                updatedAt: null
+                updatedAt: null,
             };
 
             this.note$ = of(note);
@@ -77,8 +87,8 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
                 takeUntil(this._unsubscribeAll),
                 debounceTime(500),
                 switchMap(note => this._notesService.updateNote(note)))
-            .subscribe(() => {
-
+            .subscribe(() =>
+            {
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -106,7 +116,8 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
     createNote(note: Note): void
     {
         this._notesService.createNote(note).pipe(
-            map(() => {
+            map(() =>
+            {
                 // Get the note
                 this.note$ = this._notesService.note$;
             })).subscribe();
@@ -135,8 +146,8 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
             return;
         }
 
-        this._readAsDataURL(file).then((data) => {
-
+        this._readAsDataURL(file).then((data) =>
+        {
             // Update the image
             note.image = data;
 
@@ -287,8 +298,8 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
     deleteNote(note: Note): void
     {
         this._notesService.deleteNote(note)
-            .subscribe((isDeleted) => {
-
+            .subscribe((isDeleted) =>
+            {
                 // Return if the note wasn't deleted...
                 if ( !isDeleted )
                 {
@@ -323,18 +334,20 @@ export class NotesDetailsComponent implements OnInit, OnDestroy
     private _readAsDataURL(file: File): Promise<any>
     {
         // Return a new promise
-        return new Promise((resolve, reject) => {
-
+        return new Promise((resolve, reject) =>
+        {
             // Create a new reader
             const reader = new FileReader();
 
             // Resolve the promise on success
-            reader.onload = (): void => {
+            reader.onload = (): void =>
+            {
                 resolve(reader.result);
             };
 
             // Reject the promise on error
-            reader.onerror = (e): void => {
+            reader.onerror = (e): void =>
+            {
                 reject(e);
             };
 

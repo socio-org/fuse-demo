@@ -1,13 +1,22 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { debounceTime, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { NotesService } from 'app/modules/admin/apps/notes/notes.service';
 import { Label } from 'app/modules/admin/apps/notes/notes.types';
+import { debounceTime, filter, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'notes-labels',
     templateUrl    : './labels.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonModule, MatDialogModule, MatIconModule, MatFormFieldModule, MatInputModule, NgIf, NgFor, FormsModule, AsyncPipe],
 })
 export class NotesLabelsComponent implements OnInit, OnDestroy
 {
@@ -21,7 +30,7 @@ export class NotesLabelsComponent implements OnInit, OnDestroy
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _notesService: NotesService
+        private _notesService: NotesService,
     )
     {
     }
@@ -45,8 +54,8 @@ export class NotesLabelsComponent implements OnInit, OnDestroy
                 debounceTime(500),
                 filter(label => label.title.trim() !== ''),
                 switchMap(label => this._notesService.updateLabel(label)))
-            .subscribe(() => {
-
+            .subscribe(() =>
+            {
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -91,8 +100,8 @@ export class NotesLabelsComponent implements OnInit, OnDestroy
      */
     deleteLabel(id: string): void
     {
-        this._notesService.deleteLabel(id).subscribe(() => {
-
+        this._notesService.deleteLabel(id).subscribe(() =>
+        {
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });

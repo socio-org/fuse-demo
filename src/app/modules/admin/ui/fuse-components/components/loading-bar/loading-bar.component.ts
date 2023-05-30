@@ -1,13 +1,20 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { finalize } from 'rxjs';
+import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleChange, MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { FuseLoadingService } from '@fuse/services/loading';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
+import { finalize } from 'rxjs';
 
 @Component({
     selector   : 'loading-bar',
-    templateUrl: './loading-bar.component.html'
+    templateUrl: './loading-bar.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseHighlightComponent, MatTabsModule, MatSlideToggleModule, MatSliderModule],
 })
 export class LoadingBarComponent
 {
@@ -21,7 +28,7 @@ export class LoadingBarComponent
     constructor(
         private _httpClient: HttpClient,
         private _fuseComponentsComponent: FuseComponentsComponent,
-        private _fuseLoadingService: FuseLoadingService
+        private _fuseLoadingService: FuseLoadingService,
     )
     {
     }
@@ -73,10 +80,12 @@ export class LoadingBarComponent
         this.apiCallStatus = 'Waiting...';
 
         this._httpClient.get('https://jsonplaceholder.typicode.com/posts?_delay=2000')
-            .pipe(finalize(() => {
+            .pipe(finalize(() =>
+            {
                 this.apiCallStatus = 'Finished!';
             }))
-            .subscribe((response) => {
+            .subscribe((response) =>
+            {
                 console.log(response);
             });
     }

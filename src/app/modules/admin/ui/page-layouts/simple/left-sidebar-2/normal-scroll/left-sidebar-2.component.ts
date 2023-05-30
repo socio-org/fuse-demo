@@ -1,11 +1,18 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterLink } from '@angular/router';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { DemoSidebarComponent } from 'app/modules/admin/ui/page-layouts/common/demo-sidebar/demo-sidebar.component';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'simple-left-sidebar-2-normal-scroll',
     templateUrl  : './left-sidebar-2.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatSidenavModule, DemoSidebarComponent, MatIconModule, RouterLink, MatButtonModule],
 })
 export class SimpleLeftSidebar2NormalScrollComponent implements OnInit, OnDestroy
 {
@@ -32,8 +39,8 @@ export class SimpleLeftSidebar2NormalScrollComponent implements OnInit, OnDestro
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
-
+            .subscribe(({matchingAliases}) =>
+            {
                 // Set the drawerMode and drawerOpened
                 if ( matchingAliases.includes('lg') )
                 {

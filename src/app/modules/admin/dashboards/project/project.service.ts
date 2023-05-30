@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class ProjectService
 {
     private _data: BehaviorSubject<any> = new BehaviorSubject(null);
@@ -38,9 +36,10 @@ export class ProjectService
     getData(): Observable<any>
     {
         return this._httpClient.get('api/dashboards/project').pipe(
-            tap((response: any) => {
+            tap((response: any) =>
+            {
                 this._data.next(response);
-            })
+            }),
         );
     }
 }

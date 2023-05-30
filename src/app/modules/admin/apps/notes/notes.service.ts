@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
+import { Injectable } from '@angular/core';
 import { Label, Note } from 'app/modules/admin/apps/notes/notes.types';
 import { cloneDeep } from 'lodash-es';
+import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class NotesService
 {
     // Private
@@ -59,9 +57,10 @@ export class NotesService
     getLabels(): Observable<Label[]>
     {
         return this._httpClient.get<Label[]>('api/apps/notes/labels').pipe(
-            tap((response: Label[]) => {
+            tap((response: Label[]) =>
+            {
                 this._labels.next(response);
-            })
+            }),
         );
     }
 
@@ -73,11 +72,11 @@ export class NotesService
     addLabel(title: string): Observable<Label[]>
     {
         return this._httpClient.post<Label[]>('api/apps/notes/labels', {title}).pipe(
-            tap((labels) => {
-
+            tap((labels) =>
+            {
                 // Update the labels
                 this._labels.next(labels);
-            })
+            }),
         );
     }
 
@@ -89,14 +88,14 @@ export class NotesService
     updateLabel(label: Label): Observable<Label[]>
     {
         return this._httpClient.patch<Label[]>('api/apps/notes/labels', {label}).pipe(
-            tap((labels) => {
-
+            tap((labels) =>
+            {
                 // Update the notes
                 this.getNotes().subscribe();
 
                 // Update the labels
                 this._labels.next(labels);
-            })
+            }),
         );
     }
 
@@ -108,14 +107,14 @@ export class NotesService
     deleteLabel(id: string): Observable<Label[]>
     {
         return this._httpClient.delete<Label[]>('api/apps/notes/labels', {params: {id}}).pipe(
-            tap((labels) => {
-
+            tap((labels) =>
+            {
                 // Update the notes
                 this.getNotes().subscribe();
 
                 // Update the labels
                 this._labels.next(labels);
-            })
+            }),
         );
     }
 
@@ -125,9 +124,10 @@ export class NotesService
     getNotes(): Observable<Note[]>
     {
         return this._httpClient.get<Note[]>('api/apps/notes/all').pipe(
-            tap((response: Note[]) => {
+            tap((response: Note[]) =>
+            {
                 this._notes.next(response);
-            })
+            }),
         );
     }
 
@@ -138,8 +138,8 @@ export class NotesService
     {
         return this._notes.pipe(
             take(1),
-            map((notes) => {
-
+            map((notes) =>
+            {
                 // Find within the folders and files
                 const note = notes.find(value => value.id === id) || null;
 
@@ -149,15 +149,15 @@ export class NotesService
                 // Return the note
                 return note;
             }),
-            switchMap((note) => {
-
+            switchMap((note) =>
+            {
                 if ( !note )
                 {
                     return throwError('Could not found the note with id of ' + id + '!');
                 }
 
                 return of(note);
-            })
+            }),
         );
     }
 
@@ -171,9 +171,9 @@ export class NotesService
     {
         return this._httpClient.post<Note>('api/apps/notes/tasks', {
             note,
-            task
+            task,
         }).pipe(switchMap(() => this.getNotes().pipe(
-            switchMap(() => this.getNoteById(note.id))
+            switchMap(() => this.getNoteById(note.id)),
         )));
     }
 
@@ -187,8 +187,8 @@ export class NotesService
         return this._httpClient.post<Note>('api/apps/notes', {note}).pipe(
             switchMap(response => this.getNotes().pipe(
                 switchMap(() => this.getNoteById(response.id).pipe(
-                    map(() => response)
-                ))
+                    map(() => response),
+                )),
             )));
     }
 
@@ -209,11 +209,11 @@ export class NotesService
         }
 
         return this._httpClient.patch<Note>('api/apps/notes', {updatedNote}).pipe(
-            tap((response) => {
-
+            tap((response) =>
+            {
                 // Update the notes
                 this.getNotes().subscribe();
-            })
+            }),
         );
     }
 
@@ -225,14 +225,14 @@ export class NotesService
     deleteNote(note: Note): Observable<boolean>
     {
         return this._httpClient.delete<boolean>('api/apps/notes', {params: {id: note.id}}).pipe(
-            map((isDeleted: boolean) => {
-
+            map((isDeleted: boolean) =>
+            {
                 // Update the notes
                 this.getNotes().subscribe();
 
                 // Return the deleted status
                 return isDeleted;
-            })
+            }),
         );
     }
 }

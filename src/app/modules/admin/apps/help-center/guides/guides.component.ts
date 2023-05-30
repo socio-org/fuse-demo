@@ -1,12 +1,18 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 import { HelpCenterService } from 'app/modules/admin/apps/help-center/help-center.service';
 import { GuideCategory } from 'app/modules/admin/apps/help-center/help-center.type';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'help-center-guides',
     templateUrl  : './guides.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatButtonModule, RouterLink, MatIconModule, NgFor, NgIf],
 })
 export class HelpCenterGuidesComponent implements OnInit, OnDestroy
 {
@@ -32,7 +38,8 @@ export class HelpCenterGuidesComponent implements OnInit, OnDestroy
         // Get the Guide categories
         this._helpCenterService.guides$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((guideCategories) => {
+            .subscribe((guideCategories) =>
+            {
                 this.guideCategories = guideCategories;
             });
     }

@@ -1,19 +1,24 @@
+import { CdkDrag, CdkDragDrop, CdkDragHandle, CdkDragPreview, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { DatePipe, DOCUMENT, NgClass, NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { MatDrawer } from '@angular/material/sidenav';
-import { filter, fromEvent, Subject, takeUntil } from 'rxjs';
-import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
-import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
+import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
+import { filter, fromEvent, Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'tasks-list',
     templateUrl    : './list.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatSidenavModule, RouterOutlet, NgIf, MatButtonModule, MatTooltipModule, MatIconModule, CdkDropList, NgFor, CdkDrag, NgClass, CdkDragPreview, CdkDragHandle, RouterLink, TitleCasePipe, DatePipe],
 })
 export class TasksListComponent implements OnInit, OnDestroy
 {
@@ -26,7 +31,7 @@ export class TasksListComponent implements OnInit, OnDestroy
     tasksCount: any = {
         completed : 0,
         incomplete: 0,
-        total     : 0
+        total     : 0,
     };
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -40,7 +45,7 @@ export class TasksListComponent implements OnInit, OnDestroy
         private _router: Router,
         private _tasksService: TasksService,
         private _fuseMediaWatcherService: FuseMediaWatcherService,
-        private _fuseNavigationService: FuseNavigationService
+        private _fuseNavigationService: FuseNavigationService,
     )
     {
     }
@@ -57,7 +62,8 @@ export class TasksListComponent implements OnInit, OnDestroy
         // Get the tags
         this._tasksService.tags$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((tags: Tag[]) => {
+            .subscribe((tags: Tag[]) =>
+            {
                 this.tags = tags;
 
                 // Mark for check
@@ -67,7 +73,8 @@ export class TasksListComponent implements OnInit, OnDestroy
         // Get the tasks
         this._tasksService.tasks$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((tasks: Task[]) => {
+            .subscribe((tasks: Task[]) =>
+            {
                 this.tasks = tasks;
 
                 // Update the counts
@@ -79,8 +86,8 @@ export class TasksListComponent implements OnInit, OnDestroy
                 this._changeDetectorRef.markForCheck();
 
                 // Update the count on the navigation
-                setTimeout(() => {
-
+                setTimeout(() =>
+                {
                     // Get the component -> navigation data -> item
                     const mainNavigationComponent = this._fuseNavigationService.getComponent<FuseVerticalNavigationComponent>('mainNavigation');
 
@@ -102,7 +109,8 @@ export class TasksListComponent implements OnInit, OnDestroy
         // Get the task
         this._tasksService.task$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((task: Task) => {
+            .subscribe((task: Task) =>
+            {
                 this.selectedTask = task;
 
                 // Mark for check
@@ -112,8 +120,8 @@ export class TasksListComponent implements OnInit, OnDestroy
         // Subscribe to media query change
         this._fuseMediaWatcherService.onMediaQueryChange$('(min-width: 1440px)')
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((state) => {
-
+            .subscribe((state) =>
+            {
                 // Calculate the drawer mode
                 this.drawerMode = state.matches ? 'side' : 'over';
 
@@ -127,11 +135,11 @@ export class TasksListComponent implements OnInit, OnDestroy
                 takeUntil(this._unsubscribeAll),
                 filter<KeyboardEvent>(event =>
                     (event.ctrlKey === true || event.metaKey) // Ctrl or Cmd
-                    && (event.key === '/' || event.key === '.') // '/' or '.' key
-                )
+                    && (event.key === '/' || event.key === '.'), // '/' or '.' key
+                ),
             )
-            .subscribe((event: KeyboardEvent) => {
-
+            .subscribe((event: KeyboardEvent) =>
+            {
                 // If the '/' pressed
                 if ( event.key === '/' )
                 {
@@ -180,8 +188,8 @@ export class TasksListComponent implements OnInit, OnDestroy
     createTask(type: 'task' | 'section'): void
     {
         // Create the task
-        this._tasksService.createTask(type).subscribe((newTask) => {
-
+        this._tasksService.createTask(type).subscribe((newTask) =>
+        {
             // Go to the new task
             this._router.navigate(['./', newTask.id], {relativeTo: this._activatedRoute});
 

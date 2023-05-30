@@ -1,13 +1,22 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterLink } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
-import { FuseAlertType } from '@fuse/components/alert';
+import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 
 @Component({
     selector     : 'unlock-session-split-screen',
     templateUrl  : './unlock-session.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations   : fuseAnimations,
+    standalone   : true,
+    imports      : [NgIf, FuseAlertComponent, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule, RouterLink],
 })
 export class UnlockSessionSplitScreenComponent implements OnInit
 {
@@ -15,7 +24,7 @@ export class UnlockSessionSplitScreenComponent implements OnInit
 
     alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
-        message: ''
+        message: '',
     };
     name: string = 'Brian Hughes';
     showAlert: boolean = false;
@@ -25,7 +34,7 @@ export class UnlockSessionSplitScreenComponent implements OnInit
      * Constructor
      */
     constructor(
-        private _formBuilder: UntypedFormBuilder
+        private _formBuilder: UntypedFormBuilder,
     )
     {
     }
@@ -44,10 +53,10 @@ export class UnlockSessionSplitScreenComponent implements OnInit
             name    : [
                 {
                     value   : this.name,
-                    disabled: true
-                }
+                    disabled: true,
+                },
             ],
-            password: ['', Validators.required]
+            password: ['', Validators.required],
         });
     }
 

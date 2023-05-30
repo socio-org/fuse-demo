@@ -1,22 +1,36 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
-import { TemplatePortal } from '@angular/cdk/portal';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatDrawerToggleResult } from '@angular/material/sidenav';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
+import { FuseFindByKeyPipe } from '@fuse/pipes/find-by-key/find-by-key.pipe';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
-import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
-import { assign } from 'lodash-es';
-import { DateTime } from 'luxon';
-import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
 import { TasksListComponent } from 'app/modules/admin/apps/tasks/list/list.component';
 import { TasksService } from 'app/modules/admin/apps/tasks/tasks.service';
+import { Tag, Task } from 'app/modules/admin/apps/tasks/tasks.types';
+import { assign } from 'lodash-es';
+import { DateTime } from 'luxon';
+import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
 
 @Component({
     selector       : 'tasks-details',
     templateUrl    : './details.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [FormsModule, ReactiveFormsModule, MatButtonModule, NgIf, MatIconModule, MatMenuModule, RouterLink, MatDividerModule, MatFormFieldModule, MatInputModule, TextFieldModule, NgFor, MatRippleModule, MatCheckboxModule, NgClass, MatDatepickerModule, FuseFindByKeyPipe, DatePipe],
 })
 export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 {
@@ -46,7 +60,7 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         private _tasksListComponent: TasksListComponent,
         private _tasksService: TasksService,
         private _overlay: Overlay,
-        private _viewContainerRef: ViewContainerRef
+        private _viewContainerRef: ViewContainerRef,
     )
     {
     }
@@ -73,13 +87,14 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             dueDate  : [null],
             priority : [0],
             tags     : [[]],
-            order    : [0]
+            order    : [0],
         });
 
         // Get the tags
         this._tasksService.tags$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((tags: Tag[]) => {
+            .subscribe((tags: Tag[]) =>
+            {
                 this.tags = tags;
                 this.filteredTags = tags;
 
@@ -90,7 +105,8 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         // Get the tasks
         this._tasksService.tasks$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((tasks: Task[]) => {
+            .subscribe((tasks: Task[]) =>
+            {
                 this.tasks = tasks;
 
                 // Mark for check
@@ -100,8 +116,8 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         // Get the task
         this._tasksService.task$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((task: Task) => {
-
+            .subscribe((task: Task) =>
+            {
                 // Open the drawer in case it is closed
                 this._tasksListComponent.matDrawer.open();
 
@@ -118,16 +134,16 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         // Update task when there is a value change on the task form
         this.taskForm.valueChanges
             .pipe(
-                tap((value) => {
-
+                tap((value) =>
+                {
                     // Update the task object
                     this.task = assign(this.task, value);
                 }),
                 debounceTime(300),
-                takeUntil(this._unsubscribeAll)
+                takeUntil(this._unsubscribeAll),
             )
-            .subscribe((value) => {
-
+            .subscribe((value) =>
+            {
                 // Update the task on the server
                 this._tasksService.updateTask(value.id, value).subscribe();
 
@@ -139,10 +155,10 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         this._router.events
             .pipe(
                 takeUntil(this._unsubscribeAll),
-                filter(event => event instanceof NavigationEnd)
+                filter(event => event instanceof NavigationEnd),
             )
-            .subscribe(() => {
-
+            .subscribe(() =>
+            {
                 // Focus on the title field
                 this._titleField.nativeElement.focus();
             });
@@ -157,10 +173,10 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         this._tasksListComponent.matDrawer.openedChange
             .pipe(
                 takeUntil(this._unsubscribeAll),
-                filter(opened => opened)
+                filter(opened => opened),
             )
-            .subscribe(() => {
-
+            .subscribe(() =>
+            {
                 // Focus on the title element
                 this._titleField.nativeElement.focus();
             });
@@ -217,23 +233,23 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             hasBackdrop     : true,
             scrollStrategy  : this._overlay.scrollStrategies.block(),
             positionStrategy: this._overlay.position()
-                                  .flexibleConnectedTo(this._tagsPanelOrigin.nativeElement)
-                                  .withFlexibleDimensions(true)
-                                  .withViewportMargin(64)
-                                  .withLockedPosition(true)
-                                  .withPositions([
-                                      {
-                                          originX : 'start',
-                                          originY : 'bottom',
-                                          overlayX: 'start',
-                                          overlayY: 'top'
-                                      }
-                                  ])
+                .flexibleConnectedTo(this._tagsPanelOrigin.nativeElement)
+                .withFlexibleDimensions(true)
+                .withViewportMargin(64)
+                .withLockedPosition(true)
+                .withPositions([
+                    {
+                        originX : 'start',
+                        originY : 'bottom',
+                        overlayX: 'start',
+                        overlayY: 'top',
+                    },
+                ]),
         });
 
         // Subscribe to the attachments observable
-        this._tagsPanelOverlayRef.attachments().subscribe(() => {
-
+        this._tagsPanelOverlayRef.attachments().subscribe(() =>
+        {
             // Focus to the search input once the overlay has been attached
             this._tagsPanelOverlayRef.overlayElement.querySelector('input').focus();
         });
@@ -245,8 +261,8 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         this._tagsPanelOverlayRef.attach(templatePortal);
 
         // Subscribe to the backdrop click
-        this._tagsPanelOverlayRef.backdropClick().subscribe(() => {
-
+        this._tagsPanelOverlayRef.backdropClick().subscribe(() =>
+        {
             // If overlay exists and attached...
             if ( this._tagsPanelOverlayRef && this._tagsPanelOverlayRef.hasAttached() )
             {
@@ -342,13 +358,13 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     createTag(title: string): void
     {
         const tag = {
-            title
+            title,
         };
 
         // Create tag on the server
         this._tasksService.createTag(tag)
-            .subscribe((response) => {
-
+            .subscribe((response) =>
+            {
                 // Add the tag to the task
                 this.addTagToTask(response);
             });
@@ -479,18 +495,17 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
             message: 'Are you sure you want to delete this task? This action cannot be undone!',
             actions: {
                 confirm: {
-                    label: 'Delete'
-                }
-            }
+                    label: 'Delete',
+                },
+            },
         });
 
         // Subscribe to the confirmation dialog closed action
-        confirmation.afterClosed().subscribe((result) => {
-
+        confirmation.afterClosed().subscribe((result) =>
+        {
             // If the confirm button pressed...
             if ( result === 'confirmed' )
             {
-
                 // Get the current task's id
                 const id = this.task.id;
 
@@ -501,8 +516,8 @@ export class TasksDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 
                 // Delete the task
                 this._tasksService.deleteTask(id)
-                    .subscribe((isDeleted) => {
-
+                    .subscribe((isDeleted) =>
+                    {
                         // Return if the task wasn't deleted...
                         if ( !isDeleted )
                         {

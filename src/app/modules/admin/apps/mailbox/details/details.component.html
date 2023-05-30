@@ -13,7 +13,7 @@
                     class="lg:hidden md:-ml-2"
                     mat-icon-button
                     [routerLink]="['./../']">
-                    <mat-icon [svgIcon]="'heroicons_outline:arrow-narrow-left'"></mat-icon>
+                    <mat-icon [svgIcon]="'heroicons_outline:arrow-long-left'"></mat-icon>
                 </a>
 
                 <!-- Toggle labels button & menu -->
@@ -65,7 +65,7 @@
                     class="ml-2"
                     mat-icon-button
                     [matMenuTriggerFor]="mailMenu">
-                    <mat-icon [svgIcon]="'heroicons_outline:dots-vertical'"></mat-icon>
+                    <mat-icon [svgIcon]="'heroicons_outline:ellipsis-vertical'"></mat-icon>
                 </button>
                 <mat-menu #mailMenu="matMenu">
                     <!-- Mark as read / unread -->
@@ -73,14 +73,14 @@
                         mat-menu-item
                         *ngIf="mail.unread"
                         (click)="toggleUnread(false)">
-                        <mat-icon [svgIcon]="'heroicons_outline:mail-open'"></mat-icon>
+                        <mat-icon [svgIcon]="'heroicons_outline:envelope-open'"></mat-icon>
                         <span>Mark as read</span>
                     </button>
                     <button
                         mat-menu-item
                         *ngIf="!mail.unread"
                         (click)="toggleUnread(true)">
-                        <mat-icon [svgIcon]="'heroicons_outline:mail'"></mat-icon>
+                        <mat-icon [svgIcon]="'heroicons_outline:envelope'"></mat-icon>
                         <span>Mark as unread</span>
                     </button>
                     <!-- Marks as spam / not span-->
@@ -88,14 +88,14 @@
                         mat-menu-item
                         *ngIf="getCurrentFolder() !== 'spam' && getCurrentFolder() !== 'drafts'"
                         (click)="moveToFolder('spam')">
-                        <mat-icon [svgIcon]="'heroicons_outline:exclamation'"></mat-icon>
+                        <mat-icon [svgIcon]="'heroicons_outline:exclamation-triangle'"></mat-icon>
                         <span>Spam</span>
                     </button>
                     <button
                         mat-menu-item
                         *ngIf="getCurrentFolder() === 'spam'"
                         (click)="moveToFolder('inbox')">
-                        <mat-icon [svgIcon]="'heroicons_outline:exclamation'"></mat-icon>
+                        <mat-icon [svgIcon]="'heroicons_outline:exclamation-triangle'"></mat-icon>
                         <span>Not spam</span>
                     </button>
                     <!-- Delete -->
@@ -297,7 +297,7 @@
                                 (click)="reply()">
                                 <mat-icon
                                     class="icon-size-5"
-                                    [svgIcon]="'heroicons_solid:reply'"></mat-icon>
+                                    [svgIcon]="'heroicons_solid:arrow-uturn-left'"></mat-icon>
                                 <span class="ml-2">Reply</span>
                             </button>
                             <!-- Reply all -->
@@ -308,7 +308,7 @@
                                 (click)="replyAll()">
                                 <mat-icon
                                     class="icon-size-5"
-                                    [svgIcon]="'heroicons_solid:reply'"></mat-icon>
+                                    [svgIcon]="'heroicons_solid:arrow-uturn-left'"></mat-icon>
                                 <span class="ml-2">Reply All</span>
                             </button>
                             <!-- Forward -->
@@ -358,13 +358,13 @@
                                     <button mat-icon-button>
                                         <mat-icon
                                             class="icon-size-5"
-                                            [svgIcon]="'heroicons_solid:emoji-happy'"></mat-icon>
+                                            [svgIcon]="'heroicons_solid:face-smile'"></mat-icon>
                                     </button>
                                     <!-- Insert image -->
                                     <button mat-icon-button>
                                         <mat-icon
                                             class="icon-size-5"
-                                            [svgIcon]="'heroicons_solid:photograph'"></mat-icon>
+                                            [svgIcon]="'heroicons_solid:photo'"></mat-icon>
                                     </button>
                                 </div>
 
@@ -403,7 +403,7 @@
         <div class="flex flex-col flex-auto items-center justify-center bg-gray-100 dark:bg-transparent">
             <mat-icon
                 class="icon-size-24"
-                [svgIcon]="'heroicons_outline:mail'"></mat-icon>
+                [svgIcon]="'heroicons_outline:envelope'"></mat-icon>
             <div class="mt-4 text-2xl font-semibold tracking-tight text-secondary">Select a mail to read</div>
         </div>
 

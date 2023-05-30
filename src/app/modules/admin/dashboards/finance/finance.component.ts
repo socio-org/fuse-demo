@@ -1,15 +1,23 @@
+import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { Subject, takeUntil } from 'rxjs';
-import { ApexOptions } from 'ng-apexcharts';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { FinanceService } from 'app/modules/admin/dashboards/finance/finance.service';
+import { ApexOptions, NgApexchartsModule } from 'ng-apexcharts';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'finance',
     templateUrl    : './finance.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatButtonModule, MatIconModule, MatMenuModule, MatDividerModule, NgApexchartsModule, MatTableModule, MatSortModule, NgClass, MatProgressBarModule, CurrencyPipe, DatePipe],
 })
 export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
 {
@@ -40,8 +48,8 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
         // Get the data
         this._financeService.data$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((data) => {
-
+            .subscribe((data) =>
+            {
                 // Store the data
                 this.data = data;
 
@@ -104,8 +112,8 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
                 animations: {
                     speed           : 400,
                     animateGradually: {
-                        enabled: false
-                    }
+                        enabled: false,
+                    },
                 },
                 fontFamily: 'inherit',
                 foreColor : 'inherit',
@@ -113,33 +121,33 @@ export class FinanceComponent implements OnInit, AfterViewInit, OnDestroy
                 height    : '100%',
                 type      : 'area',
                 sparkline : {
-                    enabled: true
-                }
+                    enabled: true,
+                },
             },
             colors : ['#A3BFFA', '#667EEA'],
             fill   : {
                 colors : ['#CED9FB', '#AECDFD'],
                 opacity: 0.5,
-                type   : 'solid'
+                type   : 'solid',
             },
             series : this.data.accountBalance.series,
             stroke : {
                 curve: 'straight',
-                width: 2
+                width: 2,
             },
             tooltip: {
                 followCursor: true,
                 theme       : 'dark',
                 x           : {
-                    format: 'MMM dd, yyyy'
+                    format: 'MMM dd, yyyy',
                 },
                 y           : {
-                    formatter: (value): string => value + '%'
-                }
+                    formatter: (value): string => value + '%',
+                },
             },
             xaxis  : {
-                type: 'datetime'
-            }
+                type: 'datetime',
+            },
         };
     }
 }

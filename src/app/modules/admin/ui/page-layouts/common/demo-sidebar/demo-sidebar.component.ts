@@ -1,4 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 
 @Component({
@@ -25,7 +28,7 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
                 <div class="flex items-center">
                     <mat-icon
                         class="mr-2 icon-size-5"
-                        [svgIcon]="'heroicons_solid:database'"></mat-icon>
+                        [svgIcon]="'heroicons_solid:circle-stack'"></mat-icon>
                     <div class="text-lg font-semibold">Storage</div>
                 </div>
                 <div class="flex flex-col flex-auto mt-4">
@@ -60,9 +63,11 @@ import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types
             demo-sidebar fuse-vertical-navigation .fuse-vertical-navigation-wrapper {
                 box-shadow: none !important;
             }
-        `
+        `,
     ],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [FuseVerticalNavigationComponent, MatIconModule, MatProgressBarModule],
 })
 export class DemoSidebarComponent
 {
@@ -82,30 +87,30 @@ export class DemoSidebarComponent
                     {
                         title: 'Create task',
                         type : 'basic',
-                        icon : 'heroicons_outline:plus-circle'
+                        icon : 'heroicons_outline:plus-circle',
                     },
                     {
                         title: 'Create team',
                         type : 'basic',
-                        icon : 'heroicons_outline:user-group'
+                        icon : 'heroicons_outline:user-group',
                     },
                     {
                         title: 'Create project',
                         type : 'basic',
-                        icon : 'heroicons_outline:briefcase'
+                        icon : 'heroicons_outline:briefcase',
                     },
                     {
                         title: 'Create user',
                         type : 'basic',
-                        icon : 'heroicons_outline:user-add'
+                        icon : 'heroicons_outline:user-plus',
                     },
                     {
                         title   : 'Assign user or team',
                         subtitle: 'Assign to a task or a project',
                         type    : 'basic',
-                        icon    : 'heroicons_outline:badge-check'
-                    }
-                ]
+                        icon    : 'heroicons_outline:check-badge',
+                    },
+                ],
             },
             {
                 title   : 'Tasks',
@@ -114,38 +119,38 @@ export class DemoSidebarComponent
                     {
                         title: 'All tasks',
                         type : 'basic',
-                        icon : 'heroicons_outline:clipboard-list',
+                        icon : 'heroicons_outline:clipboard-document-list',
                         badge: {
                             title  : '49',
-                            classes: 'px-2 bg-primary text-on-primary rounded-full'
-                        }
+                            classes: 'px-2 bg-primary text-on-primary rounded-full',
+                        },
                     },
                     {
                         title: 'Ongoing tasks',
                         type : 'basic',
-                        icon : 'heroicons_outline:clipboard-copy'
+                        icon : 'heroicons_outline:clipboard-document-check',
                     },
                     {
                         title: 'Completed tasks',
                         type : 'basic',
-                        icon : 'heroicons_outline:clipboard-check'
+                        icon : 'heroicons_outline:clipboard-document-check',
                     },
                     {
                         title: 'Abandoned tasks',
                         type : 'basic',
-                        icon : 'heroicons_outline:clipboard'
+                        icon : 'heroicons_outline:clipboard',
                     },
                     {
                         title: 'Assigned to me',
                         type : 'basic',
-                        icon : 'heroicons_outline:user'
+                        icon : 'heroicons_outline:user',
                     },
                     {
                         title: 'Assigned to my team',
                         type : 'basic',
-                        icon : 'heroicons_outline:users'
-                    }
-                ]
+                        icon : 'heroicons_outline:users',
+                    },
+                ],
             },
             {
                 title   : 'Settings',
@@ -154,21 +159,21 @@ export class DemoSidebarComponent
                     {
                         title   : 'General',
                         type    : 'collapsable',
-                        icon    : 'heroicons_outline:cog',
+                        icon    : 'heroicons_outline:cog-8-tooth',
                         children: [
                             {
                                 title: 'Tasks',
-                                type : 'basic'
+                                type : 'basic',
                             },
                             {
                                 title: 'Users',
-                                type : 'basic'
+                                type : 'basic',
                             },
                             {
                                 title: 'Teams',
-                                type : 'basic'
-                            }
-                        ]
+                                type : 'basic',
+                            },
+                        ],
                     },
                     {
                         title   : 'Account',
@@ -177,23 +182,23 @@ export class DemoSidebarComponent
                         children: [
                             {
                                 title: 'Personal',
-                                type : 'basic'
+                                type : 'basic',
                             },
                             {
                                 title: 'Payment',
-                                type : 'basic'
+                                type : 'basic',
                             },
                             {
                                 title: 'Security',
-                                type : 'basic'
-                            }
-                        ]
-                    }
-                ]
+                                type : 'basic',
+                            },
+                        ],
+                    },
+                ],
             },
             {
-                type: 'divider'
-            }
+                type: 'divider',
+            },
         ];
     }
 }

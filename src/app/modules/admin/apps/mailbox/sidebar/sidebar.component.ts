@@ -1,17 +1,21 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { Subject, takeUntil } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
 import { FuseNavigationItem, FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
-import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { MailboxComposeComponent } from 'app/modules/admin/apps/mailbox/compose/compose.component';
 import { labelColorDefs } from 'app/modules/admin/apps/mailbox/mailbox.constants';
+import { MailboxService } from 'app/modules/admin/apps/mailbox/mailbox.service';
 import { MailFilter, MailFolder, MailLabel } from 'app/modules/admin/apps/mailbox/mailbox.types';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'mailbox-sidebar',
     templateUrl  : './sidebar.component.html',
     styleUrls    : ['./sidebar.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatButtonModule, MatIconModule, FuseVerticalNavigationComponent],
 })
 export class MailboxSidebarComponent implements OnInit, OnDestroy
 {
@@ -31,7 +35,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
     constructor(
         private _mailboxService: MailboxService,
         private _matDialog: MatDialog,
-        private _fuseNavigationService: FuseNavigationService
+        private _fuseNavigationService: FuseNavigationService,
     )
     {
     }
@@ -48,7 +52,8 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         // Filters
         this._mailboxService.filters$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((filters: MailFilter[]) => {
+            .subscribe((filters: MailFilter[]) =>
+            {
                 this.filters = filters;
 
                 // Generate menu links
@@ -58,7 +63,8 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         // Folders
         this._mailboxService.folders$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((folders: MailFolder[]) => {
+            .subscribe((folders: MailFolder[]) =>
+            {
                 this.folders = folders;
 
                 // Generate menu links
@@ -71,7 +77,8 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         // Labels
         this._mailboxService.labels$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((labels: MailLabel[]) => {
+            .subscribe((labels: MailLabel[]) =>
+            {
                 this.labels = labels;
 
                 // Generate menu links
@@ -105,9 +112,10 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         const dialogRef = this._matDialog.open(MailboxComposeComponent);
 
         dialogRef.afterClosed()
-                 .subscribe((result) => {
-                     console.log('Compose dialog was closed!');
-                 });
+            .subscribe((result) =>
+            {
+                console.log('Compose dialog was closed!');
+            });
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -125,15 +133,15 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         this._foldersMenuData = [];
 
         // Iterate through the folders
-        this.folders.forEach((folder) => {
-
+        this.folders.forEach((folder) =>
+        {
             // Generate menu item for the folder
             const menuItem: FuseNavigationItem = {
                 id   : folder.id,
                 title: folder.title,
                 type : 'basic',
                 icon : folder.icon,
-                link : '/apps/mailbox/' + folder.slug
+                link : '/apps/mailbox/' + folder.slug,
             };
 
             // If the count is available and is bigger than zero...
@@ -141,7 +149,7 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
             {
                 // Add the count as a badge
                 menuItem['badge'] = {
-                    title: folder.count + ''
+                    title: folder.count + '',
                 };
             }
 
@@ -164,15 +172,15 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         this._filtersMenuData = [];
 
         // Iterate through the filters
-        this.filters.forEach((filter) => {
-
+        this.filters.forEach((filter) =>
+        {
             // Generate menu item for the filter
             this._filtersMenuData.push({
                 id   : filter.id,
                 title: filter.title,
                 type : 'basic',
                 icon : filter.icon,
-                link : '/apps/mailbox/filter/' + filter.slug
+                link : '/apps/mailbox/filter/' + filter.slug,
             });
         });
 
@@ -191,8 +199,8 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         this._labelsMenuData = [];
 
         // Iterate through the labels
-        this.labels.forEach((label) => {
-
+        this.labels.forEach((label) =>
+        {
             // Generate menu item for the label
             this._labelsMenuData.push({
                 id     : label.id,
@@ -200,9 +208,9 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
                 type   : 'basic',
                 icon   : 'heroicons_outline:tag',
                 classes: {
-                    icon: labelColorDefs[label.color].text
+                    icon: labelColorDefs[label.color].text,
                 },
-                link   : '/apps/mailbox/label/' + label.slug
+                link   : '/apps/mailbox/label/' + label.slug,
             });
         });
 
@@ -221,8 +229,8 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
         this._otherMenuData.push({
             title: 'Settings',
             type : 'basic',
-            icon : 'heroicons_outline:cog',
-            link : '/apps/mailbox/settings'
+            icon : 'heroicons_outline:cog-8-tooth',
+            link : '/apps/mailbox/settings',
         });
 
         // Update the menu data
@@ -241,27 +249,27 @@ export class MailboxSidebarComponent implements OnInit, OnDestroy
                 title   : 'MAILBOXES',
                 type    : 'group',
                 children: [
-                    ...this._foldersMenuData
-                ]
+                    ...this._foldersMenuData,
+                ],
             },
             {
                 title   : 'FILTERS',
                 type    : 'group',
                 children: [
-                    ...this._filtersMenuData
-                ]
+                    ...this._filtersMenuData,
+                ],
             },
             {
                 title   : 'LABELS',
                 type    : 'group',
                 children: [
-                    ...this._labelsMenuData
-                ]
+                    ...this._labelsMenuData,
+                ],
             },
             {
-                type: 'spacer'
+                type: 'spacer',
             },
-            ...this._otherMenuData
+            ...this._otherMenuData,
         ];
     }
 

@@ -19,7 +19,7 @@
                 <mat-icon
                     class="icon-size-5"
                     matPrefix
-                    [svgIcon]="'heroicons_solid:search'"></mat-icon>
+                    [svgIcon]="'heroicons_solid:magnifying-glass'"></mat-icon>
                 <input
                     matInput
                     [formControl]="searchInputControl"
@@ -144,7 +144,7 @@
                                         <ng-container *ngIf="!product.active">
                                             <mat-icon
                                                 class="text-gray-400 icon-size-5"
-                                                [svgIcon]="'heroicons_solid:x'"></mat-icon>
+                                                [svgIcon]="'heroicons_solid:x-mark'"></mat-icon>
                                         </ng-container>
                                     </div>
 
@@ -214,7 +214,7 @@
                                                 (click)="cycleImages(false)">
                                                 <mat-icon
                                                     class="icon-size-5"
-                                                    [svgIcon]="'heroicons_solid:arrow-narrow-left'"></mat-icon>
+                                                    [svgIcon]="'heroicons_mini:arrow-long-left'"></mat-icon>
                                             </button>
                                             <span class="font-sm mx-2">
                                                 {{selectedProductForm.get('currentImageIndex').value + 1}} of {{selectedProductForm.get('images').value.length}}
@@ -224,7 +224,7 @@
                                                 (click)="cycleImages(true)">
                                                 <mat-icon
                                                     class="icon-size-5"
-                                                    [svgIcon]="'heroicons_solid:arrow-narrow-right'"></mat-icon>
+                                                    [svgIcon]="'heroicons_mini:arrow-long-right'"></mat-icon>
                                             </button>
                                         </div>
                                     </div>
@@ -370,7 +370,7 @@
                                                 <div class="flex items-center flex-auto min-w-0">
                                                     <mat-icon
                                                         class="icon-size-5"
-                                                        [svgIcon]="'heroicons_solid:search'"></mat-icon>
+                                                        [svgIcon]="'heroicons_solid:magnifying-glass'"></mat-icon>
                                                     <input
                                                         class="min-w-0 ml-2 py-1 border-0"
                                                         type="text"
@@ -387,7 +387,7 @@
                                                     <mat-icon
                                                         *ngIf="!tagsEditMode"
                                                         class="icon-size-5"
-                                                        [svgIcon]="'heroicons_solid:pencil-alt'"></mat-icon>
+                                                        [svgIcon]="'heroicons_solid:pencil-square'"></mat-icon>
                                                     <mat-icon
                                                         *ngIf="tagsEditMode"
                                                         class="icon-size-5"
@@ -471,7 +471,7 @@
                                         <ng-container *ngIf="flashMessage === 'error'">
                                             <mat-icon
                                                 class="text-red-500"
-                                                [svgIcon]="'heroicons_outline:x'"></mat-icon>
+                                                [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
                                             <span class="ml-2">An error occurred, try again!</span>
                                         </ng-container>
                                     </div>

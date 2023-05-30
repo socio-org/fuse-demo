@@ -1,10 +1,21 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @Component({
     selector     : 'forms-wizards',
     templateUrl  : './wizards.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatIconModule, FormsModule, ReactiveFormsModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatButtonModule, MatCheckboxModule, MatRadioModule],
 })
 export class FormsWizardsComponent implements OnInit
 {
@@ -32,22 +43,22 @@ export class FormsWizardsComponent implements OnInit
             step1: this._formBuilder.group({
                 email   : ['', [Validators.required, Validators.email]],
                 country : ['', Validators.required],
-                language: ['', Validators.required]
+                language: ['', Validators.required],
             }),
             step2: this._formBuilder.group({
                 firstName: ['', Validators.required],
                 lastName : ['', Validators.required],
                 userName : ['', Validators.required],
-                about    : ['']
+                about    : [''],
             }),
             step3: this._formBuilder.group({
                 byEmail          : this._formBuilder.group({
                     companyNews     : [true],
                     featuredProducts: [false],
-                    messages        : [true]
+                    messages        : [true],
                 }),
-                pushNotifications: ['everything', Validators.required]
-            })
+                pushNotifications: ['everything', Validators.required],
+            }),
         });
 
         // Vertical stepper form
@@ -55,22 +66,22 @@ export class FormsWizardsComponent implements OnInit
             step1: this._formBuilder.group({
                 email   : ['', [Validators.required, Validators.email]],
                 country : ['', Validators.required],
-                language: ['', Validators.required]
+                language: ['', Validators.required],
             }),
             step2: this._formBuilder.group({
                 firstName: ['', Validators.required],
                 lastName : ['', Validators.required],
                 userName : ['', Validators.required],
-                about    : ['']
+                about    : [''],
             }),
             step3: this._formBuilder.group({
                 byEmail          : this._formBuilder.group({
                     companyNews     : [true],
                     featuredProducts: [false],
-                    messages        : [true]
+                    messages        : [true],
                 }),
-                pushNotifications: ['everything', Validators.required]
-            })
+                pushNotifications: ['everything', Validators.required],
+            }),
         });
     }
 }

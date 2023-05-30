@@ -1,5 +1,10 @@
+import { NgClass, NgComponentOutlet, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 export interface PageLayoutsOverviewData
 {
@@ -35,8 +40,11 @@ export interface PageLayoutsOverviewData
                             [(ngModel)]="overview.selectedOption">
                             <mat-button-toggle
                                 *ngFor="let option of overview.availableOptions"
-                                class="m-2 font-medium bg-transparent"
-                                [ngClass]="{'bg-gray-300 dark:bg-gray-700': option.value === overview.selectedOption}"
+                                class="m-2 font-medium"
+                                [ngClass]="{
+                                    'bg-gray-300 dark:bg-gray-700': option.value === overview.selectedOption,
+                                    'bg-transparent': option.value !== overview.selectedOption
+                                }"
                                 [value]="option.value">
                                 {{option.title}}
                             </mat-button-toggle>
@@ -93,9 +101,9 @@ export interface PageLayoutsOverviewData
                                     [color]="'primary'"
                                     [routerLink]="selectedOption.link">
                                     <mat-icon
-                                        class="mr-2 icon-size-5"
-                                        [svgIcon]="'heroicons_solid:external-link'"></mat-icon>
-                                    <span>View</span>
+                                        class="icon-size-4"
+                                        [svgIcon]="'heroicons_mini:arrow-top-right-on-square'"></mat-icon>
+                                    <span class="ml-2">View</span>
                                 </a>
                             </div>
                         </div>
@@ -112,9 +120,11 @@ export interface PageLayoutsOverviewData
                 flex-direction: column;
                 flex: 1 1 auto;
             }
-        `
+        `,
     ],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatButtonToggleModule, FormsModule, NgFor, NgClass, NgIf, NgComponentOutlet, MatButtonModule, RouterLink, MatIconModule],
 })
 export class LayoutOverviewComponent implements OnInit
 {

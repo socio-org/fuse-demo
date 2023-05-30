@@ -1,13 +1,25 @@
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { Chat, Profile } from 'app/modules/admin/apps/chat/chat.types';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ChatService } from 'app/modules/admin/apps/chat/chat.service';
+import { Chat, Profile } from 'app/modules/admin/apps/chat/chat.types';
+import { NewChatComponent } from 'app/modules/admin/apps/chat/new-chat/new-chat.component';
+import { ProfileComponent } from 'app/modules/admin/apps/chat/profile/profile.component';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'chat-chats',
     templateUrl    : './chats.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [MatSidenavModule, NgIf, NewChatComponent, ProfileComponent, MatButtonModule, MatIconModule, MatMenuModule, MatFormFieldModule, MatInputModule, NgFor, NgClass, RouterLink, RouterOutlet],
 })
 export class ChatsComponent implements OnInit, OnDestroy
 {
@@ -24,7 +36,7 @@ export class ChatsComponent implements OnInit, OnDestroy
      */
     constructor(
         private _chatService: ChatService,
-        private _changeDetectorRef: ChangeDetectorRef
+        private _changeDetectorRef: ChangeDetectorRef,
     )
     {
     }
@@ -41,7 +53,8 @@ export class ChatsComponent implements OnInit, OnDestroy
         // Chats
         this._chatService.chats$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((chats: Chat[]) => {
+            .subscribe((chats: Chat[]) =>
+            {
                 this.chats = this.filteredChats = chats;
 
                 // Mark for check
@@ -51,7 +64,8 @@ export class ChatsComponent implements OnInit, OnDestroy
         // Profile
         this._chatService.profile$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((profile: Profile) => {
+            .subscribe((profile: Profile) =>
+            {
                 this.profile = profile;
 
                 // Mark for check
@@ -61,7 +75,8 @@ export class ChatsComponent implements OnInit, OnDestroy
         // Selected chat
         this._chatService.chat$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((chat: Chat) => {
+            .subscribe((chat: Chat) =>
+            {
                 this.selectedChat = chat;
 
                 // Mark for check

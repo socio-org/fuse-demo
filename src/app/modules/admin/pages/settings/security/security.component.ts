@@ -1,11 +1,18 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
     selector       : 'settings-security',
     templateUrl    : './security.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSlideToggleModule, MatButtonModule],
 })
 export class SettingsSecurityComponent implements OnInit
 {
@@ -15,7 +22,7 @@ export class SettingsSecurityComponent implements OnInit
      * Constructor
      */
     constructor(
-        private _formBuilder: UntypedFormBuilder
+        private _formBuilder: UntypedFormBuilder,
     )
     {
     }
@@ -34,7 +41,7 @@ export class SettingsSecurityComponent implements OnInit
             currentPassword  : [''],
             newPassword      : [''],
             twoStep          : [true],
-            askPasswordChange: [false]
+            askPasswordChange: [false],
         });
     }
 }

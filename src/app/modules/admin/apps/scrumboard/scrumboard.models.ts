@@ -31,7 +31,8 @@ export class Board implements Required<IBoard>
         // Lists
         if ( board.lists )
         {
-            this.lists = board.lists.map((list) => {
+            this.lists = board.lists.map((list) =>
+            {
                 if ( !(list instanceof List) )
                 {
                     return new List(list);
@@ -44,7 +45,8 @@ export class Board implements Required<IBoard>
         // Labels
         if ( board.labels )
         {
-            this.labels = board.labels.map((label) => {
+            this.labels = board.labels.map((label) =>
+            {
                 if ( !(label instanceof Label) )
                 {
                     return new Label(label);
@@ -57,7 +59,8 @@ export class Board implements Required<IBoard>
         // Members
         if ( board.members )
         {
-            this.members = board.members.map((member) => {
+            this.members = board.members.map((member) =>
+            {
                 if ( !(member instanceof Member) )
                 {
                     return new Member(member);
@@ -94,7 +97,8 @@ export class List implements Required<IList>
         // Cards
         if ( list.cards )
         {
-            this.cards = list.cards.map((card) => {
+            this.cards = list.cards.map((card) =>
+            {
                 if ( !(card instanceof Card) )
                 {
                     return new Card(card);
@@ -137,7 +141,8 @@ export class Card implements Required<ICard>
         // Labels
         if ( card.labels )
         {
-            this.labels = card.labels.map((label) => {
+            this.labels = card.labels.map((label) =>
+            {
                 if ( !(label instanceof Label) )
                 {
                     return new Label(label);

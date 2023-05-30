@@ -1,14 +1,24 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { JsonPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector       : 'advanced-search',
     templateUrl    : './advanced-search.component.html',
     encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone     : true,
+    imports        : [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatCheckboxModule, MatButtonModule, FuseHighlightComponent, JsonPipe],
 })
 export class AdvancedSearchComponent implements OnInit, OnDestroy
 {
@@ -18,7 +28,7 @@ export class AdvancedSearchComponent implements OnInit, OnDestroy
         type      : 'any',
         isTrashed : false,
         isArchived: false,
-        isStarred : false
+        isStarred : false,
     };
     queryParams: Params;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
@@ -29,7 +39,7 @@ export class AdvancedSearchComponent implements OnInit, OnDestroy
     constructor(
         private _activatedRoute: ActivatedRoute,
         private _formBuilder: UntypedFormBuilder,
-        private _router: Router
+        private _router: Router,
     )
     {
         // Prepare the search form with defaults
@@ -38,7 +48,7 @@ export class AdvancedSearchComponent implements OnInit, OnDestroy
             type      : [this.searchFormDefaults.type],
             isTrashed : [this.searchFormDefaults.isTrashed],
             isArchived: [this.searchFormDefaults.isArchived],
-            isStarred : [this.searchFormDefaults.isStarred]
+            isStarred : [this.searchFormDefaults.isStarred],
         });
     }
 
@@ -54,8 +64,8 @@ export class AdvancedSearchComponent implements OnInit, OnDestroy
         // Subscribe to query params change
         this._activatedRoute.queryParams
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((queryParams) => {
-
+            .subscribe((queryParams) =>
+            {
                 // Store the query params
                 this.queryParams = queryParams;
 
@@ -66,7 +76,7 @@ export class AdvancedSearchComponent implements OnInit, OnDestroy
                     type      : queryParams?.type ?? this.searchFormDefaults.type,
                     isTrashed : queryParams?.isTrashed ? coerceBooleanProperty(queryParams?.isTrashed) : this.searchFormDefaults.isTrashed,
                     isArchived: queryParams?.isArchived ? coerceBooleanProperty(queryParams?.isArchived) : this.searchFormDefaults.isArchived,
-                    isStarred : queryParams?.isStarred ? coerceBooleanProperty(queryParams?.isStarred) : this.searchFormDefaults.isStarred
+                    isStarred : queryParams?.isStarred ? coerceBooleanProperty(queryParams?.isStarred) : this.searchFormDefaults.isStarred,
                 }, {emitEvent: false});
             });
     }
@@ -101,7 +111,7 @@ export class AdvancedSearchComponent implements OnInit, OnDestroy
         // Add query params using the router
         this._router.navigate(['./'], {
             queryParams: this.searchForm.value,
-            relativeTo : this._activatedRoute
+            relativeTo : this._activatedRoute,
         });
     }
 }

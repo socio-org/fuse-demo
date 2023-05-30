@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FuseHighlightComponent } from '@fuse/components/highlight';
 import { FuseComponentsComponent } from 'app/modules/admin/ui/fuse-components/fuse-components.component';
 
 @Component({
     selector   : 'must-match',
-    templateUrl: './must-match.component.html'
+    templateUrl: './must-match.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule, FuseHighlightComponent],
 })
 export class MustMatchComponent
 {

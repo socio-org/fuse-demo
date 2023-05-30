@@ -1,12 +1,20 @@
+import { NgFor } from '@angular/common';
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { RouterLink } from '@angular/router';
 import { HelpCenterService } from 'app/modules/admin/apps/help-center/help-center.service';
 import { FaqCategory } from 'app/modules/admin/apps/help-center/help-center.type';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector     : 'help-center',
     templateUrl  : './help-center.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone   : true,
+    imports      : [MatFormFieldModule, MatInputModule, MatIconModule, RouterLink, MatExpansionModule, NgFor],
 })
 export class HelpCenterComponent implements OnInit, OnDestroy
 {
@@ -32,7 +40,8 @@ export class HelpCenterComponent implements OnInit, OnDestroy
         // Get the FAQs
         this._helpCenterService.faqs$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((faqCategories) => {
+            .subscribe((faqCategories) =>
+            {
                 this.faqCategory = faqCategories[0];
             });
     }

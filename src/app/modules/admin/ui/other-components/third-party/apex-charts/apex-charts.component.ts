@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { OtherComponentsComponent } from 'app/modules/admin/ui/other-components/other-components.component';
 
 @Component({
     selector   : 'apex-charts',
-    templateUrl: './apex-charts.component.html'
+    templateUrl: './apex-charts.component.html',
+    standalone : true,
+    imports    : [MatIconModule, MatButtonModule],
 })
 export class ApexChartsComponent
 {
