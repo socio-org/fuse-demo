@@ -92,6 +92,9 @@ export class ChatsComponent implements OnInit, OnDestroy
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
+
+        // Reset the chat
+        this._chatService.resetChat();
     }
 
     // -----------------------------------------------------------------------------------------------------
