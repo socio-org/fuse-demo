@@ -1,19 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { User } from 'app/core/user/user.types';
 import { map, Observable, ReplaySubject, tap } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class UserService
 {
+    private _httpClient = inject(HttpClient);
     private _user: ReplaySubject<User> = new ReplaySubject<User>(1);
-
-    /**
-     * Constructor
-     */
-    constructor(private _httpClient: HttpClient)
-    {
-    }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Accessors
@@ -40,7 +34,7 @@ export class UserService
     // -----------------------------------------------------------------------------------------------------
 
     /**
-     * Get the current logged in user data
+     * Get the current signed-in user data
      */
     get(): Observable<User>
     {
