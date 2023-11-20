@@ -13,6 +13,30 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v19.0.0
+        {
+            version    : 'v19.0.0',
+            releaseDate: 'Nov 20, 2023',
+            changes: [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(Dependencies) Updated Angular & Angular Material to v17',
+                        '(Dependencies) Updated various other packages',
+                        '(Transloco) Updated to standalone configuration',
+                        '(core) Use inject for dependencies'
+                    ],
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        'Rotation on some icons',
+                        'Autocompleted input colors'
+                    ],
+                },
+            ]
+        },
+
         // v18.0.0
         {
             version    : 'v18.0.0',
