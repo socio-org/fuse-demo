@@ -72,12 +72,10 @@ export class DirectoryStructureComponent implements OnInit
                         name    : 'core/',
                         children: [
                             {name: 'auth/'},
-                            {name: 'config/'},
                             {name: 'icons/'},
                             {name: 'navigation/'},
                             {name: 'transloco/'},
                             {name: 'user/'},
-                            {name: 'core.module.ts'},
                         ],
                     },
                     {
@@ -88,8 +86,6 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'layout.component.html'},
                             {name: 'layout.component.scss'},
                             {name: 'layout.component.ts'},
-                            {name: 'layout.module.ts'},
-                            {name: 'layout.types.ts'},
                         ],
                     },
                     {
@@ -111,16 +107,9 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'landing/'},
                         ],
                     },
-                    {
-                        name    : 'shared/',
-                        children: [
-                            {name: 'shared.module.ts'},
-                        ],
-                    },
                     {name: 'app.component.html'},
                     {name: 'app.component.scss'},
                     {name: 'app.component.ts'},
-                    {name: 'app.module.ts'},
                     {name: 'app.resolvers.ts'},
                     {name: 'app.routing.ts'},
                 ],
@@ -145,7 +134,7 @@ export class DirectoryStructureComponent implements OnInit
                             {name: 'tailwind/'},
                             {name: 'validators/'},
                             {name: 'version/'},
-                            {name: 'fuse.module.ts'},
+                            {name: 'fuse.provider.ts'},
                             {name: 'index.ts'},
                         ],
                     },
@@ -161,13 +150,6 @@ export class DirectoryStructureComponent implements OnInit
                         ],
                     },
                     {
-                        name    : 'environments/',
-                        children: [
-                            {name: 'environment.prod.ts'},
-                            {name: 'environment.ts'},
-                        ],
-                    },
-                    {
                         name    : 'styles/',
                         children: [
                             {name: 'styles.scss'},
@@ -177,11 +159,8 @@ export class DirectoryStructureComponent implements OnInit
                     },
                     {name: 'favicon-16x16.png'},
                     {name: 'favicon-32x32.png'},
-                    {name: 'global.d.ts'},
                     {name: 'index.html'},
                     {name: 'main.ts'},
-                    {name: 'polyfills.ts'},
-                    {name: 'test.ts'},
                 ],
             },
         ];

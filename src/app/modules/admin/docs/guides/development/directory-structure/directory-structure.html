@@ -236,45 +236,9 @@
             If you use SSR (Server Side Rendering) you can even include your <strong>landing</strong> page as one of the modules and keep everything in a single app.
         </p>
 
-        <h3>app/shared/</h3>
-        <p>
-            This directory is designed to contain anything re-usable such as components, directives and pipes. By default, it doesn't include any of them but when you create
-            one for your app, you can put it here.
-        </p>
-        <p>
-            The only file here is the <code>shared.module.ts</code> file which simply imports and exports some of the common Angular modules so you don't have to import them
-            one by one. You can just import the <code>shared.module.ts</code> into your module whenever you need one of those common modules.
-        </p>
-        <p>
-            Currently it imports and exports:
-        </p>
-        <ul>
-            <li>
-                <p><strong>CommonModule</strong></p>
-                <p>Required for common directives such as *ngIf and *ngFor</p>
-            </li>
-            <li>
-                <p><strong>FormsModule</strong></p>
-                <p>Required for form directives</p>
-            </li>
-            <li>
-                <p><strong>ReactiveFormsModule</strong></p>
-                <p>Required for reactive form directives</p>
-            </li>
-        </ul>
-        <p>
-            You can add/remove anything to/from the <code>shared.module.ts</code> file and use the module to import commonly used modules without needing to remember them
-            one by one.
-        </p>
-
         <h2>assets/</h2>
         <p>
             Default Angular assets folder.
-        </p>
-
-        <h2>environments/</h2>
-        <p>
-            Default Angular environments folder.
         </p>
 
         <h2>styles/</h2>
