@@ -13,6 +13,28 @@ export class ChangelogComponent
 {
     changelog: any[] = [
 
+        // v19.1.0
+        {
+            version    : 'v19.1.0',
+            releaseDate: 'Mar 11, 2024',
+            changes: [
+                {
+                    type: 'Changed',
+                    list: [
+                        '(Dependencies) Updated Angular & Angular Material',
+                        '(Dependencies) Updated various other dependencies',
+                        '(@fuse/fullscreen) Updated the fullscreen component to use the new Fullscreen API',
+                    ],
+                },
+                {
+                    type: 'Fixed',
+                    list: [
+                        'Legacy peer dependeny resolution',
+                    ],
+                },
+            ]
+        },
+
         // v19.0.0
         {
             version    : 'v19.0.0',
