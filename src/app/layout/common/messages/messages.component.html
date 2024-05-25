@@ -22,23 +22,24 @@
         <div class="flex shrink-0 items-center py-4 pr-4 pl-6 bg-primary text-on-primary">
             <div class="sm:hidden -ml-1 mr-3">
                 <button
-                        mat-icon-button
-                        (click)="closePanel()">
+                    mat-icon-button
+                    (click)="closePanel()">
                     <mat-icon
-                            class="icon-size-5 text-current"
-                            [svgIcon]="'heroicons_solid:x'"></mat-icon>
+                        class="icon-size-5 text-current"
+                        [svgIcon]="'heroicons_solid:x-mark'"></mat-icon>
                 </button>
             </div>
             <div class="text-lg font-medium leading-10">Messages</div>
             <div class="ml-auto">
                 <button
+                    class="dark:text-white"
                     mat-icon-button
                     [disabled]="unreadCount === 0"
                     [matTooltip]="'Mark all as read'"
                     (click)="markAllAsRead()">
                     <mat-icon
                         class="icon-size-5 text-current"
-                        [svgIcon]="'heroicons_solid:mail-open'"></mat-icon>
+                        [svgIcon]="'heroicons_solid:envelope-open'"></mat-icon>
                 </button>
             </div>
         </div>
@@ -99,7 +100,7 @@
                             [matTooltip]="'Remove'">
                             <mat-icon
                                 class="icon-size-4"
-                                [svgIcon]="'heroicons_solid:x'"></mat-icon>
+                                [svgIcon]="'heroicons_solid:x-mark'"></mat-icon>
                         </button>
                     </div>
                 </div>
@@ -110,17 +111,17 @@
                     <ng-container *ngIf="message.icon && !message.image">
                         <div class="flex shrink-0 items-center justify-center w-8 h-8 mr-4 rounded-full bg-gray-100 dark:bg-gray-700">
                             <mat-icon
-                                    class="icon-size-5"
-                                    [svgIcon]="message.icon">
+                                class="icon-size-5"
+                                [svgIcon]="message.icon">
                             </mat-icon>
                         </div>
                     </ng-container>
                     <!-- Image -->
                     <ng-container *ngIf="message.image">
                         <img
-                                class="shrink-0 w-8 h-8 mr-4 rounded-full overflow-hidden object-cover object-center"
-                                [src]="message.image"
-                                [alt]="'Message image'">
+                            class="shrink-0 w-8 h-8 mr-4 rounded-full overflow-hidden object-cover object-center"
+                            [src]="message.image"
+                            [alt]="'Message image'">
                     </ng-container>
                     <!-- Title, description & time -->
                     <div class="flex flex-col flex-auto">
@@ -144,9 +145,10 @@
             <!-- No messages -->
             <ng-container *ngIf="!messages || !messages.length">
                 <div class="flex flex-col flex-auto items-center justify-center sm:justify-start py-12 px-8">
-                    <div class="flex flex-0 items-center justify-center w-14 h-14 rounded-full bg-primary-100">
+                    <div
+                        class="flex flex-0 items-center justify-center w-14 h-14 rounded-full bg-primary-100 dark:bg-primary-600">
                         <mat-icon
-                            class="text-primary-500-700"
+                            class="text-primary-700 dark:text-primary-50"
                             [svgIcon]="'heroicons_outline:inbox'"></mat-icon>
                     </div>
                     <div class="mt-5 text-2xl font-semibold tracking-tight">No messages</div>
