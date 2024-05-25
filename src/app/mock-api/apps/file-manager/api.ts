@@ -1,11 +1,9 @@
-import {Injectable} from '@angular/core';
-import {FuseMockApiService} from '@fuse/lib/mock-api/mock-api.service';
-import {items as itemsData} from 'app/mock-api/apps/file-manager/data';
-import {cloneDeep} from 'lodash-es';
+import { Injectable } from '@angular/core';
+import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
+import { items as itemsData } from 'app/mock-api/apps/file-manager/data';
+import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class FileManagerMockApi
 {
     private _items: any[] = itemsData;
@@ -33,13 +31,13 @@ export class FileManagerMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/file-manager')
-            .reply(({request}) => {
-
+            .reply(({request}) =>
+            {
                 // Clone the items
                 let items = cloneDeep(this._items);
 
-                // See if a folder id exist
-                const folderId = request.params.get('folderId') ?? null;
+                // See if the folder id exist
+                const folderId = request.params.get('folderId') === 'null' ? null : request.params.get('folderId');
 
                 // Filter the items by folder id. If folder id is null,
                 // that means we want to root items which have folder id
@@ -85,8 +83,8 @@ export class FileManagerMockApi
                     {
                         folders,
                         files,
-                        path
-                    }
+                        path,
+                    },
                 ];
             });
     }
