@@ -1,15 +1,14 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { FuseMockApiService } from '@fuse/lib/mock-api';
+import { user as userData } from 'app/mock-api/common/user/data';
 import Base64 from 'crypto-js/enc-base64';
-import HmacSHA256 from 'crypto-js/hmac-sha256';
 import Utf8 from 'crypto-js/enc-utf8';
-import {cloneDeep} from 'lodash-es';
-import {FuseMockApiService} from '@fuse/lib/mock-api';
-import {user as userData} from 'app/mock-api/common/user/data';
+import HmacSHA256 from 'crypto-js/hmac-sha256';
+import { cloneDeep } from 'lodash-es';
 
-@Injectable({
-    providedIn: 'root'
-})
-export class AuthMockApi {
+@Injectable({providedIn: 'root'})
+export class AuthMockApi
+{
     private readonly _secret: any;
     private _user: any = userData;
 
@@ -42,8 +41,8 @@ export class AuthMockApi {
             .reply(() =>
                 [
                     200,
-                    true
-                ]
+                    true,
+                ],
             );
 
         // -----------------------------------------------------------------------------------------------------
@@ -54,8 +53,8 @@ export class AuthMockApi {
             .reply(() =>
                 [
                     200,
-                    true
-                ]
+                    true,
+                ],
             );
 
         // -----------------------------------------------------------------------------------------------------
@@ -63,34 +62,35 @@ export class AuthMockApi {
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/auth/sign-in', 1500)
-            .reply(({request}) => {
-
+            .reply(({request}) =>
+            {
                 // Sign in successful
-                if (request.body.email === 'adam.john@socio.com' && request.body.password === 'admin') {
+                if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
+                {
                     return [
                         200,
                         {
-                            user: cloneDeep(this._user),
+                            user       : cloneDeep(this._user),
                             accessToken: this._generateJWTToken(),
-                            tokenType: 'bearer'
-                        }
+                            tokenType  : 'bearer',
+                        },
                     ];
                 }
 
                 // Invalid credentials
                 return [
                     404,
-                    false
+                    false,
                 ];
             });
 
         // -----------------------------------------------------------------------------------------------------
-        // @ Verify and refresh the access token - POST
+        // @ Sign in using the access token - POST
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
-            .onPost('api/auth/refresh-access-token')
-            .reply(({request}) => {
-
+            .onPost('api/auth/sign-in-with-token')
+            .reply(({request}) =>
+            {
                 // Get the access token
                 const accessToken = request.body.accessToken;
 
@@ -102,8 +102,8 @@ export class AuthMockApi {
                         {
                             user       : cloneDeep(this._user),
                             accessToken: this._generateJWTToken(),
-                            tokenType  : 'bearer'
-                        }
+                            tokenType  : 'bearer',
+                        },
                     ];
                 }
 
@@ -111,8 +111,8 @@ export class AuthMockApi {
                 return [
                     401,
                     {
-                        error: 'Invalid token'
-                    }
+                        error: 'Invalid token',
+                    },
                 ];
             });
 
@@ -126,8 +126,8 @@ export class AuthMockApi {
                 // Simply return true
                 [
                     200,
-                    true
-                ]
+                    true,
+                ],
             );
 
         // -----------------------------------------------------------------------------------------------------
@@ -135,24 +135,25 @@ export class AuthMockApi {
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPost('api/auth/unlock-session', 1500)
-            .reply(({request}) => {
-
+            .reply(({request}) =>
+            {
                 // Sign in successful
-                if (request.body.email === 'adam.john@socio.com' && request.body.password === 'admin') {
+                if ( request.body.email === 'hughes.brian@company.com' && request.body.password === 'admin' )
+                {
                     return [
                         200,
                         {
-                            user: cloneDeep(this._user),
+                            user       : cloneDeep(this._user),
                             accessToken: this._generateJWTToken(),
-                            tokenType: 'bearer'
-                        }
+                            tokenType  : 'bearer',
+                        },
                     ];
                 }
 
                 // Invalid credentials
                 return [
                     404,
-                    false
+                    false,
                 ];
             });
     }
@@ -196,7 +197,7 @@ export class AuthMockApi {
         // Define token header
         const header = {
             alg: 'HS256',
-            typ: 'JWT'
+            typ: 'JWT',
         };
 
         // Calculate the issued at and expiration dates
@@ -208,7 +209,7 @@ export class AuthMockApi {
         const payload = {
             iat: iat,
             iss: 'Fuse',
-            exp: exp
+            exp: exp,
         };
 
         // Stringify and encode the header

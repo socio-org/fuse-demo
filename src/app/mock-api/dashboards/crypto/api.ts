@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FuseMockApiService } from '@fuse/lib/mock-api';
-import { project as projectData } from 'app/mock-api/dashboards/project/data';
+import { crypto as cryptoData } from 'app/mock-api/dashboards/crypto/data';
 import { cloneDeep } from 'lodash-es';
 
 @Injectable({providedIn: 'root'})
-export class ProjectMockApi
+export class CryptoMockApi
 {
-    private _project: any = projectData;
+    private _crypto: any = cryptoData;
 
     /**
      * Constructor
@@ -27,10 +27,10 @@ export class ProjectMockApi
     registerHandlers(): void
     {
         // -----------------------------------------------------------------------------------------------------
-        // @ Sales - GET
+        // @ Crypto - GET
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
-            .onGet('api/dashboards/project')
-            .reply(() => [200, cloneDeep(this._project)]);
+            .onGet('api/dashboards/crypto')
+            .reply(() => [200, cloneDeep(this._crypto)]);
     }
 }
