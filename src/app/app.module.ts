@@ -17,6 +17,7 @@ import {mockApiServices} from 'app/mock-api';
 import {MarkdownModule} from 'ngx-markdown';
 import {LoggingInterceptor} from './interceptors/HttpInterceptor';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
 const routerConfig: ExtraOptions = {
     scrollPositionRestoration: 'enabled',
     useHash: true,
@@ -56,7 +57,7 @@ export const getBaseHref = (platformLocation: PlatformLocation): string => platf
         // Layout module of your application
         LayoutModule,
         MatIconModule,
-
+ MatFormFieldModule,
         // 3rd party modules that require global configuration via forRoot
         MarkdownModule.forRoot({})
     ],

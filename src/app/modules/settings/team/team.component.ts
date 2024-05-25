@@ -1,10 +1,16 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { NgIf } from '@angular/common';
+// import { fuseAnimations } from '@fuse/animations';
 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
     selector: 'settings-team',
     templateUrl: './team.component.html',
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+//     animations   : fuseAnimations,
+//     standalone   : true,
+//     imports      : [NgIf, MatFormFieldModule,   MatIconModule ],
 })
 export class SettingsTeamComponent implements OnInit {
     members: any[];

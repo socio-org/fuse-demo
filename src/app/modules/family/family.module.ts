@@ -9,8 +9,9 @@ import {FamilyComponent} from './family.component';
 import {FamilyDetailsComponent} from './pages/details/family-details.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {FuseCardModule} from '@fuse/components/card';
+import {FuseCardComponent} from '@fuse/components/card';
 import {SharedModule} from 'app/shared/shared.module';
 import {MatListModule} from '@angular/material/list';
 import {GroupByPipe} from '@fuse/pipes/group-by';
@@ -18,6 +19,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {FamilyItemResolver, FamilyItemsResolver} from './family.resolvers';
 import {CanDeactivateFamilyDetails} from './family.guards';
 import {MaterialModule} from "../../shared/material.module";
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Route[] = [
     {
@@ -53,14 +55,15 @@ const routes: Route[] = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-
+MatInputModule,
+        MatFormFieldModule,
         MaterialModule,
         MatSidenavModule,
         MatButtonModule,
         MatIconModule,
         MatListModule,
         MatTooltipModule,
-        FuseCardModule,
+        FuseCardComponent,
         SharedModule
     ],
     providers: []

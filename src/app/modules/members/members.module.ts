@@ -6,7 +6,7 @@ import { MemberDetailsComponent } from './pages/member-details/member-details.co
 import { RouterModule, Route } from '@angular/router';
 import { MaterialModule } from 'app/shared/material.module';
 import { SharedModule } from 'app/shared/shared.module';
-import { FuseCardModule } from '@fuse/components/card';
+import { FuseCardComponent } from '@fuse/components/card';
 
 const routes: Route[] = [
     {
@@ -41,7 +41,7 @@ const routes: Route[] = [
         CommonModule,
         RouterModule.forChild(routes),
         MaterialModule,
-        FuseCardModule,
+        FuseCardComponent,
         SharedModule
     ]
 })

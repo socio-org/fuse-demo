@@ -8,7 +8,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {FuseAlertModule} from '@fuse/components/alert';
+// import {FuseAlertModule} from '@fuse/components/alert';
 import {SharedModule} from 'app/shared/shared.module';
 import {SettingsAccountComponent} from './account/account.component';
 import {SettingsPlanBillingComponent} from './plan-billing/plan-billing.component';
@@ -37,7 +37,7 @@ import {settingsRoutes} from './settings.routing';
         MatSelectModule,
         MatSidenavModule,
         MatSlideToggleModule,
-        FuseAlertModule,
+//         FuseAlertModule,
         SharedModule
     ]
 })

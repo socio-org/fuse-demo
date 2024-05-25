@@ -7,7 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {Route, RouterModule} from '@angular/router';
-import {FuseCardModule} from '@fuse/components/card';
+import {FuseCardComponent} from '@fuse/components/card';
 import {SafePipe} from '../../../@fuse/pipes/safe.pipe';
 import {DashboardComponent} from './dashboard.component';
 import {DashboardResolver} from './dashboard.resolvers';
@@ -33,7 +33,7 @@ const routes: Route[] = [
         MatButtonModule,
         MatIconModule,
         MatMenuModule,
-        FuseCardModule,
+        FuseCardComponent,
         CommonModule,
         MatDividerModule,
         RouterModule.forChild(routes)

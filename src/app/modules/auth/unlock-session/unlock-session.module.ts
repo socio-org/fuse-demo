@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FuseCardModule } from '@fuse/components/card';
+import { FuseCardComponent } from '@fuse/components/card';
 import { FuseAlertModule } from '@fuse/components/alert';
 import { SharedModule } from 'app/shared/shared.module';
 import { AuthUnlockSessionComponent } from 'app/modules/auth/unlock-session/unlock-session.component';
@@ -22,7 +22,7 @@ import { authUnlockSessionRoutes } from 'app/modules/auth/unlock-session/unlock-
         MatIconModule,
         MatInputModule,
         MatProgressSpinnerModule,
-        FuseCardModule,
+        FuseCardComponent,
         FuseAlertModule,
         SharedModule
     ]
