@@ -6,18 +6,18 @@
     <!-- Navigation -->
     <ng-container *ngIf="isScreenSmall">
         <fuse-vertical-navigation
-                class="dark bg-gray-900 print:hidden"
-                [mode]="'over'"
-                [name]="'mainNavigation'"
-                [navigation]="navigation.default"
-                [opened]="false">
+            class="dark bg-gray-900 print:hidden"
+            [mode]="'over'"
+            [name]="'mainNavigation'"
+            [navigation]="navigation.default"
+            [opened]="false">
             <!-- Navigation header hook -->
             <ng-container fuseVerticalNavigationContentHeader>
                 <!-- Logo -->
                 <div class="flex items-center h-20 pt-6 px-8">
                     <img
-                            class="w-30"
-                            src="assets/images/logo/logo-text-on-dark.svg">
+                        class="w-30"
+                        src="assets/images/logo/logo-text-on-dark.svg">
                 </div>
             </ng-container>
         </fuse-vertical-navigation>
@@ -34,34 +34,34 @@
                     <div class="hidden lg:flex">
                         <!-- Light version -->
                         <img
-                                class="dark:hidden w-24"
-                                src="assets/images/logo/logo-text.svg"
-                                alt="Logo image">
+                            class="dark:hidden w-24"
+                            src="assets/images/logo/logo-text.svg"
+                            alt="Logo image">
                         <!-- Dark version -->
                         <img
-                                class="hidden dark:flex w-24"
-                                src="assets/images/logo/logo-text-on-dark.svg"
-                                alt="Logo image">
+                            class="hidden dark:flex w-24"
+                            src="assets/images/logo/logo-text-on-dark.svg"
+                            alt="Logo image">
                     </div>
                     <!-- Small version -->
                     <img
-                            class="flex lg:hidden w-8"
-                            src="assets/images/logo/logo.svg"
-                            alt="Logo image">
+                        class="flex lg:hidden w-8"
+                        src="assets/images/logo/logo.svg"
+                        alt="Logo image">
                 </div>
                 <!-- Horizontal navigation -->
                 <fuse-horizontal-navigation
-                        class="mr-2"
-                        [name]="'mainNavigation'"
-                        [navigation]="navigation.horizontal"></fuse-horizontal-navigation>
+                    class="mr-2"
+                    [name]="'mainNavigation'"
+                    [navigation]="navigation.horizontal"></fuse-horizontal-navigation>
             </ng-container>
             <!-- Navigation toggle button -->
             <ng-container *ngIf="isScreenSmall">
                 <button
-                        class="mr-2"
-                        mat-icon-button
-                        (click)="toggleNavigation('mainNavigation')">
-                    <mat-icon [svgIcon]="'heroicons_outline:menu'"></mat-icon>
+                    class="mr-2"
+                    mat-icon-button
+                    (click)="toggleNavigation('mainNavigation')">
+                    <mat-icon [svgIcon]="'heroicons_outline:bars-3'"></mat-icon>
                 </button>
             </ng-container>
             <!-- Components -->
