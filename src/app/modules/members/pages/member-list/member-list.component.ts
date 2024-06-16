@@ -11,13 +11,20 @@ import {Observable, Subject} from 'rxjs';
 import {switchMap, takeUntil} from 'rxjs/operators';
 import {MemberService} from '../../member.service';
 import {Contact} from '../../member.type';
+import { SharedModule } from 'app/shared/shared.module';
+import { MaterialModule } from 'app/shared/material.module';
 
 @Component({
     selector: 'app-member-list',
     templateUrl: './member-list.component.html',
     styleUrls: ['./member-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone:true,
+    imports: [
+        SharedModule,
+        MaterialModule
+    ]
 })
 export class MemberListComponent implements OnInit, OnDestroy {
 

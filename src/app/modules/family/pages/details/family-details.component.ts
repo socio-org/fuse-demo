@@ -1,15 +1,22 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {MatDrawerToggleResult} from '@angular/material/sidenav';
-import {Subject} from 'rxjs';
-import {FamilyListComponent} from '../family-list/family-list.component';
-import {FamilyService} from '../../family.service';
-import {Family} from '../../family.model';
-import {takeUntil} from "rxjs/operators";
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MatDrawerToggleResult } from '@angular/material/sidenav';
+import { Subject } from 'rxjs';
+import { FamilyListComponent } from '../family-list/family-list.component';
+import { FamilyService } from '../../family.service';
+import { Family } from '../../family.model';
+import { takeUntil } from "rxjs/operators";
+import { SharedModule } from 'app/shared/shared.module';
+import { MaterialModule } from 'app/shared/material.module';
 
 @Component({
     selector: 'app-details',
     templateUrl: './family-details.component.html',
-    styleUrls: ['./family-details.component.scss']
+    styleUrls: ['./family-details.component.scss'],
+    standalone: true,
+    imports: [
+        SharedModule,
+        MaterialModule
+    ]
 })
 export class FamilyDetailsComponent implements OnInit {
     family: Family;

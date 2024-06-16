@@ -1,14 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MembersComponent } from './members.component';
 import { MemberListComponent } from './pages/member-list/member-list.component';
 import { MemberDetailsComponent } from './pages/member-details/member-details.component';
-import { RouterModule, Route } from '@angular/router';
-import { MaterialModule } from 'app/shared/material.module';
-import { SharedModule } from 'app/shared/shared.module';
-import { FuseCardComponent } from '@fuse/components/card';
+import { Routes } from '@angular/router';
 
-const routes: Route[] = [
+export default [
     {
         path: '',
         component: MembersComponent,
@@ -29,20 +24,4 @@ const routes: Route[] = [
             }
         ]
     }
-];
-
-@NgModule({
-    declarations: [
-        MembersComponent,
-        MemberListComponent,
-        MemberDetailsComponent
-    ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        MaterialModule,
-        FuseCardComponent,
-        SharedModule
-    ]
-})
-export class MembersModule { }
+] as Routes;

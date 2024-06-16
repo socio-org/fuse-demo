@@ -15,13 +15,17 @@ import {switchMap, takeUntil} from 'rxjs/operators';
 import {Family} from '../../family.model';
 import {FamilyService} from '../../family.service';
 import {FormControl} from "@angular/forms";
+import { MaterialModule } from 'app/shared/material.module';
+import { SharedModule } from 'app/shared/shared.module';
 
 @Component({
     selector: 'app-family-list',
     templateUrl: './family-list.component.html',
     styleUrls: ['./family-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone:true,
+    imports: [MaterialModule, SharedModule]
 })
 export class FamilyListComponent implements OnInit, OnDestroy {
 

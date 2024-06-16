@@ -11,12 +11,19 @@ import {MatDrawer} from '@angular/material/sidenav';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {FuseMediaWatcherService} from '@fuse/services/media-watcher';
+import { SharedModule } from 'app/shared/shared.module';
+import { MaterialModule } from 'app/shared/material.module';
 
 @Component({
     selector: 'settings',
     templateUrl: './settings.component.html',
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone:true,
+    imports:[
+        SharedModule, 
+        MaterialModule
+    ]
 })
 export class SettingsComponent implements OnInit, OnDestroy {
     @ViewChild('drawer') drawer: MatDrawer;

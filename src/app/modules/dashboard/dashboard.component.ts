@@ -16,6 +16,8 @@ import {isNonNull} from '../../../main';
 import {CalendarService} from '../calendar/calendar.service';
 import {CalendarEvent} from '../calendar/calendar.types';
 import {DashboardService} from './dashboard.service';
+import { MaterialModule } from 'app/shared/material.module';
+import { SharedModule } from 'app/shared/shared.module';
 
 export interface Post {
     id: string;
@@ -59,7 +61,11 @@ export interface Data {
     encapsulation: ViewEncapsulation.None,
     standalone:true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    // imports: [RouterLink]
+    imports: [
+        SharedModule,
+        MaterialModule,
+        // SafePipe
+    ]
 })
 export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 

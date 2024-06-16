@@ -4,13 +4,22 @@ import { Subject } from 'rxjs/internal/Subject';
 import { takeUntil } from 'rxjs/operators';
 import { MemberService } from '../../member.service';
 import { Contact } from '../../member.type';
+import { SharedModule } from 'app/shared/shared.module';
+import { MaterialModule } from 'app/shared/material.module';
+import { FuseCardComponent } from '@fuse/components/card';
 
 @Component({
     selector: 'app-member-details',
     templateUrl: './member-details.component.html',
     styleUrls: ['./member-details.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone:true,
+    imports: [
+        SharedModule,
+        MaterialModule,
+        FuseCardComponent
+    ]
 })
 export class MemberDetailsComponent implements OnInit {
     public contacts: Contact[];
