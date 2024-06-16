@@ -78,32 +78,32 @@ export const appRoutes: Route[] = [
                           path: 'dashboard',
                           loadChildren: () => import('app/modules/dashboard/dashboard.module').then(m => m.DashboardModule)
                       },
-                      {
-                          path: 'calendar',
-                          loadChildren: () => import('app/modules/calendar/calendar.module').then(m => m.CalendarModule)
-                      }, {
-                          path: 'posts',
-                          loadChildren: () => import('app/modules/posts/posts.module').then(m => m.PostsModule)
-                      },
-                      {path: 'family', loadChildren: () => import('app/modules/family/family.module').then(m => m.FamilyModule)},
-                      {
-                          path: 'member',
-                          loadChildren: () => import('app/modules/members/members.module').then(m => m.MembersModule)
-                      },
-                      {
-                          path: 'about',
-                          loadChildren: () => import('app/modules/common/about/about.module').then(m => m.AboutModule)
-                      },
-                      {
-                          path: 'settings',
-                          loadChildren: () => import('app/modules/settings/settings.module').then(m => m.SettingsModule)
-                      },
+                      // {
+                      //     path: 'calendar',
+                      //     loadChildren: () => import('app/modules/calendar/calendar.module').then(m => m.CalendarModule)
+                      // }, {
+                      //     path: 'posts',
+                      //     loadChildren: () => import('app/modules/posts/posts.module').then(m => m.PostsModule)
+                      // },
+                      // {path: 'family', loadChildren: () => import('app/modules/family/family.module').then(m => m.FamilyModule)},
+                      // {
+                      //     path: 'member',
+                      //     loadChildren: () => import('app/modules/members/members.module').then(m => m.MembersModule)
+                      // },
+                      // {
+                      //     path: 'about',
+                      //     loadChildren: () => import('app/modules/common/about/about.module').then(m => m.AboutModule)
+                      // },
+                      // {
+                      //     path: 'settings',
+                      //     loadChildren: () => import('app/modules/settings/settings.module').then(m => m.SettingsModule)
+                      // },
 
                       // Coming soon
-                      {
-                          path: 'coming-soon',
-                          loadChildren: () => import('app/layout/coming-soon/coming-soon.module').then(m => m.ComingSoonModule)
-                      },
+                      // {
+                      //     path: 'coming-soon',
+                      //     loadChildren: () => import('app/layout/coming-soon/coming-soon.module').then(m => m.ComingSoonModule)
+                      // },
         ]
     }
 ];

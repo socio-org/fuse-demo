@@ -7,7 +7,7 @@ import {
     OnInit,
     ViewEncapsulation
 } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, RouterLink, RouterModule} from '@angular/router';
 import {cloneDeep} from 'lodash-es';
 import moment from 'moment';
 import {Subject} from 'rxjs';
@@ -57,7 +57,9 @@ export interface Data {
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    standalone:true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    // imports: [RouterLink]
 })
 export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
