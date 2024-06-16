@@ -21,6 +21,6 @@ export class TranslocoHttpLoader implements TranslocoLoader
      */
     getTranslation(lang: string): Observable<Translation>
     {
-        return this._httpClient.get<Translation>(/* this.baseHref + */ `./assets/i18n/${lang}.json`);
+        return this._httpClient.get<Translation>(this.baseHref + `./assets/i18n/${lang}.json`);
     }
 }

@@ -4,6 +4,7 @@ import { LuxonDateAdapter } from '@angular/material-luxon-adapter';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { PreloadAllModules, provideRouter, withInMemoryScrolling, withPreloading } from '@angular/router';
+import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
 import { provideFuse } from '@fuse';
 import { provideTransloco, TranslocoService } from '@ngneat/transloco';
 import { firstValueFrom } from 'rxjs';
@@ -13,8 +14,15 @@ import { provideIcons } from 'app/core/icons/icons.provider';
 import { mockApiServices } from 'app/mock-api';
 import { TranslocoHttpLoader } from './core/transloco/transloco.http-loader';
 
+export const getBaseHref = (platformLocation: PlatformLocation): string => platformLocation.getBaseHrefFromDOM() || '/';
+
 export const appConfig: ApplicationConfig = {
     providers: [
+        {
+            provide: APP_BASE_HREF,
+            useFactory: getBaseHref,
+            deps: [PlatformLocation]
+        },
         provideAnimations(),
         provideHttpClient(),
         provideRouter(appRoutes,

@@ -3,7 +3,7 @@ import {Route} from '@angular/router';
 import {AuthGuard} from 'app/core/auth/guards/auth.guard';
 import {NoAuthGuard} from 'app/core/auth/guards/noAuth.guard';
 import {LayoutComponent} from 'app/layout/layout.component';
-import {InitialDataResolver} from 'app/app.resolvers';
+// import {InitialDataResolver} from 'app/app.resolvers';
 
 // @formatter:off
 // tslint:disable:max-line-length
@@ -94,9 +94,9 @@ export const appRoutes: Route[] = [
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         component: LayoutComponent,
-        resolve: {
-            initialData: InitialDataResolver,
-        },
+        // resolve: {
+        //     initialData: InitialDataResolver,
+        // },
         children: [
             {
                 path: 'dashboard',
@@ -124,10 +124,10 @@ export const appRoutes: Route[] = [
             },
 
             // Coming soon
-            {
-                path: 'coming-soon',
-                loadChildren: () => import('app/layout/coming-soon/coming-soon.module').then(m => m.ComingSoonModule)
-            },
+            // {
+            //     path: 'coming-soon',
+            //     loadChildren: () => import('app/layout/coming-soon/coming-soon.module').then(m => m.ComingSoonModule)
+            // },
         ]
     }
 ];
