@@ -10,12 +10,19 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {CalendarService} from 'app/modules/calendar/calendar.service';
+import { SharedModule } from 'app/shared/shared.module';
+import { MaterialModule } from 'app/shared/material.module';
 
 @Component({
     selector: 'calendar-settings',
     templateUrl: './settings.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone:true,
+    imports:[
+        SharedModule,
+        MaterialModule
+    ]
 })
 export class CalendarSettingsComponent implements OnInit, OnDestroy {
     settingsForm: FormGroup;

@@ -98,10 +98,10 @@ export const appRoutes: Route[] = [
                 path: 'settings',
                 loadChildren: () => import('app/modules/settings/settings.routes')
             },
-            // {
-            //     path: 'calendar',
-            //     loadChildren: () => import('app/modules/calendar/calendar.module').then(m => m.CalendarModule)
-            // },
+            {
+                path: 'calendar',
+                loadChildren: () => import('app/modules/calendar/calendar.routes')
+            },
 
             //   Coming soon
             //   {

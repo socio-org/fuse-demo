@@ -9,7 +9,7 @@
             [mode]="drawerMode"
             [opened]="drawerOpened"
             class="w-60 dark:bg-gray-900">
-            <calendar-sidebar (calendarUpdated)="onCalendarUpdated($event)"></calendar-sidebar>
+            <!-- <calendar-sidebar (calendarUpdated)="onCalendarUpdated($event)"></calendar-sidebar> -->
         </mat-drawer>
 
         <mat-drawer-content class="flex">
@@ -123,19 +123,26 @@
 
                 <!-- FullCalendar -->
                 <div class="flex flex-col flex-auto">
+                    <!-- <full-calendar
+                    #fullCalendar
+                    (dateClick)="onDateClick($event)"
+                    (eventClick)="onEventClick($event)"
+                    (eventRender)="onEventRender($event)"
+                    [defaultView]="view"
+                    [events]="events"
+                    [firstDay]="settings.startWeekOn"
+                    [handleWindowResize]="false"
+                    [header]="false"
+                    [height]="'parent'"
+                    [plugins]="calendarPlugins"
+                    [views]="views"></full-calendar> -->
                     <full-calendar
                         #fullCalendar
                         (dateClick)="onDateClick($event)"
                         (eventClick)="onEventClick($event)"
                         (eventRender)="onEventRender($event)"
-                        [defaultView]="view"
-                        [events]="events"
-                        [firstDay]="settings.startWeekOn"
-                        [handleWindowResize]="false"
-                        [header]="false"
-                        [height]="'parent'"
-                        [plugins]="calendarPlugins"
-                        [views]="views"></full-calendar>
+                        [events]="event"
+                        ></full-calendar>
                 </div>
 
                 <!-- Event panel -->

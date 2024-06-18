@@ -12,6 +12,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTableModule } from "@angular/material/table";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { MatDrawer, MatDrawerContainer, MatDrawerContent } from "@angular/material/sidenav";
+import { MatSelectModule } from "@angular/material/select";
 
 const modules = [
     // CDK
@@ -30,6 +31,8 @@ const modules = [
     MatTooltipModule,
     MatTableModule,
 
+    // Select
+    MatSelectModule,
     // Drawer
     MatDrawer,
     MatDrawerContainer,

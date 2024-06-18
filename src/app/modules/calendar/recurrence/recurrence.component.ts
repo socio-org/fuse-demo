@@ -1,16 +1,23 @@
-import {Component, Inject, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import * as moment from 'moment';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-import {CalendarService} from 'app/modules/calendar/calendar.service';
-import {CalendarWeekday} from 'app/modules/calendar/calendar.types';
+import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import moment from 'moment';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { CalendarService } from 'app/modules/calendar/calendar.service';
+import { CalendarWeekday } from 'app/modules/calendar/calendar.types';
+import { SharedModule } from 'app/shared/shared.module';
+import { MaterialModule } from 'app/shared/material.module';
 
 @Component({
     selector: 'calendar-recurrence',
     templateUrl: './recurrence.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [
+        SharedModule,
+        MaterialModule
+    ]
 })
 export class CalendarRecurrenceComponent implements OnInit, OnDestroy {
     nthWeekdayText: string;
@@ -90,7 +97,7 @@ export class CalendarRecurrenceComponent implements OnInit, OnDestroy {
 
                 // Set the original value back without emitting a
                 // change event to prevent an infinite loop
-                this.recurrenceForm.get('weekly.byDay').setValue([eventStartDay], {emitEvent: false});
+                this.recurrenceForm.get('weekly.byDay').setValue([eventStartDay], { emitEvent: false });
             }
         });
 
@@ -119,7 +126,7 @@ export class CalendarRecurrenceComponent implements OnInit, OnDestroy {
      */
     clear(): void {
         // Close the dialog
-        this.matDialogRef.close({recurrence: 'cleared'});
+        this.matDialogRef.close({ recurrence: 'cleared' });
     }
 
     /**
@@ -162,7 +169,7 @@ export class CalendarRecurrenceComponent implements OnInit, OnDestroy {
         const ruleText = ruleArr.join(';');
 
         // Close the dialog
-        this.matDialogRef.close({recurrence: ruleText});
+        this.matDialogRef.close({ recurrence: ruleText });
     }
 
     // -----------------------------------------------------------------------------------------------------

@@ -11,28 +11,28 @@ import {
     ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
-import {DOCUMENT} from '@angular/common';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Overlay, OverlayRef} from '@angular/cdk/overlay';
-import {TemplatePortal} from '@angular/cdk/portal';
-import {MatDialog} from '@angular/material/dialog';
-import {MatDrawer} from '@angular/material/sidenav';
-import {FullCalendarComponent} from '@fullcalendar/angular';
-import {Calendar as FullCalendar} from '@fullcalendar/core';
+import { DOCUMENT } from '@angular/common';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDrawer } from '@angular/material/sidenav';
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions, Calendar as FullCalendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import momentPlugin from '@fullcalendar/moment';
 import rrulePlugin from '@fullcalendar/rrule';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import {clone, cloneDeep, isEqual, omit} from 'lodash-es';
-import * as moment from 'moment';
-import {RRule} from 'rrule';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-import {FuseMediaWatcherService} from '@fuse/services/media-watcher';
-import {CalendarRecurrenceComponent} from 'app/modules/calendar/recurrence/recurrence.component';
-import {CalendarService} from 'app/modules/calendar/calendar.service';
+import { clone, cloneDeep, isEqual, omit } from 'lodash-es';
+import  moment from 'moment';
+import { RRule } from 'rrule';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
+import { CalendarRecurrenceComponent } from 'app/modules/calendar/recurrence/recurrence.component';
+import { CalendarService } from 'app/modules/calendar/calendar.service';
 import {
     Calendar,
     CalendarDrawerMode,
@@ -41,13 +41,38 @@ import {
     CalendarEventPanelMode,
     CalendarSettings
 } from 'app/modules/calendar/calendar.types';
+import { MaterialModule } from 'app/shared/material.module';
+import { SharedModule } from 'app/shared/shared.module';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
 
 @Component({
     selector: 'calendar',
     templateUrl: './calendar.component.html',
     styleUrls: ['./calendar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [
+        MaterialModule,
+        SharedModule,
+        FullCalendarModule
+    ],
+    providers: [
+        {
+            provide: MAT_DATE_FORMATS,
+            useValue: {
+                parse: {
+                    dateInput: 'DD.MM.YYYY'
+                },
+                display: {
+                    dateInput: 'DD.MM.YYYY',
+                    monthYearLabel: 'MMM YYYY',
+                    dateA11yLabel: 'DD.MM.YYYY',
+                    monthYearA11yLabel: 'MMMM YYYY'
+                }
+            }
+        }
+    ]
 })
 export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
     calendars: Calendar[];
@@ -70,6 +95,8 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
     private _eventPanelOverlayRef: OverlayRef;
     private _fullCalendarApi: FullCalendar;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+    public calenderOptions: CalendarOptions;
 
     /**
      * Constructor
@@ -141,7 +168,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
             }
 
             // Set the 'start' field value from the range
-            this.eventForm.get('start').setValue(value.start, {emitEvent: false});
+            this.eventForm.get('start').setValue(value.start, { emitEvent: false });
 
             // If this is a recurring event...
             if (this.eventForm.get('recurrence').value) {
@@ -150,7 +177,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
 
                 // Set the duration field
                 const duration = moment(value.end).diff(moment(value.start), 'minutes');
-                this.eventForm.get('duration').setValue(duration, {emitEvent: false});
+                this.eventForm.get('duration').setValue(duration, { emitEvent: false });
 
                 // Update the end value
                 this._updateEndValue();
@@ -158,7 +185,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
             // Otherwise...
             else {
                 // Set the end field
-                this.eventForm.get('end').setValue(value.end, {emitEvent: false});
+                this.eventForm.get('end').setValue(value.end, { emitEvent: false });
             }
         });
 
@@ -213,6 +240,14 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
                     meridiem: settings.timeFormat === '12' ? 'short' : false
                 };
 
+                this.calenderOptions = {
+                    firstDay: this.settings.startWeekOn,
+                    handleWindowResize: false,
+                    headerToolbar: false,
+                    height:'parent',
+                    plugins: this.calendarPlugins,
+                    views:this.views
+                }
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
             });
@@ -220,7 +255,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
         // Subscribe to media changes
         this._fuseMediaWatcherService.onMediaChange$
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) => {
+            .subscribe(({ matchingAliases }) => {
 
                 // Set the drawerMode and drawerOpened if the given breakpoint is active
                 if (matchingAliases.includes('md')) {
@@ -584,7 +619,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnDestroy {
      */
     onCalendarUpdated(calendar): void {
         // Re-render the events
-        this._fullCalendarApi.rerenderEvents();
+        this._fullCalendarApi.render();
     }
 
     /**
