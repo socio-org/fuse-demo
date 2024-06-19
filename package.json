@@ -11,8 +11,8 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "build-serve": "node --max_old_space_size=2048  ./node_modules/@angular/cli/bin/ng serve  --source-map=false",
-        "deploy": "ng build --prod ",
-        "deploy-with-bhref": "ng build --base-href=/fuse-demo/  --prod "
+        "deploy": "ng build --production ",
+        "deploy-with-bhref": "ng build --base-href=/fuse-demo/  --production "
     },
     "dependencies": {
         "@angular/animations": "18.0.1",
